@@ -31,7 +31,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 
 |  Týden |  Název | Zadání | Materiály |
 | :----: | :----: |   :----:   | :----: |
-|    1   | XML |  | [Zadání](https://github.com/pavelberanek91/UJEP/tree/main/PIN/Cvičen%C3%AD%201) |
+|    1   | XML |  | [Zadání](./Cvičen%C3%AD%201) |
 |    2   | DTD, XML Schema |  |  |
 |    3   | SVG |  |  |
 |    4   | CSS, XSLT |  |  |
