@@ -1,4 +1,6 @@
-# Programování pro internet
+# Programování pro internet[^*]
+
+[^*]: Zde zve5ejn2n0 materiály jsou z velké části převzaty od [Ing. P. Beránka](https://github.com/pavelberanek91/UJEP/tree/main/PRI).
 
 ## 1. Informace o předmětu
 
@@ -6,13 +8,11 @@ Kurz je zaměřen na základy internetové technologie XML. Hlavní důraz je kl
 
 Přednáší: [doc. RNDr. Viktor Maškov, DrSc.](https://ki.ujep.cz/cs/personalni-slozeni/viktor-maskov/)
 
-## 2. Informace o cvičení[^1]
+## 2. Informace o cvičení
 
 Cvičení jsou vedeny samostatnou prací studentů na úkolech ze zadání na tomto repozitáři. Cvičící slouží jako mentor během hodin: pomáhá s vysvětlováním problematiky, hledá chyby v případě "záseku" studenta a radí, jak nejlépe cvičení vyřešit. Odpovědnost za učení je převážně na studentovi. Teorii potřebnou na cvičení získá z přednášek a materiálů, které jsou ke každé lekci uvedené v tabulce sylabus cvičení. Student si musí tyto materiály před samotným cvičením projít, aby cvičením rozuměl.
 
 Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
-
-[^1]: Cvičení a materiály k nim jsou z velké části převzaty od [Ing. P. Beránka](https://github.com/pavelberanek91/UJEP/tree/main/PRI).
 
 ## 3. Sylabus přednášek
 
