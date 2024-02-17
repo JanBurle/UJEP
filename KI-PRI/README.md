@@ -31,7 +31,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 
 |  Týden |  Název | Zadání | Materiály |
 | :----: | :----: |   :----:   | :----: |
-|    1   | XML |  | [Zadání](/Cvičení%201) |
+|    1   | XML |  | [Zadání](./Cvičení%201) |
 |    2   | DTD, XML Schema |  |  |
 |    3   | SVG |  |  |
 |    4   | CSS, XSLT |  |  |
