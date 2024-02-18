@@ -1,7 +1,7 @@
 # Programování pro internet
 ## Cvičení 1 – Značkovácí jazyk XML
 
-V tomto cvičení si vyzkoušíte vytvořit XML datový soubor, který budete validovat pomocí jazyka [PHP](https://cs.wikipedia.org/wiki/PHP) na [Apache](https://cs.wikipedia.org/wiki/Apache_HTTP_Server) webovém serveru. Validaci korektní struktury datového souboru budete provádět pomocí přiloženého DTD souboru. Server Apache spustíte ve virtuákním počítači pomocí programu Docker pro který máte připraven skript <tt>Dockerfile</tt> a [YAML](https://en.wikipedia.org/wiki/YAML) soubor <tt>compose.yaml</tt>.
+V tomto cvičení si vyzkoušíte vytvořit XML datový soubor, který budete validovat pomocí jazyka [PHP](https://cs.wikipedia.org/wiki/PHP) na [Apache](https://cs.wikipedia.org/wiki/Apache_HTTP_Server) webovém serveru. Validaci správné struktury datového souboru budete provádět pomocí přiloženého [DTD](https://en.wikipedia.org/wiki/Document_type_definition) souboru. Server Apache spustíte ve virtuákním počítači pomocí softwaru [Docker](https://en.wikipedia.org/wiki/Docker_(software)) pro který máte připraven skript <tt>Dockerfile</tt> a [YAML](https://en.wikipedia.org/wiki/YAML) soubor <tt>compose.yaml</tt>.
 
 #### Obsah cvičení:
 * Vytvoření propojených docker obrazů a spuštění kontejneru pomocí *Docker Compose*
@@ -12,24 +12,25 @@ V tomto cvičení si vyzkoušíte vytvořit XML datový soubor, který budete va
 
 ### Docker kontejner s Apache serverem a PHP interpretrem
 
-[Docker](https://www.docker.com/) je sowtfarový nástroj, která umožňuje vytvářet tzv. docker obrazy (*images*) a spouštět je v docker kontejnerech (*containers*). Obraz si lze představit jako read-only momentku (*snapshot*) virtualizovaného počítače s operačním systémem, na kterém jsou nainstalovány potřebné programy. Obraz je typicky založen na minimální spustitelné verzi operačního systému. To je tzv. základ (*base*) docker obrazu. Potřebný obraz je pak sestaven tak, že do základu se pomocí skriptu, uloženým v textovém souboru *Dockerfile*, doinstalují další potřebné utility a programy.
+[Docker](https://www.docker.com/) je softwarový nástroj („virtualizační platforma“), která umožňuje vytvářet tzv. docker obrazy (*images*) a spouštět je v docker kontejnerech (*containers*). Obraz si lze představit jako read-only momentku (*snapshot*) virtualizovaného počítače s operačním systémem, na kterém jsou nainstalovány potřebné programy. Obraz je typicky založen na minimální spustitelné verzi operačního systému. To je tzv. základ (*base*) docker obrazu. Potřebný obraz je pak sestaven tak, že do základu se pomocí skriptu, uloženým v textovém souboru *Dockerfile*, doinstalují další potřebné utility a programy.
 
 Z docker obrazů lze pak spouštět nezávislé docker kontejnery, to jest běžící virtualizované počítače, které transparentně využívají služby hostitelského (*host*) operačního systému.
 
-*Docker Compose* spustí a propojí několik kontejnerů do jedné běžící aplikace.
+*Docker Compose* propojí několik kontejnerů do jedné běžící aplikace.
 
+## Cvičení 1
 #### Pracovní složky/adresáře (*folders*/*directories*) a soubory (*files*)
 
 Na disku si připravte následující stromovou strukturu složek a souborů:
 
 1. Založte si novou složku, která bude sloužit jako váš pracovní adresář, např. `Projekt 1`.
-2. V pracovním adresáři vytvořte soubor `compose.yaml` (nebo si nahrajte přiložený soubor).
+2. V pracovním adresáři vytvořte soubor `compose.yaml`.
 3. V pracovním adresáři vytvořte podadresář (*subfolder*, *subdirectory*) `php`, pro PHP programy.
-4. V adresáři php vytvořte soubor s názvem `Dockerfile`.
-5. V adresáři php vytvořte podadresář `src` (obvyklá zkratka pro *source* – zdrojový kód).
-6. V adresáři src vytvořte soubor s názvem `index.php`. V něm bude obsah webové stránky.
-7. V adresáři src si vytvořte soubor s názvem `fakulta.dtd`.
-8. V adresáři src si vytvořte složku s názvem `fakulty`.
+4. V adresáři `php` vytvořte soubor s názvem `Dockerfile`.
+5. V adresáři `php` vytvořte podadresář `src` (obvyklá zkratka pro *source* – zdrojový kód).
+6. V adresáři `src` vytvořte soubor s názvem `index.php`. V něm bude obsah webové stránky.
+7. V adresáři `src` si vytvořte soubor s názvem `fakulta.dtd`.
+8. V adresáři `src` si vytvořte složku s názvem `fakulty`.
 
 Takto bude vypadat vytvořená struktura:
 ```
@@ -43,13 +44,12 @@ Projekt 1
         └── fakulty
             └──
 ```
-Do odpovídajících souborů vložte následující obsah:
+Do odpovídajících souborů vložte následující obsah (nebo si do adresářů nahrajte přiložené soubory):
 
 #### `Dockerfile`
-```bash
+```
 # základní docker obraz s PHP a Apache
 FROM php:8-apache
-# nebo: FROM php:7-apache
 
 # aktualizace systému
 RUN apt update && apt upgrade -y
@@ -65,21 +65,20 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 RUN apt remove -y libxslt1-dev icu-devtools libicu-dev libxml2-dev
 RUN rm -rf /var/lib/apt/lists/*
 ```
-
-Dockerfile je soubor, který slouží dockeru pro vytvoření obrazu, který chceme následně spustit v kontejneru. Uvedený Dockerfile provede následující:
+*Dockerfile* je soubor, který slouží dockeru pro vytvoření obrazu, který chceme následně spustit v kontejneru. Uvedený Dockerfile provede následující:
 * Stáhne základní obraz Linuxové distribuce s nainstalovaným jazykem PHP a Apache serverem.
 * Nainstaluje aktualizace systému, které proběhly po vytvoření základního obrazu.
 * Nainstaluje rozšíření PHP s XSL procesorem (který není součástí standardní distribuce PHP)
 * Nainstaluje rozšíření (driver) [myslqi](https://www.php.net/manual/en/book.mysqli.php) pro připojení PHP k MySQL databázi.
 
-Základní obraz [php:X-apache](https://hub.docker.com/_/php) je minimální Linuxová distribuce Debian, s nainstalovaným interpretrem PHP a webovým serverem Apache ([httpd](https://en.wikipedia.org/wiki/Httpd)). Zvolte si verzi PHP buď 8 (8.2, nejnovější) nebo 7 (7.4 - podle [statistiky](https://techjury.net/blog/php-usage-statistics/) je tato verze PHP nejpoužívanější).
+Základní obraz [php:X-apache](https://hub.docker.com/_/php) je minimální Linuxová distribuce Debian, s nainstalovaným interpretrem PHP a webovým serverem Apache ([httpd](https://en.wikipedia.org/wiki/Httpd)).
+<!-- Zvolte si verzi PHP buď 8 (8.2, nejnovější) nebo 7 (7.4 - podle [statistiky](https://techjury.net/blog/php-usage-statistics/) je tato verze PHP nejpoužívanější). -->
 
 #### `compose.yaml`
-```yaml
+```
 services:
-
   # PHP a Apache, popsáno v Dockerfile
-  php-apache-environment:
+  php-apache:
     container_name: php-apache
     build:
       context: ./php              # zde se nalézá Dockerfile
@@ -99,7 +98,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db
-      MYSQL_USER: administrator
+      MYSQL_USER: admin
       MYSQL_PASSWORD: heslo
     ports:
       - 9906:3306                 # mapování vnějšího/vnitřního portu MySQL
@@ -117,73 +116,28 @@ services:
 ```
 
 Pro Docker existuje nástroj jménem *Docker Compose*, které přijímá YAML soubory, ve kterých se propojí jednotlivé docker obrazy do jednoho spolupracujícího celku. Tento soubor <tt>compose.yaml</tt>provede následující:
-1. Sestaví náš obraz z <tt>Dockerfile</tt>, propojí ho s databázovým obrazem, a nastaví vnější port webového serveru na 8000. Dále mapuje vnitřní adresář kde Apache serveru <tt>/var/www/html</tt> na náš adresář v počítači <tt>./php/src</tt>.
-2. Stáhne docker obraz [mysql](https://hub.docker.com/_/mysql) z docker hub repositáře, nastaví vnější port databáze na 9906, nastaví root heslo, vytvoří uživatele <tt>administrator</tt> a nastaví mu heslo.
-3. Stáhne docker obraz [phpmyadmin](https://hub.docker.com/_/phpmyadmin) z docker hub repositáře, nastaví jeho port na 8080 a propojí ho s obrazem s názvem db (naše MySQL databáze)
+1. Sestaví náš obraz z <tt>Dockerfile</tt>, propojí ho s databázovým obrazem, a nastaví vnější port webového serveru na 8000. Dále mapuje vnitřní adresář Apache serveru <tt>/var/www/html</tt>, ve kterém jsou data pro webovou stránku, na náš adresář v počítači <tt>./php/src</tt>.
+2. Stáhne docker databázový obraz [mysql](https://hub.docker.com/_/mysql) z *Docker Hub* repositáře, namapuje vnější port databáze na 9906, nastaví root heslo, vytvoří uživatele <tt>admin</tt> a nastaví mu heslo.
+3. Stáhne docker obraz [phpmyadmin](https://hub.docker.com/_/phpmyadmin) z *Docker Hub*, nastaví jeho vnější port na 8080 a propojí ho s databázovým obrazem.
 
 #### `index.php`
 ```php
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Fakultonahrávač</title>
-</head>
-<body>
-    <h1>Fakultonahrávač</h1>
-    <form enctype="multipart/form-data" action="index.php" method="POST">
-        <label for="fakulta">Kliknutím nahrajte recept ve validním XML souboru.</label>
-        <br>
-        <input type="file" name="fakulta" data-max-file-size="2M"/>
-        <br>
-        <button type="submit">Odeslat</button>
-    </form>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $adresar_fakulty = 'fakulty/';
-    $nahrana_fakulta = $adresar_fakulty . basename($_FILES['fakulta']['name']);
-
-    if (file_exists($nahrana_fakulta)){
-        echo '<p class="text-danger">Soubor se stejným názvem již existuje v databázi. Prosím přejmenujte soubor.!</p>';
-    }
-    else if (move_uploaded_file($_FILES['fakulta']['tmp_name'], $nahrana_fakulta)) {
-        $puvodni_xml = new DOMDocument();
-        $puvodni_xml->load($nahrana_fakulta);
-        $koren = 'fakulta';
-        $generator_dokumentu = new DOMImplementation;
-        $doctype = $generator_dokumentu->createDocumentType($koren, "", 'fakulta.dtd');
-        $novy_xml = $generator_dokumentu->createDocument(null, "", $doctype);
-        $novy_xml->encoding = "utf-8";
-
-        $puvodni_uzel = $puvodni_xml->getElementsByTagName($koren)->item(0);
-        $novy_uzel = $novy_xml->importNode($puvodni_uzel, true);
-        $novy_xml->appendChild($novy_uzel);
-
-        if ($novy_xml->validate()) {
-            echo '<p>Nahraný soubor je validní a byl úspěšně nahrán do databáze.</p>';
-        } else {
-            echo '<p>Nahraný soubor není validní! Prosím zkontrolujte správnou strukturu.</p>';
-            unlink($nahrana_fakulta);
-        }
-    } else {
-         echo '<p>Došlo k chybě při nahrávání souboru!</p>';
-    }
-}
-?>
-</body>
-</html>
+TODO
 ```
 
-Tento soubor obsahuje značně komplikovaný program, který validuje XML soubor vůči validačnímu souboru DTD. Problém vězí v tom, že PHP umí validovat pomocí DTD souborů pouze pokud jsou součástí XML souboru. Pravděpodobně asi nechcete nutit uživatele, ať do jeho XML souboru vkládá ručně DTD soubor z našeho serveru a pak nám ho zasílá (občas ani nemůže, protože XML soubor generuje a zasílá na náš server nějaká aplikace). Z toho důvodu tento skript vytvoří nový XML soubor, kam vloží text DTD souboru z našeho serveru a pak vloží text nahraného XML souboru a vytvoří tak nový XML soubor s vloženým DTD souborem. Asi vidíte, jak je to pitomé. Proto v praxi budete používat XSD soubory, které se naučíte používat příští cvičení. DTD soubory jsou starý formát se specifickým jazykem a omezenými možnostmi, přes to se dobře čtou a je to snadné k zapamatování na jednoduchou validaci. Proto doporučuji jejich strukturu se naučit ke státnicím. Úspěšně nahrané soubory se nám budou ukládat do adresáře fakulty.
+Tento soubor obsahuje program, který validuje XML soubor vůči validačnímu souboru DTD. Problém vězí v tom, že PHP umí validovat pomocí DTD souborů pouze pokud jsou součástí XML souboru. Pravděpodobně asi nechcete nutit uživatele, ať do jeho XML souboru vkládá ručně DTD soubor z našeho serveru a pak nám ho zasílá (občas ani nemůže, protože XML soubor generuje a zasílá na náš server nějaká aplikace). Z toho důvodu tento skript vytvoří nový XML soubor, kam vloží text DTD souboru z našeho serveru a pak vloží text nahraného XML souboru a vytvoří tak nový XML soubor s vloženým DTD souborem. Asi vidíte, jak je to neobratné. Proto v praxi budete používat XSD soubory, které se naučíte používat v příštím cvičení. DTD soubory používají zastaralý formát se specifickým jazykem a omezenými možnostmi, který se ale dobře čte a je snadno zapamatovatelný pro jednoduchou validaci. Proto doporučuji jejich strukturu se naučit ke státnicím. Úspěšně nahrané soubory se nám budou ukládat do adresáře fakulty.
 
 Následně spustíme docker compose pomocí příkazu v terminálu:
 ```
-docker compose up --build -d
+docker compose up
 ```
-Naše webová aplikace by měla běžet na localhostovi na portu 8000.
+Naše webová aplikace by měla běžet na URL <tt>localhost:8000</tt>.
 
-Pokud byste chtěli smazat všechny běžící kontajnery a obrazy, pak můžete využít následující příkazy:
-* Vypsaní všech běžících kontajnerů: ```docker ps```
-* Zastavení všech kontajnerů: ```docker stop $(docker ps -aq)```
+#### Docker v příkazové řádce
+
+Tyto jsou často používané příkazy:
+* Vypsání všech běžících kontajnerů: ```docker ps```
+* Zastavení všech kontajnerů: ```docker stop $(docker ps -q)```
 * Smazání všech kontajnerů: ```docker rm $(docker ps -aq)```
 * Vypsání všech obrazů: ```docker images```
 * Smazání všech obrazů: ```docker rmi $(docker images -q)```
@@ -348,4 +302,4 @@ typ (přednáška|seminář|cvičení|kombinované) "kombinované"
 Jelikož jste na kurzu programování pro internet, tak bude nutné znát, jak fungují některé internetové (komunikace) a webové (obsah) technologie. Následující video představuje souhrn všech důležitých termínů se kterými budete pracovat. [ZDE](https://www.youtube.com/watch?v=erEgovG9WBs)
 
 
-<!-- docker compose exec php-apache-environment bash -->
+<!-- docker compose exec php-apache bash -->

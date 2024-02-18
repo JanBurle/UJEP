@@ -1,48 +1,88 @@
 <!DOCTYPE html>
 <html lang="cs">
+
+<?php $title = 'XML validátor' ?>
+
 <head>
-    <title>Fakultonahrávač</title>
+    <title>
+        <?= $title ?>
+    </title>
 </head>
+
 <body>
-    <h1>Fakultonahrávač</h1>
-    <form enctype="multipart/form-data" action="index.php" method="POST">
-        <label for="fakulta">Kliknutím nahrajte recept ve validním XML souboru.</label>
-        <br>
-        <input type="file" name="fakulta" data-max-file-size="2M">
-        <br>
-        <button type="submit">Odeslat</button>
+    <h1>
+        <?= $title ?>
+    </h1>
+
+    <p>Nahrajte validní XML soubor, případně DTD soubor.</p>
+
+    <form enctype="multipart/form-data" method="POST">
+        <table>
+            <tr>
+                <td>XML soubor:</td>
+                <td><input type="file" name="xml" accept="text/xml" data-max-file-size="2M"></td>
+            </tr>
+            <tr>
+                <td>DTD soubor:</td>
+                <td><input type="file" name="dtd" data-max-file-size="2M"></td>
+            </tr>
+            <tr>
+                <td>DTD kořen:</td>
+                <td><input type="text" name="root"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" type="Odeslat"></td>
+            </tr>
+        </table>
     </form>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $adresar_fakulty = 'fakulty/';
-    $nahrana_fakulta = $adresar_fakulty . basename($_FILES['fakulta']['name']);
 
-    if (file_exists($nahrana_fakulta)){
-        echo '<p class="text-danger">Soubor se stejným názvem již existuje v databázi. Prosím přejmenujte soubor.!</p>';
-    }
-    else if (move_uploaded_file($_FILES['fakulta']['tmp_name'], $nahrana_fakulta)) {
-        $puvodni_xml = new DOMDocument();
-        $puvodni_xml->load($nahrana_fakulta);
-        $koren = 'fakulta';
-        $generator_dokumentu = new DOMImplementation;
-        $doctype = $generator_dokumentu->createDocumentType($koren, "", 'fakulta.dtd');
-        $novy_xml = $generator_dokumentu->createDocument(null, "", $doctype);
-        $novy_xml->encoding = "utf-8";
+    <?php
+    //
+    function validateDoc($xmlPath, $dtdPath = '', $root = '')
+    {
+        $xml = file_get_contents($xmlPath);
 
-        $puvodni_uzel = $puvodni_xml->getElementsByTagName($koren)->item(0);
-        $novy_uzel = $novy_xml->importNode($puvodni_uzel, true);
-        $novy_xml->appendChild($novy_uzel);
+        $doc = new DOMDocument;
+        $doc->loadXML($xml);
 
-        if ($novy_xml->validate()) {
-            echo '<p>Nahraný soubor je validní a byl úspěšně nahrán do databáze.</p>';
-        } else {
-            echo '<p>Nahraný soubor není validní! Prosím zkontrolujte správnou strukturu.</p>';
-            unlink($nahrana_fakulta);
+        if ($dtdPath && $root) {
+            $systemId = 'data://text/plain;base64,' . base64_encode(file_get_contents($dtdPath));
+
+            print_r($doc->firstElementChild->tagName);
+            $root=$doc->firstElementChild->tagName;
+
+            $creator = new DOMImplementation;
+            $doctype = $creator->createDocumentType($root, '', $systemId);
+            $new = $creator->createDocument(null, '', $doctype);
+            $new->encoding = "utf-8";
+
+            $oldNode = $doc->getElementsByTagName($root)->item(0);
+            $newNode = $new->importNode($oldNode, true);
+
+            $new->appendChild($newNode);
+            $doc = $new;
         }
-    } else {
-         echo '<p>Došlo k chybě při nahrávání souboru!</p>';
+
+        return $doc->validate();
     }
-}
-?>
+
+    if (@$xmlFile = $_FILES['xml']) { // máme XML?
+        $xmlTmpName = $xmlFile['tmp_name'];
+
+        $dtdFile = $_FILES['dtd'];
+        $dtdTmpName = $dtdFile['tmp_name'];
+
+        $root = @$_POST['root'];
+
+        $valid = validateDoc($xmlTmpName, $dtdTmpName, $root);
+
+        if ($valid) {
+            echo '<p>Nahraný soubor je validní.</p>';
+        }
+        die;
+    }
+
+    ?>
 </body>
+
 </html>

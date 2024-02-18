@@ -1,5 +1,5 @@
 <kniha>
-    <!-- každá kniha obsahuje dva názvy a to český a anglický -- specifikováno atributem -->
+    <!-- každá kniha obsahuje dva názvy a to český a anglický - specifikováno atributem -->
     <název jazyk=cz>Epos o Berygamešovi
     <název jazyk=en>Epic of Berygamesh
     <Autor>Jiří Fišer</autor>

@@ -1,6 +1,6 @@
 ## Vývojové prostředí
 
-Pro vývoj budeme standardně používat virtualizační software [Docker](https://en.wikipedia.org/wiki/Docker_(software)) a editor zdrojového kódu [VS Code](https://en.wikipedia.org/wiki/Visual_Studio_Code). Vývojové prostředí tak bude (téměř) stejné, nezávisle na operačním systému.
+Pro vývoj budeme standardně používat virtualizační software [Docker](https://en.wikipedia.org/wiki/Docker_(software)) a editor zdrojového kódu [VS Code](https://en.wikipedia.org/wiki/Visual_Studio_Code). Vývojové prostředí tak bude mít každý (téměř) stejné, nezávisle na operačním systému.
 
 ---
 ### Docker
@@ -9,11 +9,14 @@ Nainstalujte si [Docker Desktop](https://docs.docker.com/engine/install/). Tento
 
 ---
 ### Visual Studio Code (VS Code)
-Nainstalujte si [VS Code](https://code.visualstudio.com/). Můžete používat i jakýkoli jiný editor zdrojového kódu, nicméně VS Code je de facto standard, a je praktické se jej naučit používat. Existuje i komunitní verze: [VSCodium](https://vscodium.com/).
+Nainstalujte si [VS Code](https://code.visualstudio.com/). Můžete používat i jiný editor zdrojového kódu, nicméně VS Code je de facto dnešní standard, a je praktické se jej naučit používat. Existuje i komunitní verze [VSCodium](https://vscodium.com/).
 
 #### Doporučená nastavení:
-* *Files: Auto Save / onWindowChange* – usnadní vám práci: změněné texty se automaticky uloží při přepnutí dp jiného okna.
-* *Files: Trim Trailing Whitespace* – při ukládání souboru ořeže neviditelné mezery na konci řádků.
+* *Files: Auto Save / onWindowChange* – usnadní vám práci: změněné texty se budou ukládat automaticky při přepnutí do jiného okna.
+* *Files: Trim Trailing Whitespace* – při ukládání souboru se odstraní neviditelné mezery na konci řádků.
+
+#### Doporučená rozšíření:
+* PHP Tools for Visual Studio Code
 
 ---
 ### shell

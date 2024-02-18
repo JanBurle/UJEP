@@ -1,6 +1,5 @@
 # základní docker obraz s PHP a Apache
 FROM php:8-apache
-# nebo: FROM php:7-apache
 
 # aktualizace systému
 RUN apt update && apt upgrade -y
