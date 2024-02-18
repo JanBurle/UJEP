@@ -14,8 +14,8 @@
         <?= $title ?>
     </h1>
 
-    <p>Nahrajte validní XML soubor, případně DTD soubor.</p>
-
+    <p>Nahrajte XML soubor, případně také DTD soubor.</p>
+    <hr>
     <form enctype="multipart/form-data" method="POST">
         <table>
             <tr>
@@ -27,30 +27,51 @@
                 <td><input type="file" name="dtd" data-max-file-size="2M"></td>
             </tr>
             <tr>
-                <td>DTD kořen:</td>
-                <td><input type="text" name="root"></td>
-            </tr>
-            <tr>
+                <td></td>
                 <td><input type="submit" type="Odeslat"></td>
             </tr>
         </table>
     </form>
+    <hr>
 
     <?php
     //
-    function validateDoc($xmlPath, $dtdPath = '', $root = '')
+    function printErrors()
     {
-        $xml = file_get_contents($xmlPath);
+        ?>
+        <table>
+            <?php foreach (libxml_get_errors() as $error) { ?>
+                <tr>
+                    <td>
+                        <?= $error->line ?>
+                    </td>
+                    <td>
+                        <?= $error->message ?>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+        <?php
+    }
 
+    function validate($xmlPath, $dtdPath = '')
+    {
         $doc = new DOMDocument;
-        $doc->loadXML($xml);
 
-        if ($dtdPath && $root) {
+        libxml_use_internal_errors(true);
+        $doc->loadXML(file_get_contents($xmlPath));
+        printErrors();
+        libxml_use_internal_errors(false);
+
+        // máme root a DTD?
+        @$root = $doc->firstElementChild->tagName;
+        if ($root && $dtdPath) {
+            $root = $doc->firstElementChild->tagName;
             $systemId = 'data://text/plain;base64,' . base64_encode(file_get_contents($dtdPath));
 
-            print_r($doc->firstElementChild->tagName);
-            $root=$doc->firstElementChild->tagName;
+            echo "<p>Validuji podle DTD. Kořen: <b>$root</b></p>";
 
+            // inject DTD into XML
             $creator = new DOMImplementation;
             $doctype = $creator->createDocumentType($root, '', $systemId);
             $new = $creator->createDocument(null, '', $doctype);
@@ -63,25 +84,25 @@
             $doc = $new;
         }
 
-        return $doc->validate();
+        // validace
+        libxml_use_internal_errors(true);
+        $isValid = $doc->validate();
+        printErrors();
+        libxml_use_internal_errors(false);
+
+        return $isValid;
     }
 
-    if (@$xmlFile = $_FILES['xml']) { // máme XML?
-        $xmlTmpName = $xmlFile['tmp_name'];
+    $xmlFile = $_FILES['xml'];
+    $dtdFile = $_FILES['dtd'];
 
-        $dtdFile = $_FILES['dtd'];
+    // máme XML?
+    if ($xmlTmpName = $xmlFile['tmp_name']) {
         $dtdTmpName = $dtdFile['tmp_name'];
-
-        $root = @$_POST['root'];
-
-        $valid = validateDoc($xmlTmpName, $dtdTmpName, $root);
-
-        if ($valid) {
-            echo '<p>Nahraný soubor je validní.</p>';
-        }
-        die;
+        $isValid = validate($xmlTmpName, $dtdTmpName);
+        if ($isValid)
+            echo "Nahraný XML soubor je validní.";
     }
-
     ?>
 </body>
 
