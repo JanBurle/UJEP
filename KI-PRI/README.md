@@ -1,6 +1,6 @@
 # Programování pro internet[^1]
 
-[^*1: Zde zveřejněné materiály jsou z velké části převzaty od [Ing. P. Beránka](https://github.com/pavelberanek91/UJEP/tree/main/PRI).
+[^1]: Zde zveřejněné materiály jsou z velké části převzaty od [Ing. P. Beránka](https://github.com/pavelberanek91/UJEP/tree/main/PRI).
 
 ## 1. Informace o předmětu
 
@@ -10,7 +10,7 @@ Přednáší: [doc. RNDr. Viktor Maškov, DrSc.](https://ki.ujep.cz/cs/personaln
 
 ## 2. Informace o cvičení
 
-Cvičení jsou vedeny formou samostatné práce studentů na úkolech podle zadání na tomto repozitáři. Cvičící má úlohu mentora: pomáhá s vysvětlováním problematiky, hledá chyby v případě "záseku" studenta a radí, jak nejlépe cvičení vyřešit. Odpovědnost za učení je převážně na studentovi. Teorii potřebnou na cvičení studenti získají z přednášek a materiálů, které jsou ke každé lekci uvedené v tabulce sylabus cvičení. Student si musí tyto materiály před samotným cvičením projít, aby cvičením porozuměl.
+Cvičení jsou vedeny formou samostatné práce studentů na úkolech podle zadání v tomto repozitáři. Cvičící má úlohu mentora: pomáhá s vysvětlováním problematiky, hledá chyby v případě „záseku“ studenta a radí, jak nejlépe cvičení vyřešit. Odpovědnost za učení je převážně na studentovi. Teorii potřebnou na cvičení studenti získají z přednášek a materiálů, které jsou ke každé lekci uvedené v tabulce sylabus cvičení. Student si musí tyto materiály před samotným cvičením projít, aby cvičením porozuměl.
 
 Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 
@@ -33,7 +33,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 
 |  Týden | Název | Zadání | Materiály | Jiné |
 |  ----: | :---- | :----- | :-------- | :--- |
-|    1   | XML | [Zadání](./Cvičení%201) | [Projekt](./Cvičení%201/Projekt%201) | [Nastavení vývojového prostředí](./DevSetup)
+|    1   | XML | [Cvičení 1](./Cvičení%201) | [Projekt 1](./Projekt%201) | [Nastavení vývojového prostředí](./DevSetup)
 |    2   | DTD, XML Schema |
 |    3   | SVG |
 |    4   | CSS, XSLT |

@@ -202,7 +202,7 @@ Místo atributů je možné využít další element a neexistuje žádný stand
 
 Jelikož mohou mít XML elementy stejné názvy, ale zcela jiný význam, mohly by se elementy při zpracování aplikací plést. Z toho důvodu je možné k elementům přidat prefix, který elementy dále kategorizuje do jmenných prostorů. Příklad může být problém table jako stolu a table jako tabulky: [W3Schools XML Namespaces](https://w3schools.com/xml/xml_namespaces.asp)
 
-#### Úloha 1.1: Student
+#### Úkol 1.1: Student
 
 Vytvořte jednoduchý xml dokument, ve kterém budou informace o entitě "student naší univerzity". Měl by tedy mít informace jako jméno, příjmení, studentské číslo, fakulta, aj. Některé informace můžete uložit do vnořených elementů, jiné do atributů.
 
@@ -222,7 +222,7 @@ XML představuje velice jednoduchý formát kódu, jelikož je struktura téměr
 
 Zda je XML "Well Formed" lze otestovat pomocí XML validátorů: [W3Schools XML Validator](https://w3schools.com/xml/xml_validator.asp)
 
-#### Úloha 1.2: Well-formed XML
+#### Úkol 1.2: Well-formed XML
 
 Vaším úkolem je prohlédnout si následující XML kód a opravit ho tak, aby byl "Well Formed" a otestovat validátorem:
 
@@ -263,7 +263,7 @@ Více o SOAP (Simple Object Access Protocol): [guru99.com](https://guru99.com/so
 Více o RDF (Resource Description Framework): [linkeddatatools.com](https://linkeddatatools.com/semantic-web-basics) a [5star open data](https://5stardata.info/en/)
 
 
-#### Úloha 1.3: RSS
+#### Úkol 1.3: RSS
 Stáhněte si do mobilního zařízení nebo počítače nějakou RSS čtečku (pro Android např.: Feedly) a přidejte si RSS feed na nějakou stránku. Pokud vydá nový příspěvek, přijde vám upozornění. Prozkoumejte jeho strukturu pokud jste na počítači. Pro zájemce si můžete vytvořit vlastní RSS k webové stránce a zasílat tak upozornění. Například pro Wordpress existují hotové pluginy.
 
 #### Návrh XML stromu
@@ -274,7 +274,7 @@ značky, obsahující další značky, (větve) a značky, neobsahující žádn
 
 Na stránce [W3 Schools XML Tree](https://w3schools.com/xml/xml_tree.asp) vidíte grafickou reprezentaci xml kódu pomocí stromové struktury. Pod obrázkem naleznete kód k příslušnému stromu.
 
-#### Úloha 1.4: Struktura XML dokumentu
+#### Úkol 1.4: Struktura XML dokumentu
 
 Vaším úkolem je vytvořit návrh struktury xml dokumentu podle následující klientské specifikace:
 > Chtěl bych vytvořit webovou aplikaci pro záznam studentů naší univerzity. O studentovi zaznamenávejte informace: jméno, příjmení, studentské číslo, email, studijní rok, rozvrh, předměty, splněné předměty a další zajímavé informace.
@@ -295,7 +295,7 @@ na sebe navazujících bloků - co každý blok obsahuje za potomky a jaké má 
 4. Parsovaná data - data mezi elementy, která budou zpracována parserem a entity budou rozvinuty
 5. Znaková data - data mezi elementy, která se berou doslovně a nejsou nijak zpracována (entity nebudou rozvinuty a v obsahu zůstane jejich alias)
 
-#### Úloha 1.5: Validace XML pomocí DTD
+#### Úkol 1.5: Validace XML pomocí DTD
 
 Vaším prvním úkolem bude napsat XML soubor s názvem "prf.xml", která bude obsahovat informace o Přírodovědecké fakultě UJEP, a soubor s názvem "pf.xml", která bude obsahovat informace o Pedagogické fakultě UJEP. Tyto soubory musí být dobře formované (well-formed), tzn. nesmí mít žádné chyby v zápisu XML elementů jako například křízení značek a podobně. Dále musí být soubor validní, což znamená, že splňuje požadavky schématu (tím je soubor fakulta.dtd). Ověřte, zda jsou well formed a validní pomocí validátorů. DTD soubor, který máte k dispozici pro validaci bude automaticky použit při nahrání souboru na formulář v index.php.
 

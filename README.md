@@ -4,5 +4,5 @@
 
 ### Letní semestr 2024
 
-* KI/PRI - [Programování pro internet](./KI-PRI) \
+* [KI/PRI](./KI-PRI) - Programování pro internet \
   úterý 17:00 – 18:50
