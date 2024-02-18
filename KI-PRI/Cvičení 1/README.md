@@ -277,7 +277,7 @@ XML představuje velice jednoduchý formát kódu, jelikož je struktura téměr
 5. Elementy musí být řádně zanořené, nesmí se křížit.
 6. Hodnoty atributů musí být v uvozovkách, dvojitých nebo jednoduchých.
 7. Některé znaky (`<`, `&`) mají speciální význam a proto musí být vloženy jako entity (`&lt;`, `&amp;`).
-8. Komentáře (`<!--` ... `-->`)nesmí obsahovat dvě pomlčky jinde, než na konci komentáře.
+8. Komentáře (`<!--` ... `-->`) nesmí obsahovat dvě pomlčky jinde, než na konci komentáře.
 9. Bílé znaky nejsou ořezávány.
 10. Zalomení na nový řádek je znak LF (line feed) - nutné řešit při problémech s parsováním ve Windows.
 
@@ -405,4 +405,4 @@ typ (přednáška|seminář|cvičení|kombinované) "kombinované"
 
 ### Video týdne 1: Základy internetových technologií
 
-Jelikož jste zapsaní v kurzu Programování pro Internet, tak je dobré znát, jak fungují některé internetové (komunikace) a webové (obsah) technologie. Následující video představuje souhrn všech důležitých termínů se kterými budete pracovat. [ZDE](https://www.youtube.com/watch?v=erEgovG9WBs)
+Jelikož jste zapsaní v kurzu Programování pro Internet, tak je dobré znát, jak fungují některé internetové (komunikace) a webové (obsah) technologie. Následující video představuje souhrn všech důležitých termínů se kterými budete pracovat: [Web Development Things you Should Know](https://youtu.be/erEgovG9WBs)

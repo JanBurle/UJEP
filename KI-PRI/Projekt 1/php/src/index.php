@@ -93,11 +93,11 @@
         return $isValid;
     }
 
-    $xmlFile = $_FILES['xml'];
-    $dtdFile = $_FILES['dtd'];
+    $xmlFile = @$_FILES['xml'];
+    $dtdFile = @$_FILES['dtd'];
 
     // máme XML?
-    if ($xmlTmpName = $xmlFile['tmp_name']) {
+    if (@$xmlTmpName = $xmlFile['tmp_name']) {
         $dtdTmpName = $dtdFile['tmp_name'];
         $isValid = validate($xmlTmpName, $dtdTmpName);
         if ($isValid)
