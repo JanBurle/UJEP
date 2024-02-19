@@ -12,7 +12,7 @@ services:
     ports:
       - 8000:80                   # mapování vnějšího/vnitřního portu Apache
 
-  #instalace databaze MySQL
+  # instalace databáze MySQL
   db:
     container_name: db
     image: mysql                  # základní obraz
@@ -25,7 +25,7 @@ services:
     ports:
       - 9906:3306                 # mapování vnějšího/vnitřního portu MySQL
 
-  #instalace phpmyadmin pro spravu databazi
+  # instalace phpmyadmin pro správu databází
   phpmyadmin:
     image: phpmyadmin/phpmyadmin  # základní obraz
     ports:

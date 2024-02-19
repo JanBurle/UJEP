@@ -35,10 +35,8 @@
     <hr>
 
     <?php
-    //
     function printErrors()
-    {
-        ?>
+    { ?>
         <table>
             <?php foreach (libxml_get_errors() as $error) { ?>
                 <tr>
@@ -58,12 +56,13 @@
     {
         $doc = new DOMDocument;
 
+        // proběhne kontrola well-formed
         libxml_use_internal_errors(true);
         $doc->loadXML(file_get_contents($xmlPath));
         printErrors();
         libxml_use_internal_errors(false);
 
-        // máme root a DTD?
+        // Máme root a DTD?
         @$root = $doc->firstElementChild->tagName;
         if ($root && $dtdPath) {
             $root = $doc->firstElementChild->tagName;
@@ -74,14 +73,14 @@
             // inject DTD into XML
             $creator = new DOMImplementation;
             $doctype = $creator->createDocumentType($root, '', $systemId);
-            $new = $creator->createDocument(null, '', $doctype);
-            $new->encoding = "utf-8";
+            $newDoc = $creator->createDocument(null, '', $doctype);
+            $newDoc->encoding = "utf-8";
 
-            $oldNode = $doc->getElementsByTagName($root)->item(0);
-            $newNode = $new->importNode($oldNode, true);
+            $oldRootNode = $doc->getElementsByTagName($root)->item(0);
+            $newRootNode = $newDoc->importNode($oldRootNode, true);
 
-            $new->appendChild($newNode);
-            $doc = $new;
+            $newDoc->appendChild($newRootNode);
+            $doc = $newDoc;
         }
 
         // validace
@@ -93,10 +92,11 @@
         return $isValid;
     }
 
+    // poslané soubory
     $xmlFile = @$_FILES['xml'];
     $dtdFile = @$_FILES['dtd'];
 
-    // máme XML?
+    // Máme XML?
     if (@$xmlTmpName = $xmlFile['tmp_name']) {
         $dtdTmpName = $dtdFile['tmp_name'];
         $isValid = validate($xmlTmpName, $dtdTmpName);

@@ -4,13 +4,15 @@
 
 ## 1. Informace o předmětu
 
-Kurz je zaměřen na základy internetové technologie XML. Hlavní důraz je kladen na vytváření souborů XML a na XML Schémata. V tomto kurzu studenti vytvoří také XML aplikace jako SVG (*Scalable Vector Graphics*) a SMIL (*Synchronized Multimedia Integration Language*). Veškeré popisované technologie jsou standardy organizace [W3C](https://www.w3.org/). Předpokládá se, že studenti mají základní znalosti značkovacího jazyka [XHTML](https://en.wikipedia.org/wiki/XHTML), kaskádových stylů [CSS](https://en.wikipedia.org/wiki/CSS) a protokolů [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite) a [HTTP](https://en.wikipedia.org/wiki/HTTP)(S) nutné pro studování kurzu.
+Kurz je zaměřen na základy internetové technologie XML. Hlavní důraz je kladen na vytváření souborů XML a na XML Schémata. V tomto kurzu studenti vytvoří také XML aplikace jako SVG (*Scalable Vector Graphics*) a SMIL (*Synchronized Multimedia Integration Language*). Veškeré popisované technologie jsou standardy organizace [W3C](https://www.w3.org/).
+
+Předpokládá se, že studenti mají základní znalosti značkovacího jazyka [XHTML](https://en.wikipedia.org/wiki/XHTML), kaskádových stylů [CSS](https://en.wikipedia.org/wiki/CSS), protokolů [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite) a [HTTP](https://en.wikipedia.org/wiki/HTTP)(S), a že si poradí s jednoduchým kódem v [PHP](https://www.php.net/).
 
 Přednáší: [doc. RNDr. Viktor Maškov, DrSc.](https://ki.ujep.cz/cs/personalni-slozeni/viktor-maskov/)
 
 ## 2. Informace o cvičení
 
-Cvičení jsou vedeny formou samostatné práce studentů na úkolech podle zadání v tomto repozitáři. Cvičící má úlohu mentora: pomáhá s vysvětlováním problematiky, hledá chyby v případě „záseku“ studenta a radí, jak nejlépe cvičení vyřešit. Odpovědnost za učení je převážně na studentovi. Teorii potřebnou na cvičení studenti získají z přednášek a materiálů, které jsou ke každé lekci uvedené v tabulce sylabus cvičení. Student si musí tyto materiály před samotným cvičením projít, aby cvičením porozuměl.
+Cvičení jsou vedena formou samostatné práce studentů na úkolech podle zadání v tomto repozitáři. Cvičící má úlohu mentora: pomáhá s vysvětlováním problematiky, hledá chyby v případě „záseku“ studenta a radí, jak cvičení vyřešit. Odpovědnost za učení je převážně na studentovi. Teorii potřebnou na cvičení studenti získají z přednášek a materiálů, které jsou ke každé lekci uvedené v tabulce sylabus cvičení. Student si musí tyto materiály před samotným cvičením projít, aby cvičením porozuměl.
 
 Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 
