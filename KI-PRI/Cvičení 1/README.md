@@ -47,7 +47,7 @@ Projekt 1
 Do odpovídajících souborů vložte následující obsah (nebo si do adresářů nahrajte přiložené soubory):
 
 #### `Dockerfile`
-```bash
+```Dockerfile
 # základní Docker obraz s PHP a Apache
 FROM php:8-apache
 
@@ -74,7 +74,7 @@ RUN rm -rf /var/lib/apt/lists/*
 Základní obraz [php:8-apache](https://hub.docker.com/_/php) je minimální Linuxová distribuce Debian, s nainstalovaným interpretrem PHP a webovým serverem Apache ([httpd](https://en.wikipedia.org/wiki/Httpd)).
 
 #### `compose.yaml`
-```
+```YAML
 services:
   # PHP a Apache, popsáno v Dockerfile
   php-apache:
@@ -241,7 +241,7 @@ Tento postup je poněkud neobratný. V praxi budete používat XSD soubory, kter
 ### Docker v příkazové řádce
 
 Celou sestavu spustíme pomocí [příkazu v terminálu](https://docs.docker.com/engine/reference/commandline/compose_up/):
-```
+```bash
 docker compose up
 ```
 Docker Compose sestaví obrazy a spustí podle nich kombinaci kontejnerů. Pokud vše proběhne správně, bude naše webová aplikace přístupná v prohlížeči na URL [http://localhost:8000](http://localhost:8000).
@@ -297,7 +297,7 @@ Zda je XML *well-formed* lze otestovat pomocí XML validátorů, např.: [W3Scho
 Prohlédněte si následující XML kód a opravte ho tak, aby byl well-formed. Výsledek otestujte validátorem.
 
 #### `knihy.xml`
-```xml
+```
 <kniha>
     <!-- každá kniha obsahuje dva názvy a to český a anglický -- specifikováno atributem -->
     <název jazyk=cz>Epos o Berygamešovi
@@ -368,7 +368,7 @@ Každý DTD dokument se skládá ze stavebních bloků: [W3Schools XML DTD Build
 Vaším dalším úkolem je napsat XML soubor s názvem `prf.xml`, která bude obsahovat informace o Přírodovědecké fakultě UJEP, a soubor s názvem `pf.xml`, která bude obsahovat informace o Pedagogické fakultě UJEP. Tyto soubory musí být dobře formované (well-formed), tzn. nesmí mít žádné chyby v zápisu XML elementů jako například křízení značek a podobně. Dále musí být soubor validní, což znamená, že splňuje požadavky schématu (tím je soubor `fakulta.dtd`). Ověřte, zda jsou well formed a validní pomocí validátorů.
 
 #### `fakulta.dtd`
-```xml
+```
 <!ELEMENT fakulta (katedra+)>
 <!ATTLIST fakulta
 děkan CDATA #REQUIRED>
