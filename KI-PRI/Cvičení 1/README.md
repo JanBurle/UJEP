@@ -341,14 +341,14 @@ Stáhněte si do mobilního zařízení nebo počítače nějakou RSS čtečku (
 
 XML nemá žádný standardní model pro grafickou reprezentaci, jako mají například třídy v OOP ve formě diagramů v jazyce UML. Přesto by se nám nějaký alespoň primitivní grafický model pro přemýšlení nad návrhem, komunikaci o datovém modelu v týmu nebo dokumentaci hodil. Jelikož XML představuje datovou strukturu, kde nalezneme prvotní značku (kořen), značky, obsahující další značky (větve) a značky, neobsahující žádné další značky (listy), nabízí se tak možnost zakreslit XML jako stromovou strukturu.
 
-Na stránce W3 Schools [XML Tree](https://w3schools.com/xml/xml_tree.asp) vidíte grafickou reprezentaci XML kódu pomocí stromové struktury. Pod obrázkem naleznete kód k příslušnému stromu.
+Na stránce [W3 Schools XML Tree](https://w3schools.com/xml/xml_tree.asp) vidíte grafickou reprezentaci XML kódu pomocí stromové struktury. Pod obrázkem naleznete kód k příslušnému stromu.
 
 ### ❖ Úkol 1.3: Struktura XML dokumentu
 
 Vaším úkolem je vytvořit návrh struktury XML dokumentu podle následující klientské specifikace:
 > Chtěl bych vytvořit webovou aplikaci pro záznam studentů naší univerzity. O studentovi zaznamenávejte informace: jméno, příjmení, studentské číslo, email, studijní rok, rozvrh, předměty, splněné předměty a další zajímavé informace.
 
-> Chtěl bych vytvořit webovou aplikaci pro záznam fakult univerzity. O každé fakultě zaznamenávejte informace jako: děkan, katedry, vedoucí kateder, zaměstnanci, kontakt na zaměstnance, pozice zaměstnanců, tituly a další zajímavé informace.
+> Chtěl bych také zaznamenat fakulty univerzity. O každé fakultě zaznamenávejte informace jako: děkan, katedry, vedoucí kateder, zaměstnanci, kontakt na zaměstnance, pozice zaměstnanců, tituly a další zajímavé informace.
 
 ## Validní XML
 
@@ -366,7 +366,7 @@ Každý DTD dokument se skládá ze stavebních bloků: [W3Schools XML DTD Build
 
 ### ❖ Úkol 1.4: Validace XML pomocí DTD
 
-Vaším dalším úkolem je napsat XML soubor s názvem `prf.xml`, která bude obsahovat informace o Přírodovědecké fakultě UJEP nebo soubor s názvem `pf.xml`, která bude obsahovat informace o Pedagogické fakultě UJEP. Tyto soubory musí být dobře formované (well-formed), tzn. nesmí mít žádné chyby v zápisu XML elementů jako například křízení značek a podobně. Dále musí být soubor validní, což znamená, že splňuje požadavky schématu (tím je soubor `fakulta.dtd`). Ověřte, zda jsou well formed a validní pomocí validátorů.
+Vaším dalším úkolem je napsat XML soubor s názvem `prf.xml`, která bude obsahovat informace o Přírodovědecké fakultě UJEP, nebo soubor s názvem `pf.xml`, která bude obsahovat informace o Pedagogické fakultě UJEP. Tyto soubory musí být dobře formované (well-formed), tzn. nesmí mít žádné chyby v zápisu XML elementů jako například křízení značek a podobně. Dále musí být soubor validní, což znamená, že splňuje požadavky schématu (tím je soubor `fakulta.dtd`). Ověřte, zda jsou soubory well-formed a validní pomocí validátorů.
 
 #### `fakulta.dtd`
 ```
@@ -412,7 +412,6 @@ typ (přednáška|seminář|cvičení|kombinované) "kombinované"
 ```
 
 ## Domácí cvičení
-
 ### Video týdne 1: Základy internetových technologií
 
-Jelikož jste zapsaní v kurzu Programování pro Internet, tak je dobré znát, jak fungují některé internetové (komunikace) a webové (obsah) technologie. Následující video představuje souhrn všech důležitých termínů se kterými budete pracovat: [Web Development Things you Should Know](https://youtu.be/erEgovG9WBs)
+Jelikož jste zapsaní v kurzu Programování pro Internet, tak je dobré znát, jak fungují některé internetové (komunikace) a webové (obsah) technologie. Následující video představuje souhrn všech důležitých termínů se kterými budete pracovat: [Web Development Things you Should Know](https://youtu.be/erEgovG9WBs).
