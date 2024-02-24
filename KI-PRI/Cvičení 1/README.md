@@ -6,11 +6,10 @@ Validaci správné struktury datového souboru budete také provádět pomocí p
 
 Server Apache spustíte ve virtuákním počítači vytvočeném pomocí softwaru [Docker](https://en.wikipedia.org/wiki/Docker_(software)) pro který máte připraven skript <tt>Dockerfile</tt> a [YAML](https://en.wikipedia.org/wiki/YAML) soubor <tt>compose.yaml</tt>.
 
-**Obsah:**
+### Obsah:
 * Vytvoření propojených docker obrazů a spuštění LAMP kontejneru pomocí *Docker Compose*
 * Jazyk XML
 * Well-formed XML
-* XML služby
 * XML strom
 * Validace XML, s pomocí DTD
 
@@ -315,27 +314,6 @@ Prohlédněte si následující XML kód a opravte ho tak, aby byl well-formed. 
 </kniha>
 <?xml version="1.0" encoding="UTF-8"?>
 ```
-
-<!---## XML služby
-
-XML se používá jako jazyk pro popis dat, která se předávají mezi servery (které poskytují služby) a klientskými aplikacemi (které tyto služby využívají). Mezi základní XML formáty, které jsou používány pro serverové služby, řadíme:
-* [XML WSDL](https://w3schools.com/xml/xml_wsdl.asp) - formát pro popis webových služeb (endpointy, funkcionalita), používá se společně se SOAP
-* [XML SOAP](https://w3schools.com/xml/xml_soap.asp) - formát pro zasílání dat pomocí HTTP požadavků mezi systémy čistě v XML oproti jiným typům služeb (CORBA atd.)
-* [XML RDF](https://w3schools.com/xml/xml_rdf.asp) - formát pro grafová data; pokud služby poskytují data v XML RDF, pak jsou tzv. 4. úrovně otevřenosti
-* [XML RSS](https://w3schools.com/xml/xml_rss.asp) - formát pro zasílání krátkých upozornění odběratelům (typicky na aplikace typu RSS čtečka)
-
-Více o RSS (*Really Simple Syndication*): [mnot.net](https://mnot.net/rss/tutorial)
-
-Více o WSDL (*Web Services Description Language*): [tutorialspoint.com](https://tutorialspoint.com/wsdl/wsdl_introduction.htm) a ukázka [wiki](https://en.wikipedia.org/wiki/Web_Services_Description_Language)
-
-Více o SOAP (*Simple Object Access Protocol*): [guru99.com](https://guru99.com/soap-simple-object-access-protocol.html) a [tutorial z MUNI](https://dior.ics.muni.cz/~makub/soap/tutorial.html)
-
-Více o RDF (*Resource Description Framework*): [linkeddatatools.com](https://linkeddatatools.com/semantic-web-basics) a [5star open data](https://5stardata.info/en/)
-
-
-### ❖ Úkol 1.3: RSS
-Stáhněte si do mobilního zařízení nebo počítače nějakou RSS čtečku (pro Android např.: Feedly) a přidejte si RSS feed na nějakou stránku. Pokud vydá nový příspěvek, přijde vám upozornění. Prozkoumejte jeho strukturu pokud jste na počítači. Také si můžete vytvořit vlastní RSS k webové stránce a zasílat tak upozornění. Například pro Wordpress existují hotové pluginy.
--->
 
 ## Návrh XML stromu
 
