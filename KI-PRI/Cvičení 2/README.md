@@ -5,12 +5,12 @@ Dnes se seznámíte s tvorbou komplexnějších XML schémat v jazyce XML.
 ### Předchozí cvičení:
 
 V minulém cvičení jste:
-* Nainstalovali vývojové prostředí (Docker Desktop, VSCode) a zprovoznili jednoduchou webovou stránku (v Docker kontejneru s LAMP), která ověřuje, zda nahraný XML soubor je dobře strukturovaný (well-formed), případně soubor validuje pomocí nahraného DTD souboru.
+* Nainstalovali vývojové prostředí (Docker Desktop, VSCode) a zprovoznili jednoduchou webovou stránku v Docker kontejneru s LAMP, která ověřuje, zda nahraný XML soubor je dobře strukturovaný (well-formed), případně soubor validuje pomocí nahraného DTD souboru.
 * Seznámili jste se s jazykem XML – s elementy (značkami), atributy a jmennými prostory.
 * Vytvořili jste XML soubor `student.xml` s informacemi o studentu naší univerzity.
 * Opravili jste zadaný soubor `knihy.xml` tak, aby byl well-formed.
 * Navrhli jste strukturu vašich XML dokumentů pro záznam informací o studentech a fakultě.
-* Vytvořili jste XML soubor s informacemi o fakultě UJEP tak, aby odpovídal zadané specifikaci `fakulta.dtd`.
+* Vytvořili jste XML soubor s informacemi o fakultě UJEP (`prf.xml`, `pf.xml` nebo `fakulta.xml`) tak, aby odpovídal zadané specifikaci `fakulta.dtd`.
 
 ### Obsah tohoto cvičení:
 * XML služby
@@ -20,12 +20,12 @@ V minulém cvičení jste:
 
 ## XML služby
 
-XML se používá jako jazyk pro popis dat, která se předávají mezi servery (které poskytují služby) a klientskými aplikacemi (které tyto služby využívají). Mezi základní XML formáty, které jsou používány pro [XML služby](https://www.w3schools.com/xml/xml_services.asp), patří:
+XML se používá pro předávání dat mezi servery (které poskytují služby) a klientskými aplikacemi (které tyto služby využívají). Mezi základní XML formáty, které jsou používány pro [XML služby](https://www.w3schools.com/xml/xml_services.asp), patří:
 
-* [XML WSDL](https://w3schools.com/xml/xml_wsdl.asp) (*Web Services Description Language*) popisuje webovou službu: kde ji najít a jak se k ní připojit, jaké datové typy používá ve zprávách, jaké operace poskytuje, a jaký je protokol (posloupnost) komunikace. WSDL se používá společně se SOAP.
-* [XML SOAP](https://w3schools.com/xml/xml_soap.asp) (*Simple Object Access Protocol*) – formát a protokol pro výměnu dat mezi systémy a volání vzdálených procedur pomocí HTTP požadavků, čistě v XML (na rozdíl od jiných typů služeb, jako např. [CORBA](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture)).
-* [XML RDF](https://w3schools.com/xml/xml_rdf.asp) (*Resource Description Framework*) – formát pro grafová data; pokud služby poskytují data v XML RDF, pak jsou tzv. 4. úrovně otevřenosti.
-* [XML RSS](https://w3schools.com/xml/xml_rss.asp) (*Really Simple Syndication*): formát pro syndikaci webového obsahu – pro zasílání krátkých upozornění odběratelům (typicky do aplikací typu RSS čtečka).
+* [XML WSDL](https://w3schools.com/xml/xml_wsdl.asp) (*Web Services Description Language*) – popisuje webovou službu, kde ji najít a jak se k ní připojit, jaké datové typy používá ve zprávách, jaké operace poskytuje, a jaký je protokol (posloupnost) komunikace. WSDL se používá společně se SOAP.
+* [XML SOAP](https://w3schools.com/xml/xml_soap.asp) (*Simple Object Access Protocol*) – formát a protokol pro výměnu dat mezi systémy a volání vzdálených procedur pomocí HTTP požadavků, čistě v XML (na rozdíl od jiných typů podobných služeb, jako je např. [CORBA](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture)).
+* [XML RDF](https://w3schools.com/xml/xml_rdf.asp) (*Resource Description Framework*) – formát pro popis webových metadat (pro tzv. sémantický web).
+* [XML RSS](https://w3schools.com/xml/xml_rss.asp) (*Really Simple Syndication*) – formát pro syndikaci webového obsahu – pro zasílání krátkých upozornění odběratelům (typicky do aplikací typu RSS čtečka).
 
 ---
 * tutorialspoint.com: [WSDL](https://www.tutorialspoint.com/wsdl/), [SOAP](https://www.tutorialspoint.com/soap/), [RSS](https://www.tutorialspoint.com/rss/)
@@ -33,12 +33,11 @@ XML se používá jako jazyk pro popis dat, která se předávají mezi servery 
 * více o SOAP : [guru99.com](https://guru99.com/soap-simple-object-access-protocol.html) a [tutorial z MUNI](https://dior.ics.muni.cz/~makub/soap/tutorial.html)
 * více o RDF : [linkeddatatools.com](https://linkeddatatools.com/semantic-web-basics) a [5star open data](https://5stardata.info/en/)
 * více o RSS : [mnot.net](https://mnot.net/rss/tutorial)
----
 
 ### ❖ Úkol 2.1: RSS
-Prozkoumejte strukturu nějakého RSS zdroje (*RSS feed*), jako je např. [https://news.bitcoin.com/feed](https://news.bitcoin.com/feed/) nebo jeden z [https://www.ceskenoviny.cz/rss/](https://www.ceskenoviny.cz/rss/). Mnoho RSS zdrojů najdete na [rss.feedspot.com](https://rss.feedspot.com/) nebo [podle návodu](https://rss.app/blog/the-ultimate-guide-to-rss-feeds-in-2022-Rrxcde).
+Prozkoumejte strukturu nějakého RSS zdroje (*RSS feed*), jako je např. [https://news.bitcoin.com/feed](https://news.bitcoin.com/feed/) nebo jeden z [https://www.ceskenoviny.cz/rss/](https://www.ceskenoviny.cz/rss/). Mnoho RSS zdrojů najdete na [rss.feedspot.com](https://rss.feedspot.com/) nebo také [podle návodu](https://rss.app/blog/the-ultimate-guide-to-rss-feeds-in-2022-Rrxcde).
 
-Uložte XML do souboru a ověřte (v našem validátoru), zda je well-formed.
+Uložte RSS XML do souboru a ověřte (v našem validátoru), zda je well-formed.
 
 Zobrazte RSS feed v nějaké RSS čtečce, např. v [rssviewer.app](https://rssviewer.app/).
 
@@ -51,17 +50,17 @@ XSD (XML Schema Definiton) je alternativa k šabloně v DTD (document type defin
 ### XSD Simple elements
 
 Základní stavební bloky XSD dokumentu jsou:
-1. kořen [W3Schools XSD <schema>](https://w3schools.com/xml/schema_schema.asp) – každý XSD potřebuje kořenový element, v něm se mohou nacházet definice jmenných prostorů
-2. elementy [W3Schools XSD Elements](https://w3schools.com/xml/schema_simple.asp) – jsou dvou typů a to simple a complex; simple obsahují data v primitivních datových typech jako string, decimal, integer, boolean, date a time; complex obsahují další elementy nebo atributy
-3. atributy [W3Schools XSD Attributes](https://w3schools.com/xml/schema_simple_attributes.asp) – obsahují data o stejných typech jako simple elementy a mohou být implicitní (default), pevně dané (fixed) a vyžadované (required) a dělají z elementu komplexní typ
-4. restrikce [W3Schools XSD Restrictions](https://w3schools.com/xml/schema_facets.asp) – určují rozsah nebo výčet hodnot, kterých musí data elementů a atributů nabývat
-5. data – jsou typu [string](https://w3schools.com/xml/schema_dtypes_string.asp), [date](https://w3schools.com/xml/schema_dtypes_date.asp), [numeric](https://w3schools.com/xml/schema_dtypes_numeric.asp), [misc](https://w3schools.com/xml/schema_dtypes_misc.asp) (boolean, binary, anyURI, double, float, atd.)
+1. Kořen [W3Schools XSD &lt;schema>](https://w3schools.com/xml/schema_schema.asp) – každý XSD potřebuje kořenový element, v něm se mohou nacházet definice jmenných prostorů.
+2. elementy [W3Schools XSD Elements](https://w3schools.com/xml/schema_simple.asp) – jsou dvou typů a to *simple* a *complex*; simple obsahují data v primitivních datových typech jako jsou string, decimal, integer, boolean, date a time; complex obsahují další elementy nebo atributy.
+3. Atributy [W3Schools XSD Attributes](https://w3schools.com/xml/schema_simple_attributes.asp) – obsahují data o stejných typech jako simple elementy a mohou být implicitní (default), pevně dané (fixed) a vyžadované (required) a dělají z elementu komplexní typ.
+4. Restrikce (omezení) [W3Schools XSD Restrictions](https://w3schools.com/xml/schema_facets.asp) – určují rozsah nebo výčet hodnot, kterých musí data elementů a atributů nabývat
+5. Data – jsou typu [string](https://w3schools.com/xml/schema_dtypes_string.asp), [date](https://w3schools.com/xml/schema_dtypes_date.asp), [numeric](https://w3schools.com/xml/schema_dtypes_numeric.asp), [misc](https://w3schools.com/xml/schema_dtypes_misc.asp) (boolean, binary, anyURI, double, float, atd.)
 
 ### XSD Complex elements
 
-Komplexní element v XSD představuje element, který obsahuje další elementy, atribut a/nebo restrikce [W3Schools XSD Complex](https://w3schools.com/xml/schema_complex.asp) a dělíme je na:
-1. Prázdné elementy [W3Schools XSD Empty](https://w3schools.com/xml/schema_complex_empty.asp) – element bez obsahu, ale může mít atributy (takže může obsahovat data)
-2. Pouze s elementy [W3Schools XSD Elementy Only](https://w3schools.com/xml/schema_complex_elements.asp) – element nebo sekvence elementů, která může být pojmenovaná
+Komplexní element v XSD je element, který obsahuje další elementy, atribut a/nebo restrikce [W3Schools XSD Complex](https://w3schools.com/xml/schema_complex.asp). Komplexn9 elementy dělíme na:
+1. Prázdné elementy [W3Schools XSD Empty](https://w3schools.com/xml/schema_complex_empty.asp) – elementy bez obsahu, které ale mohou mít atributy (takže mohou obsahovat data).
+2. Pouze-elementy [W3Schools XSD Elements Only](https://w3schools.com/xml/schema_complex_elements.asp) – element nebo sekvence elementů, která může být pojmenovaná
 3. Pouze s textem [W3Schools XSD Text Only](https://w3schools.com/xml/schema_complex_text.asp) – jednoduchý element s rozšířením nebo restrikcí
 4. Smíšené [W3Schools XSD Mixed](https://w3schools.com/xml/schema_complex_mixed.asp) – kombinace předchozích
 
@@ -84,7 +83,7 @@ Pokud chceme ještě větší volnost a umožnit vložit uživateli v XML v něj
 
 Napište DTD validační soubory k entitě student z minulé hodiny. Pokud se vám nelíbí moje DTD k fakultě, tak si také vytvořte vlastní DTD pro fakultu.
 
-Zde vidíte příklad mého DTD souboru, který slouží pro validaci barmanských receptů:
+Zde vidíte příklad DTD souboru, který slouží pro validaci barmanských receptů:
 
 ```
 <!ELEMENT menu (recept+)>
@@ -119,6 +118,26 @@ odkaz_koupě CDATA #IMPLIED
 typ (základ|dochucovadlo|dekorace|nezařazené) "nezařazené">
 
 <!ELEMENT postup (#PCDATA)>
+```
+
+A příklad XML souboru:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <!-- každá kniha obsahuje dva názvy a to český a anglický -- specifikováno atributem -->
+    <název jazyk=cz>Epos o Berygamešovi
+    <název jazyk=en>Epic of Berygamesh
+    <Autor>Jiří Fišer</autor>
+    <postavy><postava>Berygameš</postava><postava>Škvorkidu<postavy/></postava>
+</kniha>
+<kniha>
+    <název jazyk=cz>Pán prstenů: návrat Fišera
+    <název jazyk=en>Lord of the rings: return of Fišer
+    <Autor>Beránek Pavel</autor>
+    <popis>
+        Kniha o partě ajťáků, kteří se chystají na výpravu na zápočet na Fakultu Osudu.
+    </popis>
+</kniha>
 ```
 
 ### ❖ Úkol 2.3 – Přepsání DTD souboru na XSD soubor

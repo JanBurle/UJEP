@@ -7,9 +7,6 @@
     <xs:element name="obtížnost" type="xs:string"/>
     <xs:element name="země_původu" type="xs:string"/>
     <xs:element name="postup" type="xs:string"/>
-    <xs:element name="obtížnost">
-        <xs:complexType />
-    </xs:element>
 
     <!-- definition of simple types -->
     <xs:simpleType name="položka_typ">
