@@ -4,7 +4,6 @@
     <!-- definition of simple elements -->
     <xs:element name="název" type="xs:string"/>
     <xs:element name="doba_přípravy" type="xs:positiveInteger"/>
-    <xs:element name="obtížnost" type="xs:string"/>
     <xs:element name="země_původu" type="xs:string"/>
     <xs:element name="postup" type="xs:string"/>
 
@@ -31,6 +30,14 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="recept" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtížnost">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mistr"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -2,15 +2,14 @@
 <menu>
     <recept autor_článku='Marvin'>
         <informace>
-            <název>
-            </název>
-            <doba_přípravy>89</doba_přípravy>
-            <obtížnost>
-            </obtížnost>
+            <název>Bloody Mary</název>
+            <doba_přípravy>4</doba_přípravy>
+            <obtížnost><mistr/></obtížnost>
         </informace>
         <ingredience>
-            <položka>
-            </položka>
+            <položka>vodka</položka>
+            <položka>rajčatový džus</položka>
+            <položka>Tabasko</položka>
         </ingredience>
         <postup>
         </postup>
