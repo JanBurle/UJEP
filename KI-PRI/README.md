@@ -36,7 +36,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 |  Týden | Název | Zadání | Materiály | Jiné |
 |  ----: | :---- | :----- | :-------- | :--- |
 |    1   | XML | [Cvičení 1](./Cvičení%201) | [Projekt 1](./Projekt%201) | [Nastavení vývojového prostředí](./DevSetup)
-|    2   | DTD, XML Schema |
+|    2   | DTD, XML Schema | [Cvičení 2](./Cvičení%202) | [Projekt 2](./Projekt%202)
 |    3   | SVG |
 |    4   | CSS, XSLT |
 |    5   | XPath |

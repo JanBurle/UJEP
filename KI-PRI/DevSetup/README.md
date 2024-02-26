@@ -17,6 +17,7 @@ Nainstalujte si [VSCode](https://code.visualstudio.com/). Můžete používat i 
 
 #### Doporučená rozšíření:
 * PHP Tools for Visual Studio Code – formátování, nápověda, a další užitečné funkce při psaní PHP kódu.
+* XML Tools for Visual Studio Code – podobně pro XML kód.
 
 ---
 ### shell
