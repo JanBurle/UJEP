@@ -43,10 +43,10 @@ Zobrazte RSS feed v nějaké RSS čtečce, např. v [rssviewer.app](https://rssv
 ## Jazyk XSD
 
 XSD (XML Schema Definiton) je alternativa k šabloně v DTD (document type definition) formátu. Tento způsob psaní schémat je složitější, ale i mocnější, než DTD.
-- Popis [W3Schools XML Schema](https://w3schools.com/xml/xml_schema.asp)
-- Porovnání XSD a DTD schémat: [W3Schools XSD How To](https://w3schools.com/xml/schema_howto.asp)
+- Popis [XML Schema](https://w3schools.com/xml/xml_schema.asp)
+- Porovnání XSD a DTD schémat: [XML Schema How To](https://w3schools.com/xml/schema_howto.asp)
 
-### XSD Simple elements
+### XSD dokument
 
 Základní stavební bloky XSD dokumentu jsou:
 1. Kořen [XSD &lt;schema>](https://w3schools.com/xml/schema_schema.asp) – každý XSD potřebuje kořenový element, v něm se mohou nacházet definice jmenných prostorů.
@@ -246,3 +246,5 @@ Upravte soubor `index.php` tak, aby validoval ne pomocí DTD schématu, ale pomo
 Pokuste se soubor `index.php` nejdříve sami upravit. Pokud narazíte na potíže, nahlédněte do přiloženého adresáře `Projekt 2/php/src`.
 
 Případně upravte `index.php` tak, aby podle potřeby validoval buď pomocí DTD nebo XSD souboru.
+
+Novou verzi validátoru použijte pro validaci XML/XSD.
