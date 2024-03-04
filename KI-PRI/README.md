@@ -21,7 +21,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 1. Značkovací jazyk XML (syntaxe, elementy, atributy, jmenné prostory)
 2. DTD, XML-Schéma.
 3. SVG
-4. Zobrazení XML souborů (css, XSLT)
+4. Zobrazení XML souborů (CSS, XSLT)
 5. XML, DOM, xPath
 6. DOM a JavaScript
 7. PHP (syntaxe, struktury, formuláře, ukládání dat)
@@ -37,17 +37,11 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 |  ----: | :---- | :----- | :-------- | :--- |
 |    1   | XML | [Cvičení 1](./Cvičení%201) | [Projekt 1](./Projekt%201) | [Nastavení vývojového prostředí](./DevSetup)
 |    2   | DTD, XML Schema | [Cvičení 2](./Cvičení%202) | [Projekt 2](./Projekt%202)
-|    3   | SVG |
-|    4   | CSS, XSLT |
-|    5   | XPath |
-|    6   | JavaScript, DOM |
-|    7   | PHP - syntaxe |
-|    8   | PHP - stav |
-|    9   | PHP - vizualizace |
-|   10   | OOP PHP |
-|   11   | PHP a DOM |
-|   12   | PHP a DB |
-|   13   | Laravel |
+|    3   | CSS, XSLT | [Cvičení 3](./Cvičení%203) | [Projekt 3](./Projekt%203)
+|    4   | XPath |
+|    5   | JavaScript, DOM |
+|    6   | PHP ... |
+|  ...   | ... |
 
 
 ## 5. Podmínky úspěšného zakončení předmětu

@@ -12,6 +12,6 @@ title, artist, country, company, price, year {
   display: table-cell;
 }
 
-year::price {
+price::before {
   content: '$';
 }

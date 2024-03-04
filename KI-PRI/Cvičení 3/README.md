@@ -100,7 +100,7 @@ title, artist, country, company, price, year {
   display: table-cell;
 }
 
-year::price {
+price::before {
   content: '$';
 }
 ```
@@ -238,27 +238,15 @@ Jednoduchý PHP skript, který provede transformaci, je zde:
 </html>
 ```
 
-Natvrdo zakódovaný odkaz na XML soubor (`xml/cdcatalog.xml`) nahraďte svým student/fakulta souborem. Toto je samozřejmě jen hrubý prototyp. Ponechám na vás, jestli PHP skript upravíte tak, aby zpracovával zvolené soubory.
+Natvrdo zakódovaný odkaz na XML soubor (`xml/cdcatalog.xml`) nahraďte svým student/fakulta souborem.
+
+Toto je samozřejmě jen hrubý prototyp. Pokuste se skript upravit tak, aby zpracovával vámi zvolené soubory.
 
 ## Transformace XML/XSL client-side
 
 Poněkud zastaralý příklad je [XSLT - On the Client](https://www.w3schools.com/xml/xsl_client.asp). Moderní kód by se již neměl muset starat o IE11 :)
 
+## Videa týdne
 
-#### XSLT ve webových aplikacích
-
-Nejčastější využití XML je u webových aplikací, takže otázkou zůstává, kde se vlastně transformace provádí u vztahu klient-server. K transformaci může docházet na straně klienta, kterému je do aplikace zaslán XML dokument, nejčastěji jazykem Javascript , nebo na straně serveru, který XML transformuje pro klienta a zašle mu již transformovaný dokument [W3Schools XSLT on the Server](https://w3schools.com/xml/xsl_server.asp), např.: jazykem PHP.
-
-
-
-**Video týdne 1: CSS užitečné rady**
-
-V této lekci jste si vyzkoušeli transformovat XML soubor na jiný XML soubor a dodat do něj kaskádové styly pro vytvoření (snad) pohledné grafiky. Pokud se ponoříte do CSS tak zjistíte, že to není příliš příjemná zkušenost. V následujícím videu naleznete rady, která vám mohou pomoct řešit určité problémy při stylování stránek. [ZDE](https://www.youtube.com/watch?v=Qhaz36TZG5Y)
-responsive layoit FlexBox Grid
-
-
-**Video týdne 2: CSS moderně**
-
-Patlání stylů ručně se již v dnešním ekosystému webových technologií nedělá. Podívejte se na následující video, které je zaměřené na CSS a JS, které vám ukáže, jaké technologie postaveně nad CSS se dnes používají pro stylování stránky pomocí CSS.[ZDE](https://www.youtube.com/watch?v=ouncVBiye_M)
-
-SASS less
+[Video 1](https://www.youtube.com/watch?v=Qhaz36TZG5Y) vysvětuje, co to je *responsive layout*, a CSS nástroje pro jeho psaní: *flexbox* a *grid*.
+[Video 1](https://www.youtube.com/watch?v=ouncVBiye_M) představuje preprocessory *less* a *sass* pro snadší psaní CSS kódu.
