@@ -62,7 +62,7 @@ Soubor `cdcatalog.xml` (zkrácen):
 </catalog>
 ```
 
-Do souboru `index.php` přidejte odkazy:
+Do souboru `index.php` přidejte odkazy, např:
 ```php
   <a href='xml/cdcatalog.xml'>CD Catalog</a>
 ```
@@ -240,10 +240,15 @@ Jednoduchý PHP skript, který provede transformaci, je zde:
 
 Natvrdo zakódovaný odkaz na XML soubor (`xml/cdcatalog.xml`) nahraďte svým student/fakulta souborem.
 
-Toto je samozřejmě jen hrubý prototyp. Pokuste se skript upravit tak, aby zpracovával vámi zvolené soubory.
+Toto je samozřejmě jen hrubý prototyp.
+
+Pokuste se skript upravit tak, aby dal na výběr zpracovával vámi zvolené soubory.
+
+### ❖ Úkol 3.6: zdokonalení webového serveru
+
+Pozměňte váš PHP kód tak, aby dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...)`)
 
 ## Transformace XML/XSL client-side
-
 Poněkud zastaralý příklad je [XSLT - On the Client](https://www.w3schools.com/xml/xsl_client.asp). Moderní kód by se již neměl muset starat o IE11 :)
 
 ## Videa týdne
