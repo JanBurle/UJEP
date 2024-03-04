@@ -152,7 +152,7 @@ Konfigurace naší aplikace je popsána v souboru <tt>compose.yaml</tt>, podle k
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" type="Odeslat"></td>
+                <td><input type="submit" value="Odeslat"></td>
             </tr>
         </table>
     </form>

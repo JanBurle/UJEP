@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" type="Odeslat"></td>
+                <td><input type="submit" value="Odeslat"></td>
             </tr>
         </table>
     </form>
