@@ -249,12 +249,14 @@ Natvrdo zakódovaný (hard-coded) odkaz na XML soubor (`xml/cdcatalog.xml`) nahr
 
 ### ❖ Úkol 3.6: zdokonalení webového serveru
 
-Pokuste se svůj PHP skript upravit tak, aby, např., dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...it)`). Zde máte volnou ruku – proveďte jakékoli úpravy, které uznáte za vhodné.
+Pokuste se svůj PHP skript upravit tak, aby, např., dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...)`). Zde máte volnou ruku – proveďte jakékoli úpravy, které uznáte za vhodné.
 
 ## Transformace XML/XSL client-side
 Poněkud zastaralý příklad je [XSLT - On the Client](https://www.w3schools.com/xml/xsl_client.asp). Moderní kód by
 * se již neměl muset starat o IE11 :)
 * mohl použít [JavaScript Fetch API](https://www.w3schools.com/js/js_api_fetch.asp).
+
+Jestliže jste se vším dnes již hotovi, vyzkoušejte si client-side transformation.
 
 ## Videa týdne
 
