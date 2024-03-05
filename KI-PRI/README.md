@@ -18,18 +18,16 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 
 ## 3. Sylabus přednášek
 
-1. Značkovací jazyk XML (syntaxe, elementy, atributy, jmenné prostory)
-2. DTD, XML-Schéma.
-3. SVG
-4. Zobrazení XML souborů (CSS, XSLT)
-5. XML, DOM, xPath
-6. DOM a JavaScript
-7. PHP (syntaxe, struktury, formuláře, ukládání dat)
-8. PHP (Cookie, Session)
-9. PHP (Grafika)
-10. PHP (práce s objekty)
-11. PHP a DOM
-12. PHP a MySQL
+* Značkovací jazyk XML (syntaxe, elementy, atributy, jmenné prostory)
+* DTD, XML-Schéma.
+* Zobrazení XML souborů (CSS, XSLT)
+* XML, DOM, xPath
+* DOM a JavaScript
+* PHP (syntaxe, struktury, formuláře, ukládání dat)
+* PHP (Cookie, Session)
+* PHP (práce s objekty)
+* PHP a DOM
+* PHP a MySQL
 
 ## 4. Sylabus cvičení
 

@@ -20,33 +20,33 @@ V předchozím cvičení:
 
 ## HTML, XHTML
 
-Zdrojový kód webových stránek je ve značkovacím jazyce (markup language), typicky v nějaké verzi HTML (dnes: HTML5) nebo XHTML. Panuje jistý chaos v tom, co je co, protože celý webový „ekosystém“ je poznamenám svým bouřlivého vývojem a s ním spojenými [„válkami prohlížečů“](https://en.wikipedia.org/wiki/Browser_wars).
+Zdrojový kód většiny webových stránek je psaný ve značkovacím jazyce (markup language), typicky v nějaké verzi HTML (dnes: HTML5) nebo XHTML. Panuje jistý chaos v tom, co je co, také proto, že celý webový „ekosystém“ je poznamenán svým bouřlivého vývojem a s ním spojenými [„válkami prohlížečů“](https://en.wikipedia.org/wiki/Browser_wars).
 
 Protože mnoho (většina?) webových stránek obsahuje chyby, prohlížeče mají snahu chyby tolerovat a opravovat.
 
 Jisté vysvětlení rozdílů mezi těmito značkovacími jazyky naleznete např. [zde](https://www.w3schools.com/Html/html_xhtml.asp) nebo [zde](https://hackr.io/blog/difference-between-html-html5-xhtml).
 
-Připomeňte si možnosti [HTML](https://www.w3schools.com/html/default.asp).
+Připomeňte si, jaké možnosti [HTML](https://www.w3schools.com/html/default.asp) má.
 
-Validitu různých formátů lze ověřit [W3 validátorem](https://validator.w3.org/).
+Validitu různých formátů lze ověřit např. [W3 validátorem](https://validator.w3.org/).
 
 ### ❖ Úkol 3.1: validace webové stránky
 
-Pomocí W3 validátoru ověřte validitu např.
+Pomocí W3 validátoru ověřte validitu zdrojového kódu webových stránek, např.
 * bing.com
 * ujep.cz
 * webovou stránku vašeho projektu z minulého cvičení
 
 ### ❖ Úkol 3.2: úprava webového serveru
 
-Upravte svůj webový server tak, aby byly zpřístupnil soubory z disku. Inspirujte se přiloženým Projektem 3 (ten je dnes ale záměrně nedokončený).
+Upravte svůj webový server tak, aby zpřístupnil soubory z disku. Inspirujte se přiloženým Projektem 3 (ten je ale dnes záměrně *nedokončený*).
 
-V Projektu 3 jsou, jako příklad, soubory `cdcatalog.*`. Vy si ale do svého projektu ložte svoje soubory `student.*` a `fakulta.*`.
+V Projektu 3 jsou jako příklad soubory `cdcatalog.*`. Vy si ale do svého projektu vložte svoje soubory `student.*` a `fakulta.*`.
 
 * Přesuňte adresář `xml` do `php/src`, aby soubory v něm byly přístupné přes URL.
-* Přidejte do stránky odkazy na vaše XML soubory a ověřte, že se zobrazují v prohlížeči.
+* Přidejte do webové stránky odkazy na vaše XML soubory a ověřte, že se zobrazují v prohlížeči.
 
-Soubor `cdcatalog.xml` (zkrácen):
+Soubor `cdcatalog.xml` (příklad, zkrácen):
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
@@ -62,7 +62,7 @@ Soubor `cdcatalog.xml` (zkrácen):
 </catalog>
 ```
 
-Do souboru `index.php` přidejte odkazy, např:
+Do souboru `index.php` přidejte odkaz, příklad:
 ```php
   <a href='xml/cdcatalog.xml'>CD Catalog</a>
 ```
@@ -70,7 +70,7 @@ Do souboru `index.php` přidejte odkazy, např:
 
 Kaskádové styly nejsou součástí našeho kurzu, měli byste však mít o nich základní znalosti.
 
-Připomeňte si, jak [CSS přidat do HTML](https://www.w3schools.com/html/html_css.asp) (tři způsoby: inline, vnitřní, vnější). Plný výčet schopností CSS je např. [zde](https://www.w3schools.com/cssref). Připomeňte si také [CSS selektory](https://www.w3schools.com/cssref/css_selectors.php).
+Připomeňte si, jak [CSS přidat do HTML](https://www.w3schools.com/html/html_css.asp) (tři způsoby: inline, vnitřní, vnější). Plný manuál CSS je např. [zde](https://www.w3schools.com/cssref). Připomeňte si, mimo jiné, [CSS selektory](https://www.w3schools.com/cssref/css_selectors.php).
 
 ## Zobrazení XML v prohlížeči, ostylované pomocí CSS
 
@@ -82,7 +82,7 @@ Do XML souboru (student, fakulta) přidejte řádku specifikace CSS stylu:
 ```xml
 <?xml-stylesheet type="text/css" href="....css"?>
 ```
-Ve stejném adresáři vytvořte odpovídající CSS soubor(y).
+V příslušném adresáři vytvořte odpovídající CSS soubor(y).
 
 Příklad: `cdcatalog.css`
 ```css
@@ -105,9 +105,9 @@ price::before {
 }
 ```
 
-Styl upravte a doplňte podle potřeby.
+Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 
-## Seznámení se XSLT a XPath
+## Seznámení s XSLT a XPath
 
 Validovaná XML data lze transformovat na HTML pomocí jazyka XSLT (eXtensible Stylesheet Language Transformations). Příklad XSLT naleznete na [XML XSLT](https://w3schools.com/xml/xml_xslt.asp) a tutoriál na [XSLT Introduction](https://www.w3schools.com/xml/xsl_intro.asp).
 
