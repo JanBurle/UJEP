@@ -116,7 +116,7 @@ Pro navigaci v XML dokumentu v XSLT slouží jeho komponent [XPath](https://www.
 ## Převod XML do HTML pomocí XSLT
 
 Ukázka transformace z XML na HTML je na stránce [XSLT Transformation](https://w3schools.com/xml/xsl_transformation.asp). Transformace se zde provádí pomocí XSLT elementů:
-* [<xsl:template>](https://www.w3schools.com/xml/xsl_templates.asp) (šablona)
+* [<xsl template>](https://www.w3schools.com/xml/xsl_templates.asp) (šablona)
 * [<xsl:for-each>](https://www.w3schools.com/xml/xsl_for_each.asp)
 * [<xsl:value-of>](https://www.w3schools.com/xml/xsl_value_of.asp)
 
