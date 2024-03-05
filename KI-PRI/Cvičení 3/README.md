@@ -151,11 +151,11 @@ Příklad: `cdcatalog.xsl`
 ### Podmínky a cykly v XSLT
 
 V jazyce XSLT lze využívat podmínky a cykly, které řídí, na které uzly a jak aplikovat pravidla v šabloně, pomocí následujících elementů:
-* [<xsl:value-of>](https://w3schools.com/xml/xsl_value_of.asp) - získá data z jednoho uzlu a využije je při transformaci
-* [<xsl:for-each>](https://w3schools.com/xml/xsl_for_each.asp) - realizace cyklu v XSLT z vyfiltrovaného výběru XML uzlů
-* [<xsl:sort>](https://w3schools.com/xml/xsl_sort.asp) - slouží pro seřazení uzlů
-* [<xsl:if>](https://w3schools.com/xml/xsl_if.asp) - slouží jako realizace podmínky v XSLT
-* [<xsl:choose>](https://w3schools.com/xml/xsl_choose.asp) - realizace přepínače v XSLT (switch=<choose>, case=<when>, default=<otherwise>)
+* [xsl:value-of](https://w3schools.com/xml/xsl_value_of.asp) - získá data z jednoho uzlu a využije je při transformaci
+* [xsl:for-each](https://w3schools.com/xml/xsl_for_each.asp) - realizace cyklu v XSLT z vyfiltrovaného výběru XML uzlů
+* [xsl:sort](https://w3schools.com/xml/xsl_sort.asp) - slouží pro seřazení uzlů
+* [xsl:if](https://w3schools.com/xml/xsl_if.asp) - slouží jako realizace podmínky v XSLT
+* [xsl:choose](https://w3schools.com/xml/xsl_choose.asp) - realizace přepínače v XSLT
 
 ### Využití XPath v XSLT
 
@@ -170,8 +170,8 @@ Jazykem XPath volíte v XSL uzly nebo množiny uzlů. Projděte si [XPath Tutori
 
 XML můžeme transformovat pomocí XSLT třemi způsoby:
 * ponechat transformaci na prohlížeči
-* transformovat pomocí např. PHP na serveru (server-side)
-* transformovat pomocí např. JavaScriptu na klientu (client-side)
+* transformovat na serveru (server-side) pomocí např. PHP
+* transformovat na klientu (client-side) pomocí např. JavaScriptu
 
 ### ❖ Úkol 3.4: zobrazení XML/XSL v prohlížeči
 
@@ -179,7 +179,8 @@ Do XML souboru (student, fakulta) přidejte řádku specifikace XSL stylu:
 ```xml
 <?xml-stylesheet type="text/xsl" href="....xsl"?>
 ```
-Ve stejném adresáři vytvořte odpovídající XSL soubor(y).
+
+V příslušném adresáři vytvořte odpovídající XSL soubor(y).
 
 Příklad: `cdcatalog.xsl`
 ```xml
@@ -210,7 +211,7 @@ Příklad: `cdcatalog.xsl`
 </xsl:stylesheet>
 ```
 
-Svůj styl upravte a doplňte podle potřeby.
+Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 
 ### ❖ Úkol 3.5: transformace XML/XSL server-side
 
@@ -224,13 +225,17 @@ Jednoduchý PHP skript, který provede transformaci, je zde:
 
 <body>
     <?php
+    // XML
     $xml = new DOMDocument;
     $xml->load('xml/cdcatalog.xml');
+    // XSL
     $xsl = new DOMDocument;
     $xsl->load('xml/cdcatalog.xsl');
+    // transformer
     $xslt = new XSLTProcessor();
     $xslt->importStylesheet($xsl);
     $transformovany_xml = $xslt->transformToXml($xml);
+    // output
     echo $transformovany_xml;
     ?>
 </body>
@@ -238,20 +243,20 @@ Jednoduchý PHP skript, který provede transformaci, je zde:
 </html>
 ```
 
-Natvrdo zakódovaný odkaz na XML soubor (`xml/cdcatalog.xml`) nahraďte svým student/fakulta souborem.
+Natvrdo zakódovaný (hard-coded) odkaz na XML soubor (`xml/cdcatalog.xml`) nahraďte odkazy na svoje student/fakulta soubory.
 
-Toto je samozřejmě jen hrubý prototyp.
-
-Pokuste se skript upravit tak, aby dal na výběr zpracovával vámi zvolené soubory.
+**Toto je samozřejmě jen hrubý prototyp.**
 
 ### ❖ Úkol 3.6: zdokonalení webového serveru
 
-Pozměňte váš PHP kód tak, aby dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...it)`)
+Pokuste se svůj PHP skript upravit tak, aby, např., dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...it)`). Zde máte volnou ruku – proveďte jakékoli úpravy, které uznáte za vhodné.
 
 ## Transformace XML/XSL client-side
-Poněkud zastaralý příklad je [XSLT - On the Client](https://www.w3schools.com/xml/xsl_client.asp). Moderní kód by se již neměl muset starat o IE11 :)
+Poněkud zastaralý příklad je [XSLT - On the Client](https://www.w3schools.com/xml/xsl_client.asp). Moderní kód by
+* se již neměl muset starat o IE11 :)
+* mohl použít [JavaScript Fetch API](https://www.w3schools.com/js/js_api_fetch.asp).
 
 ## Videa týdne
 
 [Video 1](https://www.youtube.com/watch?v=Qhaz36TZG5Y) vysvětuje, co to je *responsive layout*, a CSS nástroje pro jeho psaní: *flexbox* a *grid*.
-[Video 1](https://www.youtube.com/watch?v=ouncVBiye_M) představuje preprocessory *less* a *sass* pro snadší psaní CSS kódu.
+[Video 2](https://www.youtube.com/watch?v=ouncVBiye_M) představuje moderní alternativy, použitelné místo psaní „vanilla“ CSS kódu.
