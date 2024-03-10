@@ -35,7 +35,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 |  ----: | :---- | :----- | :-------- | :--- |
 |    1   | XML | [Cvičení 1](./Cvičení%201) | [Projekt 1](./Projekt%201) | [Nastavení vývojového prostředí](./DevSetup)
 |    2   | DTD, XML Schema | [Cvičení 2](./Cvičení%202) | [Projekt 2](./Projekt%202)
-|    3   | CSS, XSLT | [Cvičení 3](./Cvičení%203) | [Projekt 3](./Projekt%203)
+|    3   | CSS, XSLT | [Cvičení 4](./Cvičení%203) | [Projekt 3](./Projekt%203)
 |    4   | XML model (fakulta, student) a databáze | [Cvičení 3](./Cvičení%204) | [Projekt 4](./Projekt%204)
 
 ## 5. Podmínky úspěšného zakončení předmětu
