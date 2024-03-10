@@ -250,7 +250,7 @@ Další užitečné, často používané příkazy pro Docker jsou:
 
 |                                     |                                       |
 |--------------                       |-----------                            |
-| Připojení terminálu k běžícímu kontejneru | <tt>docker compose exec &lt;id> bash<tt>|
+| Připojení terminálu k běžícímu kontejneru | <tt>docker compose exec -ti &lt;id> bash<tt>|
 | Vypsání všech běžících kontejnerů:  | <tt>docker ps</tt>                    |
 | Zastavení všech kontejnerů:         | <tt>docker stop $(docker ps -q)</tt>  |
 | Smazání všech kontejnerů:           | <tt>docker rm $(docker ps -aq)</tt>   |

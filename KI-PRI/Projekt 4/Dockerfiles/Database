@@ -1,0 +1,2 @@
+# základní docker obraz
+FROM mysql
