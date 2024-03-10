@@ -1,3 +1,5 @@
+USE university;
+
 CREATE TABLE `fakulta` (
   `a` int NOT NULL,
   `b` int NOT NULL,

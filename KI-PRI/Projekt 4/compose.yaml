@@ -14,16 +14,12 @@ services:
   # database
   database: 
     container_name: mysql
-    build:
-      dockerfile: Dockerfiles/Database
-    restart: always
+    image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: university
+      MYSQL_DATABASE: univerzita
       MYSQL_USER: admin
       MYSQL_PASSWORD: heslo
-    volumes:
-      - ./schema:/usr/schema
     ports:
       - 9906:3306
 
@@ -32,7 +28,6 @@ services:
     image: phpmyadmin/phpmyadmin  # base image
     ports:
       - 8080:80                   # accessible on port 8080
-    restart: always
     environment:
       PMA_HOST: database
     depends_on:
