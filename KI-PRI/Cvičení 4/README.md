@@ -1,264 +1,83 @@
-# Cvičení 3 – Zobrazení XML pomocí CSS a XSLT
+# Cvičení 4 – Zobrazení XML pomocí CSS a XSLT
 
-Dnes budete zobrazovat validní XML v prohlížeči.
+Dnes vytvoříme databázový model (databázi a tabulky) pro vaše data o fakultách a studentech.
 
 ### Předchozí cvičení:
 
-V předchozím cvičení:
-* Jste se seznámili s některými XML službami a formáty, jmenovitě se RSS.
-* Well-formed XML jste dále validovali pomocí XSD.
-* K vámi navrženým a vytvořeným XML souborům s daty o studentech a fakultách jste vytvořili validační DTD a XSD soubory.
-* Upravili jste svůj webový server (v Dockeru) tak, aby validoval XML pomocí XSD.
+V předchozím cvičení jste pro vaše soubory `student.xml` a `fakulta.xml` vytvořili XML styly v jazyce XSLT, `student.xsl` `fakulta.xsl`.
 
 ### Obsah tohoto cvičení:
 
-* Rychlá rekapitulace HTML, XHTML a CSS.
-* Úprava webového serveru tak, aby zpřístupnil soubory z adresáře.
-* Zobrazení XML v prohlížeči, ostylované pomocí CSS.
-* Seznámení se XSLT a XPath.
-* Zobrazení XML v prohlížeči pomocí XSLT, a to buď v klientu (client-side, v prohlížeči), nebo na serveru (server-side).
+* Nová kostra projektu.
+* Interakce s běžícími Docker kontejnery.
+* Vytvoření databázových tabulek pro ukládání dat na serveru.
 
-## HTML, XHTML
+## Nová kostra projektu
 
-Zdrojový kód většiny webových stránek je psaný ve značkovacím jazyce (markup language), typicky v nějaké verzi HTML (dnes: HTML5) nebo XHTML. Panuje jistý chaos v tom, co je co, také proto, že celý webový „ekosystém“ je poznamenán svým bouřlivého vývojem a s ním spojenými [„válkami prohlížečů“](https://en.wikipedia.org/wiki/Browser_wars).
+Ve složce *Projekt 4* naleznete upravenou kostru projektu. Hlavní změny jsou:
+* Dockerfile (pro php-apache kontejner) je přesunut do `Dockerfiles/`.
+* Složka `php/src/` je přejmenována na `html/`, aby lépe odpovídala příslušné složce uvnitř kontejneru.
+* PHP kód je rozdělen do několika PHP souborů (webových stránek).
 
-Protože mnoho (většina?) webových stránek obsahuje chyby, prohlížeče mají snahu chyby tolerovat a opravovat.
+Adresář `html/xml` obsahuje pouze *základní verzi* souborů `fakulta.*`, jako příklad. Ve vašem vlastním projektu samozřejmě máte dokonalejší verze souborů `fakulta.*` a `student.*`.
 
-Jisté vysvětlení rozdílů mezi těmito značkovacími jazyky naleznete např. [zde](https://www.w3schools.com/Html/html_xhtml.asp) nebo [zde](https://hackr.io/blog/difference-between-html-html5-xhtml).
+## Interakce s běžícím kontejnerem (Linuxem)
 
-Připomeňte si, jaké možnosti [HTML](https://www.w3schools.com/html/default.asp) má.
+Jeden z důvodů proč používáme Docker kontejnery je, že toto prostředí simuluje skutečnou situaci, kdy webový server běží na nějaké Linuxovské distribuci.
 
-Validitu různých formátů lze ověřit např. [W3 validátorem](https://validator.w3.org/).
-
-### ❖ Úkol 3.1: validace webové stránky
-
-Pomocí W3 validátoru ověřte validitu zdrojového kódu webových stránek, např.
-* bing.com
-* ujep.cz
-* webovou stránku vašeho projektu z minulého cvičení
-
-### ❖ Úkol 3.2: úprava webového serveru
-
-Upravte svůj webový server tak, aby zpřístupnil soubory z disku. Inspirujte se přiloženým Projektem 3 (ten je ale dnes záměrně *nedokončený*).
-
-V Projektu 3 jsou jako příklad soubory `cdcatalog.*`. Vy si ale do svého projektu vložte svoje soubory `student.*` a `fakulta.*`.
-
-* Přesuňte adresář `xml` do `php/src`, aby soubory v něm byly přístupné přes URL.
-* Přidejte do webové stránky odkazy na vaše XML soubory a ověřte, že se zobrazují v prohlížeči.
-
-Soubor `cdcatalog.xml` (příklad, zkrácen):
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<catalog>
-    <cd>
-        <title>Empire Burlesque</title>
-        <artist>Bob Dylan</artist>
-        <country>USA</country>
-        <company>Columbia</company>
-        <price>10.90</price>
-        <year>1985</year>
-    </cd>
-...
-</catalog>
+Běžící kontejnery vypíšete příkazem
+```bash
+docker ps
 ```
 
-Do souboru `index.php` přidejte odkaz, příklad:
-```php
-  <a href='xml/cdcatalog.xml'>CD Catalog</a>
+Každý kontejner má unikátní CONTAINER ID. Terminál v běžícím kontejneru otevřete příkazem
 ```
-## CSS – kaskádové styly
-
-Kaskádové styly nejsou součástí našeho kurzu, měli byste však mít o nich základní znalosti.
-
-Připomeňte si, jak [CSS přidat do HTML](https://www.w3schools.com/html/html_css.asp) (tři způsoby: inline, vnitřní, vnější). Plný manuál CSS je např. [zde](https://www.w3schools.com/cssref). Připomeňte si, mimo jiné, [CSS selektory](https://www.w3schools.com/cssref/css_selectors.php).
-
-## Zobrazení XML v prohlížeči, ostylované pomocí CSS
-
-Bez informace o stylu zobrazí prohlížeč stromovou strukturu XML souboru.
-
-### ❖ Úkol 3.3: ostylujte váš XML pomocí CSS
-
-Do XML souboru (student, fakulta) přidejte řádku specifikace CSS stylu:
-```xml
-<?xml-stylesheet type="text/css" href="....css"?>
-```
-V příslušném adresáři vytvořte odpovídající CSS soubor(y).
-
-Příklad: `cdcatalog.css`
-```css
-catalog {
-  display: table;
-  background-color: palegoldenrod;
-  border: thin solid grey;
-}
-
-cd {
-  display: table-row;
-}
-
-title, artist, country, company, price, year {
-  display: table-cell;
-}
-
-price::before {
-  content: '$';
-}
+docker exec -ti <id> bash
 ```
 
-Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
+Dále můžete používat obvyklé shellové příkazy `pwd`, `cd`, `ls`, `ls -l`, atd.
 
-## Seznámení s XSLT a XPath
-
-Validovaná XML data lze transformovat na HTML pomocí jazyka XSLT (eXtensible Stylesheet Language Transformations). Příklad XSLT naleznete na [XML XSLT](https://w3schools.com/xml/xml_xslt.asp) a tutoriál na [XSLT Introduction](https://www.w3schools.com/xml/xsl_intro.asp).
-
-Pro navigaci v XML dokumentu v XSLT slouží jeho komponent [XPath](https://www.w3schools.com/xml/xml_xpath.asp). Tutoriál je na [XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp).
-
-## Převod XML do HTML pomocí XSLT
-
-Ukázka transformace z XML na HTML je na stránce [XSLT Transformation](https://w3schools.com/xml/xsl_transformation.asp). Transformace se zde provádí pomocí XSLT elementů:
-* [xsl:template](https://www.w3schools.com/xml/xsl_templates.asp) (šablona)
-* [xsl:for-each](https://www.w3schools.com/xml/xsl_for_each.asp)
-* [xsl:value-of](https://www.w3schools.com/xml/xsl_value_of.asp)
-
-Příklad: `cdcatalog.xsl`
-```xml
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template match="/">
-    <html>
-      <body>
-        <h2>My CD Collection</h2>
-        <table border="1">
-          <tr bgcolor="#9acd32">
-            <th style="text-align:left">Title</th>
-            <th style="text-align:left">Artist</th>
-          </tr>
-          <xsl:for-each select="catalog/cd">
-            <tr>
-              <td>
-                <xsl:value-of select="title"/>
-              </td>
-              <td>
-                <xsl:value-of select="artist"/>
-              </td>
-            </tr>
-          </xsl:for-each>
-        </table>
-      </body>
-    </html>
-  </xsl:template>
-</xsl:stylesheet>
-```
-### Podmínky a cykly v XSLT
-
-V jazyce XSLT lze využívat podmínky a cykly, které řídí, na které uzly a jak aplikovat pravidla v šabloně, pomocí následujících elementů:
-* [xsl:value-of](https://w3schools.com/xml/xsl_value_of.asp) - získá data z jednoho uzlu a využije je při transformaci
-* [xsl:for-each](https://w3schools.com/xml/xsl_for_each.asp) - realizace cyklu v XSLT z vyfiltrovaného výběru XML uzlů
-* [xsl:sort](https://w3schools.com/xml/xsl_sort.asp) - slouží pro seřazení uzlů
-* [xsl:if](https://w3schools.com/xml/xsl_if.asp) - slouží jako realizace podmínky v XSLT
-* [xsl:choose](https://w3schools.com/xml/xsl_choose.asp) - realizace přepínače v XSLT
-
-### Využití XPath v XSLT
-
-Jazykem XPath volíte v XSL uzly nebo množiny uzlů. Projděte si [XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp):
-* uzly
-* syntax (+ predikáty)
-* osy
-* operátory
-* příklady
-
-## Zobrazení XML pomocí XSLT
-
-XML můžeme transformovat pomocí XSLT třemi způsoby:
-* ponechat transformaci na prohlížeči
-* transformovat na serveru (server-side) pomocí např. PHP
-* transformovat na klientu (client-side) pomocí např. JavaScriptu
-
-### ❖ Úkol 3.4: zobrazení XML/XSL v prohlížeči
-
-Do XML souboru (student, fakulta) přidejte řádku specifikace XSL stylu:
-```xml
-<?xml-stylesheet type="text/xsl" href="....xsl"?>
+Pro větší pohodlí si můžete do kontejneru doinstalovat další nástroje, jako např.
+```bash
+apt install software-properties-common
+apt install mc nano vim
 ```
 
-V příslušném adresáři vytvořte odpovídající XSL soubor(y).
+### ❖ Úkol 4.1: konfigurační soubory Apache a PHP
 
-Příklad: `cdcatalog.xsl`
-```xml
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template match="/">
-    <html>
-      <body>
-        <h2>My CD Collection</h2>
-        <table border="1">
-          <tr bgcolor="#9acd32">
-            <th style="text-align:left">Title</th>
-            <th style="text-align:left">Artist</th>
-          </tr>
-          <xsl:for-each select="catalog/cd">
-            <tr>
-              <td>
-                <xsl:value-of select="title"/>
-              </td>
-              <td>
-                <xsl:value-of select="artist"/>
-              </td>
-            </tr>
-          </xsl:for-each>
-        </table>
-      </body>
-    </html>
-  </xsl:template>
-</xsl:stylesheet>
+Zběžně si prohlédněte konfigurační soubory, které naleznete v `/etc/apache2` a v `/usr/local/etc/php`.
+
+V konfiguraci Apache vyhledejte *document root folder*.
+
+Konfiguraci PHP vypíšete:
+```
+php -v
+php -i
 ```
 
-Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
-
-### ❖ Úkol 3.5: transformace XML/XSL server-side
-
-Proces je popsán v [XSLT - On the Server](https://www.w3schools.com/xml/xsl_server.asp).
-
-Jednoduchý PHP skript, který provede transformaci, je zde:
-
-```php
-<!DOCTYPE html>
-<html>
-
-<body>
-    <?php
-    // XML
-    $xml = new DOMDocument;
-    $xml->load('xml/cdcatalog.xml');
-    // XSL
-    $xsl = new DOMDocument;
-    $xsl->load('xml/cdcatalog.xsl');
-    // transformer
-    $xslt = new XSLTProcessor();
-    $xslt->importStylesheet($xsl);
-    $transformovany_xml = $xslt->transformToXml($xml);
-    // output
-    echo $transformovany_xml;
-    ?>
-</body>
-
-</html>
+A běžící procesy zobrazíte příkazem
+```
+top
 ```
 
-Natvrdo zakódovaný (hard-coded) odkaz na XML soubor (`xml/cdcatalog.xml`) nahraďte odkazy na svoje student/fakulta soubory.
+Všechny tyto údaje jsou základní nástroje k řešení problémových situací, když na webovém serveru něco nefunguje.
 
-**Toto je samozřejmě jen hrubý prototyp.**
+## Vytvoření databázových tabulek
 
-### ❖ Úkol 3.6: zdokonalení webového serveru
+Hlavním vaším dnešním úkolem je si vytvořit databázové tabulky pro ukládání dat o fakultách a studentech.
 
-Pokuste se svůj PHP skript upravit tak, aby, např., dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...)`). Zde máte volnou ruku – proveďte jakékoli úpravy, které uznáte za vhodné.
+V našem projektu je zahrnut *phpadmin* – program pro administraci databáze. Běží v prohlížeči na URL `localhost:8080`. Přihlašovací údaje jsou nastaveny v `compose.yaml`. Databáze *univerzita* již je také vytvořena.
 
-## Transformace XML/XSL client-side
-Poněkud zastaralý příklad je [XSLT - On the Client](https://www.w3schools.com/xml/xsl_client.asp). Moderní kód by
-* se již neměl muset starat o IE11 :)
-* mohl použít [JavaScript Fetch API](https://www.w3schools.com/js/js_api_fetch.asp).
+### ❖ Úkol 4.2: tabulky `student` a `fakulta`
 
-Jestliže jste se vším dnes již hotovi, vyzkoušejte si client-side transformation.
+Pomocí *phpadmin* založte v databázi tabulky pro vaše data. Struktura tabulek by měla odpovídat vašemu datovému modelu, který jste vytvořili v XML. V tomto kurzu se nezabýváme návrhem databází, takže není nutné, aby vaše tabulky byly dokonalé. Měly by ale obsahovat pole odpovídající elementům a atributům, které máte v XML, a pole by měla mít odpovídající [datový typ](https://dev.mysql.com/doc/refman/8.3/en/data-types.html).
 
-## Videa týdne
+Pokud víte jak, přidejte další náležitosti, např. primární index apod.
 
-[Video 1](https://www.youtube.com/watch?v=Qhaz36TZG5Y) vysvětuje, co to je *responsive layout*, a CSS nástroje pro jeho psaní: *flexbox* a *grid*.
-[Video 2](https://www.youtube.com/watch?v=ouncVBiye_M) představuje moderní alternativy, použitelné místo psaní „vanilla“ CSS kódu.
+### ❖ Úkol 4.3: vložení dat
+
+Pomocí *phpadmin* naplňte vytvořené tabulky testovacími daty os tudentech a fakultách.
+
+### ❖ Úkol 4.4: export dat
+
+Strukturu tabulek a vložená data vyexportujte jako SQL soubor. Ten budete potřebovat pro obnovení dat, vždy, když smažete a znovu vytvoříte Docker kontejner.

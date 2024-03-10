@@ -1,4 +1,4 @@
-USE university;
+USE univerzita;
 
 CREATE TABLE `fakulta` (
   `a` int NOT NULL,

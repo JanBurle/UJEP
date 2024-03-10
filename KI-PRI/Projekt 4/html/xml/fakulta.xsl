@@ -32,36 +32,36 @@
         </li>
         <li>Email: <xsl:value-of select="dekan/email"/>
         </li>
-    </ul>
-    <h3>Katedry</h3>
-    <xsl:apply-templates select="katedry/katedra"/>
-  </div>
-</xsl:template>
+      </ul>
+      <h3>Katedry</h3>
+      <xsl:apply-templates select="katedry/katedra"/>
+    </div>
+  </xsl:template>
 
-<xsl:template match="katedra">
-  <h3>
-    <xsl:value-of select="nazev"/>
-  </h3>
-  <h4>Zaměstnanci</h4>
-  <table>
-    <tr>
-      <th>Jméno</th>
-      <th>Příjmení</th>
-      <th>Email</th>
-    </tr>
-    <xsl:for-each select="zamestnanci/zamestnanec">
+  <xsl:template match="katedra">
+    <h3>
+      <xsl:value-of select="nazev"/>
+    </h3>
+    <h4>Zaměstnanci</h4>
+    <table>
       <tr>
-        <td>
-          <xsl:value-of select="jmeno"/>
-        </td>
-        <td>
-          <xsl:value-of select="prijmeni"/>
-        </td>
-        <td>
-          <xsl:value-of select="email"/>
-        </td>
+        <th>Jméno</th>
+        <th>Příjmení</th>
+        <th>Email</th>
       </tr>
-    </xsl:for-each>
-  </table>
-</xsl:template>
+      <xsl:for-each select="zamestnanci/zamestnanec">
+        <tr>
+          <td>
+            <xsl:value-of select="jmeno"/>
+          </td>
+          <td>
+            <xsl:value-of select="prijmeni"/>
+          </td>
+          <td>
+            <xsl:value-of select="email"/>
+          </td>
+        </tr>
+      </xsl:for-each>
+    </table>
+  </xsl:template>
 </xsl:stylesheet>
