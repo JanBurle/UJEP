@@ -1,19 +1,17 @@
 services:
   # PHP + Apache
   php-apache: 
-    container_name: php-apache
     build:
       dockerfile: Dockerfiles/PhpApache
     depends_on:
       - database
     volumes:
-      - ./html:/var/www/html      # webserver document root folder
+      - ./html:/var/www/html      # webserver document root
     ports:
-      - 8000:80                   # accessible on port 8000
+      - 8000:80                   # port 8000
 
   # database
   database: 
-    container_name: mysql
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -25,10 +23,15 @@ services:
 
   # database administration
   phpmyadmin: 
-    image: phpmyadmin/phpmyadmin  # base image
-    ports:
-      - 8080:80                   # accessible on port 8080
+    image: phpmyadmin 
     environment:
       PMA_HOST: database
-    depends_on:
-      - database
+    ports:
+      - 8080:80                   # port 8080
+  
+  adminer:
+    image: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+    ports:
+      - 8088:8080                 # port 8088
