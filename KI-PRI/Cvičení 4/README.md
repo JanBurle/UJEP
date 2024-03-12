@@ -87,7 +87,7 @@ Strukturu tabulek a vložená data vyexportujte jako SQL soubor. Ten si uložte,
 
 ## Připojení PHP k databázi (mysqli)
 
-Seznamte se s PHP rozšířením [W3 Schools MySQLi](https://www.w3schools.com/php/php_ref_mysqli.asp), [PHP Manual MySQLi](https://www.php.net/manual/en/book.mysqli.php).
+Seznamte se s PHP rozšířením MySQLi: [W3 Schools](https://www.w3schools.com/php/php_ref_mysqli.asp), [PHP Manual](https://www.php.net/manual/en/book.mysqli.php).
 
 MySQLi má duální (procedurální a objektově orientované) rozhraní.
 
