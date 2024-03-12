@@ -11,6 +11,7 @@ V předchozím cvičení jste pro vaše soubory `student.xml` a `fakulta.xml` vy
 * Nová kostra projektu.
 * Interakce s běžícími Docker kontejnery.
 * Vytvoření databázových tabulek pro ukládání dat na serveru.
+* Připojení PHP k databázi (mysqli).
 
 ## Nová kostra projektu
 
@@ -83,3 +84,20 @@ Pomocí *phpadmin* nebo *adminer* naplňte vytvořené tabulky testovacími daty
 ### ❖ Úkol 4.4: export dat
 
 Strukturu tabulek a vložená data vyexportujte jako SQL soubor. Ten si uložte, budete ho potřebovat pro obnovení dat, vždy, když smažete a znovu vytvoříte Docker kontejner.
+
+## Připojení PHP k databázi (mysqli)
+
+Seznamte se s PHP rozšířením [W3 Schools MySQLi](https://www.w3schools.com/php/php_ref_mysqli.asp), [PHP Manual MySQLi](https://www.php.net/manual/en/book.mysqli.php).
+
+MySQLi má duální (procedurální a objektově orientované) rozhraní.
+
+### ❖ Úkol 4.5: test databázového spojení
+
+V příkazovém řádku v kontejneru php-apache si vyzkoušejte připojení databáze.
+
+```
+php -a
+php > mysqli_connect("database","admin","heslo","univerzita");
+php > new mysqli("database","admin","heslo","univerzita");
+```
+Výsledek připojení můžete vypsat pomocí [print_r()](https://www.php.net/manual/en/function.print-r.php).
