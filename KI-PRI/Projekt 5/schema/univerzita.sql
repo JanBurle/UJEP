@@ -1,4 +1,10 @@
+-- Adminer 4.8.1 MySQL 8.3.0 dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
 SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS `Fakulta`;
@@ -12,8 +18,8 @@ CREATE TABLE `Fakulta` (
 );
 
 INSERT INTO `Fakulta` (`id`, `nazev`, `dekan`) VALUES
-(1,	'Přírodovědecká',	NULL),
-(2,	'Filozofická',	NULL);
+(1,	'Přírodovědecká',	1),
+(2,	'Filozofická',	2);
 
 DROP TABLE IF EXISTS `Katedra`;
 CREATE TABLE `Katedra` (
@@ -38,6 +44,9 @@ CREATE TABLE `Osoba` (
   PRIMARY KEY (`id`)
 );
 
+INSERT INTO `Osoba` (`id`, `jmeno`, `prijmeni`, `email`) VALUES
+(1,	'Joseph',	'Smith',	'j.s@gmail.com'),
+(2,	'Martin',	'Luther',	'm.l@gmail.com');
 
 DROP TABLE IF EXISTS `Predmet`;
 CREATE TABLE `Predmet` (
@@ -49,8 +58,8 @@ CREATE TABLE `Predmet` (
 );
 
 INSERT INTO `Predmet` (`id`, `id_katedry`, `nazev`) VALUES
-(1,	1,	'Ãšvod do programovÃ¡nÃ­'),
-(2,	2,	'LineÃ¡rnÃ­ algebra');
+(1,	1,	'Úvod do programování'),
+(2,	2,	'Lineární­ algebra');
 
 DROP TABLE IF EXISTS `Student`;
 CREATE TABLE `Student` (

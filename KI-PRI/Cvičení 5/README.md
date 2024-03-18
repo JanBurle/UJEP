@@ -1,10 +1,10 @@
-# Cvičení 5 – SimpleXML + Bootstrap
+# Cvičení 5 – SimpleXML
 
 Dnes budete manipulovat XML data pomocí SimpleXML.
 
 ### Předchozí cvičení:
 
-V předchozím cvičení jste vytvořili databázové tabulky pro vaše data o univerzitě, fakultách, studentech a podobně.
+V předchozím cvičení jste vytvořili databázové tabulky pro vaše data o univerzitě, fakultách, studentech apod.
 
 ### Obsah tohoto cvičení:
 
@@ -13,32 +13,32 @@ V předchozím cvičení jste vytvořili databázové tabulky pro vaše data o u
 * Navigace v SimpleXML objektu.
 * Vytvoření XML pomocí SimpleXML.
 * Čtení dat z databáze a generování XML.
-* Stylování pomocí Bootstrap/W3/Tailwind apod.
+* Stylování pomocí moderních CSS knihoven.
 
 ## Inicializace databáze v Dockeru
 
 Ve složce *Projekt 5* naleznete dále pozměněnou kostru projektu.
-* Kontejner *database* je nyní definován v dockerfile `Dockerfiles/Database`. V něm je přidán vnější SQL soubor `schema/univerzita.sql`, který inicializuje databáze poté, se jo kontejner znovu sestaven.
+* Kontejner *database* je nyní definován v dockerfile `Dockerfiles/Database`. V něm je přidán vnější SQL soubor `schema/univerzita.sql`, který inicializuje vždy, když je kontejner znovu sestaven.
 
 ### ❖ Úkol 5.1
 
-Dokončete svůj model databázových tabulek (velmi jednoduchý návrh pro inspiraci najdete v *Projektu 5*, vaše tabulky by ale měly odpovídat vašemu modelu, a být obsáhlejší).
+Dokončete svůj model databázových tabulek. Velmi jednoduchý, nedokončený návrh pro inspiraci najdete v *Projektu 5*, vaše tabulky by ale měly odpovídat vašemu modelu, a být obsáhlejší.
 
-Databázi exportujte do SQL a exportovaný SQL vložte do souboru, kterým budete inicializuje databázi.
+Databázi exportujte do SQL a exportovaný SQL vložte do souboru, kterým budete inicializovat databázi v kontejneru.
 
 ## Čtení XML pomocí SimpleXML
 
 [SimpleXML](https://www.w3schools.com/Php/php_ref_simplexml.asp) (také [zde](https://www.php.net/manual/en/book.simplexml.php)) je rozšíření PHP pomocí kterého se snadno manipulují XML data.
 
-### Načtení XML
+### Načtení XML do SimpleXML objektu
 
-Pomocí [simplexml_load_file()](https://www.w3schools.com/Php/func_simplexml_load_file.asp):
+Ze souboru pomocí [simplexml_load_file()](https://www.w3schools.com/Php/func_simplexml_load_file.asp):
 ``` php
 $xml = simplexml_load_file('xml/fakulta.xml');
 print_r($xml);
 ```
 
-Pomocí [simplexml_load_string()](https://www.w3schools.com/Php/func_simplexml_load_string.asp):
+Z textu pomocí [simplexml_load_string()](https://www.w3schools.com/Php/func_simplexml_load_string.asp):
 ``` php
 $s = <<<HEREDOC
 <?xml version="1.0" encoding="UTF-8"?>
@@ -85,7 +85,7 @@ function traverseSimpleXML($xml, $level=0) {
 traverseSimpleXML($xml);
 ```
 
-Pokud znáte strukturu vašeho SimpleXML (soubor XML je validní), můžete jeho části přímo použít:
+Pokud znáte strukturu vašeho SimpleXML (soubor XML je validní), můžete přímo přistoupit k jeho částem:
 ```php
 $xml = simplexml_load_file('xml/fakulta.xml');
 echo (string)($xml->fakulta[0]->dekan->jmeno);
@@ -99,7 +99,7 @@ print_r($xml->xpath('/fakulty/fakulta[@id="Pri"]/dekan'));
 
 ### ❖ Úkol 5.3
 
-Vyzkoušejte si procházení SimpleXML stromem na vašech datech, pomocí uvedeného kódu (který podle potřeby rozšiřte pomocí dalších [SimpleXML funkcí](https://www.w3schools.com/Php/php_ref_simplexml.asp))
+Na vašech datech si vyzkoušejte procházení SimpleXML stromem, podobně jako ve výše uvedeném kódu, který podle potřeby rozšiřte pomocí dalších [SimpleXML funkcí](https://www.w3schools.com/Php/php_ref_simplexml.asp).
 
 ## Vytvoření XML pomocí SimpleXML
 
@@ -123,15 +123,15 @@ Pokud chcete, aby XML text obsahoval styl, použijte:
 $xml = new SimpleXMLElement('<?xml-stylesheet type="text/xsl" href="xml/fakulta.xsl"?><fakulta/>');
 ```
 
-HTTP header 'Content-Type' je pokyn prohlížeči, aby stránku interpretoval jako XML, včetně stylu.
+HTTP header `Content-Type` je pokyn prohlížeči, aby stránku interpretoval jako XML, včetně stylu.
 
 ### ❖ Úkol 5.4
 
-Napište si PHP skript, který pomocí SimpleXML vygeneruje XML, odpovídající vašemu `fakulta.xsd`.
+Napište PHP skript, který pomocí SimpleXML vygeneruje XML, odpovídající vašemu `fakulta.xsd`.
 
 ## Čtení dat z databáze a generování XML
 
-Pokud již máte data v databázi, vygenerujte přehled fakult, kateder atd. (odpovídající vašemu souboru `fakulta.xml`) dynamicky z databáze:
+Pokud již máte data v databázi, vygenerujte přehled fakult, kateder atd., odpovídající vašemu souboru `fakulta.xsd`, dynamicky z databáze:
 
 ```php
 $xml = new SimpleXMLElement('<?xml-stylesheet type="text/xsl" href="xml/fakulta.xsl"?><fakulty/>');
@@ -157,16 +157,16 @@ echo $xml->asXML();
 
 ### ❖ Úkol 5.5
 
-Upravte skript z Úkolu 5.4 tak, aby data četl z databáze.
+Upravte váš skript z Úkolu 5.4 tak, aby data četl z databáze.
 
-## Stylování pomocí Bootstrap/W3/Tailwind apod.
+## Stylování pomocí moderních CSS knihoven
 
 Pokud jste došli až sem a zbývají vám síly, stručně se seznamte s některou moderních CSS knihovnou (framework). V úvahu přicházejí, mimo jiné:
 
+* [W3 CSS](https://www.w3schools.com/w3css)
 * [Tailwind](https://tailwindcss.com/) ([wiki](https://en.wikipedia.org/wiki/Tailwind_CSS))
-* [W3 CSS](https://www.w3schools.com/w3css/default.asp)
 * [Bootstrap](https://getbootstrap.com/) ([wiki](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)))
 
-Najdete v nich mnoho připravených, vyladěných stylů a jejich kombinací pro vytváření responsivních webových stránek a aplikací.
+Najdete v nich mnoho připravených, vyladěných stylů a jejich kombinací pro vytváření responsivních webových stránek a aplikací. Zvolenou knihovnu můžete použít ve vašem projektu, místo "vanilla" CSS.
 
 
