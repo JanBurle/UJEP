@@ -1,0 +1,5 @@
+# základní docker obraz
+FROM mysql
+
+# inicializace databáze
+ADD ./schema/univerzita.sql /docker-entrypoint-initdb.d
