@@ -68,13 +68,13 @@ function traverseSimpleXML($xml, $level=0) {
     $attributes = $xml->attributes();
 
     foreach ($attributes as $name => $value) {
-        echo $space($level) . "$name - " . (string)$value . "\n"; 
+        echo $space($level) . "$name - " . (string)$value . "\n";
     }
 
     $children = $xml->children();
     foreach ($children as $name => $value) {
         if(0 < $value->count()) {
-            echo $space($level) . "$name: \n"; 
+            echo $space($level) . "$name: \n";
             traverseSimpleXML($value, $level+1);
         } else {
             echo $space($level) . "$name = " . (string)$value . "\n";
@@ -131,7 +131,7 @@ Napište PHP skript, který pomocí SimpleXML vygeneruje XML, odpovídající va
 
 ## Čtení dat z databáze a generování XML
 
-Pokud již máte data v databázi, vygenerujte přehled fakult, kateder atd., odpovídající vašemu souboru `fakulta.xsd`, dynamicky z databáze:
+V databázi jsou testovací data. Lze z nich dynamicky vygenerovat přehled fakult, kateder atd.:
 
 ```php
 $xml = new SimpleXMLElement('<?xml-stylesheet type="text/xsl" href="xml/fakulta.xsl"?><fakulty/>');
@@ -143,7 +143,7 @@ foreach ($fakulty as [$id, $nazev, $idDekan]) {
     if ($idDekan) {
         $dekan = $db->query("select jmeno, prijmeni, email from Osoba where id=$idDekan")->fetch_all();
         [$jmeno, $prijmeni, $email] = $dekan[0];
-        
+
         $dekan = $fakulta->addChild('dekan');
         $dekan->addChild('jmeno',$jmeno);
         $dekan->addChild('prijmeni',$prijmeni);
@@ -157,16 +157,18 @@ echo $xml->asXML();
 
 ### ❖ Úkol 5.5
 
-Upravte váš skript z Úkolu 5.4 tak, aby data četl z databáze.
+Upravte váš skript z Úkolu 5.4 tak, aby data četl z databáze, a generoval validní XML odpovídající vašemu souboru `fakulta.xsd`.
 
 ## Stylování pomocí moderních CSS knihoven
 
-Pokud jste došli až sem a zbývají vám síly, stručně se seznamte s některou moderních CSS knihovnou (framework). V úvahu přicházejí, mimo jiné:
+Pokud jste došli až sem a zbývají vám síly :), stručně se seznamte s některou moderních CSS knihovnou (framework). V úvahu přicházejí, mimo jiné:
 
 * [W3 CSS](https://www.w3schools.com/w3css)
 * [Tailwind](https://tailwindcss.com/) ([wiki](https://en.wikipedia.org/wiki/Tailwind_CSS))
 * [Bootstrap](https://getbootstrap.com/) ([wiki](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)))
 
-Najdete v nich mnoho připravených, vyladěných stylů a jejich kombinací pro vytváření responsivních webových stránek a aplikací. Zvolenou knihovnu můžete použít ve vašem projektu, místo "vanilla" CSS.
+Najdete v nich mnoho připravených, vyladěných stylů a jejich kombinací pro vytváření responsivních webových stránek a aplikací.
 
+### ❖ Úkol 5.6
 
+Vyberte si jednu z uvedených CSS knihoven, nebo podobnou, a použijte ji ve vašem projektu, místo "vanilla" CSS.
