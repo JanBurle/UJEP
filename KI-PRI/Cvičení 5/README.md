@@ -158,6 +158,7 @@ echo $xml->asXML();
 ### ❖ Úkol 5.5
 
 Upravte váš skript z Úkolu 5.4 tak, aby data četl z databáze, a generoval validní XML odpovídající vašemu souboru `fakulta.xsd`.
+Potřebujete [select](https://www.w3schools.com/mysql/mysql_select.asp) a [where](https://www.w3schools.com/mysql/mysql_where.asp).
 
 ## Stylování pomocí moderních CSS knihoven
 
