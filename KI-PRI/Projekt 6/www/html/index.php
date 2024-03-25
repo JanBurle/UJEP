@@ -9,9 +9,6 @@
         <li><a href='./file_get_contents-validate-style.php'>validate and style</a></li>
     </ul>
     <ul>
-        <li><a href='./custom-tags.php'>custom tags</a></li>
-    </ul>
-    <ul>
         <li><a href='./studium-xsl.php'>studium - transformace do HTML</a></li>
         <li><a href='./studium-xsl-xml.php'>studium - transformace na XML</a></li>
     </ul>
