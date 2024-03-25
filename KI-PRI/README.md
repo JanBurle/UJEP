@@ -38,6 +38,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 |    3   | CSS, XSLT | [Cvičení 3](./Cvičení%203) | [Projekt 3](./Projekt%203)
 |    4   | XML model (fakulta, student) a databáze | [Cvičení 4](./Cvičení%204) | [Projekt 4](./Projekt%204)
 |    5   | SimpleXML | [Cvičení 5](./Cvičení%205) | [Projekt 5](./Projekt%205)
+|    6   | XML, XSD, XSL, XPath | [Cvičení 6](./Cvičení%206) | [Projekt 6](./Projekt%206)
 
 ## 5. Podmínky úspěšného zakončení předmětu
 
