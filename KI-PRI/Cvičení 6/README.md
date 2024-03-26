@@ -119,6 +119,11 @@ Váš transformační soubor `studium.xsl` z úkolu 6.3 upravte tak, aby použí
 
 Projděte si znovu popis [XPath](https://www.w3schools.com/xml/xml_xpath.asp) a XPath [tutoriál](https://www.w3schools.com/xml/xpath_intro.asp).
 
+Možná přijde vhod:
+* [XPath Cheat Sheet](https://www.browserbear.com/blog/xpath-cheat-sheet-a-quick-reference-to-essential-xpath-expressions/#using-functions-in-an-xpath-expression)
+* [XPath Cheat Sheet](https://devhints.io/xpath)
+* [XPath Testbed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm)
+
 ### ❖ Úkol 6.5 – Použijte XPath a XPath osy v XSL pro různé výstupy
 
 Vytvořte různé XSL soubory, které transformují `studium.xsl` tak, že generují následující HTML nebo XML:
@@ -152,7 +157,7 @@ V *Projektu 6* naleznete příklady transformačních XSL souborů pro problém 
 * `studium-1-X.xsl`: transformace do HTML
 * `studium-1-xml.xsl`: transformace do XML
 
-### ❖ Další možné úlohy:
+### ❖ Další úlohy:
 
 1. Uspořádejte seznam semestrů podle celkového počtu kurzů, které se studují v tomto semestru.
 
