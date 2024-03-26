@@ -16,6 +16,13 @@
         <status>A</status>
         <zakonceni>Zkouška</zakonceni>
       </predmet>
+      <predmet katedra="KF" kod="NIE">
+        <nazev>Nietzsche</nazev>
+        <vyucujici>Ing. Pavel Kuba</vyucujici>
+        <kredity>3</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
       <predmet katedra="KI" kod="UDI">
         <nazev>Úvod do informatiky</nazev>
         <vyucujici>Mgr. Jindřich Jelínek</vyucujici>
