@@ -2,10 +2,10 @@
 
 ### Obsah tohoto cvičení:
 
-* Ukázková řešení příkladů z minulého cvičení.
+* Ukázková řešení příkladů XPath z minulého cvičení.
 * Základy PHP (přehled, letem-světem).
-* HTML formuláře.
-* HTTP post, get.
+* HTML formuláře, HTTP post, get.
+* Parametry v XSL.
 
 ## XPath – řešení
 
@@ -36,53 +36,19 @@ Pro běžnou práci je VSCode naprosto adekvátní (s nainstalovanými rozšíř
 
 ### Struktura skriptu `.php`
 
-PHP skript je HTML s PHP kódem vloženým mezi značky `<?php` a `?>`. Závěrečná značka není povinná.
+PHP skript je v zásadě HTML s PHP kódem vloženým mezi značky `<?php` a `?>`. Závěrečná značka není povinná.
 
 Pokud je v konfiguraci PHP zapnuto `short_open_tag`, lze pro vkládání PHP kódu použít `<?` a `?>`
 
 Každý příkaz v PHP končí středníkem, s výjimkou posledního příkazu před `?>` – zde je středník nepovinný.
 
-```html
-<!DOCTYPE html>
-<!-- basic HTML5 template -->
-<html lang="cs"><!-- NOT 'cz'! -->
+Příklady (Projekt 7): 
+* Jednoduchá šablona HTML5: `html5-template.php` 
+* Neúplné HTML5: `html5-incomplete.php`
+* PHP Info: `phpinfo.php`
 
-<head>
-    <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>HTML 5 Boilerplate</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-</head>
-
-<body>
-    HTML5
-</body>
-
-</html>
-```
-
-```html
-<b>plain HTML</b>
-```
-
-```
-HTML :
-<?php echo 'PHP1'; ?> :
-<?php echo 'PHP2';
-echo 'PHP3' ?>
-```
-
-```
-HTML :
-<? echo 'PHP1'; ?>
-```
-
-```
-<?php phpinfo();
-```
-
-
-
+⮕ [PHP Tags](https://www.php.net/manual/en/language.basic-syntax.phptags.php)
+⮕ [Instruction separation](https://www.php.net/manual/en/language.basic-syntax.instruction-separation.php)
 
 ### echo, print, print_r, var_dump
 
@@ -94,39 +60,53 @@ Pro výpis složitějších typů, včetně jejich struktury, použijte [print_r
 
 Diagnostické výpisy jsou možné pomocí [var_dump](https://www.php.net/manual/en/function.var-dump.php).
 
+
+```php
+<? echo 'one', 'two', 'three'; ?>
 ```
-<? echo 'one', 'two', 'three', '\n'; ?>
 
-<?= 'shortcut', 'one', 'two', 'three', "\n"; ?>
+```php
+<?= 'shortcut', 'one', 'two', 'three'; ?>
+```
 
+```php
 <? print 'print'; ?>
+```
 
+```php
 <? print_r(['print']); ?>
 ```
 
-### generování HTML
+```php
+<? var_dump('var'); ?>
+```
+
+### Generování HTML
 
 Jsou v zásadě dvě možnosti:
+* vše generovat z PHP pomocí `echo`
 * přepínat mezi HTML a PHP
-* vše generovat z PHP pomocí `echo`.
 
-```
-<h4>Echo:</h4>
+```php
+<h4>Vše jako echo:</h4>
 <? $jaky = 'tučný' ?>
 <?
 echo 'Toto je <b>', $jaky, '</b> text.';
 ?>
+```
 
-<h4>HTML/PHP:</h4>
+```php
+<h4>Přepínat HTML/PHP:</h4>
 Toto je <b>
     <?= $jaky ?>
 </b> text.
 ```
 
-### komentáře
+⮕ [Escaping from HTML](https://www.php.net/manual/en/language.basic-syntax.phpmode.php)
 
-* jednořádkové
-* víceřádkové.
+### Komentáře
+
+Mohou být jednořádkové i víceřádkové.
 
 ```
 <?
@@ -136,82 +116,98 @@ echo 'Hi'; /* C-style comment
    */
 ```
 
+⮕ [Comments](https://www.php.net/manual/en/language.basic-syntax.comments.php)
 
-### datové typy
+### Datové typy
 
-* řetězce
-    * bez expanze proměnných (`'...'`)
-    * s expanzí proměnných (`"..."`) – escape sekvence jako v C
-    * heredoc
+Typy jsou dynamické (určené za běhu programu). PHP se pokouší typy konvertovat, pokud je potřeba, podle kontextu (např. při porovnání čísla a řetězce).
 
-* čísla
-    * celá (desítková, osmičková, šestnáctková)
-    * reálná (s exponentem)
+⮕ [Types - Introduction](https://www.php.net/manual/en/language.types.intro.php)
+⮕ [Type System](https://www.php.net/manual/en/language.types.type-system.php)
+⮕ [Type Juggling](https://www.php.net/manual/en/language.types.type-juggling.php)
 
-* pole, třídy, objekty
+Čísla je možné zadávat v různých formátech.
 
-(9)
+⮕ [Integers](https://www.php.net/manual/en/language.types.integer.php)
+⮕ [Floating-point numbers](https://www.php.net/manual/en/language.types.float.php)
 
-### operátory
+Řetězce mohou být bez expanze proměnných nebo s expanzí proměnných a escape sekvencí. Řetězce také mohou reprezentovat čísla.
 
-spojování řetězců . .=
+⮕ [Strings](https://www.php.net/manual/en/language.types.string.php)
+⮕ [Numeric strings](https://www.php.net/manual/en/language.types.numeric-strings.php)
 
-z koerzí == !=
-bez koerze === !==
+Pole v PHP jsou uspořádané, asociativní mapy. Od PHP verze 7 existuje syntax `[`..`]`.
 
-koerze na číslo
+⮕ [Arrays](https://www.php.net/manual/en/language.types.array.php)
 
-dualita and or && || (short circuit)
+### Operátory
 
-matematické
-inc dec
-přiřazení s operací
+⮕ [Operators](https://www.php.net/manual/en/language.operators.php)
 
-### proměnné
+Za zmínku stojí:
+* rozdíl mezi `==` a `===`, a mezi `!=` a `!==` ⮕ [Comparison Operators](https://www.php.net/manual/en/language.operators.comparison.php) 
+* dualita `and`/ `&&` a `or` / `||` ⮕ [Logical Operators](https://www.php.net/manual/en/language.operators.logical.php)
 
-Začínají `$`. Vznikají přiřazením, mají dynamické typy, lze je recyklovat (použít opakovaně pro různý účel).
 
-Proměnnou lze zrušit pomocí [unset](https://www.php.net/manual/en/function.unset.php).
+### Proměnné
+
+Začínají `$`. Vznikají přiřazením, mají dynamické typy, lze je recyklovat (použít opakovaně pro různý účel). Proměnnou lze zrušit pomocí [unset](https://www.php.net/manual/en/function.unset.php).
+⮕ [Variables - Basics](https://www.php.net/manual/en/language.variables.basics.php)
 
 Použití neexistující proměnné může generovat varovnou zprávu, v závislosti na nastavení [error_reporting](https://www.php.net/manual/en/function.error-reporting.php). Varovné zprávy lze potlačit znakem `@`.
+⮕ [Error Control Operators](https://www.php.net/manual/en/language.operators.errorcontrol.php)
 
-### podmínky
+### Řídicí struktury
 
-if (...) ...;
-if (...) ...; else ...;
-
-### while
-### do while
-### for
-### foreach
-
-break continue
-
-### switch
-default
+Jsou běžného typu: [if](https://www.php.net/manual/en/control-structures.if.php), [if-else](https://www.php.net/manual/en/control-structures.else.php), [elseif](https://www.php.net/manual/en/control-structures.elseif.php), [while](https://www.php.net/manual/en/control-structures.while.php), [do while](https://www.php.net/manual/en/control-structures.do.while.php), [for](https://www.php.net/manual/en/control-structures.for.php), [foreach](https://www.php.net/manual/en/control-structures.foreach.php), [switch](https://www.php.net/manual/en/control-structures.switch.php), atd.
 
 ### die
 
-### pole
+⮕ [die](https://www.php.net/manual/en/function.die.php) (exit) ukončí skript.
 
-od v. 7 []
+### Funkce
 
-### funkce
+Vedle [standardních funkcí](https://www.php.net/manual/en/functions.user-defined.php) jsou k dispozici také [anonymní (lambda/closure) funkce](https://www.php.net/manual/en/functions.anonymous.php) a to od verze 7.4 s úspornou [šipkovou notací](https://www.php.net/manual/en/functions.arrow.php).
 
-return
+### Vkládání souborů
+* [include](https://www.php.net/manual/en/function.include.php)
+* [require](https://www.php.net/manual/en/function.require.php)
+* [include_once](https://www.php.net/manual/en/function.include-once.php)
+* [require_once](https://www.php.net/manual/en/function.require-once.php)
 
-lambda
 
-### globální a lokální proměnné
+## HTML formuláře
 
-## formuláře
+HTML [<form>](https://www.w3schools.com/html/html_forms.asp) element jsme použili již v prvním projektu. Slouží k zadávání uživatelských dat, která jsou typicky (ale ne nezbytně) odeslána na server.
 
-form action method
+Element `<form>` má různé [atributy](https://www.w3schools.com/html/html_forms_attributes.asp), z nich jsou nejpodstatnější:
+* `action`: který skript na serveru obdrží data k zpracování a generuje novou stránku. Default: stejný skript, který generoval současnou stránku.
+* `method`: použije-li se HTTP GET (default) nebo POST.
 
-input
+`<form>`...`</form>` může obsahovat vícero elementů [různých typů](https://www.w3schools.com/html/html_form_elements.asp), především elementů [<input>](https://www.w3schools.com/html/html_form_input_types.asp).
 
-get a put
+### PHP super-globální proměnné 
 
-## regul8rn9 v7razy
+PHP má vestavěné tzv. [superglobals](https://www.php.net/manual/en/language.variables.superglobals.php).
 
-## vkládání souborů include require include_once 
+* [$_GET](https://www.php.net/manual/en/reserved.variables.get.php): asociativní pole s proměnnými, které byly poslány jako HTTP GET (tedy v URL).
+* [$_POST](https://www.php.net/manual/en/reserved.variables.post.php): asociativní pole s proměnnými, které byly poslány jako HTTP POST (tedy v těle HTTP požadavku).
+* [$_COOKIE](https://www.php.net/manual/en/reserved.variables.cookies.php): asociativní pole s proměnnými, které byly poslány jako cookies.
+* [$_REQUEST](https://www.php.net/manual/en/reserved.variables.request.php) obsahuje totéž, co `$_GET`, `$_POST` a `$_COOKIE`.
+* [$_SERVER](https://www.php.net/manual/en/reserved.variables.server.php) obsahuje informace o serveru a příchozím požadavku.
+
+### ❖ Úkol 7.2 – prozkoumejte možnosti HTML formulářů
+
+V *Projektu 7* je skript `form.php`. Použijte jej jako základ pro experiment s `<form>`:
+* method: `get` / `post`
+* action: přechod na jinou stránku
+* `<input>`: použijte různé typy
+
+Formulář případně ostylujte.
+
+### ❖ Úkol 7.3 – tabulka předmětů
+
+Skript `form-predmety.php` obsahuje ukázkové řešení XPath problému č. 4 – tabulku s údaji pro daný předmět. Transformačnímu souboru `studium-predmet.xsl` je kód předmětu předán z PHP jako parametr.
+1. Doplňte formulář (method, `<input>`, ...) a použijte PHP superglobální proměnné tak, aby uživatel mohl zadat kód požadovaného předmětu.
+1. Použijte `<select>` a `<option>` tak, aby uživatel měl kódy předmětů na výběr.
+1. Zkuste napsat další transformační XSL soubor, který bude pro formulář generovat seznam předmětů na výběr.
