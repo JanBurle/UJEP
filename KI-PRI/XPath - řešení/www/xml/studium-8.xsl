@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<!-- Předměty v prvním semestru, předměty vyučované různými katedrami mají různé pozadí. -->
 
   <xsl:template match="/">
     <html>
@@ -13,9 +12,12 @@
           .KI {background-color:  gold;}
         </style>
       </head>
-      <body><ul>
-        <xsl:apply-templates select="//rocnik[1]/semestr[1]/predmet"/>
-      </ul></body>
+      <body>
+        Předměty v prvním semestru, předměty vyučované různými katedrami mají různé pozadí.
+        <ul>
+          <xsl:apply-templates select="//rocnik[1]/semestr[1]/predmet"/>
+        </ul>
+      </body>
     </html>
   </xsl:template>
 

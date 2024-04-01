@@ -71,6 +71,13 @@
         <status>A</status>
         <zakonceni>Zkouška</zakonceni>
       </predmet>
+      <predmet katedra="KI" kod="MRL">
+        <nazev>Značkovací jazyky</nazev>
+        <vyucujici>doc. RNDr. Viktor Mashkov, DrSc.</vyucujici>
+        <kredity>2</kredity>
+        <status>A</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
       <predmet katedra="KI" kod="SPL">
         <nazev>Speciální programovací jazyky</nazev>
         <vyucujici>Mgr. Jiří Fišer, Ph.D.</vyucujici>

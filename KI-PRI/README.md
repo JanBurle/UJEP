@@ -21,7 +21,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 * Značkovací jazyk XML (syntaxe, elementy, atributy, jmenné prostory)
 * DTD, XML-Schéma.
 * Zobrazení XML souborů (CSS, XSLT)
-* XML, DOM, xPath
+* XML, DOM, XPath
 * DOM a JavaScript
 * PHP (syntaxe, struktury, formuláře, ukládání dat)
 * PHP (Cookie, Session)

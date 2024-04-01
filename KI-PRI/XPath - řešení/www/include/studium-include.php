@@ -1,10 +1,10 @@
-<?php defined('_PHP_INCLUDE_') or die;
+<?php
 
 $xml = new DOMDocument;
 $xml->load('../xml/studium.xml');
 
 $xsl = new DOMDocument;
-$xsl->load("../xml/studium-uloha-$uloha.xsl");
+$xsl->load("../xml/studium-$uloha.xsl");
 
 $xslt = new XSLTProcessor();
 $xslt->importStylesheet($xsl);

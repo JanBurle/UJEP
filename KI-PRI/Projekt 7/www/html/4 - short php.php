@@ -1,0 +1,2 @@
+HTML :
+<? echo 'PHP1'; ?>

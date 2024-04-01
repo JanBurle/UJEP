@@ -1,4 +1,4 @@
-# Cvičení 6 – XML, XSD, XSL, xPath
+# Cvičení 6 – XML, XSD, XSL, XPath
 
 ### Obsah tohoto cvičení:
 
@@ -115,7 +115,7 @@ HTML5 také umožňuje vlastní, [uživatelské značky](https://www.tutsinsider
 
 Váš transformační soubor `studium.xsl` z úkolu 6.3 upravte tak, aby používal HTML5 sémantické elementy, pokud a kde je možné a vhodné. Případně použijte i vlastní uživatelské značky, např `<uni-studium>`, `<uni-rocnik>`, apod.
 
-## XSL, xPath: filtrování, řazení
+## XSL, XPath: filtrování, řazení
 
 Projděte si znovu popis [XPath](https://www.w3schools.com/xml/xml_xpath.asp) a XPath [tutoriál](https://www.w3schools.com/xml/xpath_intro.asp).
 
