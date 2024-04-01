@@ -39,7 +39,7 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 |    4   | XML model (fakulta, student) a databáze | [Cvičení 4](./Cvičení%204) | [Projekt 4](./Projekt%204)
 |    5   | SimpleXML | [Cvičení 5](./Cvičení%205) | [Projekt 5](./Projekt%205)
 |    6   | XML, XSD, XSL, XPath | [Cvičení 6](./Cvičení%206) | [Projekt 6](./Projekt%206)
-|    7   | XPath, PHP | [Cvičení 7](./Cvičení%207) | [Projekt 7](./Projekt%207)
+|    7   | XPath, PHP | [Cvičení 7](./Cvičení%207) | [Projekt 7](./Projekt%207) | [XPath - řešení](./XPath%20-%20řešení)
 
 ## 5. Podmínky úspěšného zakončení předmětu
 
