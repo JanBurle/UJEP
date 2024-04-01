@@ -1,4 +1,4 @@
-# Cvičení 6 – XPath (řešení příkladů), základy PHP, HTML formuláře
+# Cvičení 7 – XPath (řešení příkladů), základy PHP, HTML formuláře
 
 ### Obsah tohoto cvičení:
 
