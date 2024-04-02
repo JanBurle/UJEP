@@ -44,9 +44,9 @@ Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
 ## 5. Podmínky úspěšného zakončení předmětu
 
 Podmínky získání zápočtu:
-1. Účast na cvičeních je povinná (maximálně 3 absence, vyšší absence jen z prokázaných závažných důvodů)
-2. Student musí uchovávat výsledky práce z každého cvičení pro doložení při zápočtu.
-3. Min 75% výsledků práce ze cvičení musí být správné.
+<!-- 1. Účast na cvičeních je povinná (maximálně 3 absence, vyšší absence jen z prokázaných závažných důvodů) -->
+1. Student musí uchovávat výsledky práce z každého cvičení pro doložení při zápočtu.
+1. Min 75% výsledků práce ze cvičení musí být správné.
 
 Podmínky získání zkoušky:
 1. Student musí odpovědět na otázku, kterou vylosuje.

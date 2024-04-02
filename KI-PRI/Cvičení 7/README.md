@@ -15,7 +15,7 @@ V projektu [XPath - řešení](../XPath%20-%20%C5%99e%C5%A1en%C3%AD) naleznete u
 
 V kořenovém adresáři `www/html` je soubor [.htaccess](https://httpd.apache.org/docs/current/howto/htaccess.html) ve kterém je povoleno, aby Apache generoval obsah adresáře. Nemusíme tak mít soubor `index.php` (nebo `index.html`).
 
-[^1] Kredit: RŠ, MF.
+[^1]: Kredit: RŠ, MF.
 
 ### ❖ Úkol 7.1 – dokončete ukázkové řešení
 
