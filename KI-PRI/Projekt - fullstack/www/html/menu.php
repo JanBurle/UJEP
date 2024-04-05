@@ -1,4 +1,4 @@
-<?php $INC = __DIR__ . '/../include';
+<?php $INC = __DIR__ . '/../inc';
 
 require "$INC/head.php";
 require "$INC/nav.php";

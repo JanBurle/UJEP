@@ -3,8 +3,12 @@ $pages = [
     '/' => 'Home',
     '/login.php' => 'Přihlášení',
     '/menu.php' => 'Receptář',
-]
-    ?>
+];
+if ($jmeno) // přihlášen
+    $pages['/upload.php'] = 'Nahrát';
+
+
+?>
 
 <!-- top navigation bar -->
 <nav class="bg-white border-gray-200 dark:bg-gray-900 shadow-md">
