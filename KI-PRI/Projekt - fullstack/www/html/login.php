@@ -1,5 +1,4 @@
-<?php $INC = __DIR__ . '/../inc';
-require "$INC/head.php";
+<?php require __DIR__ . '/../inc/head.php';
 
 require "$INC/db-login.php";
 switch (@$_POST['akce']) {

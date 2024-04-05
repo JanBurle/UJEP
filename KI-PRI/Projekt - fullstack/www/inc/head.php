@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html lang="cs">
 <?php
+$INC = __DIR__;
+$XML = __DIR__ . '/../xml';
+$MENU = __DIR__ . '/../menu';
+
 $title = 'Mixolog';
 $jmeno = @$_SESSION['jmeno'];
 ?>

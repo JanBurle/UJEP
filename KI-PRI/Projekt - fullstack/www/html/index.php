@@ -1,6 +1,4 @@
-<?php $INC = __DIR__ . '/../inc';
-
-require "$INC/head.php";
+<?php require __DIR__ . '/../inc/head.php';
 require "$INC/nav.php"; ?>
 
 <div class="py-6 text-center">
