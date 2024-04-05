@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+    <recept autor_článku='Marvin'>
+        <informace>
+            <název>Bloody Mary</název>
+            <doba_přípravy>4</doba_přípravy>
+            <obtížnost><mistr/></obtížnost>
+        </informace>
+        <ingredience>
+            <položka>vodka</položka>
+            <položka>rajčatový džus</položka>
+            <položka>Tabasko</položka>
+        </ingredience>
+        <postup>
+        </postup>
+    </recept>
+</menu>

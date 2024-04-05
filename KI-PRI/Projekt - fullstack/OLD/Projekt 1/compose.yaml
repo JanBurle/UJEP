@@ -1,0 +1,37 @@
+services:
+  # PHP a Apache, popsáno v Dockerfile
+  php-apache:
+    container_name: php-apache
+    build:
+      context: ./php              # zde se nalézá Dockerfile
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./php/src:/var/www/html/  # mapování vnější/vnitřní složky
+    ports:
+      - 8000:80                   # mapování vnějšího/vnitřního portu Apache
+
+  # instalace databáze MySQL
+  db:
+    container_name: db
+    image: mysql                  # základní obraz
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: heslo
+    ports:
+      - 9906:3306                 # mapování vnějšího/vnitřního portu MySQL
+
+  # instalace phpmyadmin pro správu databází
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin  # základní obraz
+    ports:
+      - 8080:80                   # port 80 bude zveřejněn jako 8080
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
