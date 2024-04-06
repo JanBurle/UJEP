@@ -2,7 +2,7 @@
 
 Jako pracovní vývojové prostředí použijeme Docker kontejner (virtuální Linux) + VSCode (IDE).
 
-Z repozitáře [KI-KPRI](../) si stáhněte [pracovní projekt](../Projekt%20-%20work).
+Stáhněte si [pracovní projekt](../Projekt%20-%20work).
 
 ## Docker kontejner: [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle))  (Linux – Apache – MySQL – PHP)
 
@@ -20,30 +20,28 @@ Projekt má tuto strukturu:
 ```bash
 ├── compose.yaml                # definice multi-kontejneru
 ├── docker-up.sh                # sestaví a spustí multi-kontejner
-├── docker-prune.sh             # zastaví a smaže Docker objekty
-├── Dockerfiles
-|   ├── PhpApache               # virtuální Linux s Apache a PHP
-|   ├── Database                # MySQL kontejner
-|   └── univerzita.sql
+├── docker-prune.sh             # zastaví kontejnery a smaže Docker objekty
+├── Dockerfiles                 # soubory pro Docker
+│   ├── PhpApache               # virtuální Linux s Apache a PHP
+│   ├── Database                # MySQL kontejner
+│   └── univerzita.sql          # SQL skript pro inicializaci databáze
 └── www                         # odpovídá /var/www serveru
-     └── html                   # kořen webových stránek (Apache)
-         ├── .htaccess          # konfigurace Apache
-         ├── *.php              # PHP soubory = jednotlivé webové stránky
-         └── xml                # XML soubory
-             ├── *.xml
-             ├── *.xsd
-             ├── *.xsl
-             └── ...
+     ├── html                   # kořen webových stránek (v dosahu Apache)
+     │   ├── .htaccess          # konfigurace Apache
+     │   ├── *.php              # PHP soubory = jednotlivé webové stránky
+     │   └── ...                # atd.
+     ├── include
+     │   └── ...                # PHP include soubory
+     └── xml-side               # XML soubory mimo dosah Apache
+         └── ...
 ```
 
-(Projdeme konfigurační soubory)
-
 ### Jednotlivé soubory
-#### [docker-prune.sh](../Projekt%20-%20pracovn%C3%AD/docker-prune.sh)
+#### `docker-prune.sh`
 
 Zastaví běžící kontejnery a smaže veškerá pracovní Docker data (kontejnery, obrazy, disky).
 
-#### [compose.yaml](../Projekt%20-%20pracovn%C3%AD/compose.yaml)
+#### `compose.yaml`
 
 Nástroj *Docker Compose* propojí několik Docker obrazů do jednoho spolupracujícího celku a spustí tzv. multikontejnerovou aplikaci.
 
@@ -52,18 +50,17 @@ Konfigurace naší aplikace je popsána v souboru <tt>compose.yaml</tt>, podle k
 2. Stáhne databázový obraz [mysql](https://hub.docker.com/_/mysql) z *Docker Hub* repositáře, namapuje port databáze na vnější port 9906, nastaví root heslo, vytvoří uživatele *admin* a nastaví mu heslo, a inicializuje databázi.
 3. Stáhne docker obraz [adminer](https://hub.docker.com/_/adminer/) z *Docker Hub*, a nastaví jeho vnější port na 8080.
 
-#### [Dockerfiles/PhpApache](../Projekt%20-%20pracovn%C3%AD/Dockerfiles/PhpApache)
+#### `Dockerfiles/PhpApache`
 
   Stáhne základní obraz Linuxové distribuce s nainstalovaným jazykem PHP a Apache serverem. Nainstaluje aktualizace systému, které proběhly po vytvoření základního obrazu. Nainstaluje rozšíření PHP s XSL procesorem (který není součástí standardní distribuce PHP). Nainstaluje PHP rozšíření (driver) [myslqi](https://www.php.net/manual/en/book.mysqli.php) pro připojení PHP k MySQL databázi. Nainstaluje pomocné programy.
 
   Základní obraz [php:8-apache](https://hub.docker.com/_/php) je minimální Linuxová distribuce Debian, s nainstalovaným interpretrem PHP a webovým serverem Apache ([httpd](https://en.wikipedia.org/wiki/Httpd)).
 
-
-#### [Dockerfiles/PhpApache](../Projekt%20-%20pracovn%C3%AD/Dockerfiles/PhpApache)
+#### `Dockerfiles/Database`
 
 Stáhne základní obraz s MySQL a inicializuje databázi ze SQL skriptu.
 
-#### [www/html/.htaccess](../Projekt%20-%20pracovn%C3%AD/www/html/.htaccess)
+#### `www/html/.htaccess`
 
 Povolí Apache, aby zobrazil index adresáře.
 
@@ -73,7 +70,7 @@ Celou sestavu spustíme pomocí [příkazu v terminálu](https://docs.docker.com
 ```bash
 docker compose up
 ```
-Docker Compose sestaví obrazy a spustí podle nich kombinaci kontejnerů. Pokud vše proběhne správně, bude naše webová aplikace přístupná v prohlížeči na URL [http://localhost:8000](http://localhost:8000).
+*Docker Compose* sestaví obrazy a spustí podle nich kombinaci kontejnerů. Pokud vše proběhne správně, bude naše webová aplikace přístupná v prohlížeči na URL [http://localhost:8000](http://localhost:8000) a administrace databáze na [http://localhost:8080](http://localhost:8080).
 
 Další užitečné, často používané příkazy pro Docker jsou:
 

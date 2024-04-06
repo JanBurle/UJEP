@@ -8,13 +8,13 @@ Každý XML kód se skládá z elementů, které se skládají ze značky (tag) 
 
 Element může také mít atributy, které obsahují dodatečnou informaci: [W3Schools XML Attributes](https://w3schools.com/xml/xml_attributes.asp).
 
-Místo atributů je možné využít další, vnořené elementy (děti – *children*) a neexistuje žádný standard pro to, jaká informace by měla být dodána jako element a jaká jako atribut. Já osobně doporučuji, aby elementy byly informace pro čtenáře a atributy informace pro aplikaci, kterou XML soubor zpracováváte. To ovšem může způsobat problém s tzv. validací. Více o problematice elementy vs. atributy naleznete na [W3Schools Elements vs. Attr](http://w3schools.com/xml/xml_dtd_el_vs_attr.asp).
+Místo atributů je možné využít další, vnořené elementy (děti – *children*) a neexistuje žádný standard pro to, jaká informace by měla být dodána jako element a jaká jako atribut. Doporučuje se, aby elementy byly informace pro čtenáře a atributy informace pro aplikaci, kterou XML soubor zpracováváte. To ovšem může způsobat problém s tzv. validací. Více o problematice elementy vs. atributy naleznete na [W3Schools Elements vs. Attr](http://w3schools.com/xml/xml_dtd_el_vs_attr.asp).
 
 Jelikož mohou mít XML elementy stejné názvy, ale zcela jiný význam, mohly by se elementy při zpracování aplikací plést. Z toho důvodu je možné k elementům přidat prefix, který elementy dále kategorizuje do jmenných prostorů (*namespaces*). Příklad může být problém table jako stolu a table jako tabulky: [W3Schools XML Namespaces](https://w3schools.com/xml/xml_namespaces.asp).
 
 ## Well-Formed XML
 
-XML představuje velice jednoduchý formát kódu, jelikož je struktura téměr celá na vás. Existuje pouze pár pravidel [XML syntaxe](https://w3schools.com/xml/xml_syntax.asp). Pokud je dodržíte, pak je váš XML dokument považován za tzv. dobře strukturovaný (*well-formed*):
+XML představuje velice jednoduchý formát kódu, jelikož jeho struktura je téměř celá závislá na uživateli. Existuje pouze několik základních pravidel [XML syntaxe](https://w3schools.com/xml/xml_syntax.asp). Pokud je dodržíte, pak je váš XML dokument považován za tzv. dobře strukturovaný (*well-formed*):
 1. XML dokument musí obsahovat kořenový element (ten nemá sourozence (*siblings*), jen děti (*children*)).
 2. Pokud je v XML dokumentu prolog (používáme pro specifikaci kódování, defaultně UTF-8), pak musí být prvním řádkem souboru.
 3. Všechny elementy musí být uzavřené (výjimku tvoří prolog).
@@ -26,7 +26,7 @@ XML představuje velice jednoduchý formát kódu, jelikož je struktura téměr
 9. Bílé znaky nejsou ořezávány.
 10. Přechod na nový řádek je pomocí znaku LF (*line feed*) – na to je nutné dát pozor při práci ve Windows.
 
-Zda je XML *well-formed* lze otestovat pomocí XML validátorů, např.: [W3Schools XML Validator](https://w3schools.com/xml/xml_validator.asp), nebo naším PHP validátorem.
+Zda je XML *well-formed* lze otestovat pomocí XML validátorů, např.: [W3Schools XML Validator](https://w3schools.com/xml/xml_validator.asp), nebo naším vlastním PHP validátorem.
 
 ## Příklad: well-formed XML
 

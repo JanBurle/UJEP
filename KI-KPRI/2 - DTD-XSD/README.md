@@ -54,8 +54,8 @@ Komplexní element [XSD Complex Elements](https://w3schools.com/xml/schema_compl
 ### XSD Indikátory
 
 Jazyk XSD obsahuje mechanismus indikátorů [XSD Indicators](https://w3schools.com/xml/schema_complex_indicators.asp), které jsou určené k tomu, aby řídily způsob používání XML elementů. Dělíme je na indikátory:
-1. Řádu – řídí pořadá elementů (all = libovolné pořadí, choice = exkluzivní výběr, sequence = přesně dané pořadí).
-2. Výskytu – řídí počet elementů (maxOccurs = maximální počet elementů, minOccurs = minimální počet elementů).
+1. Řádu – řídí pořadí elementů (*all* = libovolné pořadí, *choice* = exkluzivní výběr, *sequence* = přesně dané pořadí).
+2. Výskytu – řídí počet elementů (*maxOccurs* = maximální počet elementů, *minOccurs* = minimální počet elementů).
 3. Skupiny – řídí uspořádání prvků do pojmenovaných skupin.
 
 ### Substituční skupiny

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="student.xsl"?>
+<!-- <?xml-stylesheet type="text/xsl" href="student.xsl"?> -->
 <!--Měl by tedy obsahovat informace jako jméno, příjmení, studentské číslo, fakulta, aj. Některé informace můžete uložit do vnořených elementů, jiné do atributů.-->
 <studenti>
     <student st="98422" f="22156">

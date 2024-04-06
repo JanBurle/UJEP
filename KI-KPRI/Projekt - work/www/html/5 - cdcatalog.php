@@ -16,6 +16,7 @@
             xslt = new XSLTProcessor();
             xslt.importStylesheet(xsl);
             result = xslt.transformToFragment(xml, document);
+            console.log(result)
             document.getElementById("catalog").appendChild(result);
         }
     </script>

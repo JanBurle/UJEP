@@ -1,18 +1,5 @@
 # XPath
 
-### Stylování pomocí moderních CSS knihoven
-
-V praxi se pro stylování používají moderních CSS knihovny (frameworks). V úvahu přicházejí, mimo jiné:
-
-* [W3 CSS](https://www.w3schools.com/w3css)
-* [Tailwind](https://tailwindcss.com/) ([wiki](https://en.wikipedia.org/wiki/Tailwind_CSS))
-* [Bootstrap](https://getbootstrap.com/) ([wiki](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)))
-
-Najdete v nich mnoho připravených, vyladěných stylů a jejich kombinací pro vytváření responsivních webových stránek a aplikací.
-
-Pro stylování v příkladech je použito [W3.CSS](https://www.w3schools.com/w3css/) a [Font Awesome](https://fontawesome.com/).
-
-
 ## Přístup k obsahu souborů na serveru pomocí PHP
 
 Datové XML je možné na serveru umístit mimo přímý dosah Apache. (Ve skutečném (provozním) systému se také XML generuje za běhu z databázových dat.)

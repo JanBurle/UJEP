@@ -103,7 +103,7 @@ Jednoduchý PHP skript, který provede transformaci, je zde:
 
 * `5 - cdcatalog.php`
 
-#### Otázka: jak do výstupu vložit mezeru?
+## Otázka: jak do XSL výstupu vložit mezeru?
 Nezlomitelnou mezeru (non-breakable space):
 * Jako desítkový UTF kód: `&#160;`
 * Jako šestnáctkový UTF kód: `&#xA0;`
@@ -120,3 +120,17 @@ Ačkoli již na začátku 90. let, při divokém zrodu WWW a HTML, byli proponen
 Osvěžte si, jaké [značky HTML5](https://www.w3schools.com/tags/ref_byfunc.asp) obsahuje. Zde je [tutorál](https://www.freecodecamp.org/news/semantic-html5-elements/) k sémantickým elementům.
 
 HTML5 také umožňuje vlastní, [uživatelské značky](https://www.tutsinsider.com/html/html-custom-tags/) (další [popis](https://matthewjamestaylor.com/custom-tags)). Takové značky je vhodné a především praktické vždy ostylovat (pomocí CSS), jinak se chovají jako `<div>`.
+
+## Stylování pomocí moderních CSS knihoven
+
+V praxi se pro stylování používají moderních CSS knihovny (frameworks). V úvahu přicházejí, mimo jiné:
+
+* [W3 CSS](https://www.w3schools.com/w3css)
+* [Tailwind](https://tailwindcss.com/) ([wiki](https://en.wikipedia.org/wiki/Tailwind_CSS))
+* [Bootstrap](https://getbootstrap.com/) ([wiki](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)))
+
+Najdete v nich mnoho připravených, vyladěných stylů a jejich kombinací pro vytváření responsivních webových stránek a aplikací.
+
+Pokud stylujete jen pomocí "vanilla" CSS, je vhodné nejdříve vložit např. [normalize.css](https://necolas.github.io/normalize.css/).
+
+Pro stylování v příkladech je použito [W3.CSS](https://www.w3schools.com/w3css/) a [Font Awesome](https://fontawesome.com/).
