@@ -154,7 +154,6 @@ Vedle [standardních funkcí](https://www.php.net/manual/en/functions.user-defin
 * [include_once](https://www.php.net/manual/en/function.include-once.php)
 * [require_once](https://www.php.net/manual/en/function.require-once.php)
 
-
 ## HTML formuláře
 
 HTML [\<form>](https://www.w3schools.com/html/html_forms.asp) element jsme použili již v prvním projektu. Slouží k zadávání uživatelských dat, která jsou typicky (ale ne nezbytně) odeslána na server.
@@ -186,3 +185,9 @@ Možné úlohy:
 1. Doplňte formulář (method, `<input>`, ...) a použijte PHP superglobální proměnné tak, aby uživatel mohl zadat kód požadovaného předmětu.
 1. Použijte `<select>` a `<option>` tak, aby uživatel měl kódy předmětů na výběr.
 1. Zkuste napsat další transformační XSL soubor, který bude pro formulář generovat seznam předmětů na výběr v `<select>`.
+
+## PHP Sessions
+
+HTTP je [bezstavový protokol](https://dev.to/codexam/why-is-http-stateless-2m3p). Stav (datová paměť) se v PHP realizuje pomocí [sessions](https://www.w3schools.com/php/php_sessions.asp), které jsou řízeny předáváním PHPSESSID cookie.
+* [$_SESSION](https://www.php.net/manual/en/reserved.variables.session.php)
+* [$_COOKIE](https://www.php.net/manual/en/reserved.variables.cookies.php)

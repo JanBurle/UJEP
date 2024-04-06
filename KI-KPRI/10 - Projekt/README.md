@@ -19,5 +19,10 @@ Projekt by měl obsahovat následující:
 * Číst a nahrávat data z/do XML souborů.
 * XML data přenášená mezi klientem (front-end) a serverem (back-end) validovat.-
 * Volitelně (nepovinně) číst a nahrávat data z/do databáze, případně generovat XML data z databázových dat.
-* Mít několik webových stránek.
-* Stránky elegantně ostylovat.
+* Mít několik webových stránek, elegantně ostylovaných.
+* V klientu použít JavaScript.
+
+Nápady na zdokonalení ukázkového projektu:
+* Hledat a vypsat drinky podle: obtížnosti, přísad, země původu, autora ...
+* Sledovat, kolikrát byl recept na který drink zobrazen, a zobrazit tabulku nejpopulárnějších drinků.
+* ...
