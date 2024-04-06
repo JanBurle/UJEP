@@ -2,7 +2,7 @@
 <html>
 
 <body>
-    <a href='xml/cdcatalog.xml'>CD Catalog</a>
+    <a href='xml/CDs/cdcatalog.xml'>CD Catalog</a>
 </body>
 
 </html>
