@@ -22,14 +22,6 @@ services:
     ports:
       - 9906:3306
 
-  # database administration
-  # phpmyadmin: 
-  #   image: phpmyadmin 
-  #   environment:
-  #     PMA_HOST: database
-  #   ports:
-  #     - 8080:80                   # port 8080
-  
   adminer:
     image: adminer
     environment:

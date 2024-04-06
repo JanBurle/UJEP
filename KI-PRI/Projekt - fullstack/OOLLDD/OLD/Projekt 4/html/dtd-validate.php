@@ -93,11 +93,11 @@
     }
 
     // poslané soubory
-    $xmlFile = @$_FILES['xml'];
+    $tmpName = @$_FILES['xml'];
     $xsdFile = @$_FILES['dtd'];
 
     // Máme XML?
-    if (@$xmlTmpName = $xmlFile['tmp_name']) {
+    if (@$xmlTmpName = $tmpName['tmp_name']) {
         $dtdTmpName = $xsdFile['tmp_name'];
         $isValid = validate($xmlTmpName, $dtdTmpName);
         if ($isValid)

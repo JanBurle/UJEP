@@ -11,6 +11,7 @@ počet_hodnotících CDATA #FIXED "0">
 <!ELEMENT země_původu (#PCDATA)>
 
 <!ELEMENT doba_přípravy (#PCDATA)>
+<!ATTLIST doba_přípravy jednotka CDATA "min">
 
 <!ELEMENT obtížnost (začátečník|pokročilý|mistr)?>
 <!ELEMENT začátečník EMPTY>

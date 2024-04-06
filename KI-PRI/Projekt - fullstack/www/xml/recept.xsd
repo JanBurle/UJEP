@@ -6,17 +6,23 @@
 <xs:element name="země_původu" type="xs:string"/>
 <xs:element name="postup" type="xs:string"/>
 <xs:element name="obtížnost">
-    <xs:complexType />
+  <xs:complexType>
+    <xs:choice>
+      <xs:element name="začátečník"/>
+      <xs:element name="pokročilý"/>
+      <xs:element name="mistr"/>
+    </xs:choice>
+  </xs:complexType>
 </xs:element>
 
 <!-- definition of simple types -->
 <xs:simpleType name="položka_typ">
-    <xs:restriction base="xs:string">
-        <xs:enumeration value="základ"/>
-        <xs:enumeration value="dochucovadlo"/>
-        <xs:enumeration value="dekorace"/>
-        <xs:enumeration value="nezařazené"/>
-    </xs:restriction>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="základ"/>
+    <xs:enumeration value="dochucovadlo"/>
+    <xs:enumeration value="dekorace"/>
+    <xs:enumeration value="nezařazené"/>
+  </xs:restriction>
 </xs:simpleType>
 
 <!-- definition of attributes -->
@@ -27,8 +33,7 @@
 <xs:attribute name="odkaz_koupě" type="xs:string"/>
 <xs:attribute name="typ" type="položka_typ" default="nezařazené"/>
 <xs:attribute name="množství" type="xs:float" default="1"/>
-<xs:attribute name="jednotka-objem" type="xs:string" default="cl"/>
-<xs:attribute name="jednotka-cas" type="xs:string" default="min"/>
+<xs:attribute name="jednotka" type="xs:string"/>
 
 <!-- definition of complex types -->
 <xs:element name="drink">
@@ -69,7 +74,7 @@
             <xs:extension base="xs:string">
                 <xs:attribute ref="odkaz_koupě"/>
                 <xs:attribute ref="typ"/>
-                <xs:attribute ref="jednotka-objem"/>
+                <xs:attribute ref="jednotka"/>
                 <xs:attribute ref="množství"/>
             </xs:extension>
         </xs:simpleContent>
@@ -80,7 +85,7 @@
   <xs:complexType>
     <xs:simpleContent>
       <xs:extension base="xs:decimal">
-        <xs:attribute ref="jednotka-cas"/>
+        <xs:attribute ref="jednotka"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>

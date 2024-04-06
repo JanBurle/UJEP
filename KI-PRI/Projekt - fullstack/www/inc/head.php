@@ -4,7 +4,7 @@
 <?php
 $INC = __DIR__;
 $XML = __DIR__ . '/../xml';
-$MENU = __DIR__ . '/../menu';
+$MENU = '/var/mixolog/menu';
 
 $title = 'Mixolog';
 $jmeno = @$_SESSION['jmeno'];

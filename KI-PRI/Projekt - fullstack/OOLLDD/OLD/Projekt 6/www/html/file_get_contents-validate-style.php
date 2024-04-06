@@ -1,7 +1,7 @@
 <?php
 $filenameBase = '../xml/fakulta';
 
-$xmlFile = "$filenameBase.xml";
+$tmpName = "$filenameBase.xml";
 $xsdFile = "$filenameBase.xsd";
 $xslFile = "$filenameBase.xsl";
 
@@ -10,7 +10,7 @@ $xslFile = "$filenameBase.xsl";
 
 try {
     $xml = new DOMDocument;
-    $xml->load($xmlFile) or die;
+    $xml->load($tmpName) or die;
     $xml->schemaValidate($xsdFile) or die;
 
     $xsl = new DOMDocument;
@@ -18,7 +18,7 @@ try {
 
     $xslt = new XSLTProcessor();
     $xslt->importStylesheet($xsl) or die;
-    (false!==$xmlTrans = $xslt->transformToXml($xml)) or die;
+    (false !== $xmlTrans = $xslt->transformToXml($xml)) or die;
 } catch (\Throwable) {
     die;
 }

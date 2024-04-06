@@ -78,7 +78,6 @@ function xmlValidateXSD($xmlPath, $xsdPath)
     libxml_use_internal_errors(false);
 
     // validace
-    echo $xsdPath;
     libxml_use_internal_errors(true);
     $isValid = $doc->schemaValidate($xsdPath);
     xmlPrintErrors();
@@ -87,3 +86,29 @@ function xmlValidateXSD($xmlPath, $xsdPath)
     return $isValid;
 }
 
+function xmlTransform($xmlPath, $xslPath)
+{
+    $xml = new DOMDocument;
+    $xsl = new DOMDocument;
+    $xslt = new XSLTProcessor();
+
+    if (!$xml->load($xmlPath) || !$xsl->load($xslPath) || !$xslt->importStylesheet($xsl))
+        return false;
+
+    return $xslt->transformToXml($xml);
+}
+
+function errorBox($text)
+{ ?>
+    <div class="bg-red-100 border border-red-400 text-red-700 m-8 p-4 rounded" role="alert">
+        <?= $text ?>
+    </div>
+
+<?php }
+function greenBox($text)
+{ ?>
+    <div class="bg-green-100 border border-green-400 text-green-700 m-8 p-4 rounded" role="alert">
+        <?= $text ?>
+    </div>
+
+<?php }

@@ -3,9 +3,12 @@
     <informace>
         <název>Mojito</název>
         <země_původu>Kuba</země_původu>
-        <doba_přípravy>1 minuta</doba_přípravy>
+        <doba_přípravy 
+            jednotka="min">
+            1
+        </doba_přípravy>
         <obtížnost>
-            <neznama />
+            <pokročilý />
         </obtížnost>
     </informace>
   <ingredience>

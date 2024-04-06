@@ -1,7 +1,7 @@
 <?php require __DIR__ . '/../inc/head.php';
 
 require "$INC/nav.php";
-require "$INC/xmlTools.php";
+require "$INC/tools.php";
 
 if (!$jmeno)
     die; ?>
@@ -20,14 +20,20 @@ if (!$jmeno)
 
 <?php
 
-if ($xmlFile = @$_FILES['xml']['tmp_name']) {
+if (($xmlFile = @$_FILES['xml']) && ($tmpName = @$xmlFile['tmp_name'])) {
     // $isValid = xmlValidateDTD($xmlFile, "$XML/recept.dtd");
-    $isValid = xmlValidateXSD($xmlFile, "$XML/recept.xsd");
-    if (!$isValid) { ?>
-        <div class="bg-red-100 border border-red-400 text-red-700 m-8 p-4 rounded" role="alert">
-            XML soubor není validní.
-        </div>
-    <?php }
+    $isValid = xmlValidateXSD($tmpName, "$XML/recept.xsd");
+    if (!$isValid)
+        errorBox('XML soubor není validní.');
+    else {
+        $name = $xmlFile['name'];
+        $target = "$MENU/$name";
+        if (file_exists($target))
+            errorBox('Recept už máme.');
+        elseif (rename($tmpName, $target))
+            greenBox("OK - $name nahráno");
+
+    }
 }
 
 require "$INC/foot.php";
