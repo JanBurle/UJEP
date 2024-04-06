@@ -191,3 +191,8 @@ Možné úlohy:
 HTTP je [bezstavový protokol](https://dev.to/codexam/why-is-http-stateless-2m3p). Stav (datová paměť) se v PHP realizuje pomocí [sessions](https://www.w3schools.com/php/php_sessions.asp), které jsou řízeny předáváním PHPSESSID cookie.
 * [$_SESSION](https://www.php.net/manual/en/reserved.variables.session.php)
 * [$_COOKIE](https://www.php.net/manual/en/reserved.variables.cookies.php)
+
+## Třídy a objekty
+
+V PHP existuje [OOP](https://www.w3schools.com/php/php_oop_what_is.asp). PHP má [třídy](https://www.w3schools.com/php/php_oop_classes_objects.asp), [dědičnost](https://www.w3schools.com/php/php_oop_inheritance.asp), atd.
+
