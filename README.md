@@ -6,3 +6,5 @@
 
 * [KI/PRI](./KI-PRI) - Programování pro internet \
   úterý 17:00 – 18:50
+* [KI/KPRI](./KI-KPRI) - Programování pro internet \
+  neděle 7.4. 14:00  – 17:50

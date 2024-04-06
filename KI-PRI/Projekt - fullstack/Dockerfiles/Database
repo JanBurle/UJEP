@@ -1,5 +1,0 @@
-# základní docker obraz
-FROM mysql
-
-# inicializace databáze
-ADD ./sql/uzivatele.sql /docker-entrypoint-initdb.d

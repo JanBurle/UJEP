@@ -14,7 +14,7 @@ Přednáší: [doc. RNDr. Viktor Maškov, DrSc.](https://ki.ujep.cz/cs/personaln
 
 Cvičení jsou vedena formou samostatné práce studentů na úkolech podle zadání v tomto repozitáři. Cvičící má úlohu mentora: pomáhá s vysvětlováním problematiky, hledá chyby v případě „záseku“ studenta a radí, jak cvičení vyřešit. Odpovědnost za učení je převážně na studentovi. Teorii potřebnou na cvičení studenti získají z přednášek a materiálů, které jsou ke každé lekci uvedené v tabulce sylabus cvičení. Student si musí tyto materiály před samotným cvičením projít, aby cvičením porozuměl.
 
-Cvičí: Ing. Jan Burle, Ph.D. <!--- []() -->
+Cvičí: Ing. Jan Burle, Ph.D.
 
 ## 3. Sylabus přednášek
 
