@@ -99,11 +99,24 @@ Proces je popsán v [XSLT - On the Server](https://www.w3schools.com/xml/xsl_ser
 Jednoduchý PHP skript, který provede transformaci, je zde:
 * `4 - cdcatalog.php`
 
-### ❖ Úkol 3.6: zdokonalení webového serveru
-
-Pokuste se svůj PHP skript upravit tak, aby, např., dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...)`). Zde máte volnou ruku – proveďte jakékoli úpravy, které uznáte za vhodné.
-
 ## Transformace XML/XSL client-side
 
 * `5 - cdcatalog.php`
 
+#### Otázka: jak do výstupu vložit mezeru?
+Nezlomitelnou mezeru (non-breakable space):
+* Jako desítkový UTF kód: `&#160;`
+* Jako šestnáctkový UTF kód: `&#xA0;`
+
+Obyčejnou mezeru také takto:
+* `<xsl:text> </xsl:text>`
+
+## Sémantické (významové) HTML
+
+HTML5 obsahuje, kromě historických nesémantických značek/elementů, jako jsou `<div>`, `<span>` atd., elementy [sémantické](https://www.w3schools.com/html/html5_semantic_elements.asp): `<header>`, `<footer>`, `<main>`, ...
+
+Ačkoli již na začátku 90. let, při divokém zrodu WWW a HTML, byli proponenti sémantiky v HTML, trvalo to dalších 15 let, než byly sémantické značky do HTML zavedeny.
+
+Osvěžte si, jaké [značky HTML5](https://www.w3schools.com/tags/ref_byfunc.asp) obsahuje. Zde je [tutorál](https://www.freecodecamp.org/news/semantic-html5-elements/) k sémantickým elementům.
+
+HTML5 také umožňuje vlastní, [uživatelské značky](https://www.tutsinsider.com/html/html-custom-tags/) (další [popis](https://matthewjamestaylor.com/custom-tags)). Takové značky je vhodné a především praktické vždy ostylovat (pomocí CSS), jinak se chovají jako `<div>`.

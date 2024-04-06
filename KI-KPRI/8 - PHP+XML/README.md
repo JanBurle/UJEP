@@ -1,32 +1,6 @@
-TODO
+# SimpleXML
 
-# Cvičení 5 – SimpleXML
-
-Dnes budete manipulovat XML data pomocí SimpleXML.
-
-### Předchozí cvičení:
-
-V předchozím cvičení jste vytvořili databázové tabulky pro vaše data o univerzitě, fakultách, studentech apod.
-
-### Obsah tohoto cvičení:
-
-* Inicializace databáze v Dockeru.
-* Čtení XML pomocí SimpleXML.
-* Navigace v SimpleXML objektu.
-* Vytvoření XML pomocí SimpleXML.
-* Čtení dat z databáze a generování XML.
-* Stylování pomocí moderních CSS knihoven.
-
-## Inicializace databáze v Dockeru
-
-Ve složce *Projekt 5* naleznete dále pozměněnou kostru projektu.
-* Kontejner *database* je nyní definován v dockerfile `Dockerfiles/Database`. V něm je přidán vnější SQL soubor `schema/univerzita.sql`, který inicializuje vždy, když je kontejner znovu sestaven.
-
-### ❖ Úkol 5.1
-
-Dokončete svůj model databázových tabulek. Velmi jednoduchý, nedokončený návrh pro inspiraci najdete v *Projektu 5*, vaše tabulky by ale měly odpovídat vašemu modelu, a být obsáhlejší.
-
-Databázi exportujte do SQL a exportovaný SQL vložte do souboru, kterým budete inicializovat databázi v kontejneru.
+XML data lze manipulovat pomocí SimpleXML.
 
 ## Čtení XML pomocí SimpleXML
 

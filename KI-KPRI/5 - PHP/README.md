@@ -1,29 +1,4 @@
-TODO
-
-# Cvičení 7 – XPath (řešení příkladů), základy PHP, HTML formuláře
-
-### Obsah tohoto cvičení:
-
-* Ukázková řešení příkladů XPath z minulého cvičení.
-* Základy PHP (přehled, letem-světem).
-* HTML formuláře, HTTP post, get.
-* Parametry v XSL.
-
-## XPath – řešení
-
-V projektu [XPath - řešení](../XPath%20-%20%C5%99e%C5%A1en%C3%AD) naleznete ukázková řešení [XPath/XSLT problémů](../Cvi%C4%8Den%C3%AD%206#xsl-xpath-filtrov%C3%A1n%C3%AD-%C5%99azen%C3%AD) z minulého cvičení.[^1] 
-
-Řešení nejsou samozřejmě jediná možná. Jsou také jen nastíněná a potřebují dokončit tak, aby jejich výstupem bylo buď validní HTML nebo XML.
-
-V kořenovém adresáři `www/html` je soubor [.htaccess](https://httpd.apache.org/docs/current/howto/htaccess.html) ve kterém je povoleno, aby Apache generoval obsah adresáře. Nemusíme tak mít soubor `index.php` (nebo `index.html`).
-
-[^1]: Kredit: RŠ, MF.
-
-### ❖ Úkol 7.1 – dokončete ukázkové řešení
-
-Projděte si předložená XPath/XSLT řešení a porovnejte se svými. Vyberte si některá a dokončete příslušný XSL soubor tak, aby výstupem bylo buď validní HTML nebo XML.
-
-## Základy PHP – přehled
+# Základy PHP, HTML formuláře
 
 [PHP](https://en.wikipedia.org/wiki/PHP) vzniklo před třiceti lety.
 
@@ -48,10 +23,10 @@ Pokud je v konfiguraci PHP zapnuto `short_open_tag`, lze pro vkládání PHP kó
 Každý příkaz v PHP končí středníkem, s výjimkou posledního příkazu v bloku (před `?>`) – zde je středník nepovinný.
 ⮕ [Instruction separation](https://www.php.net/manual/en/language.basic-syntax.instruction-separation.php)
 
-Příklady (*Projekt 7*): 
-* Jednoduchá HTML5 šablona: `html5-template.php` 
-* Neúplné HTML5: `html5-incomplete.php`
-* PHP Info: `phpinfo.php`
+Příklady: 
+* Jednoduchá HTML5 šablona: `php/html5-template.php` 
+* Neúplné HTML5: `php/html5-incomplete.php`
+* PHP Info: `php/phpinfo.php`
 
 ### echo, print, print_r, var_dump
 
@@ -65,25 +40,7 @@ Diagnostické výpisy jsou možné pomocí [var_dump](https://www.php.net/manual
 
 
 Příklady:
-```php
-<?php echo 'one', 'two', 'three'; ?>
-```
-
-```php
-<?= 'shortcut', 'one', 'two', 'three'; ?>
-```
-
-```php
-<?php print 'print'; ?>
-```
-
-```php
-<?php print_r(['print']); ?>
-```
-
-```php
-<?php var_dump('var'); ?>
-```
+* `php/echo.php`
 
 ### Generování HTML z PHP
 
@@ -218,63 +175,14 @@ PHP má vestavěné tzv. [superglobals](https://www.php.net/manual/en/language.v
 * [$_REQUEST](https://www.php.net/manual/en/reserved.variables.request.php) obsahuje totéž, co `$_GET`, `$_POST` a `$_COOKIE`.
 * [$_SERVER](https://www.php.net/manual/en/reserved.variables.server.php) obsahuje informace o serveru a příchozím požadavku.
 
-### ❖ Úkol 7.2 – prozkoumejte možnosti HTML formulářů
+* Příklad: `php/form.php`
 
-V *Projektu 7* je skript `form.php`. Použijte jej jako základ pro experiment s `<form>`. Vyzkoušejte:
-* method: `get` / `post`
-* action: přechod na jinou stránku
-* `<input>`: použijte různé typy dat
+### Příklad – tabulka předmětů
 
-Formulář po případě ostylujte.
+Skript `php/form-predmety.php` obsahuje variantu ukázkového řešení XPath problému č. 4 – tabulku s údaji pro daný předmět. Transformačnímu souboru `studium-predmet.xsl` je kód předmětu předán z PHP jako parametr.
 
-### ❖ Úkol 7.3 – tabulka předmětů
+Možné úlohy: 
 
-Skript `form-predmety.php` obsahuje variantu ukázkového řešení XPath problému č. 4 – tabulku s údaji pro daný předmět. Transformačnímu souboru `studium-predmet.xsl` je kód předmětu předán z PHP jako parametr.
 1. Doplňte formulář (method, `<input>`, ...) a použijte PHP superglobální proměnné tak, aby uživatel mohl zadat kód požadovaného předmětu.
 1. Použijte `<select>` a `<option>` tak, aby uživatel měl kódy předmětů na výběr.
 1. Zkuste napsat další transformační XSL soubor, který bude pro formulář generovat seznam předmětů na výběr v `<select>`.
-
-## Příští týden
-
-* HTML a Javascript
-* XML DOM
-
-<!-- 
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-
-  <xsl:template match="/">
-    <xsl:apply-templates select="//predmet">
-      <xsl:sort select="@kod" order="ascending"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template match="predmet">
-    <option>
-      <xsl:value-of select="@kod"/>
-    </option>
-  </xsl:template>
-</xsl:stylesheet>
-
-
-function tabulkaOption()
-{
-    $xml = new DOMDocument;
-    $xml->load('../xml/studium.xml');
-
-    $xsl = new DOMDocument;
-    $xsl->load("../xml/sp.xsl");
-
-    $xslt = new XSLTProcessor();
-    $xslt->importStylesheet($xsl);
-
-    return $xslt->transformToXml($xml);
-}
-
-<form>
-    <select name="kod">
-        <?= tabulkaOption() ?>
-    </select>
-    <input type="submit">
-</form>
- -->
