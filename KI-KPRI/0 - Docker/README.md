@@ -2,7 +2,7 @@
 
 Jako pracovní vývojové prostředí použijeme Docker kontejner (virtuální Linux) + VSCode (IDE).
 
-Z repozitáře [KI-KPRI](../) si stáhněte [pracovní projekt](../Projekt%20-%20pracovní).
+Z repozitáře [KI-KPRI](../) si stáhněte [pracovní projekt](../Projekt%20-%20work).
 
 ## Docker kontejner: [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle))  (Linux – Apache – MySQL – PHP)
 
@@ -19,90 +19,69 @@ Z docker obrazů lze pak spouštět nezávislé docker kontejnery, to jest běž
 Projekt má tuto strukturu:
 ```bash
 ├── compose.yaml                # definice multi-kontejneru
+├── docker-up.sh                # sestaví a spustí multi-kontejner
 ├── docker-prune.sh             # zastaví a smaže Docker objekty
 ├── Dockerfiles
 |   ├── PhpApache               # virtuální Linux s Apache a PHP
 |   ├── Database                # MySQL kontejner
 |   └── univerzita.sql
 └── www                         # odpovídá /var/www serveru
-     ├── html                   # kořen webových stránek (Apache)
-     |   ├── *.php              # PHP soubory = jednotlivé webové stránky
-     |   └── ...
-     └── xml                    # XML soubory, nejsou přímo přístupné z Apache
-         ├── *.xml
-         ├── *.xsd
-         ├── *.xsl
-         └── ...
+     └── html                   # kořen webových stránek (Apache)
+         ├── .htaccess          # konfigurace Apache
+         ├── *.php              # PHP soubory = jednotlivé webové stránky
+         └── xml                # XML soubory
+             ├── *.xml
+             ├── *.xsd
+             ├── *.xsl
+             └── ...
 ```
 
+(Projdeme konfigurační soubory)
 
 ### Jednotlivé soubory
-* [compose.yaml](/Projekt%207/compose.yaml)
-* []()
-```Dockerfile
-# základní Docker obraz s PHP a Apache
-FROM php:8-apache
+#### [docker-prune.sh](../Projekt%20-%20pracovn%C3%AD/docker-prune.sh)
 
-# aktualizace systému
-RUN apt update && apt upgrade -y
+Zastaví běžící kontejnery a smaže veškerá pracovní Docker data (kontejnery, obrazy, disky).
 
-# instalace rozšíření pro XSL procesor
-RUN apt install -y libxslt1-dev
-RUN docker-php-ext-install xsl
+#### [compose.yaml](../Projekt%20-%20pracovn%C3%AD/compose.yaml)
 
-# instalace rozšíření mysqli pro komunikaci s mysql databází
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+Nástroj *Docker Compose* propojí několik Docker obrazů do jednoho spolupracujícího celku a spustí tzv. multikontejnerovou aplikaci.
 
-# úklid dále nepotřebných souborů
-RUN apt remove -y libxslt1-dev icu-devtools libicu-dev libxml2-dev
-RUN rm -rf /var/lib/apt/lists/*
+Konfigurace naší aplikace je popsána v souboru <tt>compose.yaml</tt>, podle kterého Docker Compose:
+1. Sestaví obraz z *Dockerfile* PhpApache, propojí ho s databázovým obrazem, a nastaví vnější port webového serveru na 8000. Dále mapuje vnitřní adresář Apache serveru, ve kterém jsou data pro webovou stránku a jiné, na náš vnější adresář.
+2. Stáhne databázový obraz [mysql](https://hub.docker.com/_/mysql) z *Docker Hub* repositáře, namapuje port databáze na vnější port 9906, nastaví root heslo, vytvoří uživatele *admin* a nastaví mu heslo, a inicializuje databázi.
+3. Stáhne docker obraz [adminer](https://hub.docker.com/_/adminer/) z *Docker Hub*, a nastaví jeho vnější port na 8080.
+
+#### [Dockerfiles/PhpApache](../Projekt%20-%20pracovn%C3%AD/Dockerfiles/PhpApache)
+
+  Stáhne základní obraz Linuxové distribuce s nainstalovaným jazykem PHP a Apache serverem. Nainstaluje aktualizace systému, které proběhly po vytvoření základního obrazu. Nainstaluje rozšíření PHP s XSL procesorem (který není součástí standardní distribuce PHP). Nainstaluje PHP rozšíření (driver) [myslqi](https://www.php.net/manual/en/book.mysqli.php) pro připojení PHP k MySQL databázi. Nainstaluje pomocné programy.
+
+  Základní obraz [php:8-apache](https://hub.docker.com/_/php) je minimální Linuxová distribuce Debian, s nainstalovaným interpretrem PHP a webovým serverem Apache ([httpd](https://en.wikipedia.org/wiki/Httpd)).
+
+
+#### [Dockerfiles/PhpApache](../Projekt%20-%20pracovn%C3%AD/Dockerfiles/PhpApache)
+
+Stáhne základní obraz s MySQL a inicializuje databázi ze SQL skriptu.
+
+#### [www/html/.htaccess](../Projekt%20-%20pracovn%C3%AD/www/html/.htaccess)
+
+Povolí Apache, aby zobrazil index adresáře.
+
+### Docker v příkazové řádce
+
+Celou sestavu spustíme pomocí [příkazu v terminálu](https://docs.docker.com/engine/reference/commandline/compose_up/):
+```bash
+docker compose up
 ```
-*Dockerfile* je soubor, který slouží Dockeru pro vytvoření obrazu. Uvedený Dockerfile provede následující:
-* Stáhne základní obraz Linuxové distribuce s nainstalovaným jazykem PHP a Apache serverem.
-* Nainstaluje aktualizace systému, které proběhly po vytvoření základního obrazu.
-* Nainstaluje rozšíření PHP s XSL procesorem (který není součástí standardní distribuce PHP).
-* Nainstaluje PHP rozšíření (driver) [myslqi](https://www.php.net/manual/en/book.mysqli.php) pro připojení PHP k MySQL databázi.
+Docker Compose sestaví obrazy a spustí podle nich kombinaci kontejnerů. Pokud vše proběhne správně, bude naše webová aplikace přístupná v prohlížeči na URL [http://localhost:8000](http://localhost:8000).
 
-Základní obraz [php:8-apache](https://hub.docker.com/_/php) je minimální Linuxová distribuce Debian, s nainstalovaným interpretrem PHP a webovým serverem Apache ([httpd](https://en.wikipedia.org/wiki/Httpd)).
+Další užitečné, často používané příkazy pro Docker jsou:
 
-#### `compose.yaml`
-```YAML
-services:
-  # PHP a Apache, popsáno v Dockerfile
-  php-apache:
-    container_name: php-apache
-    build:
-      context: ./php              # zde se nalézá Dockerfile
-      dockerfile: Dockerfile
-    depends_on:
-      - db
-    volumes:
-      - ./php/src:/var/www/html/  # mapování vnější/vnitřní složky
-    ports:
-      - 8000:80                   # mapování vnějšího/vnitřního portu Apache
-
-  # instalace databáze MySQL
-  db:
-    container_name: db
-    image: mysql                  # základní obraz
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: heslo
-    ports:
-      - 9906:3306                 # mapování vnějšího/vnitřního portu MySQL
-
-  # instalace phpmyadmin pro správu databází
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin  # základní obraz
-    ports:
-      - 8080:80                   # port 80 bude zveřejněn jako 8080
-    restart: always
-    environment:
-      PMA_HOST: db
-    depends_on:
-      - db
-```
-
+|                                     |                                       |
+|--------------                       |-----------                            |
+| Připojení terminálu k běžícímu kontejneru | <tt>docker compose exec -ti &lt;id> bash<tt>|
+| Vypsání všech běžících kontejnerů:  | <tt>docker ps</tt>                    |
+| Zastavení všech kontejnerů:         | <tt>docker stop $(docker ps -q)</tt>  |
+| Smazání všech kontejnerů:           | <tt>docker rm $(docker ps -aq)</tt>   |
+| Vypsání všech obrazů:               | <tt>docker images</tt>                |
+| Smazání všech obrazů:               | <tt>docker rmi $(docker images -q)</tt> |

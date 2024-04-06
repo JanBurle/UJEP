@@ -1,0 +1,40 @@
+# Značkovací jazyk XML
+
+Jazyk XML představuje standard pro počítačová data, které je možné vyměňovat mezi různými platformami. Mohu například stáhnout data z databáze a zobrazit je na mobilní aplikaci, webové stránce, textovém dokumentu nebo si je ponechat v raw podobě.
+
+Prohlédněte si ukázku XML kódu pro popis dat na následujícím odkazu: [W3Schools XML Introduction](https://w3schools.com/xml/xml_whatis.asp).
+
+Každý XML kód se skládá z elementů, které se skládají ze značky (tag) a textu: [W3Schools XML Elements](https://w3schools.com/xml/xml_elements.asp).
+
+Element může také mít atributy, které obsahují dodatečnou informaci: [W3Schools XML Attributes](https://w3schools.com/xml/xml_attributes.asp).
+
+Místo atributů je možné využít další, vnořené elementy (děti – *children*) a neexistuje žádný standard pro to, jaká informace by měla být dodána jako element a jaká jako atribut. Já osobně doporučuji, aby elementy byly informace pro čtenáře a atributy informace pro aplikaci, kterou XML soubor zpracováváte. To ovšem může způsobat problém s tzv. validací. Více o problematice elementy vs. atributy naleznete na [W3Schools Elements vs. Attr](http://w3schools.com/xml/xml_dtd_el_vs_attr.asp).
+
+Jelikož mohou mít XML elementy stejné názvy, ale zcela jiný význam, mohly by se elementy při zpracování aplikací plést. Z toho důvodu je možné k elementům přidat prefix, který elementy dále kategorizuje do jmenných prostorů (*namespaces*). Příklad může být problém table jako stolu a table jako tabulky: [W3Schools XML Namespaces](https://w3schools.com/xml/xml_namespaces.asp).
+
+## Well-Formed XML
+
+XML představuje velice jednoduchý formát kódu, jelikož je struktura téměr celá na vás. Existuje pouze pár pravidel [XML syntaxe](https://w3schools.com/xml/xml_syntax.asp). Pokud je dodržíte, pak je váš XML dokument považován za tzv. dobře strukturovaný (*well-formed*):
+1. XML dokument musí obsahovat kořenový element (ten nemá sourozence (*siblings*), jen děti (*children*)).
+2. Pokud je v XML dokumentu prolog (používáme pro specifikaci kódování, defaultně UTF-8), pak musí být prvním řádkem souboru.
+3. Všechny elementy musí být uzavřené (výjimku tvoří prolog).
+4. Značky jsou case sensitive.
+5. Elementy musí být řádně zanořené, nesmí se křížit.
+6. Hodnoty atributů musí být v uvozovkách, dvojitých nebo jednoduchých.
+7. Některé znaky (`<`, `&`) mají speciální význam a proto musí být vloženy jako entity (`&lt;`, `&amp;`).
+8. Komentáře (`<!--` ... `-->`) nesmí obsahovat dvě pomlčky jinde, než na konci komentáře.
+9. Bílé znaky nejsou ořezávány.
+10. Přechod na nový řádek je pomocí znaku LF (*line feed*) – na to je nutné dát pozor při práci ve Windows.
+
+Zda je XML *well-formed* lze otestovat pomocí XML validátorů, např.: [W3Schools XML Validator](https://w3schools.com/xml/xml_validator.asp), nebo naším PHP validátorem.
+
+## Příklad: well-formed XML
+
+Prohlédněte si XML kód `knihy.xml` a opravte ho tak, aby byl well-formed. Výsledek otestujte validátorem.
+
+## Návrh XML stromu
+
+XML nemá žádný standardní model pro grafickou reprezentaci, jako mají například třídy v OOP ve formě diagramů v jazyce UML. Přesto by se nám nějaký alespoň primitivní grafický model pro přemýšlení nad návrhem, komunikaci o datovém modelu v týmu nebo dokumentaci hodil. Jelikož XML představuje datovou strukturu, kde nalezneme prvotní značku (kořen), značky, obsahující další značky (větve) a značky, neobsahující žádné další značky (listy), nabízí se tak možnost zakreslit XML jako stromovou strukturu.
+
+Na stránce [W3 Schools XML Tree](https://w3schools.com/xml/xml_tree.asp) vidíte grafickou reprezentaci XML kódu pomocí stromové struktury. Pod obrázkem naleznete kód k příslušnému stromu.
+

@@ -1,0 +1,81 @@
+## Validace XML
+
+Well-formed XML soubor by měl ještě být validní. Aby byl XML dokument validní, pak se musí jeho struktura řídit šablonou ve formátu DTD (*Document Type Definition*) nebo XML Schema (novější typ šablony, která je sama o sobě XML). Představit si to lze obdobně jako v objektově orientovaném programování, kde v našem případě šablona odpovídá třídě a XML dokument odpovídá objektu (instanci třídy).
+
+## Jazyk DTD
+
+Ukázku DTD naleznete na stránce: [W3Schools XML DTD](https://w3schools.com/xml/xml_dtd.asp).
+
+Každý DTD dokument se skládá ze stavebních bloků: [W3Schools XML DTD Building Blocks](https://w3schools.com/xml/xml_dtd_building.asp) a DTD definuje strukturu na sebe navazujících bloků – jaké každý blok obsahuje potomky a jaké má příbuzné.
+
+1. Elementy [W3Schools XML DTD Elements](https://www.w3schools.com/xml/xml_dtd_elements.asp): mohou být prázdné, s daty, s potomky, libovolnými bloky (element, data) a o různém počtu bloků (právě 1, alespoň 1, nula a více, nula nebo jeden) nebo s výčtem konkrétních bloků pomojí spojky `|`.
+2. Atributy [W3Schools XML DTD Attributes](https://www.w3schools.com/xml/xml_dtd_attributes.asp): atributy mají typy (data, výčet, ID, odkaz na ID, entita, atd.) a hodnoty (pevně dané, povinné a volitelné).
+3. Entity [W3Schools XML DTD Entities](https://www.w3schools.com/xml/xml_dtd_entities.asp) - zkratky za konstantní hodnoty, které často využíváte.
+4. Parsovaná data - data mezi elementy, která budou zpracována parserem a entity budou rozvinuty
+5. Znaková data - data mezi elementy, která se berou doslovně a nejsou nijak zpracována (entity nebudou rozvinuty a v obsahu zůstane jejich alias).
+
+## Příklady XML a DTD
+
+XML datové soubory budeme validovat pomocí jazyka [PHP](https://cs.wikipedia.org/wiki/PHP) na našem [Apache](https://cs.wikipedia.org/wiki/Apache_HTTP_Server) webovém serveru.
+
+Validaci správné struktury datového souboru lze provést pomocí přiloženého [DTD](https://en.wikipedia.org/wiki/Document_type_definition) souboru.
+
+* `1 - Validace XML-DTD.php`
+
+Tento soubor obsahuje PHP skript, který validuje XML soubor, volitelně také vůči souboru DTD. PHP umí validovat pomocí DTD dat pouze pokud jsou součástí XML souboru. Proto tento skript vytvoří nový XML soubor, do kterého vloží DTD data.
+
+Tento postup je poněkud neobratný. V praxi je vhodné používat XSD soubory. DTD soubory používají zastaralý formát se specifickým jazykem a omezenými možnostmi, který se ale dobře čte a je snadno zapamatovatelný pro jednoduchou validaci.
+
+Prostudujte si soubory `fakulta.xml` a `student.xml` a jejich odpovídající DTD soubory. XML soubory validujte.
+
+## Jazyk XSD
+
+XSD (XML Schema Definiton) je alternativa k šabloně v DTD (document type definition) formátu. Tento způsob psaní schémat je složitější, ale i mocnější, než DTD.
+- Popis [XML Schema](https://w3schools.com/xml/xml_schema.asp)
+- Porovnání XSD a DTD schémat: [XML Schema How To](https://w3schools.com/xml/schema_howto.asp)
+
+### XSD dokument
+
+Základní stavební bloky XSD dokumentu jsou:
+1. Kořen [XSD &lt;schema>](https://w3schools.com/xml/schema_schema.asp) – každý XSD potřebuje kořenový element, v něm se mohou nacházet definice jmenných prostorů.
+2. Elementy – jsou dvou typů a to *simple* a *complex*; [XSD Simple Elements](https://w3schools.com/xml/schema_simple.asp) obsahují data v primitivních datových typech jako jsou string, decimal, integer, boolean, date a time; [XSD Complex Elements](https://w3schools.com/xml/schema_complex.asp) obsahují další elementy nebo atributy.
+3. Atributy [XSD Attributes](https://w3schools.com/xml/schema_simple_attributes.asp) – obsahují data stejných typů jako simple elementy a mohou mít implicitní (default), pevně dané (fixed) nebo vyžadované (required) hodnoty, a dělají z elementu komplexní typ.
+4. Restrikce (omezení) [XSD Restrictions](https://w3schools.com/xml/schema_facets.asp) – určují rozsah nebo výčet akceptovaných hodnot pro elementy nebo atributy.
+5. Data – jsou typu [string](https://w3schools.com/xml/schema_dtypes_string.asp), [date](https://w3schools.com/xml/schema_dtypes_date.asp), [numeric](https://w3schools.com/xml/schema_dtypes_numeric.asp), [misc](https://w3schools.com/xml/schema_dtypes_misc.asp) (boolean, binary, anyURI, double, float, atd.)
+
+### XSD Complex elements
+
+Komplexní element [XSD Complex Elements](https://w3schools.com/xml/schema_complex.asp) je element, který obsahuje další elementy, atribut a/nebo restrikce. Komplexní elementy jsou čtyř druhů:
+1. Prázdné elementy [XSD Empty Elements](https://w3schools.com/xml/schema_complex_empty.asp) – elementy bez obsahu, které ale mohou mít atributy (takže mohou obsahovat data).
+2. Pouze-elementy [XSD Elements Only](https://w3schools.com/xml/schema_complex_elements.asp) – element, který obsahuje pouze další elementy.
+3. Pouze-text [XSD Text Only Elements](https://w3schools.com/xml/schema_complex_text.asp) – element který obsahuje text a atributy.
+4. Smíšené [XSD Mixed Content](https://w3schools.com/xml/schema_complex_mixed.asp) – kombinace předchozích.
+
+### XSD Indikátory
+
+Jazyk XSD obsahuje mechanismus indikátorů [XSD Indicators](https://w3schools.com/xml/schema_complex_indicators.asp), které jsou určené k tomu, aby řídily způsob používání XML elementů. Dělíme je na indikátory:
+1. Řádu – řídí pořadá elementů (all = libovolné pořadí, choice = exkluzivní výběr, sequence = přesně dané pořadí).
+2. Výskytu – řídí počet elementů (maxOccurs = maximální počet elementů, minOccurs = minimální počet elementů).
+3. Skupiny – řídí uspořádání prvků do pojmenovaných skupin.
+
+### Substituční skupiny
+
+Další užitečným mechanismem je substituční mechanismus [XSD Element Substitution](https://w3schools.com/xml/schema_complex_subst.asp), který lze využít např. pro vícejazyčné XML dokumenty. XSD umožňuje definovat skupinu zaměnitelných elementů (tzv. substituční skupina), ve které jsou elementy vzájemně zaměnitelné.
+
+### XSD Libovolné elementy
+
+Pokud chceme ještě větší volnost a umožnit vložit uživateli v XML v nějaké části libovolné elementy, pak můžeme využít v XSD element <any> [XSD Any Element](https://w3schools.com/xml/schema_complex_any.asp). Obdobný mechanismus existuje i pro atributy elementů pomocí <anyAttribute> [XSD anyAttribute](https://w3schools.com/xml/schema_complex_anyattribute.asp).
+
+## Příklady XML a XSD
+
+Nyní budeme XML datové soubory validovat pomocí XSD souborů.
+
+* `2 - Validace XML-XSD.php`
+
+* Není potřeba přidávat (inject) DTD data do XML.
+
+Prostudujte si soubory `fakulta.xml` a `student.xml` a jejich odpovídající XSD soubory. XML soubory validujte. Opravte chyby.
+
+## Praktický úkol
+
+Vytvořte DTD a XSD soubory pro `knihy.xml`.
