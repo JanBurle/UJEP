@@ -31,4 +31,6 @@ $s = <<<HEREDOC
 HEREDOC;
 
 $xml = simplexml_load_string($s);
+echo '<pre>';
 print_r($xml);
+echo '</pre>';

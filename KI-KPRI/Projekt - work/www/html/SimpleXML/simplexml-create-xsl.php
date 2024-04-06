@@ -1,5 +1,5 @@
 <?php
-$xml = new SimpleXMLElement('<fakulty/>');
+$xml = new SimpleXMLElement('<?xml-stylesheet type="text/xsl" href="./xml/fakulta.xsl"?><fakulty/>');
 
 $fakulta = $xml->addChild('fakulta');
 $fakulta->addAttribute('id', 'Pri');
