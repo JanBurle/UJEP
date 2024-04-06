@@ -2,6 +2,8 @@
 
 Jako pracovní vývojové prostředí použijeme Docker kontejner (virtuální Linux) + VSCode (IDE).
 
+## Pracovní projekt (příklady)
+
 Stáhněte si [pracovní projekt](../Projekt%20-%20work).
 
 ## Docker kontejner: [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle))  (Linux – Apache – MySQL – PHP)

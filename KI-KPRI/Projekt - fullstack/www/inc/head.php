@@ -26,8 +26,10 @@ $jmeno = @$_SESSION['jmeno'];
             let button = document.getElementById('navbar-toggle');
             let menu = document.getElementById('navbar-default');
 
-            button.addEventListener('click', () => menu.classList.toggle('hidden'))
-            // function () { menu.classList.toggle('hidden'); });
+            // function toggleMenu() { menu.classList.toggle('hidden'); }
+            let toggleMenu = () => menu.classList.toggle('hidden')
+
+            button.addEventListener('click', toggleMenu)
         });
     </script>
 </head>

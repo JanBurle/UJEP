@@ -6,10 +6,9 @@ $pages = [
     '/menuXHR.php' => '(XHR)',
     '/menuFetch.php' => '(fetch)',
 ];
+
 if ($jmeno) // přihlášen
     $pages['/upload.php'] = 'Nahrát';
-
-
 ?>
 
 <!-- top navigation bar -->
