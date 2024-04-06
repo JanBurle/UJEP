@@ -62,7 +62,7 @@ Stáhne základní obraz s MySQL a inicializuje databázi ze SQL skriptu.
 
 #### `www/html/.htaccess`
 
-Povolí Apache, aby zobrazil index adresáře.
+V kořenovém adresáři `www/html` je soubor [.htaccess](https://httpd.apache.org/docs/current/howto/htaccess.html) ve kterém je povoleno, aby Apache generoval obsah adresáře. Nemusíme tak mít soubor `index.php` (nebo `index.html`).
 
 ### Docker v příkazové řádce
 

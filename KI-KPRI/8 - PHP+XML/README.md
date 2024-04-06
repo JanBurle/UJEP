@@ -1,6 +1,6 @@
 # SimpleXML
 
-XML data lze manipulovat pomocí SimpleXML.
+XML data lze v PHP manipulovat pomocí SimpleXML.
 
 ## Čtení XML pomocí SimpleXML
 

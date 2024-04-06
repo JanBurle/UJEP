@@ -1,6 +1,6 @@
 # PHP a databáze
 
-Databáze bývá integrální částí webových systémů. V našem projektu je použita dnes již standardní SQL databáze, [MySQL](https://www.mysql.com/). Další populární databáze jso např.
+Databáze bývá integrální částí webových systémů. V našem projektu je použita standardní SQL databáze, [MySQL](https://www.mysql.com/). Další populární SQL databáze jso např.
 * [PostgreSQL](https://www.postgresql.org/)
 * [MariaDB](https://mariadb.org/)
 * [EdgeDB](https://www.edgedb.com/)
@@ -20,3 +20,11 @@ Strukturu tabulek a vložená data vyexportujte jako SQL soubor.
 Seznamte se s PHP rozšířením MySQLi: [W3 Schools](https://www.w3schools.com/php/php_ref_mysqli.asp), [PHP Manual](https://www.php.net/manual/en/book.mysqli.php).
 
 MySQLi má duální (procedurální a objektově orientované) rozhraní.
+
+## Select, Insert, Update, Delete
+
+Základní příkazy SQL pro manipulaci s daty jsou:
+* [SELECT](https://www.w3schools.com/SQL/sql_select.asp)
+* [INSERT](https://www.w3schools.com/SQL/sql_insert.asp)
+* [UPDATE](https://www.w3schools.com/SQL/sql_update.asp)
+* [DELETE](https://www.w3schools.com/SQL/sql_delete.asp)
