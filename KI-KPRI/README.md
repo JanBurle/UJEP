@@ -15,3 +15,5 @@
 1. [PHP + XML](./8%20-%20PHP+XML)
 1. [PHP + MySQL](./9%20-%20PHP+MySQL)
 1. [Projekt (seminární práce)](./10%20-%20Projekt)
+
+Přednáška: XML, DTD, XML Schema, XSLT, XML DOM JavaScript v HTML a XML, PHP, PHP a XML
