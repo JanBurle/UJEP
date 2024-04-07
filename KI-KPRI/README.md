@@ -17,3 +17,7 @@
 1. [Projekt (seminární práce)](./10%20-%20Projekt)
 
 Přednáška: XML, DTD, XML Schema, XSLT, XML DOM JavaScript v HTML a XML, PHP, PHP a XML
+
+## Materiály
+
+[KPRI-projekty.zip](https://apoco.app/+UJEP/KPRI-projekty.zip)
