@@ -10,7 +10,7 @@ XML data lze v PHP manipulovat pomocí SimpleXML.
 
 Ze souboru pomocí [simplexml_load_file()](https://www.w3schools.com/Php/func_simplexml_load_file.asp):
 
-* `SimpleXML/simplexml-load-file.php`
+* [`SimpleXML/simplexml-load-file.php`](../Projekt%20-%20work/www/html/SimpleXML/simplexml-load-file.php)
 
 Z textu pomocí [simplexml_load_string()](https://www.w3schools.com/Php/func_simplexml_load_string.asp):
 
