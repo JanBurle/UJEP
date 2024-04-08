@@ -12,11 +12,11 @@ foreach ($fakulty as [$id, $nazev, $idDekan]) {
     if ($idDekan) {
         $dekan = $db->query("select jmeno, prijmeni, email from Osoba where id=$idDekan")->fetch_all();
         [$jmeno, $prijmeni, $email] = $dekan[0];
-        
+
         $dekan = $fakulta->addChild('dekan');
-        $dekan->addChild('jmeno',$jmeno);
-        $dekan->addChild('prijmeni',$prijmeni);
-        $dekan->addChild('email',$email);
+        $dekan->addChild('jmeno', $jmeno);
+        $dekan->addChild('prijmeni', $prijmeni);
+        $dekan->addChild('email', $email);
     }
 }
 

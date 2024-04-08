@@ -6,7 +6,7 @@ $xsdFile = "$filenameBase.xsd";
 $xslFile = "$filenameBase.xsl";
 
 // very basic, brutal error handling
-// error_reporting(0);
+error_reporting(0);
 
 try {
     $xml = new DOMDocument;
