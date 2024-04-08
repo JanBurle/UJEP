@@ -1,3 +1,3 @@
 # JavaScript a DOM
 
-[Viz Cvičení 8 KI/PRI](../../../../../tree/main/KI-PRI/Cvi%C4%8Den%C3%AD%208)
+Viz KI/PRI: [Cvičení 8](../../../../tree/main/KI-PRI/Cvi%C4%8Den%C3%AD%208)
