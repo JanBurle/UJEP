@@ -88,7 +88,7 @@ Do XML souboru (student, fakulta) přidejte řádku specifikace XSL stylu:
 <?xml-stylesheet type="text/xsl" href="....xsl"?>
 ```
 
-* `cdcatalog.xsl`
+* [`cdcatalog.xsl`](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.xsl)
 
 Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 
