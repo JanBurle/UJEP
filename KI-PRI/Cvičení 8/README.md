@@ -15,48 +15,60 @@ Při profesionálním vývoji JS softwaru se používá [transpilace a polyfills
 
 JS v prohlížeči má přístup k DOM a může jej měnit. Tak je možné např. implementovat SPA - Single Page Applications. Příklad: [fabrika.kestolu.cz](https://fabrika.kestolu.cz/).
 
-# [JS Tutorial](https://www.w3schools.com/js/default.asp)
+# JS Tutorial
+[JS Tutorial](https://www.w3schools.com/js/default.asp)
 
 Dnes nepotřebujeme Docker web server, stačí jednoduché .html soubory: [JS Tutorial](../../Projekty/JS%20Tutorial).
 
-## [jak vložit JS do stránky](https://www.w3schools.com/Js/js_whereto.asp)
+## Jak vložit JS do stránky
+[Jak vložit JS do stránky](https://www.w3schools.com/Js/js_whereto.asp)
+
 Pomocí značky `<script>` (dříve: `<script type="text/javascript">` - dnes není nutné specifikovat *type*)
 
 * [1 - whereto.html](../../Projekty/JS%20Tutorial/1%20-%20whereto.html)
 * [1 - whereto.xml](../../Projekty/JS%20Tutorial/1%20-%20whereto.xml)
 * [1 - whereto-xsl.xml](../../Projekty/JS%20Tutorial/1%20-%20whereto-xsl.xml) (nejde jako file://)
 
-## [Output](https://www.w3schools.com/Js/js_output.asp)
+## JS Output
+[JS Output](https://www.w3schools.com/Js/js_output.asp)
 
 Metody a vlastnosti (methods, properties) globálního objektu [window](https://www.w3schools.com/jsref/obj_window.asp) (`window.` není nutné psát)
 * [alert()](https://www.w3schools.com/jsref/met_win_alert.asp)
 * [console](https://www.w3schools.com/jsref/prop_win_console.asp)
 
-## [Příkazy](https://www.w3schools.com/Js/js_statements.asp)
+## Příkazy
+[Příkazy](https://www.w3schools.com/Js/js_statements.asp)
 
 Středníky odddělují příkazy - na konci řádky jsou nepovinné.
 
-## [Syntax](https://www.w3schools.com/Js/js_syntax.asp)
+## Syntax
+[Syntax](https://www.w3schools.com/Js/js_syntax.asp)
 
-## [Komentáře](https://www.w3schools.com/Js/js_comments.asp)
+## Komentáře
+[Komentáře](https://www.w3schools.com/Js/js_comments.asp)
 
-## [Proměnné](https://www.w3schools.com/Js/js_variables.asp)
+## Proměnné
+[Proměnné](https://www.w3schools.com/Js/js_variables.asp)
 
 Proměnné jsou "hoisted"! `let` proměnné nelze použít před inicializací, `const` musí být inicializované.
 
 * [2 - variables.html](../../Projekty/JS%20Tutorial/2%20-%20variables.html)
 
-## [Operátory](https://www.w3schools.com/Js/js_operators.asp)
+## Operátory
+[Operátory](https://www.w3schools.com/Js/js_operators.asp)
 
-## [Datové typy](https://www.w3schools.com/Js/js_datatypes.asp)
+## Datové typy
+[Datové typy](https://www.w3schools.com/Js/js_datatypes.asp)
 
-## [Funkce](https://www.w3schools.com/Js/js_functions.asp)
+## Funkce
+[Funkce](https://www.w3schools.com/Js/js_functions.asp)
 
 Standardní, anonymní, šipková notace.
 
 * [3 - functions.html](../../Projekty/JS%20Tutorial/3%20-%20functions.html)
 
-## [Řetězce](https://www.w3schools.com/Js/js_strings.asp)
+## Řetězce
+[Řetězce](https://www.w3schools.com/Js/js_strings.asp)
 
 * <code>'...'</code>
 * <code>"..."</code>
