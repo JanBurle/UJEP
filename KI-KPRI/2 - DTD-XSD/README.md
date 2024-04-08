@@ -71,7 +71,7 @@ Pokud chceme ještě větší volnost a umožnit vložit uživateli v XML v něj
 Nyní budeme XML datové soubory validovat pomocí XSD souborů.
 
 * `2 - Validace XML-XSD.php`
-* [2 - Validace XML-XSD.php](../../Projekt%20-%20work/www/html/2%20-%20Validace%20XML-XSD.php)
+* [2 - Validace XML-XSD.php](../Projekt%20-%20work/www/html/2%20-%20Validace%20XML-XSD.php)
 
 * Není potřeba přidávat (inject) DTD data do XML.
 
