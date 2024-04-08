@@ -25,9 +25,9 @@ Dnes nepotřebujeme Docker web server, stačí jednoduché .html soubory: [JS Tu
 
 Pomocí značky `<script>` (dříve: `<script type="text/javascript">` - dnes není nutné specifikovat *type*)
 
-* [1 - whereto.html](../../Projekty/JS%20Tutorial/1%20-%20whereto.html)
-* [1 - whereto.xml](../../Projekty/JS%20Tutorial/1%20-%20whereto.xml)
-* [1 - whereto-xsl.xml](../../Projekty/JS%20Tutorial/1%20-%20whereto-xsl.xml) (nejde jako file://)
+* [`1 - whereto.html`](../../Projekty/JS%20Tutorial/1%20-%20whereto.html)
+* [`1 - whereto.xml`](../../Projekty/JS%20Tutorial/1%20-%20whereto.xml)
+* [`1 - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/1%20-%20whereto-xsl.xml) (nejde jako file://)
 
 ## JS Output
 [JS Output](https://www.w3schools.com/Js/js_output.asp)
@@ -52,7 +52,7 @@ Středníky odddělují příkazy - na konci řádky jsou nepovinné.
 
 Proměnné jsou "hoisted"! `let` proměnné nelze použít před inicializací, `const` musí být inicializované.
 
-* [2 - variables.html](../../Projekty/JS%20Tutorial/2%20-%20variables.html)
+* [`2 - variables.html`](../../Projekty/JS%20Tutorial/2%20-%20variables.html)
 
 ## Operátory
 [Operátory](https://www.w3schools.com/Js/js_operators.asp)
@@ -65,16 +65,16 @@ Proměnné jsou "hoisted"! `let` proměnné nelze použít před inicializací, 
 
 Standardní, anonymní, šipková notace.
 
-* [3 - functions.html](../../Projekty/JS%20Tutorial/3%20-%20functions.html)
+* [`3 - functions.html`](../../Projekty/JS%20Tutorial/3%20-%20functions.html)
 
 ## Řetězce
 [Řetězce](https://www.w3schools.com/Js/js_strings.asp)
 
-* <code>'...'</code>
-* <code>"..."</code>
-* <code>\`...\`</code> template strings
+* `'...'`
+* `"..."`
+* `\`...\`` template strings
 
-* [4 - strings.html](../../Projekty/JS%20Tutorial/4%20-%20strings.html)
+* [`4 - strings.html`](../../Projekty/JS%20Tutorial/4%20-%20strings.html)
 
 ## Další
 
@@ -93,8 +93,8 @@ Standardní, anonymní, šipková notace.
 * [JavaScript AJAX](https://www.w3schools.com/XML/ajax_intro.asp)
 
 * [document](https://www.w3schools.com/js/js_htmldom_document.asp) ...
-* [5 - document.html](../../Projekty/JS%20Tutorial/5%20-%20document.html)
+* [`5 - document.html`](../../Projekty/JS%20Tutorial/5%20-%20document.html)
 
-* [Docker: dom](../../Projekty/JS%20Tutorial/dom)
+* [`Docker: dom`](../../Projekty/JS%20Tutorial/dom)
 
 
