@@ -1,4 +1,4 @@
-# Full-stack projekt – seminární práce
+# Seminární práce: full-stack projekt
 
 [Ukázkový projekt](../../Projekty/Projekt%20-%20fullstack) obsahuje části typické webové aplikace:
 * back-end (databáze, PHP, XML)
