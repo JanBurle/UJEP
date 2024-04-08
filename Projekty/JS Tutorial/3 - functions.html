@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        function square1(x) {
+            return x * x
+        }
+
+        let square2 = function(x) {
+            return x * x
+        }
+
+        let square3 = (x) => { return x * x }
+
+        let square4 = (x) => x * x
+
+        console.log(
+            square1(2), 
+            square2(2), 
+            square3(2),
+            square4(2),
+            (function(x) { return x * x})(2),   // "immediatelly invoked"
+            ((x) => x * x)(2),                  // "immediatelly invoked"
+        )
+    </script>
+</body>
+
+</html>

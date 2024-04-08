@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        {
+            // nedefinovaná proměnná
+            console.log('xA:', x)
+            x = 3
+            console.log('xB:', x)
+        }
+
+        {
+            // hoisted proměnná (bez inicializace)
+            console.log('yA:', y)
+            var y = 4
+            console.log('yB:', y)
+        }
+
+        {
+            // neinicializovaná proměnná
+            console.log('zA:', z)
+            let z 
+            console.log('zB:', z)
+        }
+
+        {
+            // neinicializovaná proměnná
+            const c 
+        }
+    </script>
+</body>
+
+</html>

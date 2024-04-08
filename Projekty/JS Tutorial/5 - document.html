@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        console.log(1, document)
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log(3, document)
+        })
+        alert('continue')
+    </script>
+</head>
+
+<body>
+    <div>A</div>
+
+    <script>
+        console.log(2, document)
+    </script>
+
+    <div>B</div>
+</body>
+
+</html>
