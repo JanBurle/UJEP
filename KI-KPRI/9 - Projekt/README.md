@@ -17,8 +17,8 @@ Vaším úkolem je:
 Projekt by měl obsahovat následující:
 * XML, XSD, XSL
 * Číst a nahrávat data z/do XML souborů.
-* XML data přenášená mezi klientem (front-end) a serverem (back-end) validovat.-
-* Volitelně (nepovinně) číst a nahrávat data z/do databáze, případně generovat XML data z databázových dat.
+* XML data přenášená mezi klientem (front-end) a serverem (back-end) validovat.
+* Volitelně (není to povinné) číst a nahrávat data z/do databáze, případně generovat XML data z databázových dat.
 * Mít několik webových stránek, elegantně ostylovaných.
 * V klientu použít JavaScript.
 
