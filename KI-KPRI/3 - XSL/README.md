@@ -23,7 +23,7 @@ Pomocí W3 validátoru ověřte validitu zdrojového kódu webových stránek, n
 
 Pokud nemá XML soubor příslušnou informaci o stylu, zobrazí jej prohlížeč jako stromovou strukturu.
 
-* `3 - cdcatalog.php`
+* [3 - cdcatalog.php](../Projekt%20-%20work/www/html/3%20-%20cdcatalog.php)
 
 ## CSS – kaskádové styly
 
