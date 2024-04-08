@@ -39,7 +39,7 @@ Do XML souboru přidejte řádku specifikace CSS stylu:
 ```
 V příslušném adresáři vytvořte odpovídající CSS soubor(y).
 
-* `cdcatalog.css`
+* [cdcatalog.css](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.css)
 
 Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 
