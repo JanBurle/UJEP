@@ -72,7 +72,7 @@ Standardní, anonymní, šipková notace.
 
 * <code>'...'</code>
 * <code>"..."</code>
-* <code>`...`</code> template strings
+* <code>\`...\`</code> template strings
 
 * [4 - strings.html](../../Projekty/JS%20Tutorial/4%20-%20strings.html)
 
