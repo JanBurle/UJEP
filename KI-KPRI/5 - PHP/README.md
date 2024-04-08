@@ -25,8 +25,8 @@ Každý příkaz v PHP končí středníkem, s výjimkou posledního příkazu v
 
 Příklady: 
 * Jednoduchá HTML5 šablona: [`php/html5-template.php`](../Projekt%20-%20work/www/html/php/html5-template.php) 
-* Neúplné HTML5: `php/html5-incomplete.php`
-* PHP Info: `php/phpinfo.php`
+* Neúplné HTML5: [`php/html5-incomplete.php`](../Projekt%20-%20work/www/html/php/html5-incomplete.php)
+* PHP Info: [`php/phpinfo.php`](../Projekt%20-%20work/www/html/php/phpinfo.php)
 
 ### echo, print, print_r, var_dump
 
@@ -38,9 +38,8 @@ Pro výpis složitějších typů, včetně jejich struktury, při ladění prog
 
 Diagnostické výpisy jsou možné pomocí [var_dump](https://www.php.net/manual/en/function.var-dump.php).
 
-
 Příklady:
-* `php/echo.php`
+* [`php/echo.php`](../Projekt%20-%20work/www/html/php/echo.php)
 
 ### Generování HTML z PHP
 
@@ -174,11 +173,11 @@ PHP má vestavěné tzv. [superglobals](https://www.php.net/manual/en/language.v
 * [$_REQUEST](https://www.php.net/manual/en/reserved.variables.request.php) obsahuje totéž, co `$_GET`, `$_POST` a `$_COOKIE`.
 * [$_SERVER](https://www.php.net/manual/en/reserved.variables.server.php) obsahuje informace o serveru a příchozím požadavku.
 
-* Příklad: `php/form.php`
+* Příklad: [`php/form.php`](../Projekt%20-%20work/www/html/php/form.php)
 
 ### Příklad – tabulka předmětů
 
-Skript `php/form-predmety.php` obsahuje variantu ukázkového řešení XPath problému č. 4 – tabulku s údaji pro daný předmět. Transformačnímu souboru `studium-predmet.xsl` je kód předmětu předán z PHP jako parametr.
+Skript [`php/form-predmety.php`](../Projekt%20-%20work/www/html/php/form-predmety.php)  obsahuje variantu ukázkového řešení XPath problému č. 4 – tabulku s údaji pro daný předmět. Transformačnímu souboru `studium-predmet.xsl` je kód předmětu předán z PHP jako parametr.
 
 Možné úlohy: 
 
