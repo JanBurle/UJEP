@@ -10,13 +10,10 @@
 1. [Zobrazení XML souborů (CSS, XSLT, XPath)](./3%20-%20XSL)
 1. [XPath](./4%20-%20XPath)
 1. [PHP](./5%20-%20PHP)
-1. [JavaScript v HTML a XML, DOM](./6%20-%20JavaScript)
-1. [XML DOM](./7%20-%20XML-DOM)
-1. [PHP + XML](./8%20-%20PHP+XML)
-1. [PHP + MySQL](./9%20-%20PHP+MySQL)
-1. [Projekt (seminární práce)](./10%20-%20Projekt)
-
-Přednáška: XML, DTD, XML Schema, XSLT, XML DOM JavaScript v HTML a XML, PHP, PHP a XML
+1. [JavaScript a DOM](./6%20-%20JavaScript%20a%20DOM)
+1. [PHP + XML](./7%20-%20PHP+XML)
+1. [PHP + MySQL](./8%20-%20PHP+MySQL)
+1. [Projekt (seminární práce)](./9%20-%20Projekt)
 
 ## Materiály
 
