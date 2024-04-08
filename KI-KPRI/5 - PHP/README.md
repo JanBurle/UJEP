@@ -24,7 +24,7 @@ Každý příkaz v PHP končí středníkem, s výjimkou posledního příkazu v
 ⮕ [Instruction separation](https://www.php.net/manual/en/language.basic-syntax.instruction-separation.php)
 
 Příklady: 
-* Jednoduchá HTML5 šablona: `php/html5-template.php` 
+* Jednoduchá HTML5 šablona: [`php/html5-template.php`](../Projekt%20-%20work/www/html/php/html5-template.php) 
 * Neúplné HTML5: `php/html5-incomplete.php`
 * PHP Info: `php/phpinfo.php`
 
