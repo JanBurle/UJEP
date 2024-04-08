@@ -76,8 +76,13 @@ Standardní, anonymní, šipková notace.
 
 ## HTML a XML DOM
 
+* [JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
+* [JavaScript XML DOM](https://www.w3schools.com/XML/dom_intro.asp)
+* [JavaScript AJAX](https://www.w3schools.com/XML/ajax_intro.asp)
+
 * [document](https://www.w3schools.com/js/js_htmldom_document.asp) ...
 * [5 - document.html](../Projekty/JS%20Tutorial/5%20-%20document.html)
-* [5 - dom.html](../Projekty/JS%20Tutorial/5%20-%20dom.html)
+
+* [Docker: dom](../Projekty/JS%20Tutorial/dom)
 
 
