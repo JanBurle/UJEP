@@ -23,7 +23,7 @@ Pomocí W3 validátoru ověřte validitu zdrojového kódu webových stránek, n
 
 Pokud nemá XML soubor příslušnou informaci o stylu, zobrazí jej prohlížeč jako stromovou strukturu.
 
-* [3 - cdcatalog.php](../Projekt%20-%20work/www/html/3%20-%20cdcatalog.php)
+* [`3 - cdcatalog.php`](../Projekt%20-%20work/www/html/3%20-%20cdcatalog.php)
 
 ## CSS – kaskádové styly
 
@@ -39,7 +39,7 @@ Do XML souboru přidejte řádku specifikace CSS stylu:
 ```
 V příslušném adresáři vytvořte odpovídající CSS soubor(y).
 
-* [cdcatalog.css](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.css)
+* [`cdcatalog.css`](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.css)
 
 Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 
@@ -97,11 +97,11 @@ Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 Proces je popsán v [XSLT - On the Server](https://www.w3schools.com/xml/xsl_server.asp).
 
 Jednoduchý PHP skript, který provede transformaci, je zde:
-* `4 - cdcatalog.php`
+* [`4 - cdcatalog.php`](../Projekt%20-%20work/www/html/4%20-%20cdcatalog.php)
 
 ## Transformace XML/XSL client-side
 
-* `5 - cdcatalog.php`
+* [`5 - cdcatalog.php`](../Projekt%20-%20work/www/html/5%20-%20cdcatalog.php)
 
 ## Otázka: jak do XSL výstupu vložit mezeru?
 Nezlomitelnou mezeru (non-breakable space):

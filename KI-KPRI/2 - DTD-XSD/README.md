@@ -20,7 +20,7 @@ XML datové soubory budeme validovat pomocí jazyka [PHP](https://cs.wikipedia.o
 
 Validaci správné struktury datového souboru lze provést pomocí přiloženého [DTD](https://en.wikipedia.org/wiki/Document_type_definition) souboru.
 
-* [1 - Validace XML-DTD.php](../Projekt%20-%20work/www/html/1%20-%20Validace%20XML-DTD.php)
+* [`1 - Validace XML-DTD.php`](../Projekt%20-%20work/www/html/1%20-%20Validace%20XML-DTD.php)
 
 Tento soubor obsahuje PHP skript, který validuje XML soubor, volitelně také vůči souboru DTD. PHP umí validovat pomocí DTD dat pouze pokud jsou součástí XML souboru. Proto tento skript vytvoří nový XML soubor, do kterého vloží DTD data.
 
@@ -70,7 +70,7 @@ Pokud chceme ještě větší volnost a umožnit vložit uživateli v XML v něj
 
 Nyní budeme XML datové soubory validovat pomocí XSD souborů.
 
-* [2 - Validace XML-XSD.php](../Projekt%20-%20work/www/html/2%20-%20Validace%20XML-XSD.php)
+* [`2 - Validace XML-XSD.php`](../Projekt%20-%20work/www/html/2%20-%20Validace%20XML-XSD.php)
 
 * Není potřeba přidávat (inject) DTD data do XML.
 
