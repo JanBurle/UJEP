@@ -1,13 +1,15 @@
 # JavaScript v HTML
 
-[JavaScript](https://en.wikipedia.org/wiki/JavaScript) je „programovací jazyk pro web“. Oficiální název je [ECMAScript](https://www.w3schools.com/Js/js_versions.asp) (ES). Verze ES6 v roce 2015 představovala podstatnou revizi ES. Následovala verze ES7 (2016)
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript) (JS) je „programovací jazyk pro web“. Odpovídá [ECMAScript](https://www.w3schools.com/Js/js_versions.asp) (ES) standardu. Verze ES6 v roce 2015 představovala podstatnou revizi ES. Následovala verze ES7 (2016)
 a novější verze jsou jedoduše označeny letopočtem (2016+).
 
 Současná verze je [ES2023](https://ecma-international.org/publications-and-standards/standards/ecma-262/).
 
-Prohlížeče obsahují "runtime environment" (JavaScript Engine) pro ES. Ten JavaScript *interpretuje* a také může požít [JIT kompilaci](https://en.wikipedia.org/wiki/Just-in-time_compilation). Prohlížeče založené na [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) používají [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)).
+Prohlížeče obsahují "runtime environment" (JavaScript Engine). Ten JavaScript *interpretuje* a také může požít [JIT kompilaci](https://en.wikipedia.org/wiki/Just-in-time_compilation). Prohlížeče založené na [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) používají [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)).
 
-JavaScript může běžet i mimo prohlížeč, např. na serveru, v [Node.js](https://nodejs.org/) nebo v [Deno](https://deno.com/). [TypeScript](https://www.typescriptlang.org/) pak udělal z JavaScriptu plně moderní programovací jazyk, pro běžné, *nekritické* aplikace.
+JavaScript může běžet i mimo prohlížeč, např. jako desktopová aplikace nebo na webovém serveru, v [Node.js](https://nodejs.org/) nebo v [Deno](https://deno.com/). [TypeScript](https://www.typescriptlang.org/) pak udělal z JavaScriptu plně moderní programovací jazyk, pro běžné, *nekritické* aplikace.
+
+V prohlížeči má JS přístup k různým [WEB API](https://developer.mozilla.org/en-US/docs/Web/API) (mj. DOM).
 
 Různé prohlížeče sledují [vývoj ECMA různě](https://compat-table.github.io/compat-table/es2016plus/). Totéž platí pro stále se vyvíjející HTML, CSS a JS API: [Can I use...?](https://caniuse.com/)
 
@@ -18,7 +20,7 @@ JS v prohlížeči má přístup k DOM a může jej měnit. Tak je možné např
 # JS Tutorial
 [JS Tutorial](https://www.w3schools.com/js/default.asp)
 
-Dnes nepotřebujeme Docker web server, stačí jednoduché .html soubory: [JS Tutorial](../../Projekty/JS%20Tutorial).
+Dnes pro většinu příkladů nepotřebujeme Docker web server, stačí jednoduché `.html` soubory: [Projekt: JS Tutorial](../../Projekty/JS%20Tutorial).
 
 ## Jak vložit JS do stránky
 [Jak vložit JS do stránky](https://www.w3schools.com/Js/js_whereto.asp)
@@ -27,7 +29,7 @@ Pomocí značky `<script>` (dříve: `<script type="text/javascript">` - dnes ne
 
 * [`1 - whereto.html`](../../Projekty/JS%20Tutorial/1%20-%20whereto.html)
 * [`1 - whereto.xml`](../../Projekty/JS%20Tutorial/1%20-%20whereto.xml)
-* [`1 - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/1%20-%20whereto-xsl.xml) (nejde jako file://)
+* [`1 - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/1%20-%20whereto-xsl.xml) (CORS: nejde z URL `file://...`)
 
 ## JS Output
 [JS Output](https://www.w3schools.com/Js/js_output.asp)
@@ -40,6 +42,7 @@ Metody a vlastnosti (methods, properties) globálního objektu [window](https://
 [Příkazy](https://www.w3schools.com/Js/js_statements.asp)
 
 Středníky odddělují příkazy - na konci řádky jsou nepovinné.
+Dvě školy: středníky všude / jen tam, kde jsou nutné
 
 ## Syntax
 [Syntax](https://www.w3schools.com/Js/js_syntax.asp)
@@ -50,7 +53,7 @@ Středníky odddělují příkazy - na konci řádky jsou nepovinné.
 ## Proměnné
 [Proměnné](https://www.w3schools.com/Js/js_variables.asp)
 
-Proměnné jsou "hoisted"! `let` proměnné nelze použít před inicializací, `const` musí být inicializované.
+Deklarace proměnných jsou ["hoisted"](https://www.w3schools.com/js/js_hoisting.asp)! `let` proměnné nelze použít před inicializací, `const` musí být inicializované.
 
 * [`2 - variables.html`](../../Projekty/JS%20Tutorial/2%20-%20variables.html)
 
@@ -72,7 +75,7 @@ Standardní, anonymní, šipková notace.
 
 * `'...'`
 * `"..."`
-* `\`...\`` template strings
+* <code>\`...\`</code> template strings
 
 * [`4 - strings.html`](../../Projekty/JS%20Tutorial/4%20-%20strings.html)
 
@@ -96,5 +99,7 @@ Standardní, anonymní, šipková notace.
 * [`5 - document.html`](../../Projekty/JS%20Tutorial/5%20-%20document.html)
 
 * [`Docker: dom`](../../Projekty/JS%20Tutorial/dom)
+  * AJAX: [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp)
+  * [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp)
 
 
