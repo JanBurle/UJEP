@@ -95,11 +95,15 @@ Standardní, anonymní, šipková notace.
 * [JavaScript XML DOM](https://www.w3schools.com/XML/dom_intro.asp)
 * [JavaScript AJAX](https://www.w3schools.com/XML/ajax_intro.asp)
 
+Objekt `document`:
 * [document](https://www.w3schools.com/js/js_htmldom_document.asp) ...
 * [`5 - document.html`](../../Projekty/JS%20Tutorial/5%20-%20document.html)
 
+Ukázka manipulace DOM & JS & AJAX:
 * [`Docker: dom`](../../Projekty/JS%20Tutorial/dom)
   * AJAX: [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp)
   * [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp)
 
+### ❖ Úkol 8.1: DOM
 
+Dokončete ukázku DOM & JS & AJAX: zobrazte více hodnot (elementů) z `knihy.xml`, v ostylované tabulce. Použijte JS na obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).

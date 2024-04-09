@@ -47,7 +47,6 @@ let ctiKnihy = (xmlDoc) => {
     let li = d.createElement('li') 
     // l(li.constructor)
     // li.addEventListener('click', ()=>li.classList.toggle('bold'))
-
     li.appendChild(d.createTextNode(nazev))
 
     ul.appendChild(li)
@@ -60,3 +59,4 @@ document.addEventListener('DOMContentLoaded', () => {
   getKnihy()
 })
 
+// window.addEventListener('keydown', (event)=>l(event))
