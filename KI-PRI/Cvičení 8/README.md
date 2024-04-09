@@ -106,4 +106,6 @@ Ukázka manipulace DOM & JS & AJAX:
 
 ### ❖ Úkol 8.1: DOM
 
-Dokončete ukázku DOM & JS & AJAX: zobrazte více hodnot (elementů) z `knihy.xml`, v ostylované tabulce. Použijte JS na obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).
+Dokončete ukázku DOM & JS & AJAX: zobrazte více hodnot (elementů) z `knihy.xml`, v ostylované tabulce. 
+
+Přidejte JS obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).
