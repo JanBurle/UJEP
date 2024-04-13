@@ -1,6 +1,6 @@
-<?php require __DIR__ . '/../inc/head.php';
+<?php require __DIR__ . '/../vars.php';
+prolog();
 
-require "$INC/nav.php";
 require "$INC/tools.php";
 
 if (!$jmeno)
@@ -27,7 +27,7 @@ if (($xmlFile = @$_FILES['xml']) && ($tmpName = @$xmlFile['tmp_name'])) {
         errorBox('XML soubor není validní.');
     else {
         $name = $xmlFile['name'];
-        $target = "$MENU/$name";
+        $target = "$DRINKS/$name";
         if (file_exists($target))
             errorBox('Recept už máme.');
         elseif (rename($tmpName, $target))
@@ -36,4 +36,4 @@ if (($xmlFile = @$_FILES['xml']) && ($tmpName = @$xmlFile['tmp_name'])) {
     }
 }
 
-require "$INC/foot.php";
+epilog();

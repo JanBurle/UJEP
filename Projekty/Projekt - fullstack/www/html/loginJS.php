@@ -1,4 +1,5 @@
-<?php require __DIR__ . '/../inc/head.php';
+<?php require __DIR__ . '/../vars.php';
+prolog();
 
 require "$INC/db-login.php";
 switch (@$_POST['akce']) {
@@ -11,8 +12,6 @@ switch (@$_POST['akce']) {
         unset($_SESSION['jmeno']);
         break;
 }
-
-require "$INC/nav.php";
 
 ?>
 
@@ -45,4 +44,4 @@ require "$INC/nav.php";
 
 <script src="assets/loginValidate.js"></script>
 
-<?php require "$INC/foot.php";
+<?php epilog();

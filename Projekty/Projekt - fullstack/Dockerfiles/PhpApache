@@ -14,5 +14,6 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 # nástroje
 RUN apt install -y mc vim nano
 
-RUN mkdir -p /var/mixolog/menu
-RUN chown www-data /var/mixolog/menu
+# adresář, do kterého smí Apache psát
+RUN mkdir -p /var/mixolog/drinks
+RUN chown www-data /var/mixolog/drinks
