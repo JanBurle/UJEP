@@ -1,35 +1,52 @@
 <?php
-// globální proměnné
+// konfigurace + globální proměnné
 
 // adresáře
-$INC = __DIR__ . '/include';        // include files
-$XML = __DIR__ . '/xml';            // XML files
-$DRINKS = '/var/mixolog/drinks';    // uploaded data
+define('INC', __DIR__ . '/include');    // include files
+define('XML', __DIR__ . '/xml');        // XML files
+define('DRINKS', '/var/mixolog/drinks');    // uploaded data
 
 // stránky
-$title = 'Mixolog';
+define('TITLE', 'Mixolog');
 
-// uživatel
-$jmeno = @$_SESSION['jmeno'];
+// session - uživatel
+session_start();
 
-// pomocníci
-function prolog($withNav = true)
+function getJmeno($prefix = '')
 {
-    global $INC;
-    require "$INC/prolog.php";
-    if ($withNav)
-        require "$INC/nav.php";
+    $jmeno = @$_SESSION['jmeno'];
+    return $jmeno ? "$prefix $jmeno" : $jmeno;
+}
+
+function setJmeno($jmeno = '')
+{
+    if ($jmeno)
+        $_SESSION['jmeno'] = $jmeno;
+    else
+        unset($_SESSION['jmeno']);
+
+    return $jmeno;
+}
+
+function isLoggedIn()
+{
+    return !!getJmeno();
+}
+
+// HTML helpers
+function mods($mods = ['nav'])
+{
+    foreach ($mods as $mod)
+        require INC . "/$mod.php";
+}
+
+function prolog($mods = ['nav'])
+{
+    require INC . '/prolog.php';
+    mods($mods);
 }
 
 function epilog()
 {
-    global $INC, $title;
-    require "$INC/epilog.php";
-}
-
-
-function isLoggedIn()
-{
-    global $jmeno;
-    return !!$jmeno;
+    require INC . '/epilog.php';
 }

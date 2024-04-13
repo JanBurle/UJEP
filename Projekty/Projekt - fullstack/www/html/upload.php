@@ -1,9 +1,7 @@
 <?php require __DIR__ . '/../vars.php';
-prolog();
+prolog(['nav', 'boxes', 'xmlTools']);
 
-require "$INC/tools.php";
-
-if (!$jmeno)
+if (!isLoggedIn())
     die; ?>
 
 <div class="flex justify-center m-12">
@@ -11,7 +9,7 @@ if (!$jmeno)
         <div class="mb-4">
             Nahrajte recept:
         </div>
-        <div class="mb-4" id="drop-div">
+        <div class="mb-4">
             <input title="tt" id="fileInput" name="xml" type="file" accept="text/xml" data-max-file-size="2M">
         </div>
         <input class="bg-blue-500 text-white font-bold rounded py-2 px-4" type="submit" value="Odeslat" />
@@ -21,17 +19,16 @@ if (!$jmeno)
 <?php
 
 if (($xmlFile = @$_FILES['xml']) && ($tmpName = @$xmlFile['tmp_name'])) {
-    // $isValid = xmlValidateDTD($xmlFile, "$XML/recept.dtd");
-    $isValid = xmlValidateXSD($tmpName, "$XML/recept.xsd");
+    $isValid = xmlValidateXSD($tmpName, XML . '/recept.xsd');
     if (!$isValid)
         errorBox('XML soubor není validní.');
     else {
-        $name = $xmlFile['name'];
-        $target = "$DRINKS/$name";
+        $drink = $xmlFile['name'];
+        $target = DRINKS . "/$drink";
         if (file_exists($target))
             errorBox('Recept už máme.');
         elseif (rename($tmpName, $target))
-            greenBox("OK - $name nahráno");
+            greenBox("OK - $drink nahráno");
 
     }
 }

@@ -12,7 +12,7 @@
         <h1>
             <xsl:value-of select="název"/>
         </h1>
-        <table>
+        <table class="table-auto">
             <tr>
                 <td>Doba přípravy:</td>
                 <td><xsl:value-of select="doba_přípravy"/> <xsl:value-of select="@jednotka"/></td>
@@ -27,11 +27,11 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </tr>
-            <tr>
-                <xsl:if test="node()">
+            <xsl:if test="obtížnost">
+                <tr>
                     <td>Obtížnost:</td><td><xsl:value-of select ="name(obtížnost/*[1])"/></td>
-                </xsl:if>
-            </tr>
+                </tr>
+            </xsl:if>
         </table>
     </xsl:template>
 
@@ -44,19 +44,19 @@
                     <xsl:when test="@typ='základ'">
                         <li>
                             <xsl:value-of select="."/>
-                            <span>(<xsl:value-of select="@typ"/>)</span>          
+                            <span>(<xsl:value-of select="@typ"/>)</span>
                         </li>
                     </xsl:when>
                     <xsl:when test="@typ='dochucovadlo'">
                         <li>
                             <xsl:value-of select="."/>
-                            <span>(<xsl:value-of select="@typ"/>)</span>          
+                            <span>(<xsl:value-of select="@typ"/>)</span>
                         </li>
                     </xsl:when>
                     <xsl:when test="@typ='dekorace'">
                         <li>
                             <xsl:value-of select="."/>
-                            <span>(<xsl:value-of select="@typ"/>)</span>          
+                            <span>(<xsl:value-of select="@typ"/>)</span>
                         </li>
                     </xsl:when>
                     <xsl:otherwise>
@@ -70,11 +70,11 @@
     </xsl:template>
 
     <!-- výpis postupu receptu -->
-    <xsl:template match = "postup">
+    <!-- <xsl:template match = "postup">
         <h3>Postup:</h3>
         <p>
             <xsl:value-of select="."/>
         </p>
-    </xsl:template>
-    
+    </xsl:template> -->
+
 </xsl:transform>

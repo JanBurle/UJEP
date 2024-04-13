@@ -1,8 +1,8 @@
 <?php
-$name = @$_GET['name'];
+$drink = @$_GET['drink'];
 
-$file = "/var/mixolog/drinks/$name.xml";
-// error_log($file);
+$file = "/var/mixolog/drinks/$drink.xml";
+
 header("Content-type: text/xml;");
 if (file_exists($file))
     readfile($file);

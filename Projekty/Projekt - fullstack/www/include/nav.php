@@ -1,5 +1,5 @@
 <?php
-require "$INC/pages.php";
+require INC . '/pages.php';
 ?>
 
 <!-- top navigation bar -->
@@ -10,7 +10,7 @@ require "$INC/pages.php";
             <div class="flex">
                 <img src="./assets/drink.jpg" class="h-8 mr-3" />
                 <span class="text-2xl font-semibold whitespace-nowrap">
-                    <?= $title . ($jmeno ? ": $jmeno" : '') ?>
+                    <?= TITLE . getJmeno(':') ?>
                 </span>
             </div>
         </a>
@@ -35,3 +35,13 @@ require "$INC/pages.php";
         </div>
     </div>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let menu = document.getElementById('navbar-default');
+        let toggleMenu = () => menu.classList.toggle('hidden')
+
+        let button = document.getElementById('navbar-toggle');
+        button.addEventListener('click', toggleMenu)
+    });
+</script>
