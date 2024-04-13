@@ -114,8 +114,6 @@ Z JS lze volat asynchronní HTTP požadavky ([AJAX](https://www.w3schools.com/xm
 Ukázka manipulace DOM & JS & AJAX. Asynchronně získá data v XML, která použije pro HTML.
 * [`6 - knihy.html`](../../Projekty/JS%20Tutorial/www/html/6%20-%20knihy.html)
 
-* [`6b - knihy.xml`](../../Projekty/JS%20Tutorial/www/html/6a%20-%20knihy.xml)
-
 ### ❖ Úkol 8.1: DOM
 
 Dokončete ukázku DOM & JS & AJAX:
