@@ -1,7 +1,7 @@
 <?php require __DIR__ . '/../vars.php';
 prolog();
 
-require "$INC/db-login.php";
+require "$INC/db.php";
 switch (@$_POST['akce']) {
     case 'login':
         [$id, $jmeno] = dbLogin(@$_POST['jmeno'], @$_POST['heslo']);
