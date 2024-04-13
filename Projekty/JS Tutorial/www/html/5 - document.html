@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <script>
+            // zde není DOM ještě sestavený
+            console.log('prvá', document)
+
+            // pozastavit pro výpis console.log()
+            alert('pokračuj')
+
+            document.addEventListener('DOMContentLoaded', () => {
+                // zde *je DOM hotový*
+                console.log('třetí', document)
+            })
+        </script>
+    </head>
+
+    <body>
+        <div>Div A</div>
+
+        <script>
+            // zde je jakási kostra DOM, ale ne úplná
+            console.log('druhá', document)
+            alert('pokračuj')
+        </script>
+
+        <div>Div B</div>
+    </body>
+</html>

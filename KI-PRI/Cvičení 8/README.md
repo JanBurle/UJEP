@@ -13,36 +13,43 @@ V prohlížeči má JS přístup k různým [WEB API](https://developer.mozilla.
 
 Různé prohlížeče sledují [vývoj ECMA různě](https://compat-table.github.io/compat-table/es2016plus/). Totéž platí pro stále se vyvíjející HTML, CSS a JS API: [Can I use...?](https://caniuse.com/)
 
-Při profesionálním vývoji JS softwaru se používá [transpilace a polyfills](https://caniuse.com/), která řeší mj. nekompatibilitu moderní JS verze s verzí podporovanou příslušným prohlížečem.
+Při profesionálním vývoji JS softwaru se používá [transpilace a polyfills](https://javascript.info/polyfills), které také řeší nekompatibilitu moderní JS verze s verzí podporovanou příslušným prohlížečem.
 
 JS v prohlížeči má přístup k DOM a může jej měnit. Tak je možné např. implementovat SPA - Single Page Applications. Příklad: [fabrika.kestolu.cz](https://fabrika.kestolu.cz/).
 
 # JS Tutorial
 [JS Tutorial](https://www.w3schools.com/js/default.asp)
 
-Dnes pro většinu příkladů nepotřebujeme Docker web server, stačí jednoduché `.html` soubory: [Projekt: JS Tutorial](../../Projekty/JS%20Tutorial).
+Příklady na této stránce běží v [projektu JS Tutorial](../../Projekty/JS%20Tutorial).
+V prohlížeči si otevřete vývojové nástroje (`Ctrl+Shift+I`) / Console.
 
 ## Jak vložit JS do stránky
 [Jak vložit JS do stránky](https://www.w3schools.com/Js/js_whereto.asp)
 
-Pomocí značky `<script>` (dříve: `<script type="text/javascript">` - dnes není nutné specifikovat *type*)
+JS se do stránky vloží značkou `<script>` (dříve: `<script type="text/javascript">` - dnes není nutné specifikovat *type*).
 
-* [`1 - whereto.html`](../../Projekty/JS%20Tutorial/1%20-%20whereto.html)
-* [`1 - whereto.xml`](../../Projekty/JS%20Tutorial/1%20-%20whereto.xml)
-* [`1 - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/1%20-%20whereto-xsl.xml) (CORS: nejde z URL `file://...`)
+Do HTML:
+* [`1a - whereto.html`](../../Projekty/JS%20Tutorial/www/html/1a%20-%20whereto.html)
+Do XML:
+* [`1b - whereto.xml`](../../Projekty/JS%20Tutorial/www/html/1b%20-%20whereto.xml)
+Do transformovaného XML:
+* [`1c - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/www/html/1c%20-%20whereto-xsl.xml)
 
 ## JS Output
 [JS Output](https://www.w3schools.com/Js/js_output.asp)
 
-Metody a vlastnosti (methods, properties) globálního objektu [window](https://www.w3schools.com/jsref/obj_window.asp) (`window.` není nutné psát)
 * [alert()](https://www.w3schools.com/jsref/met_win_alert.asp)
-* [console](https://www.w3schools.com/jsref/prop_win_console.asp)
+* [console.log()](https://www.w3schools.com/jsref/prop_win_console.asp)
+
+`alert` a `console` patří do globálního objektu [window](https://www.w3schools.com/jsref/obj_window.asp), který reprezentuje záložku prohlížeče.
+
+Skripty na stránce běží v globálním kontextu objektu `window` a u metod a vlastností (properties) není potřeba v JS psát `window.`
 
 ## Příkazy
 [Příkazy](https://www.w3schools.com/Js/js_statements.asp)
 
-Středníky odddělují příkazy - na konci řádky jsou nepovinné.
-Dvě školy: středníky všude / jen tam, kde jsou nutné
+Příkazy jsou oddělené středníky. Středníky na konci řádky jsou nepovinné.
+Existují dvě školy: 1) středníky všude, kde je možné, 2) jen tam, kde jsou nutné
 
 ## Syntax
 [Syntax](https://www.w3schools.com/Js/js_syntax.asp)
@@ -55,7 +62,7 @@ Dvě školy: středníky všude / jen tam, kde jsou nutné
 
 Deklarace proměnných jsou ["hoisted"](https://www.w3schools.com/js/js_hoisting.asp)! `let` proměnné nelze použít před inicializací, `const` musí být inicializované.
 
-* [`2 - variables.html`](../../Projekty/JS%20Tutorial/2%20-%20variables.html)
+* [`2 - variables.html`](../../Projekty/JS%20Tutorial/www/html/2%20-%20variables.html)
 
 ## Operátory
 [Operátory](https://www.w3schools.com/Js/js_operators.asp)
@@ -68,16 +75,16 @@ Deklarace proměnných jsou ["hoisted"](https://www.w3schools.com/js/js_hoisting
 
 Standardní, anonymní, šipková notace.
 
-* [`3 - functions.html`](../../Projekty/JS%20Tutorial/3%20-%20functions.html)
+* [`3 - functions.html`](../../Projekty/JS%20Tutorial/www/html/3%20-%20functions.html)
 
 ## Řetězce
 [Řetězce](https://www.w3schools.com/Js/js_strings.asp)
 
 * `'...'`
 * `"..."`
-* <code>\`...\`</code> template strings
+* <code>\`...\`</code> template strings, s expanzí (substitucí) proměnných
 
-* [`4 - strings.html`](../../Projekty/JS%20Tutorial/4%20-%20strings.html)
+* [`4 - strings.html`](../../Projekty/JS%20Tutorial/www/html/4%20-%20strings.html)
 
 ## Další
 
@@ -95,17 +102,22 @@ Standardní, anonymní, šipková notace.
 * [JavaScript XML DOM](https://www.w3schools.com/XML/dom_intro.asp)
 * [JavaScript AJAX](https://www.w3schools.com/XML/ajax_intro.asp)
 
-Objekt `document`:
+### HTML DOM
+Objekt `document` (přístup k HTML DOM stránky):
 * [document](https://www.w3schools.com/js/js_htmldom_document.asp) ...
-* [`5 - document.html`](../../Projekty/JS%20Tutorial/5%20-%20document.html)
+* [`5 - document.html`](../../Projekty/JS%20Tutorial/www/html/5%20-%20document.html)
 
-Ukázka manipulace DOM & JS & AJAX:
-* [`Docker: dom`](../../Projekty/JS%20Tutorial/dom)
-  * AJAX: [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp)
-  * [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp)
+### HTML + XML DOM + AJAX
+
+Z JS lze volat asynchronní HTTP požadavky ([AJAX](https://www.w3schools.com/xml/ajax_intro.asp)). AJAX je přístupný přes objekt (API) [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp), nebo přes [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp).
+
+Ukázka manipulace DOM & JS & AJAX. Asynchronně získá data v XML, která použije pro HTML.
+* [`6 - knihy.html`](../../Projekty/JS%20Tutorial/www/html/6%20-%20knihy.html)
+
+* [`6b - knihy.xml`](../../Projekty/JS%20Tutorial/www/html/6a%20-%20knihy.xml)
 
 ### ❖ Úkol 8.1: DOM
 
-Dokončete ukázku DOM & JS & AJAX: zobrazte více hodnot (elementů) z `knihy.xml`, v ostylované tabulce. 
-
-Přidejte JS obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).
+Dokončete ukázku DOM & JS & AJAX:
+* Zobrazte více hodnot (elementů) z `knihy.xml` (např. v ostylované tabulce).
+* Přidejte JS obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).

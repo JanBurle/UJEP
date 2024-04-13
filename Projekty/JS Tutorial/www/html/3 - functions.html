@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <script>
+            // standardní funkce
+            function square1(x) {
+                return x * x
+            }
+
+            // anonymní (lambda) funkce
+            let square2 = function (x) {
+                return x * x
+            }
+
+            // anonymní funkce v šipkové notaci
+            let square3 = (x) => {
+                return x * x
+            }
+
+            // anonymní funkce v šipkové notaci, vrací hodnotu výrazu
+            let square4 = (x) => x * x
+
+            console.log(
+                square1(2),
+                square2(2),
+                square3(2),
+                square4(2),
+                // immediatelly invoked anonymous function
+                (function (x) {
+                    return x * x
+                })(2),
+                // immediatelly invoked anonymous function
+                ((x) => x * x)(2),
+            )
+        </script>
+    </body>
+</html>

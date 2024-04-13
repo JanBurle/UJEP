@@ -21,8 +21,6 @@ Z docker obrazů lze pak spouštět nezávislé docker kontejnery, to jest běž
 Projekt má tuto strukturu:
 ```bash
 ├── compose.yaml                # definice multi-kontejneru
-├── docker-up.sh                # sestaví a spustí multi-kontejner
-├── docker-prune.sh             # zastaví kontejnery a smaže Docker objekty
 ├── Dockerfiles                 # soubory pro Docker
 │   ├── PhpApache               # virtuální Linux s Apache a PHP
 │   ├── Database                # MySQL kontejner
@@ -39,9 +37,6 @@ Projekt má tuto strukturu:
 ```
 
 ### Jednotlivé soubory
-#### `docker-prune.sh`
-
-Zastaví běžící kontejnery a smaže veškerá pracovní Docker data (kontejnery, obrazy, disky).
 
 #### `compose.yaml`
 
@@ -74,13 +69,17 @@ docker compose up
 ```
 *Docker Compose* sestaví obrazy a spustí podle nich kombinaci kontejnerů. Pokud vše proběhne správně, bude naše webová aplikace přístupná v prohlížeči na URL [http://localhost:8000](http://localhost:8000) a administrace databáze na [http://localhost:8080](http://localhost:8080).
 
-Další užitečné, často používané příkazy pro Docker jsou:
+Pro připojení terminálu k běžícímu kontejneru:
+```bash
+docker ps                         # vypíše běžící kontejnery
+docker exec -ti CONTAINER_ID bash # v kontejneru spustí interaktivní shell
+```
 
-|                                     |                                       |
-|--------------                       |-----------                            |
-| Vypsání všech běžících kontejnerů:  | <tt>docker ps</tt>                    |
-| Připojení terminálu k běžícímu kontejneru | <tt>docker exec -ti &lt;id> bash<tt>|
-| Zastavení všech kontejnerů:         | <tt>docker stop $(docker ps -q)</tt>  |
-| Smazání všech kontejnerů:           | <tt>docker rm $(docker ps -aq)</tt>   |
-| Vypsání všech obrazů:               | <tt>docker images</tt>                |
-| Smazání všech obrazů:               | <tt>docker rmi $(docker images -q)</tt> |
+Pokud máte `bash` jako shell, můžete použít následující skript pro zastavení běžících kontejnerů a vymazání všech kontejnerů, obrazů a disků v Dockeru:
+
+```bash
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
+docker rmi $(docker images -q)
+docker volume prune -f
+```

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <knihy>
     <script xmlns="http://www.w3.org/1999/xhtml">
-        <![CDATA[alert('internal');]]>
+        <![CDATA[console.log('internal');]]>
     </script>
-    <script xmlns="http://www.w3.org/1999/xhtml" src="js/whereto.js" />
+    <script xmlns="http://www.w3.org/1999/xhtml" src="js/sync.js" />
     <kniha>
         <nazev>Epos o Berygamešovi</nazev>
         <autor>Jiří Fišer</autor>
