@@ -1,5 +1,7 @@
-<?php require __DIR__ . '/../vars.php';
-prolog(['nav', 'xmlTools']);
+<?php require __DIR__ . '/../prolog.php';
+require INC . '/html-begin.php';
+require INC . '/nav.php';
+require INC . '/xmlTools.php';
 ?>
 
 <h1 class="py-6 text-center text-5xl">Drinky</h1>
@@ -41,4 +43,4 @@ if ($drink = @$_GET['drink']) {
     <?php }
 } ?>
 
-<?php epilog();
+<?php require INC . '/html-end.php';

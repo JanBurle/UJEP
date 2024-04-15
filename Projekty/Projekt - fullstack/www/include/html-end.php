@@ -5,8 +5,7 @@
     <span>cheers</span>
     <span>prost</span>
     <span>skål</span>
-    <span class="text-sm text-gray-500"><a href="https://github.com/JanBurle/UJEP/tree/main/KI-PRI"
-            class="hover:underline">KI/PRI</a>
+    <span class="text-sm text-gray-500"><a href="https://github.com/JanBurle/UJEP/tree/main/KI-PRI">KI/PRI</a>
     </span>
 </footer>
 

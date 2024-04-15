@@ -1,7 +1,10 @@
-<?php require __DIR__ . '/../vars.php';
-prolog(['nav', 'boxes', 'xmlTools']);
+<?php require __DIR__ . '/../prolog.php';
+require INC . '/html-begin.php';
+require INC . '/nav.php';
+require INC . '/boxes.php';
+require INC . '/xmlTools.php';
 
-if (!isLoggedIn())
+if (!isUser())
     die; ?>
 
 <div class="flex justify-center m-12">
@@ -28,9 +31,9 @@ if (($xmlFile = @$_FILES['xml']) && ($tmpName = @$xmlFile['tmp_name'])) {
         if (file_exists($target))
             errorBox('Recept už máme.');
         elseif (rename($tmpName, $target))
-            greenBox("OK - $drink nahráno");
+            successBox("OK - $drink nahráno");
 
     }
 }
 
-epilog();
+require INC . '/html-end.php';

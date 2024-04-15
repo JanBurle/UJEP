@@ -1,5 +1,7 @@
-<?php require __DIR__ . '/../vars.php';
-prolog(); ?>
+<?php require '../prolog.php';
+require INC . '/html-begin.php';
+require INC . '/nav.php';
+?>
 
 <h1 class="py-6 text-5xl text-center">
   <?= TITLE ?>
@@ -12,4 +14,4 @@ prolog(); ?>
   dobrých koktejlů.
 </div>
 
-<?php epilog();
+<?php require INC . '/html-end.php';

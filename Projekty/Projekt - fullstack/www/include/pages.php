@@ -1,10 +1,11 @@
 <?php
-// URL => title
+// seznam stránek (href => title)
 $pages = [
     '/' => 'Home',
     '/login.php' => 'Přihlášení',
     '/drinks.php' => 'Receptář',
 ];
 
-if (isLoggedIn())
+// přihlášený uživatel smí nahrávat recepty
+if (isUser())
     $pages['/upload.php'] = 'Nahrát';

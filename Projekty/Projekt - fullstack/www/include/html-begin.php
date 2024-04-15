@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs">
 
-<!-- Tailwind template: https://www.codewithfaraz.com/content/229/how-to-create-a-simple-navbar-with-tailwind-css -->
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
