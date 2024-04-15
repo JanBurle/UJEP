@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+    </head>
+
+    <body>
+        <style>
+            h1 {
+                cursor: pointer;
+            }
+            h1.sel {
+                color: red;
+            }
+        </style>
+        <h1>Header</h1>
+        <script>
+            // zkratky
+            let l = console.log
+            let d = document
+
+            d.addEventListener('DOMContentLoaded', () => {
+                let h1 = d.querySelector('h1')
+                h1.addEventListener('click', (event) => {
+                    // dvojí možný přístup
+                    l(h1, event.srcElement)
+                    event.srcElement.classList.toggle('sel')
+                })
+            })
+        </script>
+    </body>
+</html>

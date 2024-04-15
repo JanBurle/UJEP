@@ -1,28 +1,39 @@
-# Seminární práce: full-stack projekt
+# JavaScript + HTML DOM
 
-[Ukázkový projekt](../../Projekty/Projekt%20-%20fullstack) obsahuje části typické webové aplikace:
-* back-end (databáze, PHP, XML)
-* front-end (prohlížeč: HTML, XML, CSS, JavaScript)
+### HTML DOM
 
-Pro stylování používá:
-* [tailwindcss](https://tailwindcss.com/)
-* [Font Awesome](https://fontawesome.com/)
-* responsivní šablonu
+Stromová struktura, vytvořená z HTML stránky, dále je ji možno manipulovat pomocí JS.
+Je přístupná přes globální objekt `document` (`window.document`).
+* [JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
+* [HTML DOM Documents](https://www.w3schools.com/jsref/dom_obj_document.asp)
+* [JavaScript HTML DOM Document](https://www.w3schools.com/js/js_htmldom_document.asp)
 
-Vaším úkolem je:
-1. Projekt si prostudovat.
-1. Zvolit si, jestli vytvoříte jiný, podobný projekt, nebo ukázkový projekt zdokonalíte.
-1. Zvolený projekt realizovat a (fungující) přinést k zápočtu.
+Zpracování HTML stránky - je nutno počkat, až bude DOM hotov:
+* [`1 - dom.html`](../../Projekty/JS%20Tutorial/www/html/HtmlDom/1%20-%20dom.html)
 
-Projekt by měl obsahovat následující:
-* XML, XSD, XSL
-* Číst a nahrávat data z/do XML souborů.
-* XML data přenášená mezi klientem (front-end) a serverem (back-end) validovat.
-* Volitelně (není to povinné) číst a nahrávat data z/do databáze, případně generovat XML data z databázových dat.
-* Mít několik webových stránek, elegantně ostylovaných.
-* V klientu použít JavaScript.
+JS vyhledá elementy v DOM různým způsobem:
+* [`2 - dom.html`](../../Projekty/JS%20Tutorial/www/html/HtmlDom/2%20-%20dom.html)
 
-Nápady na zdokonalení ukázkového projektu:
-* Hledat a vypsat drinky podle: obtížnosti, přísad, země původu, autora ...
-* Sledovat, kolikrát byl recept na který drink zobrazen, a zobrazit tabulku nejpopulárnějších drinků.
-* ...
+JS lze přidat přímo do elementu pro obsluhu událostí:
+* [`3 - events.html`](../../Projekty/JS%20Tutorial/www/html/HtmlDom/3%20-%20elem.html)
+
+Události lze také obsluhovat mimo element:
+* [`4 - events.html`](../../Projekty/JS%20Tutorial/www/html/HtmlDom/3%20-%20elem.html)
+
+### ❖ Úkol 9.1: Pexeso
+
+
+
+### HTML + XML DOM + AJAX
+* [JavaScript AJAX](https://www.w3schools.com/XML/ajax_intro.asp)
+
+Z JS lze volat asynchronní HTTP požadavky ([AJAX](https://www.w3schools.com/xml/ajax_intro.asp)). AJAX je přístupný přes objekt (API) [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp), nebo přes [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp).
+
+Ukázka manipulace DOM & JS & AJAX. Asynchronně získá data v XML, která použije pro HTML.
+* [`6 - knihy.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/6%20-%20knihy.html)
+
+### ❖ Úkol 8.1: DOM
+
+Dokončete ukázku DOM & JS & AJAX:
+* Zobrazte více dat z `knihy.xml` (např. v ostylované tabulce).
+* Přidejte JS obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).

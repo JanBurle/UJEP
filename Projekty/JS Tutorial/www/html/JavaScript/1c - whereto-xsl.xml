@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="./xml/knihy-script.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../xml/knihy-script.xsl"?>
 <knihy>
     <label id="MyScript"><![CDATA[
         <script>
-            console.log("Knihovna");
+            console.log("internal");
         </script>
     ]]></label>
     <kniha>

@@ -2,10 +2,11 @@
     <span>
         <?= TITLE ?>
     </span>
-    <span>cheers</span>
-    <span>prost</span>
-    <span>skål</span>
-    <span class="text-sm text-gray-500"><a href="https://github.com/JanBurle/UJEP/tree/main/KI-PRI">KI/PRI</a>
+    |
+    <span class="text-sm text-gray-500">
+        <a href="https://github.com/JanBurle/UJEP/tree/main/Projekty/Projekt%20-%20fullstack" target="_source">
+            (source)
+        </a>
     </span>
 </footer>
 

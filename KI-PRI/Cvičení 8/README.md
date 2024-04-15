@@ -18,7 +18,7 @@ Při profesionálním vývoji JS softwaru se používá [transpilace a polyfills
 JS v prohlížeči má přístup k DOM a může jej měnit. Tak je možné např. implementovat SPA - Single Page Applications. Příklad: [fabrika.kestolu.cz](https://fabrika.kestolu.cz/).
 
 # JS Tutorial
-[JS Tutorial](https://www.w3schools.com/js/default.asp)
+[JavaScript Tutorial](https://www.w3schools.com/js/default.asp)
 
 Příklady na této stránce běží v [projektu JS Tutorial](../../Projekty/JS%20Tutorial).
 V prohlížeči si otevřete vývojové nástroje (`Ctrl+Shift+I`) / Console.
@@ -26,24 +26,28 @@ V prohlížeči si otevřete vývojové nástroje (`Ctrl+Shift+I`) / Console.
 ## Jak vložit JS do stránky
 [Jak vložit JS do stránky](https://www.w3schools.com/Js/js_whereto.asp)
 
-JS se do stránky vloží značkou `<script>` (dříve: `<script type="text/javascript">` - dnes není nutné specifikovat *type*).
+JS se do stránky vloží značkou `<script>` (dříve muselo být: `<script type="text/javascript">` - dnes není nutné *type* specifikovat, `text/javascript` je default).
 
-Do HTML:
-* [`1a - whereto.html`](../../Projekty/JS%20Tutorial/www/html/1a%20-%20whereto.html)
-Do XML:
-* [`1b - whereto.xml`](../../Projekty/JS%20Tutorial/www/html/1b%20-%20whereto.xml)
-Do transformovaného XML:
-* [`1c - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/www/html/1c%20-%20whereto-xsl.xml)
+JS v HTML:
+* [`1a - whereto.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1a%20-%20whereto.html)
+
+JS v XML:
+* [`1b - whereto.xml`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1b%20-%20whereto.xml)
+
+JS v transformovaném XML:
+* [`1c - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1c%20-%20whereto-xsl.xml)
 
 ## JS Output
-[JS Output](https://www.w3schools.com/Js/js_output.asp)
+[JavaScript Output](https://www.w3schools.com/Js/js_output.asp)
 
 * [alert()](https://www.w3schools.com/jsref/met_win_alert.asp)
-* [console.log()](https://www.w3schools.com/jsref/prop_win_console.asp)
+* [console.log()](https://www.w3schools.com/jsref/prop_win_console.asp) (log() a další metody)
 
 `alert` a `console` patří do globálního objektu [window](https://www.w3schools.com/jsref/obj_window.asp), který reprezentuje záložku prohlížeče.
 
-Skripty na stránce běží v globálním kontextu objektu `window` a u metod a vlastností (properties) není potřeba v JS psát `window.`
+Protože skripty v HTML/XML stránce běží v globálním kontextu objektu `window`, není potřeba u metod a vlastností (properties) není potřeba psát `window.`
+
+* [`2 - output.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1c%20-%20output.html)
 
 ## Příkazy
 [Příkazy](https://www.w3schools.com/Js/js_statements.asp)
@@ -62,7 +66,7 @@ Existují dvě školy: 1) středníky všude, kde je možné, 2) jen tam, kde js
 
 Deklarace proměnných jsou ["hoisted"](https://www.w3schools.com/js/js_hoisting.asp)! `let` proměnné nelze použít před inicializací, `const` musí být inicializované.
 
-* [`2 - variables.html`](../../Projekty/JS%20Tutorial/www/html/2%20-%20variables.html)
+* [`3 - variables.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/2%20-%20variables.html)
 
 ## Operátory
 [Operátory](https://www.w3schools.com/Js/js_operators.asp)
@@ -75,7 +79,7 @@ Deklarace proměnných jsou ["hoisted"](https://www.w3schools.com/js/js_hoisting
 
 Standardní, anonymní, šipková notace.
 
-* [`3 - functions.html`](../../Projekty/JS%20Tutorial/www/html/3%20-%20functions.html)
+* [`4 - functions.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/3%20-%20functions.html)
 
 ## Řetězce
 [Řetězce](https://www.w3schools.com/Js/js_strings.asp)
@@ -84,7 +88,7 @@ Standardní, anonymní, šipková notace.
 * `"..."`
 * <code>\`...\`</code> template strings, s expanzí (substitucí) proměnných
 
-* [`4 - strings.html`](../../Projekty/JS%20Tutorial/www/html/4%20-%20strings.html)
+* [`5 - strings.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/4%20-%20strings.html)
 
 ## Další
 
@@ -95,27 +99,3 @@ Standardní, anonymní, šipková notace.
 * [objekty](https://www.w3schools.com/Js/js_objects.asp)
 * [for in](https://www.w3schools.com/Js/js_loop_forin.asp)
 * [for of](https://www.w3schools.com/Js/js_loop_forof.asp)
-
-## HTML a XML DOM
-
-* [JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
-* [JavaScript XML DOM](https://www.w3schools.com/XML/dom_intro.asp)
-* [JavaScript AJAX](https://www.w3schools.com/XML/ajax_intro.asp)
-
-### HTML DOM
-Objekt `document` (přístup k HTML DOM stránky):
-* [document](https://www.w3schools.com/js/js_htmldom_document.asp) ...
-* [`5 - document.html`](../../Projekty/JS%20Tutorial/www/html/5%20-%20document.html)
-
-### HTML + XML DOM + AJAX
-
-Z JS lze volat asynchronní HTTP požadavky ([AJAX](https://www.w3schools.com/xml/ajax_intro.asp)). AJAX je přístupný přes objekt (API) [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp), nebo přes [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp).
-
-Ukázka manipulace DOM & JS & AJAX. Asynchronně získá data v XML, která použije pro HTML.
-* [`6 - knihy.html`](../../Projekty/JS%20Tutorial/www/html/6%20-%20knihy.html)
-
-### ❖ Úkol 8.1: DOM
-
-Dokončete ukázku DOM & JS & AJAX:
-* Zobrazte více dat z `knihy.xml` (např. v ostylované tabulce).
-* Přidejte JS obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).

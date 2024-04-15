@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+    </head>
+
+    <body>
+        <h1>Header</h1>
+        <div id="para" value="parval">
+            <p name="para">Paragraph 1</p>
+            <a href="href">Odkaz</a>
+            <span>div 1</span>
+        </div>
+
+        <p class="vip" name="para">Paragraph 2</p>
+
+        <span class="vip">
+            div 2
+            <a href="href2">Odkaz 2</a>
+        </span>
+
+        <script>
+            // zkratky
+            let l = console.log
+            let d = document
+
+            d.addEventListener('DOMContentLoaded', () => {
+                l('by id:', d.getElementById('para'))
+                l('by class:', d.getElementsByClassName('vip'))
+                l('by name:', d.getElementsByName('para'))
+                l('by tag:', d.getElementsByTagName('span'))
+                // selector
+                l('by query:', d.querySelector('span'))
+                l('by query:', d.querySelectorAll('span'))
+                l('by query:', d.querySelector('div span'))
+                l('by query:', d.querySelector('span.vip a'))
+                // properties & methods
+                l('proto:', d.querySelectorAll('span').constructor.prototype)
+                l('length:', d.querySelectorAll('span').length)
+                d.querySelectorAll('span').forEach((value, key, parent) =>
+                    l('span', key, value, parent),
+                )
+                // navigation
+                let para = d.getElementById('para')
+                l('para proto:', para.constructor.prototype)
+                l(
+                    'children:',
+                    para.childElementCount,
+                    para.children,
+                    para.childNodes,
+                )
+                l('first:', para.firstElementChild, para.firstChild)
+                l('next', para.nextElementSibling, para.nextSibling)
+                l('inner:', para.innerHTML, para.innerText)
+                l('node:', para.nodeName, para.nodeType, para.nodeValue)
+                l('parent', para.parentElement, para.parentNode)
+                // attributes
+                l(
+                    para.id,
+                    para.value, // not working
+                    para.getAttribute('id'),
+                    para.getAttribute('value'),
+                )
+                // styles
+                let a = d.querySelector('a[href="href2"]')
+                l('style:', a.style)
+                a.style.background = 'yellow'
+            })
+        </script>
+    </body>
+</html>

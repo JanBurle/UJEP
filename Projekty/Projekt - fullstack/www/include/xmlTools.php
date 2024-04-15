@@ -92,7 +92,7 @@ function xmlTransform($xmlPath, $xslPath)
     $xsl = new DOMDocument;
     $xslt = new XSLTProcessor();
 
-    if (!$xml->load($xmlPath) || !$xsl->load($xslPath) || !$xslt->importStylesheet($xsl))
+    if (@!$xml->load($xmlPath) || !$xsl->load($xslPath) || !$xslt->importStylesheet($xsl))
         return false;
 
     return $xslt->transformToXml($xml);

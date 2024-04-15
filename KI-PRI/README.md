@@ -40,8 +40,8 @@ Cvičí: Ing. Jan Burle, Ph.D.
 |    5   | SimpleXML | [Cvičení 5](./Cvičení%205) | [Projekt 5](./Projekt%205)
 |    6   | XML, XSD, XSL, XPath | [Cvičení 6](./Cvičení%206) | [Projekt 6](./Projekt%206)
 |    7   | XPath, PHP | [Cvičení 7](./Cvičení%207) | [Projekt 7](./Projekt%207) | [XPath - řešení](./XPath%20-%20řešení)
-|    8   | JavaScript, DOM | [Cvičení 8](./Cvičení%208)
-|    9   | Seminární práce | [Cvičení 9](./Cvičení%209)
+|    8   | JavaScript | [Cvičení 8](./Cvičení%208) | [JS tutorial](../Projekty/JS%20tutorial)
+|    9   | JavaScript + HTML DOM | [Cvičení 9](./Cvičení%209) | [JS tutorial](../Projekty/JS%20tutorial) | [Projekt (seminární práce)](../Projekty/Projekt%20-%20fullstack)
 
 ## 5. Podmínky úspěšného zakončení předmětu
 

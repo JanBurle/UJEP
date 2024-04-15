@@ -4,14 +4,11 @@
         <meta charset="UTF-8" />
         <script>
             // zde není DOM ještě sestavený
-            console.log('prvá', document)
-
-            // pozastavit pro výpis console.log()
-            alert('pokračuj')
+            console.log('ne', document)
 
             document.addEventListener('DOMContentLoaded', () => {
                 // zde *je DOM hotový*
-                console.log('třetí', document)
+                console.log('ano', document)
             })
         </script>
     </head>
@@ -21,8 +18,10 @@
 
         <script>
             // zde je jakási kostra DOM, ale ne úplná
-            console.log('druhá', document)
-            alert('pokračuj')
+            console.log('ne', document)
+
+            // pozastavit pro výpis console.log()
+            alert('dále')
         </script>
 
         <div>Div B</div>
