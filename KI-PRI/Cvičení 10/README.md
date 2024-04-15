@@ -12,7 +12,7 @@
 Z JS lze volat asynchronní HTTP požadavky ([AJAX](https://www.w3schools.com/xml/ajax_intro.asp)). AJAX je přístupný přes objekt (API) [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp), nebo přes [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp).
 
 Ukázka manipulace DOM & JS & AJAX. Asynchronně získá data v XML, která použije pro HTML.
-* [`6 - knihy.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/6%20-%20knihy.html)
+* [`6 - knihy.html`](../../Projekty/JS%20tutorial/www/html/JavaScript/6%20-%20knihy.html)
 
 ### ❖ Úkol 10.1: DOM
 

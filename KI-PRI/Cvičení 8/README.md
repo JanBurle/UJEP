@@ -20,7 +20,7 @@ JS v prohlížeči má přístup k DOM a může jej měnit. Tak je možné např
 # JS Tutorial
 [JavaScript Tutorial](https://www.w3schools.com/js/default.asp)
 
-Příklady na této stránce běží v [projektu JS Tutorial](../../Projekty/JS%20Tutorial).
+Příklady na této stránce běží v [projektu JS Tutorial](../../Projekty/JS%20tutorial).
 V prohlížeči si otevřete vývojové nástroje (`Ctrl+Shift+I`) / Console.
 
 ## Jak vložit JS do stránky
@@ -29,13 +29,13 @@ V prohlížeči si otevřete vývojové nástroje (`Ctrl+Shift+I`) / Console.
 JS se do stránky vloží značkou `<script>` (dříve muselo být: `<script type="text/javascript">` - dnes není nutné *type* specifikovat, `text/javascript` je default).
 
 JS v HTML:
-* [`1a - whereto.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1a%20-%20whereto.html)
+* [`1a - whereto.html`](../../Projekty/JS%20tutorial/www/html/JavaScript/1a%20-%20whereto.html)
 
 JS v XML:
-* [`1b - whereto.xml`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1b%20-%20whereto.xml)
+* [`1b - whereto.xml`](../../Projekty/JS%20tutorial/www/html/JavaScript/1b%20-%20whereto.xml)
 
 JS v transformovaném XML:
-* [`1c - whereto-xsl.xml`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1c%20-%20whereto-xsl.xml)
+* [`1c - whereto-xsl.xml`](../../Projekty/JS%20tutorial/www/html/JavaScript/1c%20-%20whereto-xsl.xml)
 
 ## JS Output
 [JavaScript Output](https://www.w3schools.com/Js/js_output.asp)
@@ -47,7 +47,7 @@ JS v transformovaném XML:
 
 Protože skripty v HTML/XML stránce běží v globálním kontextu objektu `window`, není potřeba u metod a vlastností (properties) není potřeba psát `window.`
 
-* [`2 - output.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/1c%20-%20output.html)
+* [`2 - output.html`](../../Projekty/JS%20tutorial/www/html/JavaScript/1c%20-%20output.html)
 
 ## Příkazy
 [Příkazy](https://www.w3schools.com/Js/js_statements.asp)
@@ -66,7 +66,7 @@ Existují dvě školy: 1) středníky všude, kde je možné, 2) jen tam, kde js
 
 Deklarace proměnných jsou ["hoisted"](https://www.w3schools.com/js/js_hoisting.asp)! `let` proměnné nelze použít před inicializací, `const` musí být inicializované.
 
-* [`3 - variables.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/2%20-%20variables.html)
+* [`3 - variables.html`](../../Projekty/JS%20tutorial/www/html/JavaScript/2%20-%20variables.html)
 
 ## Operátory
 [Operátory](https://www.w3schools.com/Js/js_operators.asp)
@@ -79,7 +79,7 @@ Deklarace proměnných jsou ["hoisted"](https://www.w3schools.com/js/js_hoisting
 
 Standardní, anonymní, šipková notace.
 
-* [`4 - functions.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/3%20-%20functions.html)
+* [`4 - functions.html`](../../Projekty/JS%20tutorial/www/html/JavaScript/3%20-%20functions.html)
 
 ## Řetězce
 [Řetězce](https://www.w3schools.com/Js/js_strings.asp)
@@ -88,7 +88,7 @@ Standardní, anonymní, šipková notace.
 * `"..."`
 * <code>\`...\`</code> template strings, s expanzí (substitucí) proměnných
 
-* [`5 - strings.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/4%20-%20strings.html)
+* [`5 - strings.html`](../../Projekty/JS%20tutorial/www/html/JavaScript/4%20-%20strings.html)
 
 ## Další
 
