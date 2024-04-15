@@ -21,9 +21,14 @@ Události lze také obsluhovat mimo element:
 * [`4 - events.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/3%20-%20elem.html)
 
 ### ❖ Úkol 9.1: Pexeso
-* [`5 - events.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/5%20-%20pexeso.html)
+* [`5 - pexeso.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/5%20-%20pexeso.html)
 
 Dokončete tento příklad tak, aby při kliknutí na políčko tabulky se změnilo jeho pozadí (on/off). Zároveň se pod tabulku spočítá počet políček se změněným pozadím.
+
+### ❖ Úkol 9.2: Pexeso
+* [`6 - pexeso.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/6%20-%20pexeso.html)
+
+V tomto příkladě se DOM tabulky vytvoří dynamicky. Upravte kód tak, aby každé kliknuté políčko z tabulky zmizelo.
 
 <!--
 td.sel {
