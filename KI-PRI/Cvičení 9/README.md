@@ -21,19 +21,37 @@ Události lze také obsluhovat mimo element:
 * [`4 - events.html`](../../Projekty/JS%20Tutorial/www/html/HtmlDom/3%20-%20elem.html)
 
 ### ❖ Úkol 9.1: Pexeso
+* [`5 - events.html`](../../Projekty/JS%20Tutorial/www/html/HtmlDom/5%20-%20pexeso.html)
 
+Dokončete tento příklad tak, aby při kliknutí na políčko tabulky se změnilo jeho pozadí (on/off). Zároveň se pod tabulku spočítá počet políček se změněným pozadím.
 
+<!--
+td.sel {
+    background: gray;
+}
 
-### HTML + XML DOM + AJAX
-* [JavaScript AJAX](https://www.w3schools.com/XML/ajax_intro.asp)
+<script>
+    // zkratky
+    let l = console.log
+    let d = document
 
-Z JS lze volat asynchronní HTTP požadavky ([AJAX](https://www.w3schools.com/xml/ajax_intro.asp)). AJAX je přístupný přes objekt (API) [XMLHttpRequest](https://www.w3schools.com/xml/xml_http.asp), nebo přes [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp).
+    d.addEventListener('DOMContentLoaded', () => {
+        let tds = d.querySelectorAll('td')
+        let span = d.querySelector('span')
 
-Ukázka manipulace DOM & JS & AJAX. Asynchronně získá data v XML, která použije pro HTML.
-* [`6 - knihy.html`](../../Projekty/JS%20Tutorial/www/html/JavaScript/6%20-%20knihy.html)
+        tds.countThem = () => {
+            let count = 0
+            tds.forEach((el) => el.classList.contains('sel') && ++count)
+            span.innerHTML = count
+        }
 
-### ❖ Úkol 8.1: DOM
-
-Dokončete ukázku DOM & JS & AJAX:
-* Zobrazte více dat z `knihy.xml` (např. v ostylované tabulce).
-* Přidejte JS obsluhu různých událostí (`'click'`, `'dblclick'`, `'mouseover'`, `'keydown'`).
+        tds.forEach(
+            (el) =>
+                (el.onclick = () => {
+                    el.classList.toggle('sel')
+                    tds.countThem()
+                }),
+        )
+    })
+</script>
+-->
