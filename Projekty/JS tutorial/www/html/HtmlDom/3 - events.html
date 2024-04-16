@@ -5,11 +5,13 @@
             // zkratka
             l = console.log
         </script>
+
         <style>
             h1 {
                 cursor: pointer;
             }
         </style>
+
         <h1
             onclick="l('click')"
             onmouseenter="l('enter')"
@@ -22,6 +24,7 @@
             let entered = (el) => (el.style.background = 'yellow')
             let left = (el) => (el.style.background = '')
         </script>
+
         <h1
             onclick="this.style.color = 'red'"
             ondblclick="this.style.color = ''"
@@ -36,7 +39,7 @@
                 color: red;
             }
         </style>
-        <h1 onclick="this.classList.toggle('sel')">H1 - 2</h1>
+        <h1 onclick="this.classList.toggle('sel')">H1 - 3</h1>
 
         <button onclick="l('button clicked')">Button</button>
     </body>

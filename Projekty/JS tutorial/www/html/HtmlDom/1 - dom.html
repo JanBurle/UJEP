@@ -3,12 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <script>
+            let l = console.log
+            l('readystate: ' + document.readyState)
+        </script>
+
+        <script>
             // zde není DOM ještě sestavený
-            console.log('ne', document)
+            console.log('1 - není <body>', document.body)
 
             document.addEventListener('DOMContentLoaded', () => {
                 // zde *je DOM hotový*
-                console.log('ano', document)
+                l('readystate: ' + document.readyState)
+                console.log('3 - hotovo', document.body.innerHTML)
             })
         </script>
     </head>
@@ -17,11 +23,9 @@
         <div>Div A</div>
 
         <script>
-            // zde je jakási kostra DOM, ale ne úplná
-            console.log('ne', document)
-
-            // pozastavit pro výpis console.log()
-            alert('dále')
+            // zde je jen část DOM
+            l('readystate: ' + document.readyState)
+            console.log('2 - <body> není celé', document.body.innerHTML)
         </script>
 
         <div>Div B</div>

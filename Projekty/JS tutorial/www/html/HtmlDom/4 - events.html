@@ -14,17 +14,19 @@
                 color: red;
             }
         </style>
+
         <h1>Header</h1>
+
         <script>
-            // zkratky
             let l = console.log
             let d = document
 
             d.addEventListener('DOMContentLoaded', () => {
                 let h1 = d.querySelector('h1')
                 h1.addEventListener('click', (event) => {
-                    // dvojí možný přístup
+                    // dvojí možný přístup: h1 / event
                     l(h1, event.srcElement)
+                    // h1.classList.toggle('sel')
                     event.srcElement.classList.toggle('sel')
                 })
             })

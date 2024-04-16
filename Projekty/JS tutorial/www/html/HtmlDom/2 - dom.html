@@ -8,13 +8,13 @@
     <body>
         <h1>Header</h1>
         <div id="para" value="parval">
+            aa
             <p name="para">Paragraph 1</p>
             <a href="href">Odkaz</a>
             <span>div 1</span>
         </div>
 
         <p class="vip" name="para">Paragraph 2</p>
-
         <span class="vip">
             div 2
             <a href="href2">Odkaz 2</a>
@@ -26,45 +26,62 @@
             let d = document
 
             d.addEventListener('DOMContentLoaded', () => {
+                // get element(s)
                 l('by id:', d.getElementById('para'))
                 l('by class:', d.getElementsByClassName('vip'))
                 l('by name:', d.getElementsByName('para'))
                 l('by tag:', d.getElementsByTagName('span'))
+
                 // selector
-                l('by query:', d.querySelector('span'))
-                l('by query:', d.querySelectorAll('span'))
-                l('by query:', d.querySelector('div span'))
-                l('by query:', d.querySelector('span.vip a'))
-                // properties & methods
-                l('proto:', d.querySelectorAll('span').constructor.prototype)
-                l('length:', d.querySelectorAll('span').length)
-                d.querySelectorAll('span').forEach((value, key, parent) =>
-                    l('span', key, value, parent),
-                )
+                l('query 1:', d.querySelector('span'))
+                l('query 2:', d.querySelectorAll('span'))
+                l('query 3:', d.querySelector('div span'))
+                l('query 4:', d.querySelector('span.vip a'))
+                l('query 5:', d.querySelectorAll('div, span'))
+
+                // constructor property + prototype = list of methods
+                l('number constructor', (0).constructor)
+                l('+ prototype:', (0).constructor.prototype)
+
+                // list of elements
+                let spans = d.querySelectorAll('span')
+                l('spans prototype:', spans.constructor.prototype)
+                l('length:', spans.length)
+                spans.forEach((val, key, parent) => l('=', val, key, parent))
+
                 // navigation
-                let para = d.getElementById('para')
-                l('para proto:', para.constructor.prototype)
+                let div = d.getElementById('para')
+                l('div prototype:', div.constructor.prototype)
                 l(
                     'children:',
-                    para.childElementCount,
-                    para.children,
-                    para.childNodes,
+                    div.children.length, // = div.childElementCount
+                    div.children,
+                    div.childNodes.length,
+                    div.childNodes,
                 )
-                l('first:', para.firstElementChild, para.firstChild)
-                l('next', para.nextElementSibling, para.nextSibling)
-                l('inner:', para.innerHTML, para.innerText)
-                l('node:', para.nodeName, para.nodeType, para.nodeValue)
-                l('parent', para.parentElement, para.parentNode)
+
+                l('first:', div.firstElementChild, div.firstChild)
+                l('next', div.nextElementSibling, div.nextSibling)
+                l('last:', div.lastElementChild, div.lastChild)
+                l('parent', div.parentElement, div.parentNode)
+
+                l('innerHTML:', div.innerHTML)
+                l('innerText:', div.innerText)
+                // https://www.w3schools.com/jsref/prop_node_nodetype.asp
+                l('node:', div.nodeName, div.nodeType)
+
                 // attributes
                 l(
-                    para.id,
-                    para.value, // not working
-                    para.getAttribute('id'),
-                    para.getAttribute('value'),
+                    div.id,
+                    div.getAttribute('id'),
+                    div.value, // not working
+                    div.getAttribute('value'),
                 )
+
                 // styles
                 let a = d.querySelector('a[href="href2"]')
                 l('style:', a.style)
+                // change
                 a.style.background = 'yellow'
             })
         </script>

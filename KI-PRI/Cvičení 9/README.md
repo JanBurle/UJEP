@@ -1,18 +1,31 @@
 # JavaScript + HTML DOM
 
-### HTML DOM
+## HTML DOM
 
-Stromová struktura, vytvořená z HTML stránky, dále je ji možno manipulovat pomocí JS.
-Je přístupná přes globální objekt `document` (`window.document`).
-* [JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
-* [HTML DOM Documents](https://www.w3schools.com/jsref/dom_obj_document.asp)
+Stromová struktura, vytvořená z HTML stránky, dále je ji možno manipulovat pomocí JS:
+* [JavaScript ⮕ HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
+
+Přístup k DOM stránky v prohlížeči je přes globální objekt `document` (window.document):
+* [HTML DOM `document` object](https://www.w3schools.com/jsref/dom_obj_document.asp)
+
+Pomocí objektu `document` lze:
 * [JavaScript HTML DOM Document](https://www.w3schools.com/js/js_htmldom_document.asp)
+    * vyhledat elementy ve stránce – podle *id*, značky, CSS třídy
+    * elementy měnit – (jejich HTML, atributy, styl, ...)
+    * elementy přidávat a ubírat
+    * přidávat JS pro obsluhu událostí
+    * ... atd.
 
-Zpracování HTML stránky - je nutno počkat, až bude DOM hotov:
+### Otevírání HTML stránky
+Je nutno počkat, až bude DOM hotov:
 * [`1 - dom.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/1%20-%20dom.html)
+
+### Vyhledávání elementů
 
 JS vyhledá elementy v DOM různým způsobem:
 * [`2 - dom.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/2%20-%20dom.html)
+
+### Obsluha událostí
 
 JS lze přidat přímo do elementu pro obsluhu událostí:
 * [`3 - events.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/3%20-%20elem.html)
@@ -28,7 +41,7 @@ Dokončete tento příklad tak, aby při kliknutí na políčko tabulky se změn
 ### ❖ Úkol 9.2: Pexeso
 * [`6 - pexeso.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/6%20-%20pexeso.html)
 
-V tomto příkladě se DOM tabulky vytvoří dynamicky. Upravte kód tak, aby každé kliknuté políčko z tabulky zmizelo.
+V tomto příkladě se tabulka vytvoří dynamicky. Upravte kód tak, aby každé kliknuté políčko z tabulky zmizelo.
 
 <!--
 td.sel {
