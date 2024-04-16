@@ -20,7 +20,7 @@ require INC . '/xmlTools.php';
 </div>
 
 <?php
-// jednotlivý drink
+// zvolený drink
 
 // kde generovat
 $serverSide = true;
@@ -33,7 +33,7 @@ if ($drink = @$_GET['drink']) {
         <div id="drink" />
         <script>
             useXHR = true // XHR or Fetch
-            getXML("/getDrinks.php?drink=<?= $drink ?>", (xmlDom) => {
+            getXML("/getDrink.php?drink=<?= $drink ?>", (xmlDom) => {
                 document.getElementById("drink").innerHTML =
                     xmlDom.getElementsByTagName("název")[0].textContent;
                 // dále pracovat s DOM

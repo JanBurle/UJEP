@@ -1,5 +1,5 @@
 <?php
-// každá webová stránka začne prologem
+// každá webová stránka začíná prologem
 
 // --- adresáře ---
 define('INC', __DIR__ . '/include');        // include files
@@ -10,9 +10,9 @@ define('DRINKS', '/var/mixolog/drinks');    // uploaded data
 define('TITLE', 'Mixolog');
 
 // --- session ---
-session_start();  // ze všeho nejdříve nastartovat
+session_start();  // ze všeho nejdříve začít seanci, pak používat $_SESSION
 
-// jméno přihlášeného uživatele nebo ''
+// jméno přihlášeného uživatele (s prefixem) nebo ''
 function getJmeno($prefix = ''): string
 {
     $jmeno = @$_SESSION['jmeno'];
@@ -28,7 +28,7 @@ function setJmeno($jmeno = '')
         unset($_SESSION['jmeno']);
 }
 
-// je uživatel přihlášen
+// Je přihlášen uživatel?
 function isUser(): bool
 {
     return !!getJmeno();

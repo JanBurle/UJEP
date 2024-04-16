@@ -1,4 +1,4 @@
-<?php
+<?php // najdi XML soubor s receptem
 $drink = @$_GET['drink'];
 
 $file = "/var/mixolog/drinks/$drink.xml";
