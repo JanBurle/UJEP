@@ -20,26 +20,29 @@ Pomocí objektu `document` lze:
 Je nutno počkat, až bude DOM hotov:
 * [`1 - dom.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/1%20-%20dom.html)
 
+Příklad výpisu celého stromu::
+* [`2 - dom.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/2%20-%20dom.html)
+
 ### Vyhledávání elementů
 
 JS vyhledá elementy v DOM různým způsobem:
-* [`2 - dom.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/2%20-%20dom.html)
+* [`3 - dom.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/3%20-%20dom.html)
 
 ### Obsluha událostí
 
 JS lze přidat přímo do elementu pro obsluhu událostí:
-* [`3 - events.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/3%20-%20elem.html)
+* [`4 - events.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/4%20-%20events.html)
 
 Události lze také obsluhovat mimo element:
-* [`4 - events.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/3%20-%20elem.html)
+* [`5 - events.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/5%20-%20events.html)
 
 ### ❖ Úkol 9.1: Pexeso
-* [`5 - pexeso.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/5%20-%20pexeso.html)
+* [`6 - pexeso.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/6%20-%20pexeso.html)
 
 Dokončete tento příklad tak, aby při kliknutí na políčko tabulky se změnilo jeho pozadí (on/off). Zároveň se pod tabulku spočítá počet políček se změněným pozadím.
 
 ### ❖ Úkol 9.2: Pexeso
-* [`6 - pexeso.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/6%20-%20pexeso.html)
+* [`7 - pexeso.html`](../../Projekty/JS%20tutorial/www/html/HtmlDom/7%20-%20pexeso.html)
 
 V tomto příkladě se tabulka vytvoří dynamicky. Upravte kód tak, aby každé kliknuté políčko z tabulky zmizelo.
 

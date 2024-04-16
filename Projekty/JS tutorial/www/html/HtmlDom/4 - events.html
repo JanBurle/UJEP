@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Title</title>
-    </head>
-
     <body>
+        <script>
+            // zkratka
+            l = console.log
+        </script>
+
         <style>
             h1 {
                 cursor: pointer;
             }
+        </style>
+
+        <h1
+            onclick="l('click')"
+            onmouseenter="l('enter')"
+            onmouseleave="l('leave')"
+        >
+            H1 - 1
+        </h1>
+
+        <script>
+            let entered = (el) => (el.style.background = 'yellow')
+            let left = (el) => (el.style.background = '')
+        </script>
+
+        <h1
+            onclick="this.style.color = 'red'"
+            ondblclick="this.style.color = ''"
+            onmouseenter="entered(this)"
+            onmouseleave="left(this)"
+        >
+            H1 - 2
+        </h1>
+
+        <style>
             h1.sel {
                 color: red;
             }
         </style>
+        <h1 onclick="this.classList.toggle('sel')">H1 - 3</h1>
 
-        <h1>Header</h1>
-
-        <script>
-            let l = console.log
-            let d = document
-
-            d.addEventListener('DOMContentLoaded', () => {
-                let h1 = d.querySelector('h1')
-                h1.addEventListener('click', (event) => {
-                    // dvojí možný přístup: h1 / event
-                    l(h1, event.srcElement)
-                    // h1.classList.toggle('sel')
-                    event.srcElement.classList.toggle('sel')
-                })
-            })
-        </script>
+        <button onclick="l('button clicked')">Button</button>
     </body>
 </html>
