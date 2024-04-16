@@ -1,4 +1,4 @@
-<footer class="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow">
+<footer class="sticky bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow">
     <span>
         <?= TITLE ?>
     </span>
