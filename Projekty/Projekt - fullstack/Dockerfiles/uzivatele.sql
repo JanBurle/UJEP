@@ -18,3 +18,10 @@ INSERT INTO `uzivatele` (`id`, `jmeno`, `heslo`) VALUES
 (1,	'pavel',	'pavel'),
 (2,	'alena',	'heslo'),
 (3,	'petr',	  '12345');
+
+DROP TABLE IF EXISTS `drinky`;
+CREATE TABLE `drinky` (
+  `nazev` varchar(100) NOT NULL,
+  `precteno` int unsigned NOT NULL,
+  PRIMARY KEY (`nazev`)
+);
