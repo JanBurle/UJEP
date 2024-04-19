@@ -49,26 +49,31 @@
                 let tr = appendElement(table, 'tr')
                 for (let c = cols; c--; ) {
                     let td = appendElement(tr, 'td')
+
                     tds.push(td)
                     td.innerHTML = ++i
+
                     td.onclick = () => {
-                        let cls = td.classList
-                        if (cls.contains('hidden')) return
-                        cls.toggle('sel')
-                        if (!cls.contains('sel')) return
-                        let have = 0
-                        tds.forEach(
-                            (t) => t.classList.contains('sel') && ++have,
-                        )
-                        if (2 == have)
-                            tds.forEach((t) => {
-                                if (t.classList.contains('sel')) {
-                                    setTimeout(() => {
-                                        t.classList.remove('sel')
+                        td.classList.toggle('sel')
+
+                        // a short delay
+                        setTimeout(() => {
+                            // count them
+                            let pairCount = 0
+                            tds.forEach(
+                                (td) =>
+                                    td.classList.contains('sel') && ++pairCount,
+                            )
+
+                            // is a pair
+                            if (2 == pairCount)
+                                tds.forEach((t) => {
+                                    if (t.classList.contains('sel')) {
                                         t.classList.add('hidden')
-                                    }, 777)
-                                }
-                            })
+                                        t.classList.remove('sel')
+                                    }
+                                })
+                        }, 777)
                     }
                 }
             }
