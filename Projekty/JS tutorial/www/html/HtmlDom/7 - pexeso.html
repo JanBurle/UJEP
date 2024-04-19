@@ -23,25 +23,55 @@
                 border: thin solid gray;
                 text-align: center;
             }
+
+            td.sel {
+                background: gray;
+            }
+
+            td.hidden {
+                border: none;
+                background: none;
+                color: transparent;
+            }
         </style>
 
         <table></table>
 
         <script>
             let table = d.querySelector('table')
-            let rows = 3,
-                cols = 6
+            let rows = 4,
+                cols = 7
+
+            let tds = []
 
             let i = 0
-            for (let r = 0; r < rows; ++r) {
+            for (let r = rows; r--; ) {
                 let tr = appendElement(table, 'tr')
-                for (let c = 0; c < cols; ++c) {
+                for (let c = cols; c--; ) {
                     let td = appendElement(tr, 'td')
+                    tds.push(td)
                     td.innerHTML = ++i
+                    td.onclick = () => {
+                        let cls = td.classList
+                        if (cls.contains('hidden')) return
+                        cls.toggle('sel')
+                        if (!cls.contains('sel')) return
+                        let have = 0
+                        tds.forEach(
+                            (t) => t.classList.contains('sel') && ++have,
+                        )
+                        if (2 == have)
+                            tds.forEach((t) => {
+                                if (t.classList.contains('sel')) {
+                                    setTimeout(() => {
+                                        t.classList.remove('sel')
+                                        t.classList.add('hidden')
+                                    }, 777)
+                                }
+                            })
+                    }
                 }
             }
         </script>
-
-        Count: <span>0</span>
     </body>
 </html>
