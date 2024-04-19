@@ -22,7 +22,7 @@ if (!isUser())
 <?php
 
 if (($xmlFile = @$_FILES['xml']) && ($tmpName = @$xmlFile['tmp_name'])) {
-    $isValid = xmlValidateXSD($tmpName, XML . '/recept.xsd');
+    $isValid = xmlValidate($tmpName, XML . '/recept.xsd');
     if (!$isValid)
         errorBox('XML soubor není validní.');
     else {
@@ -31,7 +31,7 @@ if (($xmlFile = @$_FILES['xml']) && ($tmpName = @$xmlFile['tmp_name'])) {
         if (file_exists($target))
             errorBox('Recept už máme.');
         elseif (rename($tmpName, $target))
-            successBox("OK - $drink nahráno");
+            successBox("OK - $drink - nahráno");
 
     }
 }

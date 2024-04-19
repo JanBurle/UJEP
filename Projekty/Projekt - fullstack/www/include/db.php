@@ -1,7 +1,7 @@
 <?php
 // --- databázové funkce ---
 
-// připojit databázi - vitální!
+// globální objekt - připojení databázi - vitální!
 $_db_ = mysqli_connect("database", "admin", "heslo", "mixolog") or die;
 
 // dotaz k databázi
@@ -12,7 +12,6 @@ function dbQuery(string $query): bool|mysqli_result
 }
 
 // bezpečné uzavření řetězu do uvozovek pro SQL
-// databáze musí být připojená
 function dbEscape(string $s): string
 {
     global $_db_;
@@ -34,4 +33,15 @@ function authUser(string $jmeno, string $heslo): bool
     }
 
     return false;
+}
+
+// popularita drinku
+function precteno(string $drink): int
+{
+    $drink = dbEscape($drink);
+
+    dbQuery("insert into drinky (nazev, precteno) value($drink, 1) on duplicate key update precteno = precteno+1");
+    $result = dbQuery("select precteno from drinky where nazev=$drink");
+    [[$precteno]] = $result->fetch_all();
+    return $precteno;
 }

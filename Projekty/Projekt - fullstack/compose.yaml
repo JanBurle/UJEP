@@ -1,17 +1,17 @@
 services:
   # PHP + Apache
-  php-apache: 
+  php-apache:
     build:
       dockerfile: Dockerfiles/PhpApache
     volumes:
       - ./www:/var/www
     ports:
-      - 8000:80                   # port 8000
+      - 8000:80 # port 8000
     depends_on:
       - database
 
   # database
-  database: 
+  database:
     build:
       dockerfile: Dockerfiles/Database
     environment:
@@ -27,4 +27,4 @@ services:
     environment:
       ADMINER_DEFAULT_SERVER: database
     ports:
-      - 8080:8080                 # port 8080
+      - 8080:8080 # port 8080

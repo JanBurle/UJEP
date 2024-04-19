@@ -1,30 +1,23 @@
-// AJAX
-let getXML_XHR = (url, processXML) => {
-    let xhr = new XMLHttpRequest()
+// asynchronously load XML data from url
+// when received, process with processXMLDOM
 
-    // obsluha asynchronní události
-    xhr.onreadystatechange = () => {
-        if (XMLHttpRequest.DONE == xhr.readyState && 200 == xhr.status)
-            processXML(xhr.responseXML)
-    }
-
-    xhr.open('GET', url)
-    xhr.send()
+let loadXML_XHR = (url, processXMLDOM) => {
+    console.log(url)
+    let req = new XMLHttpRequest()
+    req.onload = () => processXMLDOM(req.responseXML)
+    req.open('GET', url)
+    req.send()
 }
 
 // Fetch
-let getXML_Fetch = (url, processXML) => {
-    // cascading promises
-    fetch(url)
-        .then((res) => res.text())
-        .then((text) =>
-            processXML(new DOMParser().parseFromString(text, 'text/xml')),
-        )
+let loadXML_Fetch = (url, processXMLDOM) => {
+    let fetchXML = (url) => fetch(url).then((response) => response.text())
+    let parseXML = (text) => new DOMParser().parseFromString(text, 'text/xml')
+
+    fetchXML(url).then(parseXML).then(processXMLDOM)
 }
 
-// XHR nebo fetch?
-let useXHR = true
+// použít XHR nebo fetch
+let USE_XHR = true
 
-// get data
-let getXML = (url, processXML) =>
-    (useXHR ? getXML_XHR : getXML_Fetch)(url, processXML)
+let loadXML = USE_XHR ? loadXML_XHR : loadXML_Fetch

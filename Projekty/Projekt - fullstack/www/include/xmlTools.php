@@ -67,7 +67,7 @@ function xmlValidateDTD($xmlPath, $dtdPath)
     return $isValid;
 }
 
-function xmlValidateXSD($xmlPath, $xsdPath)
+function xmlValidate($xmlPath, $xsdPath)
 {
     $doc = new DOMDocument;
 
