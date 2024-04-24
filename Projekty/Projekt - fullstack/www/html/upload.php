@@ -1,4 +1,5 @@
-<?php require __DIR__ . '/../prolog.php';
+<?php // nahrát recept
+require '../prolog.php';
 require INC . '/html-begin.php';
 require INC . '/nav.php';
 require INC . '/boxes.php';

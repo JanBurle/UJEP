@@ -5,6 +5,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+-- tabulka registrovaných uživatelů (kteří moho nahrávat recepty)
 DROP TABLE IF EXISTS `uzivatele`;
 CREATE TABLE `uzivatele` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -19,6 +20,7 @@ INSERT INTO `uzivatele` (`id`, `jmeno`, `heslo`) VALUES
 (2,	'alena',	'heslo'),
 (3,	'petr',	  '12345');
 
+-- tabulka receptů – počet zobrazení
 DROP TABLE IF EXISTS `drinky`;
 CREATE TABLE `drinky` (
   `nazev` varchar(100) NOT NULL,

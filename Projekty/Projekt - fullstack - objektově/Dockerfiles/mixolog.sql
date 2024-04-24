@@ -5,6 +5,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+-- tabulka registrovaných uživatelů (kteří moho nahrávat recepty)
 DROP TABLE IF EXISTS `uzivatele`;
 CREATE TABLE `uzivatele` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -19,9 +20,10 @@ INSERT INTO `uzivatele` (`id`, `jmeno`, `heslo`) VALUES
 (2,	'alena',	'heslo'),
 (3,	'petr',	  '12345');
 
+-- tabulka receptů – počet zobrazení
 DROP TABLE IF EXISTS `drinky`;
 CREATE TABLE `drinky` (
   `nazev` varchar(100) NOT NULL,
   `precteno` int unsigned NOT NULL,
   PRIMARY KEY (`nazev`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);

@@ -1,4 +1,5 @@
-<?php require '../page.php';
+<?php // přihlášení uživatele
+require '../page.php';
 require '../db.php';
 $page->htmlBegin();
 
@@ -13,6 +14,7 @@ switch (@$_POST['akce']) {
         break;
 }
 
+// nav až po nastavení jména, aby se zobrazilo
 $page->nav();
 
 $inputClass = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline";

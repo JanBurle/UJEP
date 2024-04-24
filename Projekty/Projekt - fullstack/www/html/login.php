@@ -1,5 +1,5 @@
-<?php require __DIR__ . '/../prolog.php';
-
+<?php // přihlášení uživatele
+require '../prolog.php';
 require INC . '/db.php';
 require INC . '/html-begin.php';
 
@@ -14,6 +14,7 @@ switch (@$_POST['akce']) {
         break;
 }
 
+// nav až po nastavení jména, aby se zobrazilo
 require INC . '/nav.php';
 
 $inputClass = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline";

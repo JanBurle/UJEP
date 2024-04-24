@@ -1,11 +1,9 @@
-<?php
-require __DIR__ . '/../prolog.php';
+<?php // vypsat drinky:
+require '../prolog.php';
 require INC . '/html-begin.php';
 require INC . '/nav.php';
 require INC . '/xmlTools.php';
 require INC . '/db.php';
-
-// vypsat drinky
 ?>
 
 <h1 class="py-6 text-center text-5xl">Drinky</h1>
@@ -23,25 +21,25 @@ require INC . '/db.php';
     </ol>
 </div>
 
-<?php
-// zvolený drink
-if ($drink = @$_GET['drink']) {
-    if (TRANSFORM_SERVER_SIDE) { ?>
-        <?= xmlTransform(DRINKS . "/$drink.xml", XML . '/recept.xsl') ?>
-    <?php } else { ?>
-        <h2 id="nazev" class="text-center text-2xl m-4" />
-        <script>
-            loadXML(
-                "/getDrink.php?drink=<?= $drink ?>",
-                (xmlDom) => {
-                    console.log(xmlDom)
-                    // zde pracovat s DOM ...
-                    document.getElementById("nazev").innerHTML =
-                        xmlDom.getElementsByTagName("název")[0].textContent;
-                    // ...
-                })
-        </script>
-    <?php }
-} ?>
+<section class="flex justify-center">
+    <?php // zvolený drink:
+    if ($drink = @$_GET['drink']) {
+        if (TRANSFORM_SERVER_SIDE) { ?>
+            <?= xmlTransform(DRINKS . "/$drink.xml", XML . '/recept.xsl') ?>
+        <?php } else { ?>
+            <h2 id="nazev" class="text-center text-2xl m-4" />
+            <script>
+                loadXML(
+                    "/serve/getDrink.php?drink=<?= $drink ?>",
+                    (xmlDom) => {
+                        // zde je možné pracovat s DOM ...
+                        document.getElementById("nazev").innerHTML =
+                            xmlDom.getElementsByTagName("název")[0].textContent;
+                        // ... atd.
+                    })
+            </script>
+        <?php }
+    } ?>
+</section>
 
 <?php require INC . '/html-end.php';

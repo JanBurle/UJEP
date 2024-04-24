@@ -1,4 +1,4 @@
-<?php
+<?php // navbar – navigační lišta
 require INC . '/pages.php';
 ?>
 

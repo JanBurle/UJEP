@@ -1,5 +1,6 @@
-<?php require '../page.php';
-require INC . '/xmlTools.php';
+<?php // nahrát recept
+require '../page.php';
+require '../xmlTools.php';
 $page->htmlBegin();
 $page->nav();
 

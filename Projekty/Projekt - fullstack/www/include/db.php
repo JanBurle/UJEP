@@ -1,7 +1,7 @@
 <?php
 // --- databázové funkce ---
 
-// globální objekt - připojení databázi - vitální!
+// globální objekt - připojí databázi - vitální!
 $_db_ = mysqli_connect("database", "admin", "heslo", "mixolog") or die;
 
 // dotaz k databázi
@@ -26,6 +26,8 @@ function authUser(string $jmeno, string $heslo): bool
 
     if ($result = dbQuery("select id from uzivatele where jmeno=$jmeno and heslo=$heslo")) {
         if ($result->num_rows) {
+            // fetch_all() vrací pole polí (řádky, a každá má políčka)
+            // [[$id]] je dekonstrukce: vezme první hodnotu z první řádky
             [[$id]] = $result->fetch_all();
             if ($id)
                 return true;
@@ -35,13 +37,14 @@ function authUser(string $jmeno, string $heslo): bool
     return false;
 }
 
-// popularita drinku
+// sledujeme popularitu drinku
 function precteno(string $drink): int
 {
     $drink = dbEscape($drink);
 
     dbQuery("insert into drinky (nazev, precteno) value($drink, 1) on duplicate key update precteno = precteno+1");
     $result = dbQuery("select precteno from drinky where nazev=$drink");
+    // opět dekonstrukce
     [[$precteno]] = $result->fetch_all();
     return $precteno;
 }

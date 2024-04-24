@@ -1,5 +1,6 @@
 <?php
 
+// seznam jmen XML souborů
 function xmlFileList($dir)
 {
     $list = [];
@@ -10,6 +11,7 @@ function xmlFileList($dir)
     return $list;
 }
 
+// výpis chyb
 function xmlPrintErrors()
 { ?>
     <table>
@@ -27,7 +29,8 @@ function xmlPrintErrors()
     <?php
 }
 
-function xmlValidateDTD($xmlPath, $dtdPath)
+// validace XML pomocí DTD
+function xmlValidateDTD($xmlPath, $dtdPath): bool
 {
     $doc = new DOMDocument;
 
@@ -42,8 +45,6 @@ function xmlValidateDTD($xmlPath, $dtdPath)
     if ($root) {
         $root = $doc->firstElementChild->tagName;
         $systemId = 'data://text/plain;base64,' . base64_encode(file_get_contents($dtdPath));
-
-        // echo "<p>Validuji podle DTD. Kořen: <b>$root</b></p>";
 
         // inject DTD into XML
         $creator = new DOMImplementation;
@@ -67,7 +68,8 @@ function xmlValidateDTD($xmlPath, $dtdPath)
     return $isValid;
 }
 
-function xmlValidate($xmlPath, $xsdPath)
+// validace XML pomocí XSD
+function xmlValidate($xmlPath, $xsdPath): bool
 {
     $doc = new DOMDocument;
 
@@ -86,7 +88,8 @@ function xmlValidate($xmlPath, $xsdPath)
     return $isValid;
 }
 
-function xmlTransform($xmlPath, $xslPath)
+// transformace XML pomocí XSL
+function xmlTransform($xmlPath, $xslPath): false|string
 {
     $xml = new DOMDocument;
     $xsl = new DOMDocument;

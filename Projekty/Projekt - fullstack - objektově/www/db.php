@@ -7,7 +7,7 @@ class Db
 
     function __construct()
     {
-        // připojení databázi - vitální!
+        // připojí databázi - vitální!
         $this->db = mysqli_connect("database", "admin", "heslo", "mixolog") or die;
     }
 
@@ -31,6 +31,8 @@ class Db
 
         if ($result = $this->query("select id from uzivatele where jmeno=$jmeno and heslo=$heslo")) {
             if ($result->num_rows) {
+                // fetch_all() vrací pole polí (řádky, a každá má políčka)
+                // [[$id]] je dekonstrukce: vezme první hodnotu z první řádky
                 [[$id]] = $result->fetch_all();
                 if ($id)
                     return true;
@@ -40,16 +42,18 @@ class Db
         return false;
     }
 
-    // popularita drinku
+    // sledujeme popularitu drinku
     function precteno(string $drink): int
     {
         $drink = $this->escape($drink);
 
         $this->query("insert into drinky (nazev, precteno) value($drink, 1) on duplicate key update precteno = precteno+1");
         $result = $this->query("select precteno from drinky where nazev=$drink");
+        // opět dekonstrukce
         [[$precteno]] = $result->fetch_all();
         return $precteno;
     }
 }
 
+// globální instance, připojená k databázi
 $db = new Db();

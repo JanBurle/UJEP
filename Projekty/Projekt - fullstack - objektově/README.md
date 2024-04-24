@@ -2,32 +2,37 @@
 
 Tento ukázkový projekt obsahuje části typické webové aplikace:
 
--   back-end (databáze, PHP, XML)
--   front-end (prohlížeč: HTML, XML, CSS, JavaScript)
+- server (back-end): PHP, XML, databáze – běžící na Linuxovém serveru
+- klient (front-end): HTML, XML, CSS, JavaScript – běžící v prohlížeči
 
-Pro stylování používá:
+Stránky používají šablonu a styly:
 
--   [tailwindcss](https://tailwindcss.com/)
--   [Font Awesome](https://fontawesome.com/)
--   responsivní šablonu podle [codewithFaraz](https://www.codewithfaraz.com/content/229/how-to-create-a-simple-navbar-with-tailwind-css)
+- responsivní šablonu upravenou z [codewithFaraz](https://www.codewithfaraz.com/content/229/how-to-create-a-simple-navbar-with-tailwind-css)
+- CSS framework [tailwindcss](https://tailwindcss.com/)
+- ikony z [Font Awesome](https://fontawesome.com/)
 
-Vaším úkolem je:
+## Váš úkol (seminární práce) je:
 
-1. Projekt si prostudovat.
-1. Zvolit si, jestli vytvoříte jiný, podobný projekt, nebo ukázkový projekt zdokonalíte.
-1. Zvolený projekt realizovat a (fungující) přinést k zápočtu.
+1. Projekt si prostudujte.
+1. Zvolte si, zda:
+   - vytvoříte svůj vlastní, podobný projekt, nebo
+   - ukázkový projekt zdokonalíte.
+1. Svůj projekt realizujte a (fungující 🙂) přineste k zápočtu.
 
-Projekt by měl obsahovat následující:
+## Váš projekt by měl obsahovat následující:
 
--   XML, XSD, XSL
--   Číst a nahrávat data z/do XML souborů.
--   XML data přenášená mezi klientem (front-end) a serverem (back-end) validovat.
--   Volitelně (není to povinné) číst a nahrávat data z/do databáze, případně generovat XML data z databázových dat.
--   Mít několik webových stránek, elegantně ostylovaných.
--   V klientu použít JavaScript.
+- Zcela určitě: XML, XSD, XSL, XPath.
+- Zcela určitě: číst data z XML (XSD, XSL) souborů, XML soubory (data přenášená mezi klientem a serverem) validovat a transformovat.
+- Nahrávat (tj. zapisovat) validovaná data do XML souborů.
+- Nepovinně (pokud chcete), můžete číst a nahrávat data z/do databáze.
+- Projekt by měl mít několik (3+) webových stránek, elegantně ostylovaných.
+- Na serveru použít PHP, v klientu JavaScript.
+- JavaScript by měl pracovat s HTML DOM (případně XML DOM) a obsluhovat události (events).
 
-Nápady na zdokonalení ukázkového projektu:
+## Náměty na zdokonalení ukázkového projektu:
 
--   Hledat a vypsat drinky podle: obtížnosti, přísad, země původu, autora ...
--   Sledovat, kolikrát byl recept na který drink zobrazen, a zobrazit tabulku nejpopulárnějších drinků.
--   ...
+Pokud budete zdokonalovat ukázkový projekt, můžete například:
+
+- Vytvořit stránku (formulář) na vyhledání a výpis drinků podle: obtížnosti, přísad, země původu, autora ...
+- Zobrazit tabulku nejpopulárnějších drinků.
+- Pomocí JavaScriptu a manipulace DOMu stránky „oživit“.
