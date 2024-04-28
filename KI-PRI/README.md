@@ -42,16 +42,19 @@ Cvičí: Ing. Jan Burle, Ph.D.
 |    7   | XPath, PHP | [Cvičení 7](./Cvičení%207) | [Projekt 7](./Projekt%207) | [XPath - řešení](./XPath%20-%20řešení)
 |    8   | JavaScript | [Cvičení 8](./Cvičení%208) | [JS tutorial](../Projekty/JS%20tutorial)
 |    9   | JavaScript + HTML DOM | [Cvičení 9](./Cvičení%209) | [JS tutorial](../Projekty/JS%20tutorial) | [Projekt (seminární práce)](../Projekty/Projekt%20-%20fullstack)
+|    10   |  |  |  |
+|    11  |  |  |  |
+|    12  |  |  |  |
 
 ## 5. Podmínky úspěšného zakončení předmětu
 
 Podmínky získání zápočtu:
 <!-- 1. Účast na cvičeních je povinná (maximálně 3 absence, vyšší absence jen z prokázaných závažných důvodů) -->
 1. Student musí uchovávat výsledky práce z každého cvičení pro doložení při zápočtu.
-1. Min 75% výsledků práce ze cvičení musí být správné.
+1. Student při zápočtu předvede vypracovanou seminární práci (fungující webový projekt) a je schopný ukázat, že v ní použitým technologiím rozumí – např. tím, že je schopen projekt pozměnit a upravit.
 
-Podmínky získání zkoušky:
+<!-- Podmínky získání zkoušky:
 1. Student musí odpovědět na otázku, kterou vylosuje.
 2. Otázky jsou vymezeny sylabem kurzu.
 3. Úroveň znalosti konkrétních otázek musí odpovídat obsahu přednášek.
-4. Studenti dostanou seznam otázek dva týdny před zápočtem.
+4. Studenti dostanou seznam otázek dva týdny před zápočtem. -->
