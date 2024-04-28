@@ -24,10 +24,10 @@ Stránky používají šablonu a styly:
 - Zcela určitě: XML, XSD, XSL, XPath.
 - Zcela určitě: číst data z XML (XSD, XSL) souborů, XML soubory (data přenášená mezi klientem a serverem) validovat a transformovat.
 - Nahrávat (tj. zapisovat) validovaná data do XML souborů.
-- Nepovinně (pokud chcete), můžete číst a nahrávat data z/do databáze.
-- Projekt by měl mít několik (3+) webových stránek, elegantně ostylovaných.
+- Nepovinně – tedy pokud chcete – můžete číst a nahrávat data z/do databáze.
+- Projekt by měl mít několik (3+) webových stránek, ostylovaných.
 - Na serveru použít PHP, v klientu JavaScript.
-- JavaScript by měl pracovat s HTML DOM (případně XML DOM) a obsluhovat události (events).
+- JavaScript by měl pracovat s HTML DOM (případně také XML DOM) a obsluhovat nějaké události (events), např. klikání a pohyb myši.
 
 ## Náměty na zdokonalení ukázkového projektu:
 
@@ -35,4 +35,4 @@ Pokud budete zdokonalovat ukázkový projekt, můžete například:
 
 - Vytvořit stránku (formulář) na vyhledání a výpis drinků podle: obtížnosti, přísad, země původu, autora ...
 - Zobrazit tabulku nejpopulárnějších drinků.
-- Pomocí JavaScriptu a manipulace DOMu stránky „oživit“.
+- Pomocí JavaScriptu (manipulace DOMu a obsluhy událostí) stránky „oživit“.
