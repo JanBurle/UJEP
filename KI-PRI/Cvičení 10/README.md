@@ -55,7 +55,7 @@ Další příklady manipulace DOM:
 ### ❖ Úkol 10.1: DOM
 
 Dokončete ukázku `5 - knihy.html`:
-* Zobrazte více dat z `knihy.xml`,např. v ostylované tabulce.
+* Zobrazte více dat z XML souboru, a to např. v ostylované tabulce.
 * Přidejte JS obsluhu dalších událostí: `click`, `dblclick`, `mouseover` ...
 
 ## SVG – Scalable Vector Graphics
