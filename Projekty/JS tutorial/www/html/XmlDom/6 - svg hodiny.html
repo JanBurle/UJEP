@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+
+    <script>
+      let addElem = (parent, tag) => {
+        let elem = document.createElementNS('http://www.w3.org/2000/svg', tag)
+        parent.append(elem)
+        return elem
+      }
+
+      function tickTock() {
+        let divTime = document.getElementById('time')
+
+        let clock = document.getElementById('clock')
+        let hand = addElem(clock, 'line')
+        hand.setAttribute('x1', '0')
+        hand.setAttribute('y1', '0')
+        hand.setAttribute('x2', '0')
+        hand.setAttribute('y2', '130')
+
+        let tick = () => {
+          let now = new Date()
+          divTime.textContent = now.toLocaleTimeString()
+
+          let sec = now.getSeconds()
+          hand.setAttribute('transform', `rotate(${180 + sec * 6}, 0, 0)`)
+        }
+
+        tick()
+        setInterval(tick, 1000)
+      }
+    </script>
+  </head>
+
+  <body onload="tickTock()">
+    <svg width="300" height="300">
+      <g
+        id="clock"
+        transform="translate(150 150)"
+        stroke="black"
+        stroke-width="4"
+        stroke-linecap="round"
+      >
+        <circle r="140" fill="white" />
+      </g>
+    </svg>
+    <div id="time"></div>
+  </body>
+</html>

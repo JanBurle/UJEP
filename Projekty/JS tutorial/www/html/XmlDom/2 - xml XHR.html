@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // use AJAX (XHR)
+      let loadXML = (url, processText) => {
+        let req = new XMLHttpRequest()
+        req.onload = () => processText(req.response)
+        req.open('GET', url)
+        req.send()
+      }
+
+      let runData = () => {
+        loadXML('/xml/knihy.xml', (text) => {
+          console.log(text)
+
+          let pre = document.getElementById('target')
+          pre.textContent = text
+        })
+      }
+    </script>
+  </head>
+  <body onload="runData()">
+    <pre id="target"></pre>
+  </body>
+</html>

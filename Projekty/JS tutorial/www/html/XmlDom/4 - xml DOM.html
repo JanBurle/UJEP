@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="js/ajax.js"></script>
+    <script>
+      let l = console.log
+      let proto = (obj) => obj.constructor.prototype
+      let lp = (obj) => l(proto(obj), obj)
+      let ln = (node) => l(node.nodeName, node.nodeValue, node.nodeType)
+
+      let lNode = (node) => {
+        lp(node)
+        ln(node)
+
+        let children = node.childNodes
+        if (children?.length) {
+          console.groupCollapsed('')
+          for (let child of children) lNode(child)
+          console.groupEnd()
+        }
+      }
+
+      let processDOM = (xmlDom) => {
+        lNode(xmlDom)
+      }
+    </script>
+  </head>
+  <body onload="loadXML('/xml/knihy.xml', processDOM)"></body>
+</html>

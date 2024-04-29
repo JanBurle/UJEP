@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // use fetch
+      let loadXML = (url, processText) => {
+        fetch(url)
+          .then((response) => response.text())
+          .then((text) => processText(text))
+      }
+
+      let runData = () => {
+        loadXML('/xml/knihy.xml', (text) => {
+          console.log(text)
+
+          let pre = document.getElementById('target')
+          pre.textContent = text
+        })
+      }
+    </script>
+  </head>
+  <body onload="runData()">
+    <pre id="target"></pre>
+  </body>
+</html>

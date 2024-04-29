@@ -1,0 +1,76 @@
+﻿<html>
+  <head>
+    <script src="./js.js"></script>
+    <script id="xml-data" type="application/xml">
+      <predmety>
+        <predmet>
+          <nazev>MRL</nazev>
+          <lektor>Novak</lektor>
+          <kb>3</kb>
+          <rok>2010</rok>
+        </predmet>
+
+        <predmet>
+          <nazev>PIN</nazev>
+          <lektor>sovak</lektor>
+          <kb>5</kb>
+          <rok>2010</rok>
+        </predmet>
+
+        <predmet>
+          <nazev>DB</nazev>
+          <lektor>Drak</lektor>
+          <kb>2</kb>
+          <rok>2009</rok>
+        </predmet>
+
+        <predmet>
+          <nazev>BakPrace</nazev>
+          <lektor>Neni</lektor>
+          <kb>10</kb>
+          <rok>2010</rok>
+        </predmet>
+      </predmety>
+    </script>
+
+    <script>
+      let doIt = () => {
+        let xmlDoc = loadXmlDoc()
+
+        let html = ''
+
+        let add = (name, val) => {
+          html += `<tr><td>${name}:</td><td>${val}</td></tr>`
+        }
+
+        let get = (predmet, i) => predmet.children[i].innerHTML
+
+        let max = 0
+
+        let predmety = xmlDoc.children
+
+        for (let predmet of predmety) {
+          max = Math.max(max, get(predmet, 2))
+        }
+
+        for (let predmet of predmety) {
+          let kb = get(predmet, 2)
+          if (kb != max) continue
+
+          add('Název', get(predmet, 0))
+          add('Lektor', get(predmet, 1))
+          add('KB', get(predmet, 2))
+          add('Rok', get(predmet, 3))
+        }
+
+        d.getElementById('table').innerHTML = html
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Předmět(y) s max. KB</h1>
+    <table id="table"></table>
+    <button onclick="doIt();">Najdi</button>
+  </body>
+</html>
