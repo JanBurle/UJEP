@@ -19,20 +19,24 @@
 
       function tickTock() {
         let divTime = document.getElementById('time')
-
         let clock = document.getElementById('clock')
+
         let hand = addElem(clock, 'line')
         hand.setAttribute('x1', '0')
-        hand.setAttribute('y1', '0')
+        hand.setAttribute('y1', '-30')
         hand.setAttribute('x2', '0')
         hand.setAttribute('y2', '130')
+
+        let hub = addElem(clock, 'circle')
+        hub.setAttribute('r', '10')
+        hub.setAttribute('fill', 'cyan')
 
         let tick = () => {
           let now = new Date()
           divTime.textContent = now.toLocaleTimeString()
 
           let sec = now.getSeconds()
-          hand.setAttribute('transform', `rotate(${180 + sec * 6}, 0, 0)`)
+          hand.setAttribute('transform', `rotate(${sec * 6}, 0, 0)`)
         }
 
         tick()
@@ -45,7 +49,7 @@
     <svg width="300" height="300">
       <g
         id="clock"
-        transform="translate(150 150)"
+        transform="translate(150 150) rotate(180, 0, 0)"
         stroke="black"
         stroke-width="4"
         stroke-linecap="round"

@@ -10,7 +10,7 @@ Dnes:
 
 ### Zdroj XML dat
 
-XML data lze přímo vložit do stránky jako tzv. [datový blok](https://stackoverflow.com/questions/18748571/workaround-for-xml-data-islands/21986537#21986537)
+XML data lze přímo vložit do stránky (místo datového ostrůvku) jako tzv. [datový blok](https://stackoverflow.com/questions/18748571/workaround-for-xml-data-islands/21986537#21986537)
 
 * [`1 - xml data block.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/1%20-%20xml%20data%20block.html)
 
@@ -22,7 +22,7 @@ Nebo pomocí [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp):
 
 * [`3 - xml fetch.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/3%20-%20xml%20fetch.html)
 
-### Konverze do XML DOM
+### Konverze na XML DOM
 
 Přijatá XML data je potřeba konvertovat na XML DOM, se který pak lze dále pracovat JavaScriptem. XHR má konverzi zabudovanou; při použití Fetch je nutno data [konvertovat explicitně](https://www.w3schools.com/xml/xml_parser.asp):
 

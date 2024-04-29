@@ -12,8 +12,6 @@
 
       let runData = () => {
         loadXML('/xml/knihy.xml', (text) => {
-          console.log(text)
-
           let pre = document.getElementById('target')
           pre.textContent = text
         })
