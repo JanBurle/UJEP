@@ -66,4 +66,9 @@ Dokončete ukázku `5 - knihy.html`:
 
 ### ❖ Úkol 10.2: DOM
 
-Dokončete hodiny.
+Dokončete hodiny. Např:
+* přidejte další ručičky
+* hodiny ostylujte (CSS)
+* přidejte obsluhu událostí: např. klik myší hodiny zastaví a další znovu spustí
+
+Pro pokročilé: [dragging](https://www.petercollingridge.co.uk/tutorials/svg/interactive/dragging/)
