@@ -6,7 +6,7 @@ Dnes:
 
 ## XML DOM v HTML stránce
 
-*Datové ostrůvky XML ([XML Data Islands](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ms766512(v=vs.85))) o s nimi spojený DSO (Data Source Object) pro vkládání XML dat do HTML stránek bylo specifické řešení Microsoftu v prohlížeči Internet Explorer. Dnes již [nejsou podporovány](https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801224(v=vs.85)).*
+Datové ostrůvky XML ([XML Data Islands](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ms766512(v=vs.85))) o s nimi spojený DSO (Data Source Object) pro vkládání XML dat do HTML stránek bylo specifické řešení Microsoftu v prohlížeči Internet Explorer. Dnes již [nejsou podporovány](https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801224(v=vs.85)).
 
 ### Zdroj XML dat
 
