@@ -29,6 +29,7 @@ Příklady použití DOM:
 * procházení stromem: [3 - looping.php](../Projekt%2011/www/html/phpxmldom/3%20-%20looping.php)
 * rekurzivní výpis: [4 - tree.php](../Projekt%2011/www/html/phpxmldom/4%20-%20tree.php)
 * přístup k datům: [5 - get.php](../Projekt%2011/www/html/phpxmldom/5%20-%20get.php)
+* sestavit XML: [6 - create.php](../Projekt%2011/www/html/phpxmldom/6%20-%20create.php)
 
 ## Keksy – sušenky – cookies
 
