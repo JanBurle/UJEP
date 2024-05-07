@@ -43,7 +43,7 @@ Cvičí: Ing. Jan Burle, Ph.D.
 |    8   | JavaScript | [Cvičení 8](./Cvičení%208) | [JS tutorial](../Projekty/JS%20tutorial)
 |    9   | JavaScript + HTML DOM | [Cvičení 9](./Cvičení%209) | [JS tutorial](../Projekty/JS%20tutorial) | [Projekt (seminární práce)](../Projekty/Projekt%20-%20fullstack)
 |    10  | JavaScript + XML DOM | [Cvičení 10](./Cvičení%2010) | [JS tutorial](../Projekty/JS%20tutorial) |
-|    11  | PHP a XML |  |  |
+|    11  | PHP a XML | [Cvičení 11](./Cvičení%2011) |  |
 |    12  |  |  |  |
 
 ## 5. Podmínky úspěšného zakončení předmětu
