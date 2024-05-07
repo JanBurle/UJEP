@@ -1,16 +1,10 @@
 # PHP + XML, sessions, cookies
 
 Dnes:
-1. Vylepšené hodiny (code walkthrough)
 1. PHP + XML DOM
 1. PHP + cookies
 1. PHP session
-
-## SVG hodiny
-
-Z minulého cvičení, vylepšené:
-
-* [`7 - lepší svg hodiny.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/7%20-%20lepší%20svg%20hodiny.html)
+1. Vylepšené hodiny (code walkthrough)
 
 ## PHP + XML DOM
 
@@ -46,7 +40,7 @@ HTTP je bezstavový (stateless) protokol. HTTP požadavek musí obsahovat všech
 
 Krátká textová data (HTTP je textový protokol), které si klient (prohlížeč) a webová server automaticky vyměnují v HTTP *hlavičce*: `Set-Cookie: ...`
 
-Jednoduchý stav lze ukládat přímo v cookies, ale s potenciálními problémy: velikost dat, blokování cookies v prohlížeči, a také  mj. [EU Cookie Compliance](https://gdpr.eu/cookies/ (netýká se session cookies).
+Jednoduchý stav lze ukládat přímo v cookies, ale s potenciálními problémy: velikost dat, blokování cookies v prohlížeči, a také  mj. [EU Cookie Compliance](https://gdpr.eu/cookies/) (netýká se session cookies).
 
 #### Cookies v PHP na serveru
 
@@ -100,9 +94,15 @@ Sezení se inicializuje pomocí [session_start()](https://www.php.net/manual/en/
 
 Dočasné soubory jsou na Linuxovém serveru v `/tmp`. Cookie `PHPSESSID` server generuje podle potřeby.
 
-## Vícestránkový příklad
+### Vícestránkový příklad
 
 Několik stránek, přepínání pomocí:
 
 * [cookies](../Projekt%2011/www/html/multipage/index-cookies.php)
 * [session](../Projekt%2011/www/html/multipage/index-session.php)
+
+## SVG hodiny
+
+Z minulého cvičení, vylepšené:
+
+* [`7 - lepší svg hodiny.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/7%20-%20lepší%20svg%20hodiny.html)

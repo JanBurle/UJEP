@@ -25,7 +25,7 @@ $_SESSION[$varName] = $views = @$_SESSION[$varName] + 1;
 
     <pre><?php print_r($_COOKIE) ?></pre>
     <pre><?php print_r($_SESSION) ?></pre>
-    <pre><?= 'ID: ' . session_id() ?></pre>
+    <pre><?= 'SID: ' . session_id() ?></pre>
 </body>
 
 </html>
