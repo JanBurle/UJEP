@@ -12,7 +12,7 @@ Existují různé [XML parsery](https://www.w3schools.com/php/php_xml_parsers.as
 * parsery, které načtou celý soubor a vytvoří celý DOM strom:
     * SimpleXML – viz [Cvičení 5](../Cvi%C4%8Den%C3%AD%205/README.md).
     * **XML DOM parser** (dnes standardní součást PHP)
-* parsery, které čtou ze soubory uzly podle potřeby – pro zpracování rozsáhlých dat
+* parsery, které čtou ze soubory uzly sériově – pro zpracování rozsáhlých dat
 
 ## PHP XML DOM parser
 
