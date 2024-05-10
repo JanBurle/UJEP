@@ -12,7 +12,7 @@ $doc = new DOMDocument();
 $doc->load('../../xml/knihy.xml');
 
 function printElem($elem, $level=0) {
-    if ('#text' ==$name = $elem->nodeName)
+    if ('#text' == $name = $elem->nodeName)
         return;
 
     echo str_pad('', 2*$level) . $name;

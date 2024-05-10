@@ -24,7 +24,7 @@ let makeCircleMovable = (elem) => {
   let setX = (x) => setAttr('cx', x)
   let setY = (y) => setAttr('cy', y)
 
-  //   mousedown, mousemove, mouseup, mouseleave: deprecated
+  // mousedown, mousemove, mouseup, mouseleave: deprecated
   elem.onpointerdown = (evt) => {
     elem.dX = getX() - evt.clientX
     elem.dY = getY() - evt.clientY
@@ -32,10 +32,6 @@ let makeCircleMovable = (elem) => {
     elem.onpointermove = (evt) => {
       setX(evt.clientX + elem.dX)
       setY(evt.clientY + elem.dY)
-      //   setAttrs(elem, {
-      //     cx: evt.clientX + elem.dX,
-      //     cy: evt.clientY + elem.dY,
-      //   })
     }
 
     elem.setPointerCapture(evt.pointerId)

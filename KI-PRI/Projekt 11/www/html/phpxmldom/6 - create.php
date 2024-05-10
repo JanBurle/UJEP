@@ -11,7 +11,7 @@ function makeChild($parent, $tag, $value=null) {
 }
 
 function addAttr($elem, $name, $value) {
-    global $doc;
+    // global $doc;
     // $attr = $doc->createAttribute($name);
     // $attr->value = $value;
     // $elem->appendChild($attr);
