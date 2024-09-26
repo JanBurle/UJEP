@@ -1,0 +1,63 @@
+﻿<html>
+  <head>
+    <script src="./js.js"></script>
+    <script id="xml-data" type="application/xml">
+      <predmety>
+        <predmet>
+          <nazev>MRL</nazev>
+          <lektor>Novak</lektor>
+          <kb>3</kb>
+          <rok>2010</rok>
+        </predmet>
+
+        <predmet>
+          <nazev>PIN</nazev>
+          <lektor>sovak</lektor>
+          <kb>5</kb>
+          <rok>2010</rok>
+        </predmet>
+
+        <predmet>
+          <nazev>DB</nazev>
+          <lektor>Drak</lektor>
+          <kb>2</kb>
+          <rok>2009</rok>
+        </predmet>
+
+        <predmet>
+          <nazev>BakPrace</nazev>
+          <lektor>Neni</lektor>
+          <kb>10</kb>
+          <rok>2010</rok>
+        </predmet>
+      </predmety>
+    </script>
+
+    <script>
+      window.onload = () => {
+        let xmlDoc = loadXmlDoc()
+
+        let html = ''
+
+        let add = (name, val) => {
+          html += `<tr><td>${name}:</td><td>${val}</td></tr>`
+        }
+
+        for (let predmet of xmlDoc.children) {
+          let get = (i) => predmet.children[i].innerHTML
+          add('Název', get(0))
+          add('Lektor', get(1))
+          add('KB', get(2))
+          add('Rok', get(3))
+        }
+
+        d.getElementById('table').innerHTML = html
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Popis předmětu</h1>
+    <table id="table"></table>
+  </body>
+</html>

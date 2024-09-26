@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fakulty>
+    <fakulta id='Pri'>
+        <nazev>Přírodovědecká</nazev>
+        <dekan>
+            <jmeno>Michal</jmeno>
+            <prijmeni>Varady</prijmeni>
+            <telefon>615516515</telefon>
+            <email>m.v@gmail.com</email>
+            <tituly>
+                <titul>doc.</titul>
+                <titul>RNDr.</titul>
+                <titul>Ph.D.</titul>
+            </tituly>
+        </dekan>
+        <katedry>
+            <katedra id='KI'>
+                <nazev>Informatika</nazev>
+                <vedouci>
+                    <jmeno>Jiří</jmeno>
+                    <prijmeni>Škvor</prijmeni>
+                    <telefon>15616</telefon>
+                    <email>js@gmail.com</email>
+                    <tituly>
+                        <titul>RNDr.</titul>
+                    </tituly>
+                </vedouci>
+                <zamestnanci>
+                    <zamestnanec>
+                        <jmeno>Joseph</jmeno>
+                        <prijmeni>Smith</prijmeni>
+                        <telefon>555-555-5555</telefon>
+                        <email>joseph.smith@gmail.ut</email>                        
+                        <tituly>
+                            <titul>Ing.</titul>
+                        </tituly>
+                        <pozice>asistent</pozice>
+                    </zamestnanec>
+                </zamestnanci>
+                <predmety>
+                    <predmet zkratka="PRI">
+                        <nazev>Programování pro internet</nazev>
+                        <popis>XML, PHP a jiné</popis>
+                    </predmet>
+                </predmety>
+            </katedra>
+        </katedry>
+    </fakulta>
+</fakulty>

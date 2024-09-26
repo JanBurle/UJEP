@@ -1,0 +1,50 @@
+﻿<html>
+  <head>
+    <script src="./js.js"></script>
+    <script id="xml-data" type="application/xml">
+       <predmet>
+         <nazev>MRL</nazev>
+         <lektor>Novak</lektor>
+         <kb>3</kb>
+         <rok>2010</rok>
+      </predmet>
+    </script>
+
+    <script>
+      window.onload = () => {
+        let xmlDoc = loadXmlDoc()
+        let set = (id, val) => {
+          d.getElementById(id).innerHTML = val
+        }
+        let get = (i) => xmlDoc.children[i].innerHTML
+
+        set('nazev', get(0))
+        set('lektor', get(1))
+        set('kb', get(2))
+        set('rok', get(3))
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Popis předmětu</h1>
+    <table>
+      <tr>
+        <td>Název:</td>
+        <td id="nazev"></td>
+      </tr>
+      <tr>
+        <td>Lektor:</td>
+        <td id="lektor"></td>
+      </tr>
+      <tr>
+        <td>KB:</td>
+        <td id="kb"></td>
+      </tr>
+      <tr>
+        <td>Rok:</td>
+        <td id="rok"></td>
+      </tr>
+    </table>
+  </body>
+</html>
