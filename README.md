@@ -8,9 +8,7 @@
   čtvrtek 10:00 – 10:50
 - [KI/APR1](./KI-APR1) – Algoritmizace a programování I
 
-### Letní semestr 2023/24
+### Letní semestr 2023/24 (archiv)
 
-- [KI/PRI](./KI-PRI) – Programování pro internet \
-  úterý 17:00 – 18:50
-- [KI/KPRI](./KI-KPRI) – Programování pro internet \
-  neděle 7.4. 14:00 – 17:50
+- [KI/PRI](./(archiv)/KI-PRI) – Programování pro internet
+- [KI/KPRI](./(archiv)/KI-KPRI) – Programování pro internet
