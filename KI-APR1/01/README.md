@@ -1,4 +1,4 @@
-# 01 – Python, vstup a výstup, čísla
+# 01 – Úvod, čísla
 
 ## Python
 
@@ -56,7 +56,7 @@ haló # chyba (výjimka)
 
 Poslední výraz způsobil (_raised_) výjimku (_exception_), která ukončila běh programu (ano, už nejjednodušší výraz je program) a vypsala _obsah zásobníku_ (stack dump, traceback).
 
-_Gemini dokáže vysvětlit, co se stalo. Nespoléhejte na něj ale 100%._
+_Gemini dokáže vysvětlit, co se stalo. Nespoléhejte na něj ale ve všem._
 
 ## Proměnné
 
@@ -153,6 +153,9 @@ math.sin(1)
 - Jaká je třída (typ) modulu `math`?
 - Jaké funkce (metody) obsahuje modul `math`? (Nápověda: _dir(\<module name\>)_, _help(\<module name\>)_)
 
-## Úkol (HW):
+### Úkol (HW):
 
-Seznamte se s funkcemi modulu `math` a vyzkoušejte si výpočty (operace) s jejich použitím.
+- Seznamte se s možnostmi zápisníku Google Colab.
+- Seznamte se s funkcemi modulu `math` a vyzkoušejte si výpočty (operace) s jejich použitím.
+
+* Přečtěte si [dokumentaci modulu math](https://docs.python.org/3/library/math.html)
