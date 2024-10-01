@@ -11,30 +11,31 @@ Shlédněte úvodní motivační video [Python za 100 sekund](https://www.youtub
 - Python patří mezi nejpopulárnější programovací jazyky, je velmi užitečné se jej naučit. (Spolu s C a JavaScriptem.)
 - Cílem konstrukce Pythonu je možnost psát čitelný, elegantní, přehledný, přímočarý a jednoznačný kód.
 - Python je vhodný jak pro začátečníky, tak pro experty. Je také častou volbou pro vědecké výpočty.
-- Python používá odsazení pro zachycení struktury programu.
+- _Python používá odsazení pro zachycení struktury programu._
+- Používáme Python verze 3 (3.12).
 
-Cílem kurzu je především učit se algoritmizaci, což je schopnost řešit problémy pomocí [algoritmů](https://cs.wikipedia.org/wiki/Algoritmus) vyjádřených pomocí _strojových příkazů_. Strojem se rozumí počítací stroj, krátce počítač, který _provádí_ strojové příkazy.
+Hlavním cílem kurzu je učit se algoritmizaci, což je schopnost řešit problémy pomocí [algoritmů](https://cs.wikipedia.org/wiki/Algoritmus) vyjádřených pomocí _strojových příkazů_. Strojem se rozumí počítací stroj, krátce počítač, který _provádí_ (_vykonává_) strojové příkazy.
 
-Strojové příkazy (program počítacího stroje) se zapisují v _programovacím jazyce_. Programy jsou kolekce, nebo sekvence) příkazů. Příkazy budeme zapisovat v Pythonu.
+Strojové příkazy (program počítacího stroje) se zapisují v _programovacím jazyce_. Programy jsou kolekce (nebo sekvence) příkazů. Příkazy budeme zapisovat v Pythonu.
 
 ## Prostředí
 
-Programy se nejčastěji vytvářejí ve _vývojovém prostředí_. My budeme zpočátku používat [Jupyter](https://cs.wikipedia.org/wiki/Jupyter) Notebook, ve verzi of [Google Colab](https://colab.research.google.com/).
+Programy se nejčastěji vytvářejí ve _vývojovém prostředí_. My budeme zpočátku používat [Jupyter](https://cs.wikipedia.org/wiki/Jupyter) Notebook v provedení [Google Colab](https://colab.research.google.com/).
 
 - přihlašte se do svého Google účtu
-- založte si dokument (notebook, zápisník `.ipynb`) typu _Google Collaboratory_
+- založte/otevřete si dokument (notebook, zápisník `.ipynb`) typu _Google Collaboratory_
 
-V zápisníku lze vytvářet textové buňky, pro poznámky, a kódové buňky pro kód. Kód lze přímo v zápisníku provést.
+V zápisníku lze vytvářet textové buňky pro poznámky, a kódové buňky pro kód. Kód lze přímo v zápisníku provést.
 
 Pokud jste již pokročilí, samozřejmě můžete použít jiná prostředí (VSCode + instalovaný Python, PyCharm, ...).
 
-## Dokumentace Pythonu
+## Literatura
 
-Během cvičení budeme odkazovat na oficiální dokumentaci [python.org/doc/](https://www.python.org/doc/).
+Během cvičení budeme mj. odkazovat na oficiální dokumentaci [python.org/doc/](https://www.python.org/doc/).
 
 ## Vstup a výstup
 
-Na počátku vstup a výstup textových dat do a z počítače probíhal [přepínači a světly](https://www.cs.kent.edu/~rothstei/10051/HistoryPt4.htm), pomocí děrných štítků a tiskárny, dálnopisem, nebo na [prvních obrazovkách a klávesnicích](https://www.avplanners.com/blog/history-with-a-local-av-company-computer-monitors). Tento tzv. _řádkový_ vstup a výstup probíhá v Pythonu především pomocí _příkazů_ `input` a `print`.
+Na počátku vstup a výstup textových dat do a z počítače probíhal [přepínači a světélky](https://www.cs.kent.edu/~rothstei/10051/HistoryPt4.htm), pomocí děrných štítků a tiskárny, dálnopisem, nebo na [prvních obrazovkách a klávesnicích](https://www.avplanners.com/blog/history-with-a-local-av-company-computer-monitors). Tento tzv. _řádkový_ vstup a výstup probíhá v Pythonu především pomocí _funkcí_ (_příkazů_) `input` a `print`.
 
 Nejjednoduší výstup proběhne přímo po _vyhodnocení výrazu_ v kódové buňce (text za znakem `#` je _komentář_):
 
@@ -47,20 +48,20 @@ Nejjednoduší výstup proběhne přímo po _vyhodnocení výrazu_ v kódové bu
 ```
 
 ```python
-'haló' # text v dvojitých uvozovkách
+"haló" # text v dvojitých uvozovkách
 ```
 
 ```python
 haló # chyba (výjimka)
 ```
 
-Poslední výraz způsobil (_raised_) výjimku (_exception_), která ukončila běh programu (ano, už nejjednodušší výraz je program) a vypsala _obsah zásobníku_ (stack dump, traceback).
+Chyba v posledním výrazu způsobil (_raised_) výjimku (_exception_), která ukončila běh programu (ano, už nejjednodušší výraz je program) a vypsala _obsah zásobníku_ (stack dump, traceback).
 
-_Gemini dokáže vysvětlit, co se stalo. Nespoléhejte na něj ale ve všem._
+_Gemini dokáže vysvětlit, co se stalo. Umí i napovídat. Nespoléhejte na něj ale ve všem._
 
 ## Proměnné
 
-Problém byl v tom, že slovo `haló` je neznámé, nedefinnované. Můžeme ho proto použít jako _proměnnou_. Proměnná je pojmenovaná buňka v paměti, která obsahuje odkaz (referenci) na hodnotu, tzv _objekt_. (V Pythonu je vše nějaký objekt.)
+Problém byl v tom, že slovo `haló` je neznámé, nedefinované. Můžeme ho ale použít jako _proměnnou_. Proměnná je pojmenovaná buňka v paměti, která obsahuje odkaz (referenci) na hodnotu, tzv _objekt_. (V Pythonu je vše nějaký objekt a objekt je instance _třídy_, také zvané _typ_.)
 
 Odkaz se do proměnné přiřadí _operátorem_ `=`. Jména proměnných v Pythonu mohou obsahovat diakritiku (a více: [utf8](https://en.wikipedia.org/wiki/UTF-8)).
 
@@ -73,6 +74,10 @@ tři         # poslední řádek, vypíše hodnotu
 
 ```python
 type(tři)
+```
+
+```python
+type(3)
 ```
 
 ```python
@@ -138,7 +143,7 @@ type(2.0 // 3)
 Python má řadu _rozšiřujících_ modulů. Jeden ze základních je modul `math`, který obsahuje řadu aritmetických _funkcí_.
 
 ```python
-math.sin(1)
+math.sin(1) # sin je metoda objektu math
 ```
 
 (chyba)
@@ -153,9 +158,23 @@ math.sin(1)
 - Jaká je třída (typ) modulu `math`?
 - Jaké funkce (metody) obsahuje modul `math`? (Nápověda: _dir(\<module name\>)_, _help(\<module name\>)_)
 
-### Úkol (HW):
+### modul `sys`
+
+```python
+import sys
+sys.version # type(sys.version)
+```
+
+## Úkol (HW):
 
 - Seznamte se s možnostmi zápisníku Google Colab.
-- Seznamte se s funkcemi modulu `math` a vyzkoušejte si výpočty (operace) s jejich použitím.
+- Seznamte se s funkcemi/metodami modulu `math` a vyzkoušejte si výpočty (operace) s jejich použitím.
 
 * Přečtěte si [dokumentaci modulu math](https://docs.python.org/3/library/math.html)
+
+## Příště:
+
+- [vstup a výstup, formátování řetězců](https://docs.python.org/3/tutorial/inputoutput.html)
+- [input](https://docs.python.org/3/library/functions.html#input)
+- [print](https://docs.python.org/3/library/functions.html#print)
+- podmínečné výrazy (`if` - `else`)
