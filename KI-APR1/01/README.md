@@ -6,13 +6,15 @@ Shlédněte úvodní motivační video [Python za 100 sekund](https://www.youtub
 
 [//]: # "Watch, is English intelligible?"
 
-- Programovací jazyk Python vytvořil cca. v r. 1990 [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum).
+- Programovací jazyk Python vytvořil cca. v r. 1990 [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum).[^1]
 - Jméno _Python_ je zvoleno podle [Monty Python's Flying Circus](https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus).
 - Python patří mezi nejpopulárnější programovací jazyky, je velmi užitečné se jej naučit. (Spolu s C a JavaScriptem.)
 - Cílem konstrukce Pythonu je možnost psát čitelný, elegantní, přehledný, přímočarý a jednoznačný kód.
 - Python je vhodný jak pro začátečníky, tak pro experty. Je také častou volbou pro vědecké výpočty.
 - _Python používá odsazení pro zachycení struktury programu._
 - Používáme Python verze 3 (3.12).
+
+[^1]: [Rossum's Universal Robots](https://cs.wikipedia.org/wiki/R.U.R) ㋡
 
 Hlavním cílem kurzu je učit se algoritmizaci, což je schopnost řešit problémy pomocí [algoritmů](https://cs.wikipedia.org/wiki/Algoritmus) vyjádřených pomocí _strojových příkazů_. Strojem se rozumí počítací stroj, krátce počítač, který _provádí_ (_vykonává_) strojové příkazy.
 
