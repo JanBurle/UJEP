@@ -4,8 +4,8 @@
 
 ### Zimní semestr 2024/25
 
-- [KI/APR1](./KI-APR1) – Algoritmizace a programování I
-- [KI/RDBS](./KI-RDBS) – Relační databázové systémy \
+- [KI/APR1](./KI-APR1/README.md) – Algoritmizace a programování I
+- [KI/RDBS](./KI-RDBS/README.md) – Relační databázové systémy \
   čtvrtek 10:00 – 10:50
 
 ### Letní semestr 2023/24 (archiv)
