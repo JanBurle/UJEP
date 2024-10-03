@@ -27,7 +27,7 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 
 ## 4. Sylabus přednášek
 
-1.  [Úvod, PostgreSQL, opakování.](./01)
+1.  [Úvod, PostgreSQL, opakování.](./01/README.md)
 2.  Vnořené poddotazy SELECT a jejich (efektivnější) alternativy (analytické funkce, window funkce)
 3.  Indexové soubory a analýza dotazů (efektivní implementace operace JOIN)
 4.  Fulltextové vyhledávání
