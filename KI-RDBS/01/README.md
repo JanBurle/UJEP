@@ -44,7 +44,7 @@ docker compose up # watch the log
 
 ### pgAdmin, konfigurace:
 
-- Login: admin@admin.com / admin
+- Login: admin\@admin.com / admin
 - Register Server:
   - General/Name: ....
   - Connection/Host name: **postgresql**
@@ -78,7 +78,7 @@ SELECT version();
 
 ## Práce s tabulkami (DDL, DQL, DML)
 
-_Postgres dokumentace Ch. 2 – 3.4_
+_[Postgres dokumentace Ch. 2 – 3.4](https://www.postgresql.org/docs/current/tutorial-sql.html)_
 
 ### CREATE
 
