@@ -137,8 +137,8 @@ type(2.0 // 3)
 ### Otázky:
 
 - Jaký je rozsah celých čísel v Pythonu? Je nějak omezený?
-- Jak se chová dělění, celočíselné dělení, a zbytek po dělení, pokud se použijí záporná čísla?
-- Co se stane při dělění nulou?
+- Jak se chová dělení, celočíselné dělení, a zbytek po dělení, pokud se použijí záporná čísla?
+- Co se stane při dělení nulou?
 
 ## Moduly (knihovny)
 
