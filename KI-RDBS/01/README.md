@@ -229,7 +229,7 @@ DELETE FROM weather;
 TRUNCATE weather;
 ```
 
-### Spokování tabulek – (INNER) JOIN
+### Spojování tabulek – (INNER) JOIN
 
 ```sql
 SELECT * FROM weather INNER JOIN cities ON city = name;
