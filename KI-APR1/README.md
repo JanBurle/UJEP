@@ -49,7 +49,7 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 
 | Týden | Název       | Zadání     | Materiály | Jiné |
 | ----: | :---------- | :--------- | :-------- | :--- |
-|     1 | Úvod, čísla | [01](./01) |           |      |
+|     1 | Úvod, čísla | [01](./01/README.md) |           |      |
 |     2 |             |            |           |      |
 |     3 |             |            |           |      |
 |     4 |             |            |           |      |
