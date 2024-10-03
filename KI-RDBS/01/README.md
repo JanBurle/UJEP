@@ -44,7 +44,7 @@ docker compose up # watch the log
 
 ### pgAdmin, konfigurace:
 
-- Login: admin\@admin.com / admin
+- Login: admin@admin.com / admin
 - Register Server:
   - General/Name: ....
   - Connection/Host name: **postgresql**
