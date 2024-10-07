@@ -47,21 +47,21 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 
 ## 5. Cvičení
 
-| Týden | Název       | Zadání               | Notebook  |
-| ----: | :---------- | :------------------- | :-------- |
-|    01 | Úvod, čísla | [01](./01/README.md) | [01][N01] |
-|    02 |             |                      |           |
-|    03 |             |                      |           |
-|    04 |             |                      |           |
-|    05 |             |                      |           |
-|    06 |             |                      |           |
-|    07 |             |                      |           |
-|    08 |             |                      |           |
-|    09 |             |                      |           |
-|    10 |             |                      |           |
-|    11 |             |                      |           |
-|    12 |             |                      |           |
-|    13 |             |                      |           |
+| Týden | Název                    | Zadání               | Notebook  |
+| ----: | :----------------------- | :------------------- | :-------- |
+|    01 | Úvod, čísla              | [01](./01/README.md) | [01][N01] |
+|    02 | Vstup a výstup, podmínky | [02](./02/README.md) |           |
+|    03 |                          |                      |           |
+|    04 |                          |                      |           |
+|    05 |                          |                      |           |
+|    06 |                          |                      |           |
+|    07 |                          |                      |           |
+|    08 |                          |                      |           |
+|    09 |                          |                      |           |
+|    10 |                          |                      |           |
+|    11 |                          |                      |           |
+|    12 |                          |                      |           |
+|    13 |                          |                      |           |
 
 [N01]: https://colab.research.google.com/drive/1n3p26L6vUdsr-2YcN_NxXh5mFqzPsXXf
 
