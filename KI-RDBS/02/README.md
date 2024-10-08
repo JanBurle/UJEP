@@ -18,6 +18,28 @@ CREATE TABLE weather (
 );
 ```
 
+https://www.postgresqltutorial.com/postgresql-administration/postgresql-create-database/
+
+ukazat docker, nastartovat
+
+database
+schema: public
+table
+
+SELECT datname FROM pg_database;
+
+CREATE DATABASE database_name
+https://www.postgresqltutorial.com/postgresql-administration/postgresql-create-database/
+
+https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/
+
+city
+
+CREATE TABLE city (
+id char(2) primary key,
+name varchar(80)
+);
+
 INSERT INTO weather VALUES ('Berkeley', 45, 53, 0.0, '1994-11-28');
 ERROR: insert or update on table "weather" violates foreign key
 constraint "weather_city_fkey"

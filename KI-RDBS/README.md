@@ -28,16 +28,17 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 ## 4. Sylabus přednášek
 
 1.  [Úvod, PostgreSQL, opakování.](./01/README.md)
-2.  Vnořené poddotazy SELECT a jejich (efektivnější) alternativy (analytické funkce, window funkce)
-3.  Indexové soubory a analýza dotazů (efektivní implementace operace JOIN)
-4.  Fulltextové vyhledávání
-5.  Rekurzivní CTE a representace hierarchií
-6.  Pohledy a procedurální rozšíření SQL
-7.  Kurzory
-8.  Triggery
-9.  DCL a správa uživatelů
-10. ORM (SQLAlchemy)
-11. Administrace databázových systémů (optimalizace výkonu)
+1.  [Normální formy, joins, aggregace, pohledy.](./02/README.md)
+1.  Vnořené poddotazy SELECT a jejich (efektivnější) alternativy (analytické funkce, window funkce)
+1.  Indexové soubory a analýza dotazů (efektivní implementace operace JOIN)
+1.  Fulltextové vyhledávání
+1.  Rekurzivní CTE a representace hierarchií
+1.  Pohledy a procedurální rozšíření SQL
+1.  Kurzory
+1.  Triggery
+1.  DCL a správa uživatelů
+1.  ORM (SQLAlchemy)
+1.  Administrace databázových systémů (optimalizace výkonu)
 
 ## 5. Literatura:
 
