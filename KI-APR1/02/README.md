@@ -2,7 +2,7 @@
 
 ## Čísla `float`
 
-Čísla třídy (typu) `float` jsou nepřesná, nelze je používat pro přesné výpočty a přesná porovnávání!
+Čísla třídy (typu) `float` jsou nepřesná (respektive jsou přesná, ale jen pro diskrétní hodnoty, realizovatelné v hardware), a proto je nelze používat pro přesné výpočty a přesná porovnávání!
 
 ```python
 5/7 == (2/7) * (5/2)
@@ -28,7 +28,7 @@
 
 > 1.1102230246251565e-16 # velmi malé číslo (numerická chyba)
 
-Poslední číslo bylo vypsáno v tzv. _vědecké notaci (zápisu)_, ve formátu _mantissa_ a _exponent_.
+Poslední číslo bylo vypsáno v tzv. _vědecké notaci (zápisu, scientific notation)_, ve formátu _mantissa_ a _exponent_.
 
 Výhodou čísel `float` je jejich velký rozsah, nevýhodou jejich omezená přesnost.
 
@@ -38,7 +38,7 @@ Výhodou čísel `float` je jejich velký rozsah, nevýhodou jejich omezená př
 abs((5/7) - ((2/7) * (5/2))) < 1e-10
 ```
 
-Nebo takto:
+Tj. jsou si čísla blízká? Nebo takto:
 
 ```python
 import math
@@ -51,7 +51,7 @@ math.isclose(5/7, 2/7 * 5/2)
 
 V prvním cvičení jsme používali Python jako „kalkulačku“ – hodnota výrazu na poslední řádce byla vypsána na výstup. Pro řízený výstup je k dispozici _vestavěná_ funkce [print()](https://www.w3schools.com/python/ref_func_print.asp).
 
-Libovolné typy:
+Různé typy:
 
 ```python
 print(3)
@@ -69,16 +69,16 @@ print(3/2)
 print('3/2')
 ```
 
-Několik hodnot najednou (_pozicionální argumenty_):
+Několik hodnot najednou (_pozicionální_ argumenty):
 
 ```python
 print(3, 3.2, 3/2, '3/2')
 ```
 
-Specifikace oddělovače (_pojmenovaný argument_):
+Specifikace oddělovače (_pojmenovaný_ argument):
 
 ```python
-print(3, 3.2, 3/2, '3/2', sep = ' : ')
+print(3, 3.2, 3/2, '3/2', sep=' : ')
 ```
 
 `print` přidává na konec (neviditelný) znak pro konec řádku (_newline_, _NL_) ...
@@ -152,10 +152,10 @@ float('3.0')
 A tohle také:
 
 ```python
-int(float('3.0'))
+int(float('3.0')) # does int() truncate or round the float?
 ```
 
-Nebo také, pokud má vstup správný formát:
+Nebo také (pokud má vstup správný formát):
 
 ```python
 int(input('Enter an int:'))
@@ -163,20 +163,20 @@ int(input('Enter an int:'))
 
 #### ❖ Úloha
 
-Kromě (vestavěných) [operátorů](https://www.w3schools.com/python/python_operators.asp) obsahuje Python také obsahuje celou řadu [vestavěných funkcí](https://www.w3schools.com/python/python_ref_functions.asp).
+Kromě [vestavěných operátorů](https://www.w3schools.com/python/python_operators.asp) obsahuje Python také obsahuje celou řadu [vestavěných funkcí](https://www.w3schools.com/python/python_ref_functions.asp).
 
-Projděte si tyto vestavěné funkce: `abs`, `dir`, `float`, `help`, `input`, `int`, `max`, `min`, `pow`, `print`, `range`, `str`, `type`.\_
+Projděte si tyto vestavěné funkce: `abs`, `dir`, `float`, `help`, `input`, `int`, `max`, `min`, `pow`, `print`, `range`, `str`, `type`.
 
 ## Formátování řetězců
 
-Řetězce lze spojovat [operátorem `+`](https://www.w3schools.com/python/python_strings_concatenate.asp):
+Řetězce lze spojovat [operátorem +](https://www.w3schools.com/python/python_strings_concatenate.asp):
 
 ```python
 name = input('Enter your name:')
 print('Hello, ' + name + '!')
 ```
 
-Od verze 3.6 lze použít tzv. [f-string](https://www.w3schools.com/python/python_string_formatting.asp) (řetězcovou interpolaci):
+Od verze 3.6 lze použít tzv. [f-string](https://www.w3schools.com/python/python_string_formatting.asp) (řetězcovou interpolaci, string interpolation):
 
 ```python
 name = input('Enter your name:')
@@ -194,14 +194,15 @@ Hodnoty lze porovnávat:
 ```python
 a = 3
 b = 4
+
 # čísla
 print('a == 3:', a==3)
 print('a != 3:', a!=3)
-print('a < 3:', a<3)
+print('a < 3:',  a<3)
 print('a <= 3:', a<=3)
-print('a > 3:', a>3)
+print('a > 3:',  a>3)
 print('a >= 3:', a>=3)
-print('a < b:', a<b)
+print('a < b:',  a<b)
 
 # řetězce
 print("'a'=='b'", 'a'=='b')
@@ -242,4 +243,6 @@ print(f'{Gd if FrAge<GdAge else Gd} is older and therefore wiser.')
 - Zadejte délku stran trojúhelníku a určete, zda je trojúhelník pravoúhlý.
 - _Vymyslete si sami podobnou úlohu._
 
-- Automat na vodu a vodku se zeptá zákazníka na jméno a pozdraví jej jménem. Zeptá se na věk: mladým pogratuluje k jejich mládí a starým k jejich moudrosti. Zeptá se, co si zákazník žádá: vodu nebo vodku? Starým prodá vodu i vodku, mladým ale jen vodu.
+- Rozšiřte příklad s Frodem a Gandalfem na tři členy Společenství prstenu. Podmíněnými výrazy vyberte nejstršího ze _tří_ možných.
+
+- Automat na vodu a vodku se zeptá zákazníka na jméno a pozdraví jej jménem. Nejdříve se zeptá se na věk: mladým pogratuluje k jejich mládí a starým k jejich moudrosti. Dále se zeptá, zda si zákazník žádá vodu nebo vodku. Starým prodá vodu i vodku, mladým ale jen vodu.

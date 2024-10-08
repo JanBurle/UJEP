@@ -4,8 +4,6 @@
 
 Shlédněte úvodní motivační video [Python za 100 sekund](https://www.youtube.com/watch?v=x7X9w_GIm1s).
 
-[//]: # "Watch, is English intelligible?"
-
 - Programovací jazyk Python vytvořil cca. v r. 1990 [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum).[^1]
 - Jméno _Python_ je zvoleno podle [Monty Python's Flying Circus](https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus).
 - Python patří mezi nejpopulárnější programovací jazyky, je velmi užitečné se jej naučit. (Spolu s C a JavaScriptem.)
@@ -87,8 +85,6 @@ type(3.0)
 ```
 
 Python rozeznává dva typy (**_třídy_**) čísel: `int` a `float`. `float` čísla se rozpoznají tím, že mají v zápisu desetinnou tečku.
-
-[//]: # "Explain integer, fixed and floating point."
 
 S čísly lze provádět aritmetické operace:
 
