@@ -28,8 +28,7 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 ## 4. Sylabus přednášek
 
 1.  [Úvod, PostgreSQL, opakování.](./01/README.md)
-<!--1.  [Normální formy, joins, aggregace, pohledy.](./02/README.md)-->
-1.  Normální formy, joins, aggregace, pohledy.
+1.  [Joins, agregace, pohledy.](./02/README.md)
 1.  Vnořené poddotazy SELECT a jejich (efektivnější) alternativy (analytické funkce, window funkce)
 1.  Indexové soubory a analýza dotazů (efektivní implementace operace JOIN)
 1.  Fulltextové vyhledávání
@@ -45,9 +44,6 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 
 - Základní: [PostgreSQL documentation](https://www.postgresql.org/docs/current/).
 - Doporučená: podle Stagu
-
-<!--
-https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/
-https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/Uvod_do_relacnich_databazi.pdf
-https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/Relacni_databazove_systemy.docx
--->
+- Opory: https://ki.ujep.cz/opory/ → Informatika → Bc_Informatika_pro_vzdelavani
+  - Úvod do relačních databází
+  - Relační databázové systémy

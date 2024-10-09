@@ -234,7 +234,7 @@ Gd = 'Gandalf'
 GdAge = 2000
 
 print(f'{Fr} is {FrAge} and {Gd} is {GdAge}.')
-print(f'{Gd if FrAge<GdAge else Gd} is older and therefore wiser.')
+print(f'{Gd if FrAge<GdAge else Fr} is older and therefore wiser.')
 ```
 
 #### ❖ Úlohy

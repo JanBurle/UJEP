@@ -12,7 +12,7 @@ services:
     image: dbeaver/cloudbeaver:latest
     container_name: cloudbeaver
     ports:
-      - 8001:8978
+      - 8001:8978 # CloudBeaver mapped to localhost:8001
     depends_on:
       - postgresql
 
