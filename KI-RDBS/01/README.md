@@ -78,7 +78,7 @@ SELECT version();
 
 ## Práce s tabulkami (DDL, DQL, DML)
 
-_[Postgres dokumentace Ch. 2 – 3.4](https://www.postgresql.org/docs/current/tutorial-sql.html)_
+_[Postgres tutoriál Ch. 2](https://www.postgresql.org/docs/17/tutorial-sql.html)_
 
 ### CREATE
 
