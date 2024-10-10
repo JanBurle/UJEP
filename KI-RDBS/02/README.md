@@ -1,6 +1,7 @@
 # 02 – Joins, agregace, pohledy.
 
-- _[Postgres dokumentace Ch. 3](https://www.postgresql.org/docs/17/tutorial-advanced.html)_
+- _[Postgres dokumentace Ch.2](https://www.postgresql.org/docs/17/tutorial-sql.html)_
+- _[Postgres dokumentace Ch.3](https://www.postgresql.org/docs/17/tutorial-advanced.html)_
 - _[Literatura](../README.md)_
 
 Příprava:
