@@ -1,5 +1,9 @@
 # 03 –
 
+Analytické funkce (windows functions)
+
+subqueries 7.2.1.3.
+
 city
 
 CREATE TABLE city (

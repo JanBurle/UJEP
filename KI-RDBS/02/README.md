@@ -8,6 +8,35 @@ Příprava:
 - spusťte docker kontejner (minimální [docker-compose](../Docker/docker-compose.yml)) s databázovým systémem (serverem) PostgresSQL a s webovou aplikací pro správu dat CloudBeaver
 - vytvořte tabulky: proveďte [SQL z minulého týdne](./weather.sql)
 
+```sql
+CREATE TABLE cities (
+  name varchar(80),
+  location point
+);
+
+CREATE TABLE weather (
+  city varchar(80),
+  temp_lo int,  -- low temperature
+  temp_hi int,  -- high temperature
+  prcp real,    -- precipitation
+  date date
+);
+
+INSERT INTO cities VALUES ('San Francisco',  '(37.78, -122.42)');
+INSERT INTO cities VALUES ('Ústí nad Labem', '(50.66, 14.04)'),
+                          ('Louny',          '(50.36, 13.79)'),
+                          ('Bílina',         '(50.54, 13.78)');
+
+INSERT INTO weather VALUES ('San Francisco', 19, 29, 0.25, '2014-10-02');
+INSERT INTO weather (city, temp_lo, temp_hi, prcp, date)
+       VALUES ('Ústí nad Labem', 7, 16, 28, '2014-10-02');
+
+INSERT INTO weather (date, city, temp_hi, temp_lo) VALUES
+  ('2014-10-03', 'San Francisco', 17, 26), -- chyba
+  ('2014-10-02', 'Louny', 18, 12),
+  ('2014-10-02', 'Dresden', 12, 8);
+```
+
 _Zvyk: klíčová slova v SQL velkými písmeny. (Od příště ne, buďme moderní, máme syntax highlighting.)_
 
 ## Hierarchie objektů v PostgreSQL:
@@ -20,7 +49,8 @@ _Zvyk: klíčová slova v SQL velkými písmeny. (Od příště ne, buďme moder
           - `cities`
           - `weather`
 
-Vypište databáze ze systémového katalogu:
+Vypište databáze ze systémového katalogu:[^1]
+[^1]: eat you own dog food
 
 ```sql
 SELECT * FROM pg_database;
@@ -36,12 +66,13 @@ SELECT schemaname as schema, tablename as table FROM pg_catalog.pg_tables;
 
 ### Spojování tabulek – JOIN
 
-Jednotlivé tabulky, kartézský součin.
+Jednotlivé tabulky (data rozložena podle NF): jejich kartézský součin.
 
 ```sql
 SELECT * FROM cities;
 SELECT * FROM weather;
 SELECT * FROM cities, weather;
+SELECT * FROM cities CROSS JOIN weather; -- stejné
 ```
 
 Inner join – původní verze SQL:
@@ -233,7 +264,6 @@ INSERT INTO city (id, name) VALUES ('lo', 'Louny');
 INSERT INTO city (id, name) VALUES ('bn', 'Bílina');
 INSERT INTO city (id, name) VALUES ('bi', 'Bílina');          -- chyba
 
-
 CREATE TABLE weather (
   city_id char(2) REFERENCES city(id),
   temp_lo int NOT NULL,
@@ -269,9 +299,13 @@ SELECT * FROM city LEFT JOIN weather ON id = city_id;
 SELECT * FROM city RIGHT JOIN weather ON id = city_id; -- ha!
 ```
 
+ON DELETE RESTRICT:
+
 ```sql
 DELETE FROM city; -- chyba
 ```
+
+ON DELETE CASCADE:
 
 ```sql
 DROP TABLE IF EXISTS weather;

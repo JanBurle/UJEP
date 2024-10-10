@@ -11,10 +11,10 @@ CREATE TABLE weather (
   date date
 );
 
-INSERT INTO cities VALUES ('San Francisco', '(37.78, -122.42)');
-INSERT INTO cities VALUES ('Ústí nad Labem',  '(50.66, 14.04)'),
-                          ('Louny',           '(50.36, 13.79)'),
-                          ('Bílina',          '(50.54, 13.78)');
+INSERT INTO cities VALUES ('San Francisco',  '(37.78, -122.42)');
+INSERT INTO cities VALUES ('Ústí nad Labem', '(50.66, 14.04)'),
+                          ('Louny',          '(50.36, 13.79)'),
+                          ('Bílina',         '(50.54, 13.78)');
 
 INSERT INTO weather VALUES ('San Francisco', 19, 29, 0.25, '2014-10-02');
 INSERT INTO weather (city, temp_lo, temp_hi, prcp, date)
