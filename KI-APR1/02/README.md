@@ -237,6 +237,18 @@ print(f'{Fr} is {FrAge} and {Gd} is {GdAge}.')
 print(f'{Gd if FrAge<GdAge else Fr} is older and therefore wiser.')
 ```
 
+## Booleovská (boolean) algebra
+
+Práce s logickými výrazy (`and`, `or`, `not`) a hodnotami (`False`, `True`). Typ: `bool`.
+
+```python
+print(type(False), type(True), 3<4, type(3<4)) # atd.
+print(3<4 and 4<5)
+print(3<4 and 3>4)
+print(3<4 or 3>4)
+print(not 3>4)
+```
+
 #### ❖ Úlohy
 
 - Zadejte délku odvěsen pravoúhlého trojúhelníku a vypište délku přepony.
