@@ -4,7 +4,7 @@ Window functions, česky analytické funkce
 
 - umožňují doplňovat běžné řádky o souhrné informace získané z jiných řádků
 - používají se v sekci SELECT
-  - na rozdíl od běžných funkcí pracují nad více řádky (proto window)
+  - na rozdíl od běžných funkcí pracují nad více řádky (proto "window")
   - podobají se agregacím pomocí GROUP BY ale nevedou k redukci řádků
 - některé lze emulovat pomocí vnořených dotazů uvnitř sekcí SELECT
 
@@ -23,7 +23,7 @@ Připravte tabulky a data:
 
 ### Vnořený SELECT:
 
-Vytvořte dotazy (SELECT), které vypíší účastníky maratónu, a u každého:
+Dotazy (SELECT), které vypíší účastníky maratónu, a u každého:
 
 #### kdo doběhl těsně před ním
 
@@ -31,7 +31,7 @@ Vytvořte dotazy (SELECT), které vypíší účastníky maratónu, a u každéh
 -- účastníci
 select závodník from mormar;
 
--- poslední, který mèl lepší než zadaný čas
+-- poslední, který měl lepší než zadaný čas
 select závodník, čas from mormar
   where čas < '01:56:00'
   order by čas desc
@@ -48,7 +48,8 @@ select závodník, (select závodník from mormar
 
 ```sql
 select závodník, (select závodník from mormar
-                  where kategorie=m.kategorie and čas<m.čas order by čas desc limit 1)
+                  where kategorie=m.kategorie and čas<m.čas
+                  order by čas desc limit 1)
   from mormar m;
 ```
 
@@ -77,7 +78,7 @@ select závodník,
 select závodník, (select sum(1) from mormar where čas < m.čas)
   from mormar m;
 
--- bez NULL
+-- bez NULL:
 select závodník, 1 + coalesce((select sum(1) from mormar
                                where čas < m.čas), 0)
   from mormar m;
@@ -114,7 +115,7 @@ select kategorie, avg(čas) from mormar
 select kategorie, avg(čas) from mormar
   group by kategorie order by avg(čas);
 
--- window
+-- analytické funkce
 select kategorie, čas, avg(čas) over ()
   from mormar order by kategorie;
 
@@ -135,7 +136,8 @@ select závodník,
         where čas < m.čas order by čas desc limit 1)
   from mormar m order by čas;
 
-select závodník, lag(závodník) over (order by čas) from mormar order by čas;
+select závodník, lag(závodník) over (order by čas)
+  from mormar order by čas;
 ```
 
 #### kdo doběhl těsně před ním ve stejné kategorii
