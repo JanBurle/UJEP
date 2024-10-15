@@ -1,57 +1,235 @@
-# 03 – Analytické funkce (windows functions)
+# 03 – Vnořený SELECT, analytické funkce (windows functions)
 
-## Referenční integrita a integrita dat
+Window functions, česky analytické funkce
 
-Databáze se musí umět ubránit špatným datům!
+- umožňují doplňovat běžné řádky o souhrné informace získané z jiných řádků
+- používají se v sekci SELECT
+  - na rozdíl od běžných funkcí pracují nad více řádky (proto window)
+  - podobají se agregacím pomocí GROUP BY ale nevedou k redukci řádků
+- některé lze emulovat pomocí vnořených dotazů uvnitř sekcí SELECT
+
+Viz:
+
+- [PostgreSQL Window Tutorial](https://www.postgresql.org/docs/current/tutorial-window.html)
+
+* [PostgreSQL Window Functions](https://www.postgresql.org/docs/current/functions-window.html)
+* [Skripta, kap.1](https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/Relacni_databazove_systemy.docx)\*\*
+
+## Praktická ukázka
+
+Připravte tabulky a data:
+
+- [Mordorský maratón](./mormar.sql)\*\*
+
+### Vnořený SELECT:
+
+Vytvořte dotazy (SELECT), které vypíší účastníky maratónu, a u každého:
+
+#### kdo doběhl těsně před ním
 
 ```sql
-DROP TABLE IF EXISTS city;
+-- účastníci
+select závodník from mormar;
 
-CREATE TABLE city (
-  id char(2) PRIMARY KEY,
-  name varchar(80) NOT NULL
-);
+-- poslední, který mèl lepší než zadaný čas
+select závodník, čas from mormar
+  where čas < '01:56:00'
+  order by čas desc
+  limit 1;
 
-CREATE UNIQUE INDEX idx_city_name on city(name);
-
-DROP TABLE IF EXISTS city;
-
-CREATE TABLE city (
-   id char(2) PRIMARY KEY,
-  name varchar(80) UNIQUE NOT NULL
-);
-
-INSERT INTO city (id, name) VALUES ('sf', 'San Francisco');
-INSERT INTO city (id, name) VALUES ('sf', 'San Francisco');   -- chyba
-INSERT INTO city (id) VALUES ('ul');                          -- chyba
-INSERT INTO city (name) VALUES ('Ústí nad Labem');            -- chyba
-INSERT INTO city (id, name) VALUES ('ull', 'Ústí nad Labem'); -- chyba
-INSERT INTO city (id, name) VALUES ('ul', 'Ústí nad Labem');
-INSERT INTO city (id, name) VALUES ('lo', 'Louny');
-INSERT INTO city (id, name) VALUES ('bn', 'Bílina');
-INSERT INTO city (id, name) VALUES ('bi', 'Bílina');          -- chyba
-
-CREATE TABLE weather (
-  city_id char(2) REFERENCES city(id),
-  temp_lo int NOT NULL,
-  temp_hi int NOT NULL,
-  date date NOT NULL DEFAULT CURRENT_DATE,
-  CONSTRAINT check_temp CHECK(temp_lo <= temp_hi),
-  UNIQUE (city_id, date)
-);
-
-INSERT INTO weather
-  VALUES ('sf', 19, 29, '2014-10-02'),
-         ('ul',  7, 16, '2014-10-02'),
-         ('sf', 26, 17, '2014-10-03'), -- chyba
-         ('lo', 12, 18, '2014-10-02'),
-         ('dr',  8, 12, '2014-10-02'); -- chyba 'Dresden'
-
-INSERT INTO weather VALUES ('ul',  14, 21);
-INSERT INTO weather VALUES ('ul',  14, 21); -- chyba
+-- závodník a kdo doběhl těsně před ním
+select závodník, (select závodník from mormar
+                  where čas < m.čas
+                  order by čas desc limit 1)
+  from mormar m;
 ```
 
-A pak:
+#### kdo doběhl těsně před ním ve stejné kategorii
+
+```sql
+select závodník, (select závodník from mormar
+                  where kategorie=m.kategorie and čas<m.čas order by čas desc limit 1)
+  from mormar m;
+```
+
+#### kolik každý ztratil na vítěze
+
+```sql
+select závodník,
+        čas - (select čas from mormar
+               order by čas asc limit 1)
+  from mormar;
+```
+
+#### kolik každý ztratil na vítěze ve své kategorii
+
+```sql
+select závodník,
+        čas - (select čas from mormar
+               where kategorie=m.kategorie
+               order by čas asc limit 1)
+  from mormar m;
+```
+
+#### kolikátý doběhl
+
+```sql
+select závodník, (select sum(1) from mormar where čas < m.čas)
+  from mormar m;
+
+-- bez NULL
+select závodník, 1 + coalesce((select sum(1) from mormar
+                               where čas < m.čas), 0)
+  from mormar m;
+```
+
+#### kolikátý doběhl ve své kategorii
+
+```sql
+select závodník, 1 + coalesce((select sum(1) from mormar
+        where kategorie=m.kategorie and čas < m.čas), 0)
+  from mormar m;
+```
+
+#### kolik závodníků doběhlo za ním
+
+```sql
+select závodník, coalesce((select sum(1) from mormar
+                           where m.čas < čas), 0)
+  from mormar m;
+```
+
+### Analytické funkce:
+
+#### jak fungují
+
+```sql
+-- select
+select kategorie, čas from mormar order by kategorie;
+
+-- agregace (GROUP BY)
+select kategorie, avg(čas) from mormar
+  group by kategorie order by kategorie;
+
+select kategorie, avg(čas) from mormar
+  group by kategorie order by avg(čas);
+
+-- window
+select kategorie, čas, avg(čas) over ()
+  from mormar order by kategorie;
+
+select kategorie, čas, avg(čas) over (partition by kategorie)
+  from mormar order by kategorie;
+
+select kategorie, čas,
+       rank() over (order by čas),
+       row_number() over ()
+  from mormar order by kategorie;
+```
+
+#### kdo doběhl těsně před ním
+
+```sql
+select závodník,
+       (select závodník from mormar
+        where čas < m.čas order by čas desc limit 1)
+  from mormar m order by čas;
+
+select závodník, lag(závodník) over (order by čas) from mormar order by čas;
+```
+
+#### kdo doběhl těsně před ním ve stejné kategorii
+
+vnořený SELECT (pro srovnání), window function:
+
+```sql
+select kategorie, závodník,
+       (select závodník from mormar
+        where kategorie=m.kategorie and čas<m.čas
+        order by čas desc limit 1)
+  from mormar m order by kategorie, čas;
+
+select kategorie, závodník,
+       lag(závodník) over (partition by kategorie
+                           order by čas)
+  from mormar order by kategorie, čas;
+```
+
+#### kolik každý ztratil na vítěze
+
+```sql
+select závodník,
+        čas - (select čas from mormar
+               order by čas asc limit 1)
+  from mormar order by čas;
+
+select závodník, čas - first_value(čas) over (order by čas)
+  from mormar order by čas;
+```
+
+#### kolik každý ztratil na vítěze ve své kategorii
+
+```sql
+select závodník,
+        čas - (select čas from mormar
+               where kategorie=m.kategorie
+               order by čas asc limit 1)
+  from mormar m order by kategorie, čas;
+
+select kategorie, závodník,
+       čas - first_value(čas) over (partition by kategorie
+                                    order by čas)
+  from mormar order by kategorie, čas;
+```
+
+#### kolikátý doběhl
+
+```sql
+select závodník, 1 + coalesce((select sum(1) from mormar
+                               where čas < m.čas), 0)
+  from mormar m order by čas;
+
+select závodník, rank() over (order by čas)
+  from mormar m order by čas;
+```
+
+#### kolikátý doběhl ve své kategorii
+
+```sql
+select závodník, 1 + coalesce((select sum(1) from mormar
+        where kategorie=m.kategorie and čas < m.čas), 0)
+  from mormar m order by kategorie, čas;
+
+select kategorie, závodník,
+       rank() over (partition by kategorie order by čas)
+  from mormar m order by kategorie, čas;
+```
+
+#### kolik závodníků doběhlo za ním
+
+```sql
+select závodník, coalesce((select sum(1) from mormar
+                           where m.čas < čas), 0)
+  from mormar m order by čas;
+
+select závodník, rank() over (order by čas desc) - 1
+  from mormar m order by čas;
+```
+
+---
+
+## Pokračování z lekce 02: referenční integrita a integrita dat
+
+#### Databáze se musí umět ubránit špatným datům!
+
+Tabulky `city`, `weather` s klíči, indexy a validací (omezením) dat, tři verze:
+
+- [Klíče, unikátní index, omezení](./weather-1.sql)
+- [Jednodušší, modernější syntaxe, přidán cizí klíč](./weather-2.sql)
+- [Zjednodušená syntaxe](./weather-3.sql)
+- [Vložení dat](./weather-insert.sql)
+
+JOIN a WHERE nyní používají indexovaná pole:
 
 ```sql
 SELECT * FROM city;
@@ -59,170 +237,27 @@ SELECT * FROM weather;
 SELECT * FROM city, weather;
 
 SELECT * FROM city, weather WHERE id = city_id;
+SELECT name, temp_lo as lo, temp_hi as hi FROM city, weather WHERE id = city_id;
 
 SELECT * FROM city JOIN weather ON id = city_id;
 
 SELECT * FROM city LEFT JOIN weather ON id = city_id;
-SELECT * FROM city RIGHT JOIN weather ON id = city_id; -- ha!
+SELECT * FROM city RIGHT JOIN weather ON id = city_id; -- zde stejné jako inner join!
 ```
 
-ON DELETE RESTRICT:
+### Mazání záznamů se závislými záznamy:
+
+Nelze:
+
+- [ON DELETE NO ACTION](./weather-no-action.sql) (default)
+- [ON DELETE RESTRICT](./weather-restrict.sql)
+
+Lze:
+
+- [ON DELETE CASCADE](./weather-cascade.sql)
+
+Ale pak pozor:
 
 ```sql
-DELETE FROM city; -- chyba
+DELETE FROM city; -- POOF! Obě tabulky vyprázdněné.
 ```
-
-ON DELETE CASCADE:
-
-```sql
-DROP TABLE IF EXISTS weather;
-
-CREATE TABLE weather (
-  city_id char(2) REFERENCES city(id) ON DELETE CASCADE,
-  temp_lo int NOT NULL,
-  temp_hi int NOT NULL,
-  date date NOT NULL DEFAULT CURRENT_DATE,
-  CONSTRAINT check_temp CHECK(temp_lo <= temp_hi),
-  UNIQUE (city_id, date)
-);
-
--- INSERT ...
-```
-
-```sql
-DELETE FROM city; -- POOF!
-```
-
-subqueries 7.2.1.3.
-
-city
-
-CREATE TABLE city (
-id char(2) primary key,
-name varchar(80)
-);
-
-INSERT INTO weather VALUES ('Berkeley', 45, 53, 0.0, '1994-11-28');
-ERROR: insert or update on table "weather" violates foreign key
-constraint "weather_city_fkey"
-DETAIL: Key (city)=(Berkeley) is not present in table "cities".
-
-````
-
-
-transactions
-UPDATE accounts SET balance = balance - 100.00
-WHERE name = 'Alice';
-UPDATE branches SET balance = balance - 100.00
-WHERE name = (SELECT branch_name FROM accounts WHERE name =
-'Alice');
-UPDATE accounts SET balance = balance + 100.00
-WHERE name = 'Bob';
-UPDATE branches SET balance = balance + 100.00
-WHERE name = (SELECT branch_name FROM accounts WHERE name =
-'Bob');
-
-postgres
-BEGIN;
-UPDATE accounts SET balance = balance - 100.00
-WHERE name = 'Alice';
--- etc etc
-COMMIT;
-
-BEGIN;
-UPDATE accounts SET balance = balance - 100.00
-WHERE name = 'Alice';
-SAVEPOINT my_savepoint;
-19
-Advanced Features
-UPDATE accounts SET balance = balance + 100.00
-WHERE name = 'Bob';
--- oops ... forget that and use Wally's account
-ROLLBACK TO my_savepoint;
-UPDATE accounts SET balance = balance + 100.00
-WHERE name = 'Wally';
-COMMIT;
-
-- JF aggregate etc ...
-
----
-
-self-reference
-CREATE TABLE tree (
-node_id integer PRIMARY KEY,
-parent_id integer REFERENCES tree,
-name text,
-...
-);
-
-2 ============================================================================
-
-window functions 3.5
-
-```
-
-
-install: docker
-
-$ createdb [mydb]
-$ dropdb mydb
-$ psql mydb
-
-postgres source
-cd .../src/tutorial
-make
-$ psql -s mydb
-mydb=> \i basics.sql
-
---- ppokr
-
-
-
-
-- syntax
-- postgres types
-
-Syntax
-kws, ids
-case insensitive, quoted ids case sensitive
-convention: kw uppercase "" all chars except \0
-constants 'srin''gs' c-like escapes
-$tag$.....$tag$
-B'1001'
-X'1FF'
-
-3.5 4.
-.001
-5e2
-1.925e-3
-
-0xhexdigits
-0ooctdigits
-0bbindigits
-
-integer/bigint/numeric
-1_500_000_000
-0b10001000_00000000
-0o_1_755
-0xFFFF_FFFF
-1.618_034
-
-REAL '1.23' -- string style
-1.23::REAL -- PostgreSQL (historical) style
-
-type 'string'
-'string'::type
-CAST ( 'string' AS type )
-
-comments
--- xxxx
-/_ ... _/
-
-https://www.postgresqltutorial.com/postgresql-administration/postgresql-create-database/
-
-CREATE DATABASE database_name
-https://www.postgresqltutorial.com/postgresql-administration/postgresql-create-database/
-
-https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/
-```
-````
