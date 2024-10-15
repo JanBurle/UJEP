@@ -75,27 +75,22 @@ select závodník,
 #### kolikátý doběhl
 
 ```sql
-select závodník, (select sum(1) from mormar where čas < m.čas)
-  from mormar m;
-
--- bez NULL:
-select závodník, 1 + coalesce((select sum(1) from mormar
-                               where čas < m.čas), 0)
+select závodník, (select count(*) from mormar where čas < m.čas)
   from mormar m;
 ```
 
 #### kolikátý doběhl ve své kategorii
 
 ```sql
-select závodník, 1 + coalesce((select sum(1) from mormar
-        where kategorie=m.kategorie and čas < m.čas), 0)
+select závodník, 1 + (select count(*) from mormar
+        where kategorie=m.kategorie and čas < m.čas)
   from mormar m;
 ```
 
 #### kolik závodníků doběhlo za ním
 
 ```sql
-select závodník, coalesce((select sum(1) from mormar
+select závodník, (select count(*) from mormar
                            where m.čas < čas), 0)
   from mormar m;
 ```
@@ -187,8 +182,8 @@ select kategorie, závodník,
 #### kolikátý doběhl
 
 ```sql
-select závodník, 1 + coalesce((select sum(1) from mormar
-                               where čas < m.čas), 0)
+select závodník, 1 + (select count(*) from mormar
+                      where čas < m.čas)
   from mormar m order by čas;
 
 select závodník, rank() over (order by čas)
@@ -198,8 +193,8 @@ select závodník, rank() over (order by čas)
 #### kolikátý doběhl ve své kategorii
 
 ```sql
-select závodník, 1 + coalesce((select sum(1) from mormar
-        where kategorie=m.kategorie and čas < m.čas), 0)
+select závodník, 1 + (select count(*) from mormar
+        where kategorie=m.kategorie and čas < m.čas)
   from mormar m order by kategorie, čas;
 
 select kategorie, závodník,
@@ -210,8 +205,8 @@ select kategorie, závodník,
 #### kolik závodníků doběhlo za ním
 
 ```sql
-select závodník, coalesce((select sum(1) from mormar
-                           where m.čas < čas), 0)
+select závodník, (select count(*) from mormar
+                  where m.čas < čas)
   from mormar m order by čas;
 
 select závodník, rank() over (order by čas desc) - 1
