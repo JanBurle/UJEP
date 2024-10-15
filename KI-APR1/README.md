@@ -62,7 +62,7 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 |    13 |                           |                      |           |
 
 [N01]: https://colab.research.google.com/drive/1n3p26L6vUdsr-2YcN_NxXh5mFqzPsXXf
-[N01]: https://colab.research.google.com/drive/1PVHHinP9VwYUZmUWfG-Vmp2-2eau4h0p
+[N02]: https://colab.research.google.com/drive/1PVHHinP9VwYUZmUWfG-Vmp2-2eau4h0p
 
 ## 6. Umět != odpovědět, umět == dělat
 
