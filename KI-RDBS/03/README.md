@@ -11,9 +11,8 @@ Window functions, česky analytické funkce
 Viz:
 
 - [PostgreSQL Window Tutorial](https://www.postgresql.org/docs/current/tutorial-window.html)
-
-* [PostgreSQL Window Functions](https://www.postgresql.org/docs/current/functions-window.html)
-* [Skripta, kap.1](https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/Relacni_databazove_systemy.docx)\*\*
+- [PostgreSQL Window Functions](https://www.postgresql.org/docs/current/functions-window.html)
+- [Skripta, kap.1](https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/Relacni_databazove_systemy.docx)\*\*
 
 ## Praktická ukázka
 
@@ -215,11 +214,11 @@ select závodník, rank() over (order by čas desc) - 1
 
 ---
 
-## Pokračování z lekce 02: referenční integrita a integrita dat
+## Pokračování z [lekce 02](../02/README.md): referenční integrita a integrita dat
 
 #### Databáze se musí umět ubránit špatným datům!
 
-Tabulky `city`, `weather` s klíči, indexy a validací (omezením) dat, tři verze:
+Tabulky `city`, `weather` s klíči, indexy a validací (omezením) dat:
 
 - [Klíče, unikátní index, omezení](./weather-1.sql)
 - [Jednodušší, modernější syntaxe, přidán cizí klíč](./weather-2.sql)
@@ -239,7 +238,7 @@ SELECT name, temp_lo as lo, temp_hi as hi FROM city, weather WHERE id = city_id;
 SELECT * FROM city JOIN weather ON id = city_id;
 
 SELECT * FROM city LEFT JOIN weather ON id = city_id;
-SELECT * FROM city RIGHT JOIN weather ON id = city_id; -- zde stejné jako inner join!
+SELECT * FROM city RIGHT JOIN weather ON id = city_id; -- zde stejné jako inner join! FK to jistí.
 ```
 
 ### Mazání záznamů se závislými záznamy:

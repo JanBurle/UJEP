@@ -310,7 +310,7 @@ while True:   # nekonečný cyklus
     if 1 <= i <= 10:
       break   # předčasné (explicitní) ukončení cyklu
   except:
-    pass      # prázdný příkaz
+    print('Chyba, chybka, chybička ⚠️')
 
 print(f'zadáno bylo {i=}')
 ```
