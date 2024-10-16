@@ -341,10 +341,32 @@ a nechte uživatele zadat hodnotu znovu.
 
 ### Úloha:
 
+Napište program, který přečte ze vstupu slovo a vypíše každé druhé písmeno.
+
+### Úloha:
+
 Napište program, který obsahuje v proměnné jméno nějaké osoby.
 Program se vás zeptá na to, jak se osoba jmenuje.
 Pokud napíšete správné jméno, tak vám program pogratuluje a skončí.
 Pokud napíšete jméno špatně, tak vám program dá další pokus, dokud jméno neuhádnete.
+
+### Úloha:
+
+Vnořené cykly: program přečte ze vstupu tři celá, nezáporná čísla, a vypíše obraz šachovnice, např.:
+
+```
+***   ***   ***   ***   ***
+***   ***   ***   ***   ***
+***   ***   ***   ***   ***
+   ***   ***   ***   ***
+   ***   ***   ***   ***
+   ***   ***   ***   ***
+***   ***   ***   ***   ***
+***   ***   ***   ***   ***
+***   ***   ***   ***   ***
+```
+
+kde tři zadané hodnoty jsou: počet řádků a sloupců šachovnice a velikost pole.
 
 ### Úloha:
 
