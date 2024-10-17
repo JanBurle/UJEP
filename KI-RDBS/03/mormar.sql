@@ -9,7 +9,7 @@ create table kategorie (
 create table mormar (
     startovní_číslo integer      not null primary key,
     závodník        varchar(128) not null,
-    kategorie       integer	     references kategorie(id),
+    kategorie       integer	 references kategorie(id),
     čas             interval	 not null,
     constraint
       cas_check check ('00:00:00'::interval < čas)

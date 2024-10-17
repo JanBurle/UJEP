@@ -28,7 +28,7 @@ Dotazy (SELECT), které vypíší účastníky maratónu, a u každého:
 
 ```sql
 -- účastníci
-select závodník from mormar;
+select závodník, čas from mormar;
 
 -- poslední, který měl lepší než zadaný čas
 select závodník, čas from mormar
@@ -37,7 +37,7 @@ select závodník, čas from mormar
   limit 1;
 
 -- závodník a kdo doběhl těsně před ním
-select závodník, (select závodník from mormar
+select závodník, čas, (select závodník from mormar
                   where čas < m.čas
                   order by čas desc limit 1)
   from mormar m;
@@ -46,7 +46,7 @@ select závodník, (select závodník from mormar
 #### kdo doběhl těsně před ním ve stejné kategorii
 
 ```sql
-select závodník, (select závodník from mormar
+select závodník, čas, (select závodník from mormar
                   where kategorie=m.kategorie and čas<m.čas
                   order by čas desc limit 1)
   from mormar m;
@@ -74,23 +74,30 @@ select závodník,
 #### kolikátý doběhl
 
 ```sql
-select závodník, (select count(*) from mormar where čas < m.čas)
+select závodník, 1 + (select count(*) from mormar where čas < m.čas)
   from mormar m;
+
+select závodník, čas, 1 + (select count(*) from mormar where čas < m.čas)
+  from mormar m order by čas;
 ```
 
 #### kolikátý doběhl ve své kategorii
 
 ```sql
 select závodník, 1 + (select count(*) from mormar
-        where kategorie=m.kategorie and čas < m.čas)
+  where kategorie=m.kategorie and čas < m.čas)
   from mormar m;
+
+select kategorie, závodník, čas, 1 + (select count(*) from mormar
+  where kategorie=m.kategorie and čas < m.čas)
+  from mormar m order by kategorie, čas;
 ```
 
 #### kolik závodníků doběhlo za ním
 
 ```sql
 select závodník, (select count(*) from mormar
-                           where m.čas < čas), 0)
+                  where m.čas < čas)
   from mormar m;
 ```
 
@@ -117,12 +124,13 @@ select kategorie, čas, avg(čas) over (partition by kategorie)
   from mormar order by kategorie;
 
 select kategorie, čas,
-       rank() over (order by čas),
-       row_number() over ()
-  from mormar order by kategorie;
+       rank() over (order by čas)
+  from mormar order by kategorie; -- čas
 ```
 
 #### kdo doběhl těsně před ním
+
+(vnořený SELECT – pro srovnání / analytická funkce)
 
 ```sql
 select závodník,
@@ -132,11 +140,12 @@ select závodník,
 
 select závodník, lag(závodník) over (order by čas)
   from mormar order by čas;
+
+select závodník, lag(závodník, 1, '') over (order by čas)
+  from mormar order by čas;
 ```
 
 #### kdo doběhl těsně před ním ve stejné kategorii
-
-vnořený SELECT (pro srovnání), window function:
 
 ```sql
 select kategorie, závodník,
@@ -147,7 +156,7 @@ select kategorie, závodník,
 
 select kategorie, závodník,
        lag(závodník) over (partition by kategorie
-                           order by čas)
+                           order by čas) as závodník -- jméno sloupce
   from mormar order by kategorie, čas;
 ```
 
@@ -166,7 +175,7 @@ select závodník, čas - first_value(čas) over (order by čas)
 #### kolik každý ztratil na vítěze ve své kategorii
 
 ```sql
-select závodník,
+select kategorie, závodník,
         čas - (select čas from mormar
                where kategorie=m.kategorie
                order by čas asc limit 1)
@@ -192,7 +201,7 @@ select závodník, rank() over (order by čas)
 #### kolikátý doběhl ve své kategorii
 
 ```sql
-select závodník, 1 + (select count(*) from mormar
+select kategorie, závodník, 1 + (select count(*) from mormar
         where kategorie=m.kategorie and čas < m.čas)
   from mormar m order by kategorie, čas;
 
@@ -208,6 +217,7 @@ select závodník, (select count(*) from mormar
                   where m.čas < čas)
   from mormar m order by čas;
 
+-- cf. rank / dense_rank / row_number
 select závodník, rank() over (order by čas desc) - 1
   from mormar m order by čas;
 ```
