@@ -213,13 +213,13 @@ Napište program, který ze vstupu přečte koeficienty a, b, c kvadratické rov
 a to najednou, na jedné řádce, oddělené mezerami.
 Program vypočítá a vypíše kořeny zadané rovnice.
 
-## Cykly `for`
+## Cykly (smyčky) `for - in`
 
 Program lze cyklit: opakovat jeho část. První druh je tzv. for-cyklus,
-který provede kód (tělo cyklu) jednou pro každý zadaný objekt:
+který provede kód (tělo cyklu) jednou pro každý zadaný objekt, tzv. _iteraci_:
 
 ```python
-for i in range(6): # range() je generátor čísel
+for i in range(6): # range() je líný "seznam"
   print(i)
 ```
 
@@ -265,12 +265,31 @@ for i in range(6):      # vnější cyklus, řídicí proměnná i
   print()
 ```
 
-## Cykly `while`
-
-Druhý typ je tzv. while-cyklus,
-který provádí kód (tělo cyklu) tak dlouho, pokud je splněna podmínka:
+Cyklus lze _předčasně_ ukončit příkazem `break`
 
 ```python
+for i in range(10):
+  if 7 < i: # končí se u šestky
+    break
+  print(i)
+```
+
+Také lze vynutit předčasné pokračování cyklu příkazem `continue`
+
+```python
+for i in range(10):
+  if i % 2: # přeskoč lichá čísla
+    continue
+  print(i)
+```
+
+## Cykly `while`
+
+Druhý typ cyklu je tzv. while-cyklus, který provádí kód (tělo cyklu) tak dlouho,
+pokud je splněna daná podmínka:
+
+```python
+# stejné jako: for i in range(10):
 i = 0         # počáteční hodnota
 while i < 10: # podmínka
   print(i)    # tělo: první řádek
@@ -318,7 +337,7 @@ print(f'zadáno bylo {i=}')
 Tento kód je užitečný, můžeme z něj udělat funkci:
 
 ```python
-def getInt(low, high):  # uživatelská funkce
+def getInt(low, high):  # uživatelská funkce s paranetry low a high
   while True:
     try:
       number = int(input(f'Zadej celé číslo mezi {low} a {high}: '))
@@ -335,12 +354,6 @@ print(f'zadáno bylo {j=}')
 
 ### Úloha:
 
-Upravte svoje programy z minulé lekce tak, aby byl vstup ošetřen proti uživatelské chybě.
-Tj. když by v důsledku zadání chybné hodnoty došlo k výjimce, vypište chybové hlášení
-a nechte uživatele zadat hodnotu znovu.
-
-### Úloha:
-
 Napište program, který přečte ze vstupu slovo a vypíše každé druhé písmeno.
 
 ### Úloha:
@@ -348,7 +361,8 @@ Napište program, který přečte ze vstupu slovo a vypíše každé druhé pís
 Napište program, který obsahuje v proměnné jméno nějaké osoby.
 Program se vás zeptá na to, jak se osoba jmenuje.
 Pokud napíšete správné jméno, tak vám program pogratuluje a skončí.
-Pokud napíšete jméno špatně, tak vám program dá další pokus, dokud jméno neuhádnete.
+Pokud napíšete jméno špatně, tak se program zeptá znovu, tak dlouho,
+dokud jméno neuhádnete.
 
 ### Úloha:
 
@@ -367,6 +381,12 @@ Vnořené cykly: program přečte ze vstupu tři celá, nezáporná čísla, a v
 ```
 
 kde tři zadané hodnoty jsou: počet řádků a sloupců šachovnice a velikost pole.
+
+### Úloha:
+
+Upravte svoje programy z minulé lekce tak, aby byl vstup ošetřen proti uživatelské chybě.
+Tj. když by v důsledku zadání chybné hodnoty došlo k výjimce, vypište chybové hlášení
+a nechte uživatele zadat hodnotu znovu.
 
 ### Úloha:
 
