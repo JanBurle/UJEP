@@ -163,7 +163,7 @@ import sys
 sys.version # type(sys.version)
 ```
 
-## Úkol (HW):
+## _Úloha na doma:
 
 - Seznamte se s možnostmi zápisníku Google Colab.
 - Seznamte se s funkcemi/metodami modulu `math` a vyzkoušejte si výpočty (operace) s jejich použitím.
