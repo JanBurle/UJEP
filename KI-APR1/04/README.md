@@ -27,7 +27,7 @@ Tyto operace lze popsat _pravdivostními tabulkami_ ( F=`False`, T=`True`):
 | F   | T     |
 | T   | F     |
 
-#### ❖ Úloha:
+### ❖ Úloha:
 
 _Sestavte program, který vypočítá a vypíše pravdivostní tabulky uvedených operací._
 
@@ -47,7 +47,7 @@ Další logické operace jsou např. [implikace](https://cs.wikipedia.org/wiki/I
 | T   | F   | T   |
 | T   | T   | F   |
 
-#### ❖ Úloha:
+### ❖ Úloha:
 
 _Vyjádřete implikaci a xor pomocí operátorů and, or, not._
 
@@ -67,7 +67,7 @@ Poznámka: Ve skutečnosti by nám stačil jen jediný logický operátor: _nand
 1. Negace výsledku logického součinu proměnných = logickému součtu znegovaných proměnných
 1. Negace logického součinu logických hodnot = logický součet negovaných hodnot
 
-#### ❖ Úloha:
+### ❖ Úloha:
 
 _Prověřte pomocí kódu, že pravidla opravdu platí._
 
@@ -80,7 +80,7 @@ Na přednášce byl sestaven program, který ověřoval, zda zadaný řetězec (
 - mezery
 - číslice a speciální znaky
 
-#### ❖ Úloha:
+### ❖ Úloha:
 
 _Napište takovýto program na rozpoznání palindromu._
 

@@ -45,7 +45,9 @@ import math
 math.isclose(5/7, 2/7 * 5/2)
 ```
 
-#### ❖ _Úloha: Modul [math](https://docs.python.org/3/library/math.html) obsahuje řadu funkcí pro práci s čísly `float`. Projděte si je._
+#### ❖ Úloha:
+
+_Modul [math](https://docs.python.org/3/library/math.html) obsahuje řadu funkcí pro práci s čísly `float`. Projděte si je._
 
 ## Řádkový výstup
 
