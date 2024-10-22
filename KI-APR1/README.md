@@ -50,7 +50,7 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 |    01 | Úvod, čísla               | [01](./01/README.md) |                    |
 |    02 | Vstup a výstup, podmínky  | [02](./02/README.md) | [02](./02/code.md) |
 |    03 | `if-else`, `for`, `while` | [03](./03/README.md) | [03](./03/code.md) |
-|    04 | Cykly, indexace, řetězce  |                      |                    |
+|    04 | Cykly, indexace, řetězce  | [04](./04/README.md) |                    |
 |    05 |                           |                      |                    |
 |    06 |                           |                      |                    |
 |    07 |                           |                      |                    |
