@@ -89,7 +89,7 @@ hasSpace = False  # mezery apod.
 hasLower = False  # malé písmeno
 hasUpper = False  # velké písmeno
 hasDigit = False  # číslice
-hasSpec  = False  # speciální (nikoli alfannumerický) znak
+hasSpec  = False  # speciální (nikoli alfanumerický) znak
 
 isLongEnough = 8 <= len(pwd)
 
