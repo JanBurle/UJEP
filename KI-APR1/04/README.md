@@ -105,7 +105,7 @@ Jak psát cykly víte. Pro procvičení cyklů budeme pracovat s obrázky, pomoc
 Vytvoříme obrázek:
 
 ```python
-from PIL import Image   # objekt pro práci s obrázky
+from PIL import Image   # submodul pro práci s obrázky
 
 width  = 120
 height = 80
