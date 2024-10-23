@@ -4,11 +4,11 @@
 
 ## Indexy:
 
-- urychlí vyhledávaní záznamů (řádek tabulky) v databázi (pro: SELECT, UPDATE, DELETE, JOIN)
 - zajistí referenční integritu
+- urychlí vyhledávaní záznamů (řádek tabulky) v databázi (pro: SELECT, UPDATE, DELETE, JOIN)
 - zvýší náklady (overhead) databáze: index je nutno vytvořit a udržovat
 
-Při selekci řádků (`SELECT ... WHERE ...`) bez indexů, je nutné projít celou tabulku (v čase _O(n)_). Pokud ale existuje odpovídají index nad poli použitými v klauzuli `WHERE ...`, lze záznamy vyhledat, typicky pomocí vyhledávacího stromu (search tree), v čase _O(log n)_.
+Při selekci řádků (`SELECT ... WHERE ...`) bez indexů je nutné projít (scan) celou tabulku (v čase _O(n)_). Pokud ale existuje odpovídají index nad poli použitými v klauzuli `WHERE ...`, lze záznamy vyhledat rychleji, typicky pomocí vyhledávacího stromu (search tree), v čase _O(log n)_.
 
 ### Typy indexů
 
@@ -25,27 +25,30 @@ Vhodné pro:
 
 #### [Haš](https://cs.wikipedia.org/wiki/Ha%C5%A1ovac%C3%AD_funkce)
 
+Založený na hašovacích tabulkách.
+
 ```sql
 CREATE INDEX name ON table USING HASH (column);
 ```
 
-- levnější
+- levnější než B-stromy
 - vhodné jen pro =
 
 #### GIST, SP-GIST (Geographic Information Systems Technology)
 
 - pro prostorové souřadnice, hledání sousedů
+- quad-trees, oct-trees
 
-* quad-trees, oct-trees
+#### GIN, BRIN, ...
 
-#### GIN, BRIN, ... speciality
-
-### Indexy nad více sloupci (multicolumn)
+### Indexy nad více sloupci (multicolumn, vícesloupcové)
 
 ```sql
 CREATE INDEX name ON table(col1, col2, ...);
 CREATE INDEX name ON table(col1 DESC, col2 NULLS FIRST/LAST, ...);
 ```
+
+Nejvíce rozlišující sloupec by měl být uveden první, atd.
 
 - Pro dotazy typu
 
@@ -59,17 +62,17 @@ a
 ... ORDER BY col1, col2, ...);
 ```
 
-(zleva vpravo: col1, col2, ...)
+(zleva doprava: col1, col2, ...)
 
 ### Kombinace indexů
 
-Lze použít jeden index:
+AND: lze použít jeden index:
 
 ```sql
 ... WHERE ... AND ...;
 ```
 
-Vyžaduje více indexů:
+OR: vyžaduje více indexů (nebo jeden index vícekrát):
 
 ```sql
 ... WHERE ... OR ...;
@@ -81,7 +84,7 @@ Vyžaduje více indexů:
 CREATE UNIQUE INDEX name ON ... [ NULLS [ NOT ] DISTINCT ];
 ```
 
-### Indexy nad výrazy
+### Indexy nad výrazy (vypočítané indexy)
 
 Pokud je v dotazech např. funkce:
 
@@ -89,7 +92,7 @@ Pokud je v dotazech např. funkce:
 ... WHERE lower(col) = 'value';
 ```
 
-Hodí se index:
+Pak se hodí index:
 
 ```sql
 CREATE INDEX name ON table(lower(col));
@@ -104,10 +107,12 @@ SELECT * FROM people WHERE (first_name || ' ' || last_name) = 'John Smith';
 bude užitečný index
 
 ```sql
-CREATE INDEX people_names ON people ((first_name || ' ' || last_name));
+CREATE INDEX names ON people ((first_name || ' ' || last_name));
 ```
 
 ### Částečné indexy (partial indexes)
+
+Kompromis mezi režií přípravy a režií provedení. Indexují jen určitý rozsah hodnot:
 
 ```sql
 CREATE INDEX name ON table(col) WHERE ... col ...
@@ -123,16 +128,50 @@ CREATE INDEX name ON table(col1, col2, ...)
 SELECT col1, col2 FROM name WHERE ... col1 ... col2 ...
 ```
 
+## Optimalizace dotazů
+
+Zohledňuje se velikost zpracovávaných tabulek, včetně dočasných
+tabulek vzniklých během provádění složitějších dotazů. Velikost tabulky je především dána počtem řádků (počet sloupců je v praxi většinou omezený):
+
+- microtabulky = tabulky s několika málo řádky a sloupci
+  - optimalizace je kontraproduktivní
+- mezotabulky = desítky až tisíce řádků (jeden diskový blok / resp. stránka paměti)
+  - bitmap scan, hash join
+- macrotabulky
+  - index scan, merge join
+
+## Prováděcí plán
+
+Plánovač v DBS připraví tzv. prováděcí plán dotazu. To je kritická operace. Rozhoduje se mj. podle velikosti tabulek. Rozsah průběžně vytvářených tabulek lze předem určit jen obtížně (výjimka: agregace, dotazy se sekcí LIMIT), proto se běžně jen odhaduje:
+
+- z velikosti fyzických tabulek
+- z empiricky zjištěných rozdělení pravděpodobnosti
+- z výsledků předchozích obdobných dotazů
+
+Dobré odhady vyžadují průběžnou analýzu dat a provádění reálně využívaných dotazů (tzv. postupná akomodace).
+
 ## Analýza dotazů
 
-Plánovač v PostgreSQL připraví plán dotazu. To je kritická operace.
+Jak se zjistí jaký plán byl použit:
+
+```sql
+EXPLAIN [ANALYZE] dotaz
+```
+
+Vypíše detailní plán s uvedením použitých mechanismů, odhadovanou cenou a počtem řádků tabulek.
+
+(ANALYZE = vykoná plán a údaje o reálném provedení přidá do výstupu pro srovnání.)
 
 EXPLAIN zobrazí plán.
 
-EXPLAIN, EXPLAIN ANALYZE ...
+## Praktický příklad
 
-- [tabulky bez indexů](./data1.sql)
-- [tabulky s indexy](./data2.sql)
+Tři verze tabulek:
+
+1. [tabulky bez indexů](./data1.sql)
+1. [tabulky s hlavními PK/FK](./data2.sql)
+
+Prozkoumejte:
 
 ```sql
 select count(*) from city;
@@ -158,6 +197,9 @@ vacuum analyze;
 
 explain analyze select avg(temp_lo) from weather where temp_hi < 20;
 explain analyze select avg(temp_hi) from weather where temp_lo < 20;
+CREATE INDEX idx_temp_lo on weather(temp_lo);
+explain analyze select avg(temp_hi) from weather where temp_hi < 20;
+explain analyze select avg(temp_lo) from weather where temp_lo < 20;
 
 explain analyze select temp_hi from weather where temp_lo < 20;
 explain analyze select temp_lo from weather where temp_hi < 20;
@@ -166,11 +208,20 @@ explain analyze select temp_hi from weather order by temp_lo;
 explain analyze select temp_lo from weather order by temp_lo;
 explain analyze select temp_lo from weather order by temp_hi;
 
-explain analyze SELECT w1.city_id, w1.temp_lo AS low, w1.temp_hi AS high,
+explain SELECT w1.city_id, w1.temp_lo AS low, w1.temp_hi AS high,
        w2.city_id, w2.temp_lo AS low, w2.temp_hi AS high
   FROM weather w1 JOIN weather w2
   ON w1.temp_lo < w2.temp_lo AND w2.temp_hi < w1.temp_hi;
 
+explain SELECT w1.city_id, avg(w1.temp_lo) AS low, avg(w1.temp_hi) AS high,
+       w2.city_id, avg(w2.temp_lo) AS low, avg(w2.temp_hi) AS high
+  FROM weather w1 JOIN weather w2
+  ON w1.temp_lo < w2.temp_lo AND w2.temp_hi < w1.temp_hi
+  GROUP BY w1.city_id, w2.city_id;
+
+-- indexy ano/ne
 create index i1 on weather(temp_lo);
 create index i2 on weather(temp_hi);
+drop index i1;
+drop index i2;
 ```

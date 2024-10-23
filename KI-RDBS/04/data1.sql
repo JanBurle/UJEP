@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS weather;
 DROP TABLE IF EXISTS city;
 
 CREATE TABLE city (
-  id char(2),
+  id char(2) NOT NULL,
   name varchar(80) NOT NULL
 );
 
 CREATE TABLE weather (
-  city_id char(2),
+  city_id char(2) NOT NULL,
   temp_lo int NOT NULL,
   temp_hi int NOT NULL,
   date date NOT NULL DEFAULT CURRENT_DATE,
