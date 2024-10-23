@@ -49,7 +49,7 @@ Další logické operace jsou např. [implikace](https://cs.wikipedia.org/wiki/I
 
 ### ❖ Úloha:
 
-_Vyjádřete implikaci **a xor b** pomocí operátorů **and**, **or**, **not**._
+_Vyjádřete operace **implikace** a **xor** pomocí operátorů **and**, **or**, **not**._
 
 Poznámka: Ve skutečnosti by nám stačil jen jediný logický operátor: _nand_ (not and). Všechny ostatní operace je možné zkonstruovat pomocí tohoto operátoru.
 
