@@ -30,7 +30,7 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 1.  [Úvod, PostgreSQL, opakování.](./01/README.md)
 1.  [Joins, agregace, pohledy.](./02/README.md)
 1.  [Vnořené poddotazy SELECT a jejich alternativa: analytické funkce.](./03/README.md)
-1.  Indexové soubory a analýza dotazů (efektivní implementace operace JOIN)
+1.  [Indexové soubory a analýza dotazů](./04/README.md)
 1.  Fulltextové vyhledávání
 1.  Rekurzivní CTE a representace hierarchií
 1.  Pohledy a procedurální rozšíření SQL
