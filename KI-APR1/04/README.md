@@ -127,7 +127,7 @@ img = Image.new('RGB', size) # nový obrázek
 img                     # zobraz
 ```
 
-Pracujem s body (pixel = _picture element_) v obrázku:
+Pracujme s body (pixel = _picture element_) v obrázku:
 
 ```python
 print(img.getpixel((10,10)))  # černá (0, 0, 0)
