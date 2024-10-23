@@ -39,7 +39,9 @@ CREATE INDEX name ON table USING HASH (column);
 - pro prostorové souřadnice, hledání sousedů
 - quad-trees, oct-trees
 
-#### GIN, BRIN, ...
+#### GIN
+
+Fulltext search.
 
 ### Indexy nad více sloupci (multicolumn, vícesloupcové)
 
