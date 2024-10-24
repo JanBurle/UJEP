@@ -1,4 +1,4 @@
-# 01 – Indexy a analýza dotazů
+# 04 – Indexy a analýza dotazů
 
 [PostgreSQL Ch.11](https://www.postgresql.org/docs/current/indexes.html)
 
@@ -6,9 +6,14 @@
 
 - zajistí referenční integritu
 - urychlí vyhledávaní záznamů (řádek tabulky) v databázi (pro: SELECT, UPDATE, DELETE, JOIN)
-- zvýší náklady (overhead) databáze: index je nutno vytvořit a udržovat
+- data navíc (podmnožina dat): zvýší náklady (overhead) databáze – index je nutno vytvořit a udržovat, podobně jako index na konci knihy.
+- kompromis prostor / čas
 
 Při selekci řádků (`SELECT ... WHERE ...`) bez indexů je nutné projít (scan) celou tabulku (v čase _O(n)_). Pokud ale existuje odpovídají index nad poli použitými v klauzuli `WHERE ...`, lze záznamy vyhledat rychleji, typicky pomocí vyhledávacího stromu (search tree), v čase _O(log n)_.
+
+Podobné urychlení nastane při spojování (JOIN) a třídění (ORDER BY).
+
+- ? Indexy udržovat nebo smazat (DROP) a znovu vytvořit ?
 
 ### Typy indexů
 
@@ -37,11 +42,13 @@ CREATE INDEX name ON table USING HASH (column);
 #### GIST, SP-GIST (Geographic Information Systems Technology)
 
 - pro prostorové souřadnice, hledání sousedů
-- quad-trees, oct-trees
+- [quadtree](https://en.wikipedia.org/wiki/Quadtree), [octtree](https://en.wikipedia.org/wiki/Octree)
 
-#### GIN
+#### GIN (Generalized INverted index)
 
-Fulltext search.
+Fulltext search, LIKE, apod.
+
+[Pro zvídavé](https://pganalyze.com/blog/gin-index)
 
 ### Indexy nad více sloupci (multicolumn, vícesloupcové)
 
@@ -94,7 +101,7 @@ Pokud je v dotazech např. funkce:
 ... WHERE lower(col) = 'value';
 ```
 
-Pak se hodí index:
+Pak je užitečný index:
 
 ```sql
 CREATE INDEX name ON table(lower(col));
@@ -168,7 +175,7 @@ EXPLAIN zobrazí plán.
 
 ## Praktický příklad
 
-Tři verze tabulek:
+Dvě verze tabulek:
 
 1. [tabulky bez indexů](./data1.sql)
 1. [tabulky s hlavními PK/FK](./data2.sql)
