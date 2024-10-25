@@ -163,7 +163,7 @@ Nebo také (pokud má vstup správný formát):
 int(input('Enter an int:'))
 ```
 
-#### ❖ Úloha
+#### 🟢 Úloha
 
 Kromě [vestavěných operátorů](https://www.w3schools.com/python/python_operators.asp) obsahuje Python také obsahuje celou řadu [vestavěných funkcí](https://www.w3schools.com/python/python_ref_functions.asp).
 
@@ -185,7 +185,7 @@ name = input('Enter your name:')
 print(f'Hello, {name}!')
 ```
 
-#### ❖ Úloha
+#### 🟢 Úloha
 
 Napište program, který se uživatele zeptá na jméno, věk, bydliště (atd.) a pak vypíše text: _Dobrý den, ..., Vaším domovem je ... a za rok Vám bude ... let._
 

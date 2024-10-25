@@ -27,7 +27,7 @@ Tyto operace lze popsat _pravdivostními tabulkami_ ( F=`False`, T=`True`):
 | F   |     T |
 | T   |     F |
 
-### ❖ Úloha:
+### 📱 🔵 Úloha:
 
 _Sestavte program, který vypočítá a vypíše pravdivostní tabulky uvedených operací._
 
@@ -47,7 +47,7 @@ Další logické operace jsou např. [implikace](https://cs.wikipedia.org/wiki/I
 | T   | F   |   T |
 | T   | T   |   F |
 
-### ❖ Úloha:
+### 🟢 Úloha:
 
 _Vyjádřete operace **implikace** a **xor** pomocí operátorů **and**, **or**, **not**._
 
@@ -74,7 +74,7 @@ not (a and b) == not a or  not b
 not (a or  b) == not a and not b
 ```
 
-### ❖ Úloha:
+### 🟢 Úloha:
 
 _Prověřte pomocí kódu, že pravidla opravdu platí._
 
@@ -87,7 +87,7 @@ Na přednášce byl sestaven program, který ověřoval, zda zadaný řetězec (
 - mezery
 - číslice a speciální znaky
 
-### ❖ Úloha:
+### 🟢 Úloha:
 
 _Napište takovýto program na rozpoznání palindromu._
 
@@ -137,6 +137,6 @@ print(img.getpixel((10,10)))  # zelená
 img
 ```
 
-### ❖ Úloha:
+### 🟢 Úloha:
 
 _Pomocí cyklů namalujte do obrázku pruhy: vodorovné, svislé, křižující se, atd., různých barev._
