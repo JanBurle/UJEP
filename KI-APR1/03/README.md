@@ -207,7 +207,7 @@ else:
   print('x je nula')
 ```
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Napište program, který ze vstupu přečte koeficienty a, b, c kvadratické rovnice,
 a to najednou, na jedné řádce, oddělené mezerami.
@@ -352,11 +352,11 @@ j = getInt(20, 40)
 print(f'zadáno bylo {j=}')
 ```
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Napište program, který přečte ze vstupu slovo a vypíše každé druhé písmeno.
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Napište program, který obsahuje v proměnné jméno nějaké osoby.
 Program se vás zeptá na to, jak se osoba jmenuje.
@@ -364,7 +364,7 @@ Pokud napíšete správné jméno, tak vám program pogratuluje a skončí.
 Pokud napíšete jméno špatně, tak se program zeptá znovu, tak dlouho,
 dokud jméno neuhádnete.
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Vnořené cykly: program přečte ze vstupu tři celá, nezáporná čísla, a vypíše obraz šachovnice, např.:
 
@@ -382,13 +382,13 @@ Vnořené cykly: program přečte ze vstupu tři celá, nezáporná čísla, a v
 
 kde tři zadané hodnoty jsou: počet řádků a sloupců šachovnice a velikost pole.
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Upravte svoje programy z minulé lekce tak, aby byl vstup ošetřen proti uživatelské chybě.
 Tj. když by v důsledku zadání chybné hodnoty došlo k výjimce, vypište chybové hlášení
 a nechte uživatele zadat hodnotu znovu.
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Napište program, ve uživatel zadá sadu čísel oddělených čárkou.
 Následně ve druhém vstupu zvolí slovy jakou operaci chce s čísly provést:
@@ -396,12 +396,12 @@ např. `sečti`, `vynásob`, atd. nebo `+`, `*` atd.
 Program podle výběru čísla sečte, vynásobí, atd.,
 a vypíše výsledek.
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Napište program, který zjistí, zda zadané slovo je palindrom, tedy čte se z obou stran stejně.
 Např. "krk", "kunanesenanuk" nebo "jelenovipivonelej".
 
-### 🟢 Úloha:
+### 📱 Úloha:
 
 Napište program, který zjistí, zda zadané heslo uživatelem je tzv. silné.
 Heslo musí obsahovat alespoň jedno velké písmeno, jedno malé písmeno, jednu číslici,

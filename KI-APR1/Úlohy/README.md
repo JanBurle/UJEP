@@ -1,6 +1,6 @@
 # Různé programovací úlohy
 
-Zde budou přibývat různé úlohy, které nás napadnou.
+Zde budou/mohou přibývat různé úlohy, které nás napadnou.
 
 ## `float` (pro pokročilé)
 
