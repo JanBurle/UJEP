@@ -109,34 +109,3 @@ print(list(range(8,16)))
 print(list(range(16,23)))
 print(list(range(0,8)) + list(range(8,16)) + list(range(16,23)))
 ```
-
-## Cykly (smyčky)
-
-Jak psát cykly víte. Pro procvičení cyklů budeme pracovat s obrázky, pomocí modulu [PIL](https://pythonexamples.org/python-pillow/).
-
-Vytvoříme obrázek:
-
-```python
-from PIL import Image   # submodul pro práci s obrázky
-
-width  = 120
-height = 80
-size = (width, height)  # závorky jsou důležité: n-tice (tuple)
-
-img = Image.new('RGB', size) # nový obrázek
-img                     # zobraz
-```
-
-Pracujme s body (pixel = _picture element_) v obrázku:
-
-```python
-print(img.getpixel((10,10)))  # černá (0, 0, 0)
-green = (0,255,0)
-img.putpixel((10,10),green)
-print(img.getpixel((10,10)))  # zelená
-img
-```
-
-### 📱 Úloha:
-
-_Pomocí cyklů namalujte do obrázku pruhy: vodorovné, svislé, křižující se, atd., různých barev._
