@@ -50,7 +50,7 @@ display(img)
 Čtení:
 
 ```python
-img.getpixel((10,10)))  # černá (0, 0, 0)
+img.getpixel((10,10))  # černá (0, 0, 0)
 ```
 
 Zápis:
@@ -65,7 +65,6 @@ Zvětšené obrazení:
 
 ```python
 img.resize((240, 160))
-img
 ```
 
 #### Animace
@@ -98,13 +97,13 @@ display(img)
 
 ### 📱 Úlohy:
 
-- Vytvořte prázdný obrázek a:
+- Vytvořte prázdný obrázek a
 
   - vyplňte jej zvolenou barvou
   - namalujte do něj pruhy: vodorovné, svislé, křižující se, apod.
 
 - Načtěte obrázek a aplikujte na něj filtr, který:
-  - konvertuje barvy v obrázku do stupnice šedi
+  - konvertuje barvy v obrázku na stupnici šedi
   - konvertuje barvy v obrázku na černou a bílou
   - rozloží obrázek na tři "kanály" (složky): červený, zelený, modrý
 
@@ -119,4 +118,4 @@ display(img)
 ## Další, složitější úlohy
 
 - Myslete si číslo mezi 0 a 1023. Váš program vám bude pokládat otázky, na které odpovíte ano/ne. Program by měl vaše číslo uhádnout co nejdříve (nejmenším množství otázek).
-- Napište program na určení palindromu, který nekopíruje žádná data ze zadaného řetězce. (Pracuje přímo a jenom nad původními daty: in-place/in situ algoritmus.)
+- Napište program na určení palindromu, který nekopíruje žádná data ze zadaného řetězce, a který pracuje přímo nad původními daty (in-place/in situ algoritmus).

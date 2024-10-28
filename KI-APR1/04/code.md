@@ -1,6 +1,6 @@
 # Ukázková řešení úloh
 
-#### Sestavte program, který vypočítá a vypíše pravdivostní tabulky logických operací
+#### Sestavte program, který vypočítá a vypíše pravdivostní tabulky logických operací:
 
 ```python
 print('and')
@@ -51,23 +51,14 @@ for a in [False, True]:
 
 print('└───────────┘')
 
-# Úloha: Rámečky jsou zde "natvrdo" (hard-coded). Bylo by je možné parametrizovat, tj. vypočítat podle počtu vstupních hodnot, tedy potřebné šířky rámečku?
-```
-
-```python
-def ft(v):
-  return 'T' if v else 'F'
-
-print('and')
-for a in [False, True]:
-  for b in [False, True]:
-    for c in [False, True]:
-      print(ft(not(a and b and c)), ft(not a or not b or not c))
+# Úloha: Rámečky jsou zde "zakódované natvrdo" (hard-coded).
+# Bylo by je možné parametrizovat, tj. vypočítat podle počtu vstupních hodnot,
+# tedy potřebné šířky rámečku?
 ```
 
 ---
 
-#### Prověřte pomocí kódu, že De Morganova pravidla platí
+#### Prověřte pomocí kódu, že De Morganova pravidla platí:
 
 Např. pro tři proměnné:
 
@@ -89,7 +80,7 @@ for a in [False, True]:
 
 ```python
 def onlyAlpha(s):
-  """ Ponechat jen písmena. """
+  """ Ponechá jen písmena. """
   s2 = ''
   for c in s:
     if c.isalpha():
@@ -126,7 +117,7 @@ print(isPali)
 # pomocí tzv. "in-place" algoritmu, tj. bez nutnosti vytvářet kopie
 # dat, jak tomu je např. při použití výrazu s==s[::-1].
 
-# Bylo by možné napsat celý program na rozeznání palindromu, aniž
-# by se vytvářely jakékoli kopie vstupního řetězce, jako to zde
-# dělají funkce onlyAlpha() a shortenVowels() ?
+# Bylo by možné napsat celý program na rozeznání palindromu
+# aniž by se vytvářely jakékoli kopie vstupního řetězce,
+# jako to zde dělají funkce onlyAlpha() a shortenVowels() ?
 ```
