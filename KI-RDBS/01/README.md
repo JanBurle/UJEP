@@ -23,7 +23,7 @@ Jméno: PostgreSQL << POSTGRES << Ingres
 ### Docker:
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- [compose.yaml](../Docker/PostgreSQL/compose.yaml)
+- [compose.yaml](../Docker/docker-compose.yml)
 
 ```bash
 docker compose up # watch the log
