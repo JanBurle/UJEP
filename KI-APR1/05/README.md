@@ -107,7 +107,7 @@ display(img)
   - konvertuje barvy v obrázku na černou a bílou
   - rozloží obrázek na tři "kanály" (složky): červený, zelený, modrý
 
-## Další úlohy na cykly, bez obrázků
+## Další úlohy procvičení cyklů, bez obrázků
 
 - Zjistěte kolik zadaná věta obsahuje písmen a číslic.
 - V zadané kolekci čísel najděte minimální a maximální prvek, bez použití funkcí `min()` nebo `max()`.

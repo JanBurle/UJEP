@@ -41,7 +41,7 @@ def ft(v):
   return 'T' if v else 'F'
 
 print('┌───────────┐')
-print('│', '   and   ', '│')
+print('│    and    │')
 print('├───────────┤')
 
 for a in [False, True]:
