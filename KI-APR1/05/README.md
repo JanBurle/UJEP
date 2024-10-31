@@ -95,6 +95,15 @@ print(img.height)
 display(img)
 ```
 
+A např. takto lze obrázek otevřít přímo z URL:
+
+```python
+import requests
+url = 'https://excelatfinance.com/xlf/media/xlf-rgb-circles.png'
+img = Image.open(requests.get(url, stream=True).raw)
+img
+```
+
 ### 📱 Úlohy:
 
 - Vytvořte prázdný obrázek a

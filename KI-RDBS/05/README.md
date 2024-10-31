@@ -47,9 +47,9 @@ Dokument musí být předzpracován (preprocessed) a indexován (pomocí podpory
 Dokument je potřeba konvertovat na typ `tsvector`:
 
 ```sql
-select 'a fat cat sat on a mat and ate a fat rat';
-select 'a fat cat sat on a mat and ate a fat rat'::tsvector;
-select to_tsvector('a fat cat sat on a mat and ate a fat rat');
+select 'a fat cat sat on a mat and ate a fat rat';              -- text
+select 'a fat cat sat on a mat and ate a fat rat'::tsvector;    -- tsvector, přetypováno (cast)
+select to_tsvector('a fat cat sat on a mat and ate a fat rat'); -- tsvector, konvertováno
 ```
 
 ### tsquery
@@ -57,9 +57,9 @@ select to_tsvector('a fat cat sat on a mat and ate a fat rat');
 Dotaz je potřeba konvertovat na typ `tsquery`:
 
 ```sql
-select 'cat & rat';
-select 'cat & rat'::tsquery;
-select to_tsquery('cat & rat');
+select 'cat & rat';               -- text
+select 'cat & rat'::tsquery;      -- přetypováno
+select to_tsquery('cat & rat');   -- konvertováno
 ```
 
 ### Dotazy: _match_ operátor @@
@@ -67,7 +67,7 @@ select to_tsquery('cat & rat');
 Shoduje se text (dokument) s dotazem? Vrací boolean:
 
 ```sql
-select 'a fat cat sat on a mat and ate a fat rat' @@ 'cat & rat'; -- implicit to_ts...
+select 'a fat cat sat on a mat and ate a fat rat' @@ 'cat & rat'; -- implicitní cast
 select 'a fat cat sat on a mat and ate a fat rat'::tsvector @@ 'cat & rat'::tsquery;
 select 'cat & rat'::tsquery @@ 'a fat cat sat on a mat and ate a fat rat'::tsvector;
 
@@ -78,15 +78,15 @@ select to_tsquery('fat & rat') @@ to_tsvector('fat cats ate fat rats');
 Dotazy lze logicky kombinovat:
 
 ```sql
-select 'fat | rat'::tsquery && 'cat'::tsquery;
-select 'fat | rat'::tsquery || 'cat'::tsquery;
-select !!'fat | rat'::tsquery;
+select 'fat | rat'::tsquery && 'cat'::tsquery; -- and
+select 'fat | rat'::tsquery || 'cat'::tsquery; -- or
+select !!'fat | rat'::tsquery;                 -- not
 
 select 'a fat cat sat on a mat and ate a fat rat' @@ ('fat | rat'::tsquery && 'cat'::tsquery);
 select 'a fat cat sat on a mat and ate a fat rat' @@ ('fat | rat'::tsquery && !! 'cat'::tsquery);
 ```
 
-Dotazy lze použít ve frázích:
+Dotazovat se lze na fráze (posloupnost slov):
 
 ```sql
 select 'fat'::tsquery <-> 'rat'::tsquery;
@@ -97,14 +97,14 @@ select 'a fat cat sat on a mat and ate a fat rat' @@ ('fat'::tsquery <-> 'cat'::
 select 'a fat cat sat on a mat and ate a fat rat' @@ ('fat'::tsquery <-> 'sat'::tsquery);
 ```
 
-Nebo pro zvýraznění textu:
+Nalezenou shodu lze zvýraznit:
 
 ```sql
 select ts_headline('a fat cat sat on a mat and ate a fat rat', 'fat & sat');
 select ts_headline('english'::regconfig, 'a fat cat sat on a mat and ate a fat rat', 'fat & sat'::tsquery);
 ```
 
-Obyčejný text lze konvertovat na dotaz:
+I obyčejný text lze konvertovat na dotaz:
 
 ```sql
 select plainto_tsquery('english', 'The Fat Rats...?');
@@ -114,7 +114,7 @@ select phraseto_tsquery('english', 'The Fat Rats...?');
 select phraseto_tsquery('The Fat Rats...?');
 
 select plainto_tsquery('basque', 'The Fat Rats...?'); -- Hmm...
-select plainto_tsquery('czech', 'The Fat Rats...?'); -- Doh!
+select plainto_tsquery('czech', 'The Fat Rats...?');  -- Doh! Cože?
 ```
 
 ## PostgreSQL – podpora jazyků
@@ -191,6 +191,7 @@ select * from RUR where to_tsvector('czech',para) @@ to_tsquery('czech','bezbož
 Pro urychlení fulltextových dokumentů je vhodné použít specializované indexy.
 
 ```sql
+-- bez indexu
 explain analyze select * from RUR where to_tsvector('czech',para) @@ to_tsquery('czech','robot & žárovka');
 
 --- explain analyze
@@ -201,14 +202,15 @@ from RUR, to_tsquery('czech','roboti | lidé') as qry
 where to_tsvector('czech',para) @@ qry
 order by rank desc limit 6;
 
+-- index
 create index idx_rur on RUR using gin(to_tsvector('czech', para));
--- explain alalyze select ...
+-- znovu: explain alalyze select ...
 drop index idx_rur;
 ```
 
 ### Pomocná data
 
-Při častém hledání je vhodné vytvořit pomocný sloupec s předpřipraveným fulltextovým vektorem.
+Při častém hledání je vhodné vytvořit pomocný sloupec s předpřipraveným fulltextovým vektorem:
 
 ```sql
 alter table RUR add column tsv tsvector;
