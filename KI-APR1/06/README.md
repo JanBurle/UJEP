@@ -1,34 +1,121 @@
-# 06 –
+# 06 – Źelví grafika
 
-range(8)
-print: range(0,8)
-iterable - na pozadani vraci jednotlive objekty posloupnosti
+Instalace:
 
-r = iter(range(8))
-iterator
+```python
+!pip3 install ColabTurtle
+```
 
-next(r)...
-StopIteration ... for to chyti
-napsat si nahradu for pomoci while/try
+Import a dokumentace:
 
-iterovatelny objekt
-vraci iterator je na jedno pouziti, jednosmerny ... vycerpan
+```python
+from ColabTurtle import Turtle as T
+help(T)
+```
 
-iter(s)
+Pohyb a zatáčení:
 
-for v in iterable
+```python
+T.initializeTurtle()
+T.forward(100)
+T.right(90)
+T.forward(100)
+T.back(200)
+T.left(90)
+T.forward(100)
+```
 
-konecne i nekonecne iteratory
+Tvar, domů, otáčení:
 
-for c in s[::2]:
+```python
+T.initializeTurtle()
+T.shape('circle')
+for deg in range(0,360,60):
+  T.home()
+  T.setheading(deg)
+  T.forward(60)
+```
 
-pyth. idiom
-for i,c in enumerate(s)
+Šířka čáry:
 
-next - duple
+```python
+T.initializeTurtle()
+T.shape('circle')
+for i in range(6):
+  T.width(i+1)
+  T.pendown()
+  T.forward(10)
+  T.penup()
+  T.forward(10)
+```
 
-reversed(iterable)
+Přerušovaná čára:
 
-reversed(range(len(s)))
+```python
+T.initializeTurtle()
+T.shape('circle')
 
-1url.cz/@jf_workspace
+centerX = T.window_width()  // 2
+centerY = T.window_height() // 2
+for i in range(6):
+  T.penup()
+  T.goto(centerX + i*10, centerY + i*5)
+  T.pendown()
+  T.forward((i+1) * 20)
+```
+
+Barvy:
+
+```python
+T.initializeTurtle()
+T.shape('circle')
+
+T.color('red')
+T.forward(20)
+T.color('green')
+T.forward(20)
+T.color(0,0,255) # blue
+T.forward(20)
+```
+
+### 📱 Úlohy:
+
+- Nakreslete čtverec.
+- Nakreslete trojúhelník.
+- Nakreslete šestiúhelník.
+- Nakreslete pětiúhelník.
+- Nakreslete n-úhelník.
+- Nakreslete kruh.
+- Nakreslete hvězdičku.
+- Vyplňte plochu čtverci.
+- Vyplňte plochu hvězdičkami.
+- ...
+
+Rekurze:
+
+- Nakreslete strom.
+
+<!-- ```python
+T.initializeTurtle()
+T.shape('circle')
+T.width(1)
+T.speed(6)
+
+T.penup()
+T.goto(T.window_width() // 2, T.window_height())
+T.pendown()
+
+def branch(len):
+  if len<10: return
+  T.left(20)
+  T.forward(len)
+  branch(len/2)
+  T.back(len)
+  T.right(40)
+  T.forward(len)
+  branch(len/2)
+  T.back(len)
+  T.left(20)
+
+branch(120)
+``` -->
