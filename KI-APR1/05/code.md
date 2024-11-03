@@ -88,7 +88,7 @@ for x in range(img.width):
 display(img)
 ```
 
-Načtěte obrázek a aplikujte na něj filtr, který konvertuje barvy v obrázku na stupnici šedi, na černou a bílou, na tři "kanály (složky) - červený, zelený a modrý:
+Načtěte obrázek a aplikujte na něj filtr, který konvertuje barvy v obrázku na stupnici šedi, na černou a bílou, na tři "kanály" (složky) - červený, zelený a modrý:
 
 ```python
 imgUrl = 'https://i.imgflip.com/2/7nx4qw.jpg'
@@ -186,9 +186,9 @@ display(filter(img, bwNeg))
 display(filter(img, clrNeg))
 ```
 
-Śachovnice:
+Šachovnice:
 
-```
+```python
 # chessboard params
 ROWS = 5
 COLS = 7
@@ -205,8 +205,8 @@ white = (255,255,255)
 
 for i in range(width):
   for j in range(height):
-    coe = (i//SIZE)%2                  # row odd or even
-    roe = (j//SIZE)%2                  # column odd or even
+    coe = (i//SIZE)%2                  # column odd or even
+    roe = (j//SIZE)%2                  # row odd or even
     color = black if roe==coe else white
     img.putpixel((i,j),color)
 
