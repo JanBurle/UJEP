@@ -1,4 +1,4 @@
-# 06 – Źelví grafika
+# 06 – Želví grafika
 
 Instalace:
 
@@ -91,7 +91,7 @@ T.forward(20)
 - Vyplňte plochu hvězdičkami.
 - ...
 
-Rekurze:
+Pro pokročilé – rekurze:
 
 - Nakreslete strom.
 
