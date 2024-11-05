@@ -12,7 +12,7 @@ print()
 print('or')
 for a in [False, True]:
   for b in [False, True]:
-    print(a, b, a and b)
+    print(a, b, a or b)
 
 print()
 print('not')
