@@ -1,212 +1,309 @@
 # 06 – Common Table Expressions
 
-(a.k.a. WITH queries)
+[PostgreSQL Ch.7.8](https://www.postgresql.org/docs/current/queries-with.html)
 
-WITH: pomocné výrazy, podobné dočasným tabulkám
+A.K.A _WITH_ dotazy
 
-jeden a více pomocný příkaz WITH + SELECT, INSERT, UPDATE, DELETE, MERGE
+Klauzule WITH: pomocné výrazy, podobné dočasným tabulkám. WITH + jeden nebo více pomocných příkazů SELECT, INSERT, UPDATE, DELETE nebo MERGE.
 
-připojen k hlavnímu příkazu který jhe také SELECT, INSERT, UPDATE, DELETE, MERGE
+Připojeno k hlavnímu příkazu SELECT, INSERT, UPDATE, DELETE nebo MERGE.
 
-místo vnořených SELECT
+Použití: především místo vnořených SELECT.
 
-- [Počasí](./weather.sql)
+Ukázková data: [počasí](./weather.sql).
 
 ```sql
+select count(*) from city;
+select count(*) from weather;
+select * from city;
+select * from weather;
+```
+
+Tradiční přístup k datům:
+
+```sql
+-- počet záznamů s malým rozsahem teplot
 select count(*) from weather where temp_hi - temp_lo < 4;
-select * from weather where temp_hi - temp_lo < 2 limit 6;
+-- prvních několik záznamů
+select * from weather where temp_hi - temp_lo < 4 order by date limit 6;
 
-select count(city_id) from weather where avg(temp_hi) - avg(temp_lo) < 4; -- Neeee
+-- pokus: spočítej města s malým rozsahem průměrných teplot - nelze
+select count(city_id) from weather where avg(temp_hi) - avg(temp_lo) < 4;
 
+-- tak tedy jinak: města a jejich průměrné teploty - lze
 select city_id, avg(temp_lo), avg(temp_hi) from weather group by city_id;
 
-create temp table stable_weather as select city_id, avg(temp_lo), avg(temp_hi) from weather group by city_id; -- X
-create temp table stable_weather as select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id;
-select * from stable_weather limit 6;
+-- dobře, spočítám a uložím do dočasné tabulky
+drop table if exists avg_weather;
+create temp table avg_weather as select city_id, avg(temp_lo), avg(temp_hi) from weather group by city_id; -- nee
+-- aha, musím pojmenovat sloupce unikátně
+create temp table avg_weather as select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id;
+-- mám to:
+select * from avg_weather limit 6;
+-- a nyní mohu vybírat města podle rozsahu průměrných teplot
+select city_id, avg_hi - avg_lo from avg_weather where avg_hi - avg_lo < 4;
 
-select city_id from stable_weather where avg_hi - avg_lo < 4;
-drop table stable_weather;
-
+-- místo dočasné tabulky mohu použít vnořený select
+-- města a jejich průměrné teploty
 select * from (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id);
-select city_id from (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id) where avg_hi - avg_lo < 4;
-select name from (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id) join city on id=city_id where avg_hi - avg_lo < 4;
+-- a nyní mohu vybírat města podle rozsahu průměrných teplot
+select city_id, avg_hi - avg_lo from
+  (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id)
+  where avg_hi - avg_lo < 4;
+-- a připojit jména měst
+select name, avg_hi - avg_lo from
+  (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id)
+  join city on id=city_id where avg_hi - avg_lo < 4;
 ```
 
-```sql
-WITH avg_weather AS (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id)
-select name from avg_weather join city on id=city_id where avg_hi - avg_lo < 4;
+Pomocí CTE:
 
-WITH
-  avg_weather AS (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id),
+```sql
+-- jeden pomocný select
+with
+  avg_weather as (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id)
+select name, avg_hi - avg_lo from avg_weather join city on id=city_id where avg_hi - avg_lo < 4;
+
+-- dva pomocné selecty, druhý závisí na prvním
+with
+  avg_weather as (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id),
   stable_weather as (select * from avg_weather where avg_hi - avg_lo < 4)
-select name from stable_weather join city on id=city_id;
+select name, avg_hi - avg_lo from stable_weather join city on id=city_id;
 ```
 
----
-
-rekurzivní WITH
-nemožné ve standardním SQL
-lze odkázat na svůj vlastní výstup
+Porovnáme plány - jsou stejné:
 
 ```sql
-with recursive t(n) as (
-values (1)
-union all
-select n+1 from t where n < 100
-)
+explain analyze
+select name, avg_hi - avg_lo from
+  (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id)
+  join city on id=city_id where avg_hi - avg_lo < 4;
+
+explain analyze
+with
+  avg_weather as (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id)
+select name, avg_hi - avg_lo from avg_weather join city on id=city_id where avg_hi - avg_lo < 4;
+
+explain analyze
+with
+  avg_weather as (select city_id, avg(temp_lo) as avg_lo, avg(temp_hi) as avg_hi from weather group by city_id),
+  stable_weather as (select * from avg_weather where avg_hi - avg_lo < 4)
+select name, avg_hi - avg_lo from stable_weather join city on id=city_id;
+```
+
+## Rekurzivní WITH dotazy
+
+- nemožné ve standardním SQL
+- lze odkázat na svůj vlastní výstup
+
+```sql
+-- řada čísel: 1, 2, 3, ..
+with recursive t(n) as
+  (values (1)                      -- nerekurzivní výraz
+    union all                      -- UNION (ALL)
+   select n+1 from t where n < 3)  -- rekurzivní výraz odkazující sám na sebe
+select n from t;
+
+-- součet
+with recursive t(n) as
+  (values (1) union all select n+1 from t where n < 3)
 select sum(n) from t;
 ```
 
-obecně: nerekurzivní term, pak UNION nebo UNION ALL, pak rekurzivní term, který odkáže na svůj vlastní výstup
+Algoritmus:
 
-Postup: vyhodnoť nerekurzivní term, pokud UNION xALL, zahoď duplikáty, dej zbytek k výsledku a do dočasné ppracovní tabulky
+1. Vyhodnoť nerekurzivní term. Pokud je UNION bez _ALL_, vyřaď duplikáty. Zbytek záznamů dej do výsledku a do dočasné _pracovní_ tabulky.
 
-dokud pracovní tabulka je neprázdná, opakuj:
-vyhodnoť rekurzivní term, self-reference <-- pracovní tabulka
-pokud UNION, vyřaď duplikáty, zbytek přidej do výsledku a mezi-tabulky
-přesuň obsah mezi-tabulky do pracovní tabulky, vyprázdni mezi-tabulky
+2. Dokud je pracovní tabulka neprázdná, opakuj:
 
-(vnitřně jde o iteraci, ne rekurzi)
+- Vyhodnoť rekurzivní term, self-reference odkazuje na pracovní tabulku. Pokud je UNION bez ALL, vyřaď duplikáty. Přidej zbylé k výsledku a vlož jako nový obsah do pracovní tabulky.
 
-Nejčastěji používáno pro reprezentaci hierarchií a stromů
+Poznámka: vnitřně je proces iterativní, nikoli rekurzivní.
 
-Procházení stromem do hloubky (depth-first) nebo do šířky (breadth-first)
-vypočítávat ordering column, sort (skutečné pořadí procházení je závislé na implementaci)
+### Hierarchie
+
+Nejčastěji je rekurzivní CTE používáno při reprezentaci hierarchií, stromů a grafů.
+
+Příklad – vytvoř tabulka uzlů stromů:
 
 ```sql
-with recursive search_tree(id, link, data) as (
-select t.id, t.link, t.data
-from tree t
-union all
-select t.id, t.link, t.data
-from tree t, search_tree st
-where t.id = st.link
-)
+drop table if exists tree;
+create table tree (
+  id serial primary key,               -- node id
+  up integer references tree(id) NULL, -- parent node id
+  name text
+);
+
+create index idx_up on tree(up);
+```
+
+Vlož testovací data, tři stromy, tři úrovně:
+
+```sql
+do $$
+declare
+  i1 integer; i2 integer; i3 integer;
+begin
+  -- first level
+  for i1 in 1..3 loop
+    insert into tree (id, up, name) values (i1, null, 'Node ' || i1);
+  end loop;
+
+  -- second level
+  for i1 in 1..3 loop
+    for i2 in 1..3 loop
+      insert into tree (id, up, name) values (i1*10+i2, i1, 'Node ' || i1 || i2);
+    end loop;
+  end loop;
+
+  -- third level
+  for i1 in 1..3 loop
+    for i2 in 1..3 loop
+      for i3 in 1..3 loop
+        insert into tree (id, up, name) values (i1*100+i2*10+i3, i1*10+i2, 'Node ' || i1 || i2 || i3);
+      end loop;
+    end loop;
+  end loop;
+end $$;
+
+select * from tree;
+```
+
+### Procházení stromem
+
+Vyhledání všech uzlů ve stromech:
+
+```sql
+with recursive search_tree(id, up, name) as
+  (select t.id, t.up, t.name from tree t where up is null
+     union all
+   select t.id, t.up, t.name from tree t, search_tree st where t.up = st.id)
 select * from search_tree;
 ```
 
-depth-first
+Vyhledání všech uzlů ve stromu s daným id kořene:
 
 ```sql
-WITH RECURSIVE search_tree(id, link, data, path) AS (
-SELECT t.id, t.link, t.data, ARRAY[t.id]
-FROM tree t
-UNION ALL
-SELECT t.id, t.link, t.data, path || t.id
-FROM tree t, search_tree st
-WHERE t.id = st.link
-)
-SELECT * FROM search_tree ORDER BY path;
+with recursive search_tree(id, up, name) as
+  (select t.id, t.up, t.name from tree t where id = 1
+  -- nebo> (select id from tree where up is null order by id limit 1)
+     union all
+   select t.id, t.up, t.name from tree t, search_tree st where t.up = st.id)
+select * from search_tree;
 ```
 
-breadth-first
+Strom lze procházet do hloubky (depth-first) nebo do šířky (breadth-first). Pořadí je určeno obsahem vypočítaného sloupci. Skutečné pořadí procházení je závislé na implementaci.
+
+#### depth-first
 
 ```sql
-WITH RECURSIVE search_tree(id, link, data, depth) AS (
-SELECT t.id, t.link, t.data, 0
-FROM tree t
-UNION ALL
-SELECT t.id, t.link, t.data, depth + 1
-FROM tree t, search_tree st
-WHERE t.id = st.link
-)
-SELECT * FROM search_tree ORDER BY depth;
+with recursive search_tree(id, up, name, path) as
+  (select t.id, t.up, t.name, array[t.id] from tree t where id = 1
+     union all
+   select t.id, t.up, t.name, path || t.id from tree t, search_tree st where t.up = st.id)
+select * from search_tree order by path;
 ```
 
-note: skutečné pořadí procházení nedefinované, pořadí záznamů v každé úrovni také
-
-Vestavěná syntaxe
+#### breadth-first
 
 ```sql
-WITH RECURSIVE search_tree(id, link, data) AS (SELECT t.id, t.link, t.data
-FROM tree t
-UNION ALL
-SELECT t.id, t.link, t.data
-FROM tree t, search_tree st
-WHERE t.id = st.link
-) SEARCH DEPTH FIRST BY id SET ordercol
-SELECT * FROM search_tree ORDER BY ordercol;
+with recursive search_tree(id, up, name, depth) as
+  (select t.id, t.up, t.name, 0 from tree t where id = 1
+     union all
+   select t.id, t.up, t.name, depth+1 from tree t, search_tree st where t.up = st.id)
+select * from search_tree order by depth, -- depth first
+                                   id;    -- order nodes of the same depth
 ```
+
+Skutečné pořadí procházení je nedefinované, pořadí záznamů v každé úrovni také.
+
+### Vestavěná syntaxe
+
+#### depth-first
 
 ```sql
-WITH RECURSIVE search_tree(id, link, data) AS (
-SELECT t.id, t.link, t.data
-FROM tree t
-UNION ALL
-SELECT t.id, t.link, t.data
-FROM tree t, search_tree st
-WHERE t.id = st.link
-) SEARCH BREADTH FIRST BY id SET ordercol
-SELECT * FROM search_tree ORDER BY ordercol;
-
+with recursive search_tree(id, up, name) as
+  (select t.id, t.up, t.name from tree t where id = 1
+     union all
+   select t.id, t.up, t.name from tree t, search_tree st where t.up = st.id)
+search depth first by id set order_col
+select * from search_tree order by order_col;
 ```
 
-Detekce cyklů
-
-rekurzivní část musí eventuelně vrátit nic, jinak nekonečný cyklus
-
-někdy pomůže UNION xALL
-někdy ale je výstup neduplikátní a je potřeba duplicitu kontrolovat jen na několika polích: std metod je počítat pole již navštívených hodnot. Např.
+#### breadth-first
 
 ```sql
-WITH RECURSIVE search_graph(id, link, data, depth) AS (
-SELECT g.id, g.link, g.data, 0
-FROM graph g
-UNION ALL
-SELECT g.id, g.link, g.data, sg.depth + 1
-FROM graph g, search_graph sg
-WHERE g.id = sg.link
-)
-SELECT * FROM search_graph;
+with recursive search_tree(id, up, name) as
+  (select t.id, t.up, t.name from tree t where id = 1
+     union all
+   select t.id, t.up, t.name from tree t, search_tree st where t.up = st.id)
+search breadth first by id set order_col
+select * from search_tree order by order_col;
 ```
 
-to je depth a tak UNION nestačí
+### Detekce cyklů
 
-````sql
-WITH RECURSIVE search_graph(id, link, data, depth, is_cycle, path)
-AS (
-SELECT g.id, g.link, g.data, 0,
-false,
-ARRAY[g.id]
-FROM graph g
-UNION ALL
-SELECT g.id, g.link, g.data, sg.depth + 1,g.id = ANY(path),
-path || g.id
-FROM graph g, search_graph sg
-WHERE g.id = sg.link AND NOT is_cycle
-)
-SELECT * FROM search_graph;```
-````
-
-path také je dobrý výsledek
-
-Vestavěná syntaxe
+Rekurzivní část musí eventuelně vrátit prázdnou množinu řádků, jinak nastane nekonečný cyklus.
 
 ```sql
-WITH RECURSIVE search_graph(id, link, data, depth) AS (
-SELECT g.id, g.link, g.data, 1
-FROM graph g
-UNION ALL
-SELECT g.id, g.link, g.data, sg.depth + 1
-FROM graph g, search_graph sg
-WHERE g.id = sg.link
-) CYCLE id SET is_cycle USING path
-SELECT * FROM search_graph;
+update tree set up=111 where id=1; -- cyklus
 ```
 
+Někdy pomůže UNION bez ALL:
+
+```sql
+with recursive search_tree(id, up, name) as
+  (select t.id, t.up, t.name from tree t where id = 1
+     union -- all
+   select t.id, t.up, t.name from tree t, search_tree st where t.up = st.id)
+select * from search_tree;
+```
+
+Někdy ale je výstup neduplikátní, např. depth-first:
+
+```sql
+with recursive search_tree(id, up, name, path) as
+  (select t.id, t.up, t.name, array[t.id] from tree t where id = 1
+     union -- all
+   select t.id, t.up, t.name, path || t.id from tree t, search_tree st where t.up = st.id)
+select * from search_tree order by path;
+```
+
+Pak je potřeba duplicitu kontrolovat jen na několika polích. Standardní metoda je kontrolovat cestu již navštívených hodnot:
+
+```sql
+with recursive search_tree(id, up, name, path, is_cycle) as
+  (select t.id, t.up, t.name, array[t.id], false from tree t where id = 1
+     union
+   select t.id, t.up, t.name, path || t.id,
+   t.id = ANY(path) -- cycle detection
+   from tree t, search_tree st where t.up = st.id and not is_cycle)
+select * from search_tree order by path;
+```
+
+### Vestavěná syntaxe
+
+```
 CYCLE <column list for detection> SET <column name whether detected> USING <column for tracking>
-
-Useful trick for testing, not production:
-
-```sql
-WITH RECURSIVE t(n) AS (
-SELECT 1
-UNION ALL
-SELECT n+1 FROM t
-)
-SELECT n FROM t LIMIT 100;
 ```
 
-planner/optimizer zvolí zda WITH se materializuje, nebo ne (with je folded into query), override (NOT) MATERIALIZED
+```sql
+with recursive search_tree(id, up, name) as
+  (select t.id, t.up, t.name from tree t where id = 1
+     union all
+   select t.id, t.up, t.name from tree t, search_tree st where t.up = st.id)
+search breadth first by id set order_col -- or: depth
+cycle id set is_cycle using path
+select * from search_tree order by order_col;
+```
 
-dále: WITH s DELETE, UPDATE, ....
+Implicitně depth-first:
+
+```sql
+with recursive search_tree(id, up, name) as
+  (select t.id, t.up, t.name from tree t where id = 1
+     union all
+   select t.id, t.up, t.name from tree t, search_tree st where t.up = st.id)
+cycle id set is_cycle using path
+select * from search_tree order by path;
+```

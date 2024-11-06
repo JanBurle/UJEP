@@ -1,6 +1,6 @@
 # 05 – (Full)textové vyhledávání
 
-Vyhledávání v textových dokumentch.
+Vyhledávání v textových dokumentech.
 
 [PostgreSQL Ch.12](https://www.postgresql.org/docs/current/textsearch.html)
 

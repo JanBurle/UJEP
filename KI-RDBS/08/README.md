@@ -1,1 +1,4 @@
-# 01 –
+<!-- # 08 – Procedurální rozšíření
+
+- PL/pgSQL
+- Python -->
