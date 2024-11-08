@@ -50,12 +50,12 @@ Vytvořte prázdný obrázek namalujte do něj pruhy: vodorovné, svislé a kři
 ```python
 # switch red and blue colours
 def redBlue(i: int):
-  rb = (i//12)%2 # střídání po šesti px
+  rb = (i//12)%2 # střídání barev po dvanácti px
   return red if rb else blue
 
 # switch red colour and nothing
 def onlyRed(i: int):
-  rb = (i//12)%2 # střídání po šesti px
+  rb = (i//12)%2 # střídání barvy/nebarvy po dvanácti px
   return red if rb else False
 
 size = (120,60)

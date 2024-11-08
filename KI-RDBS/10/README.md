@@ -1,55 +1,75 @@
-<!-- # 10 – Triggery
+# 10 – Triggery
 
-Funkce psané v PL/pgSQL, PL/Tcl, PL/Perl, PL/Python
+Jsou funkce psané v PL/pgSQL, PL/Tcl, PL/Perl, PL/Python, připojené k tabulkám nebo pohledům, automaticky prováděné za určité situace.
 
-Připojené k tabulkám, pohledům.
-
-Automaticky provedené za určité situace. Na tabulkách:
+Na tabulkách:
 
 - před, po nebo místo INSERT, UPDATE, DELETE (before, after, instead of)
-- jednou pro každou řádku / jednou pro příkaz (per-row, per-statement)
+- jednou pro každou řádku nebo jednou pro celý příkaz (per-row, per-statement)
 - UPDATE trigger při změně určitého sloupce
-- pro TRUNCATE
+- při TRUNCATE
 
-Může to být složitá interakce: pořadí, viditelnost změn (VOLATILE, STABLE, IMMUTABLE funkce).
+Interakce může být složitá, je nutno vzít v úvahu pořadí operací, a viditelnost změn (rozdíly podle VOLATILE, STABLE, IMMUTABLE funkce).
 
 Na pohledech:
 
-- místo (INSTEAD) INSERT, UPDATE, DELETE
+- místo (instead of) INSERT, UPDATE, DELETE
 
-Event triggers: login, table rewrite ALTER, CREATE, DROP, ...
+Při změnách v databázi:
 
-Funkce: bez parametrů (vstup je přes TriggerData strukturu), vrací typ _trigger_
+- login
+- tabulky: ALTER, CREATE, DROP, ...
+
+## Psaní triggerů
+
+Funkce bez parametrů, vstup je pomocí struktury TriggerData, vrací typ _trigger_.
 
 ```sql
 create table audit_log (
-id serial primary key,
-ts timestamp default current_timestamp,
-tx text);
+  id serial primary key,
+  ts timestamp default current_timestamp,
+  tx text
+);
 
-CREATE OR REPLACE FUNCTION init_session()
-RETURNS event_trigger SECURITY DEFINER
-LANGUAGE plpgsql AS
-$$
-$$;
+create or replace function init_session()
+  returns event_trigger security definer
+  language plpgsql as $$
+declare
+  hour integer = extract('hour' from current_time);
+begin
+  -- forbid early logging in
+  if hour between 0 and 5 then
+    raise exception 'login forbidden: %', hour;
+  end if;
+
+  insert into audit_log (tx) values ('login: ' || session_user);
+end; $$;
+
+create event trigger init_session on login
+execute function init_session();
 ```
 
 ```sql
-CREATE OR REPLACE FUNCTION measurement_insert_trigger()
-RETURNS TRIGGER AS $$
-BEGIN
-INSERT INTO measurement_y2008m01 VALUES (NEW.*);
-RETURN NULL;
-END;
-$$
-LANGUAGE plpgsql;
+create or replace function weather_insert_log()
+  returns trigger language plpgsql as $$
+begin
+  insert into audit_log (tx) values
+  ('new weather: ' || new.*);
+  return new;
+end; $$;
 
-CREATE TRIGGER insert_measurement_trigger
-BEFORE INSERT ON measurement
-FOR EACH ROW EXECUTE FUNCTION measurement_insert_trigger();
+create trigger weather_insert_log
+  before insert on weather
+for each row execute function weather_insert_log();
+
+delete from weather where city_id='at';
+select * from weather where city_id='at';
+select * from audit_log;
+
+insert into weather values('at', 2, 3);
 ```
 
-CREATE TABLE image (title text, raster lo);
+<!-- CREATE TABLE image (title text, raster lo);
 CREATE TRIGGER t_raster BEFORE UPDATE OR DELETE ON image
 FOR EACH ROW EXECUTE FUNCTION lo_manage(raster);
 
@@ -133,11 +153,11 @@ $emp_audit$ LANGUAGE plpgsql;
 CREATE TRIGGER emp_audit
 AFTER INSERT OR UPDATE OR DELETE ON emp
 FOR EACH ROW EXECUTE FUNCTION process_emp_audit();
-```
-
+``` -->
+<!--
 !!!!!!!!!!!!!!!!!!!
 
-```
+````
 CREATE TABLE emp (
 empname text PRIMARY KEY,
 salary integer
@@ -191,3 +211,7 @@ CREATE TRIGGER emp_audit
 INSTEAD OF INSERT OR UPDATE OR DELETE ON emp_view
 FOR EACH ROW EXECUTE FUNCTION update_emp_view();
 ``` -->
+
+```-->
+
+```

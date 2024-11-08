@@ -1,4 +1,17 @@
-Pocasi
+# 2. Část
+
+- Pohledy
+- Indexy + optimalizace dotazů
+- Role a uživatelé
+- Funkce a procedury
+- Kurzory
+- Chyby, výjimky a jejich obsluha
+- Triggery
+- Zamykání tabulek
+
+### Ukázková data - počasí:
+
+Tabulky:
 
 ```sql
 drop table if exists weather;
@@ -21,7 +34,7 @@ create table weather (
 create index idx_date on weather(date);
 ```
 
-Naplnit daty
+Naplnit daty:
 
 ```sql
 do $$
@@ -48,18 +61,22 @@ begin
 end $$;
 ```
 
-Dotazy
+## Pohledy (views)
+
+Dotazy vrací vypočtené tabulky:
 
 ```sql
 select * from city;
 select * from weather;
 
 select city_id, date, temp_hi-temp_lo from weather;
+
 select name, date, temp_hi-temp_lo from weather join city on id=city_id;
+
 select c.name, w.date, w.temp_hi-w.temp_lo from weather w join city c on c.id=w.city_id;
 ```
 
-Pohledy a dotazy
+Pohledy jsou "vypočtené tabulky":
 
 ```sql
 create view city_weather as
@@ -68,56 +85,80 @@ create view city_weather as
 select * from city_weather;
 
 drop view city_weather;
+
 create view city_weather as
   select c.name, w.date, w.temp_hi-w.temp_lo as d_temp from weather w join city c on c.id=w.city_id;
 
 select * from city_weather where d_temp<4 and name like '%Z';
 ```
 
-Modifikovatelné (updatable) views, za určitých podmínek
+Modifikovatelné (updatable) pohledy, jean za určitých (striktních) podmínek (např. jen nad jednou tabulkou):
 
 ```sql
-create view city_up_weather as
+create view city_updatable_weather as
   select date, temp_lo, temp_hi from weather where city_id='up';
 select * from city_up_weather;
 
-update city_up_weather set temp_hi=30 where date='2024-10-08';
+update city_updatable_weather set temp_hi=30 where date='2024-10-08';
 ```
 
-Indexy 04
+## Indexy + optimalizace dotazů
 
-Role, User
+[Indexové soubory a analýza dotazů](./04/README.md)
+
+## Role a uživatelé
+
+Superuser `dbuser` definovaný v [docker skriptu](./Docker/docker-compose.yml).
+
+Obyčejný uživatel:
 
 ```sql
 create user joe password 'joepwd';
 ```
 
-new connection
+Otevřeme databázové spojení pro `joe` a:
 
 ```sql
 -- joe
 select * from city; -- doh
 ```
 
+Jako superuser dáme nebo odebereme `joe` oprávnění:
+
 ```sql
+-- dbuser
 grant select on city to joe;
 grant select,update on city to joe;
 revoke select on city from joe;
 revoke all on city from joe;
 ```
 
+Nebo vytvoříme roli (skupinu) s oprávněními, a `joe` dostane oprávnění skupiny:
+
 ```sql
 create role reader;
-grant reader to joe;
 grant select on city to reader;
+
+grant reader to joe;
+revoke reader from joe;
 ```
 
-Uložené funkce a procedury
-07
+## Funkce a procedury
 
-Kurzory
+[Uložené funkce a procedury](./04/README.md)
+
+## Kurzory
+
+Dotazy vrací potencielně mnoho řádků:
 
 ```sql
+select * from city;
+```
+
+Místo přenosu celého výsledku (tabulky) lze otevřít kurzor ("portál", jakýsi stav dotazu) a záznamy načítat postupně pomocí FETCH (a také te přeskakovat pomocí MOVE).
+
+```sql
+-- neefektivní kód, jen jako příklad
 create or replace function count_cities(like_name text = '%')
   returns integer as $$
 declare
@@ -127,7 +168,7 @@ declare
 begin
   cnt = 0;
 
-  open city_cursor;
+  open city_cursor; -- where??
   loop
     fetch next from city_cursor into city_record;
     exit when not found;
@@ -145,11 +186,12 @@ select count_cities('%');
 select count_cities('Ci%Z');
 ```
 
-Chyby, výjimky:
+## Chyby, výjimky a jejich obsluha
+
+Další ukázková funkce s kurzorem:
 
 ```sql
-select * from weather;
-
+-- průměrná teplota v městech s vybranými id
 create or replace function avg_temp_lo(like_id text = '%')
   returns real as $$
 declare
@@ -186,23 +228,55 @@ select avg_temp_lo();
 select avg_temp_lo('%');
 select avg_temp_lo('%z');
 select avg_temp_lo('%Z'); -- error
+-- add exception handler
+-- add raise exception
+```
+
+## Triggery
+
+[Triggery](./10/README.md)
+
+## Zamykání tabulek
+
+Transakce:
+
+- zajištění integrity dat při chybách
+- concurrency control: synchronizace současného přístupu k tabulkám
+
+Postgres: MVCC - Multiversion Concurrency Control
+
+Izolace transakcí (transakčních snímků, snapshots) - každá vidí data, jak byla před chvilkou, v posledním konzistentním stavu.
+
+Izolace transakcí podle SQL standardu:
+
+- READ UNCOMMITED (Postgres: READ COMMITED)
+- READ COMMITED (data ve stavu než transakce začala, default)
+- REPEATABLE READ (data před prvním příkazem)
+- SERIALIZABLE (jakoby transakce byly porováděny jedna za druhou)
+
+Pokud není potřeba plná izolace transakcí, lze i explicitně zamykat tabulky. Zamykání má účinek jen v transakcích. (Není sooučástí standardníhon SQL.)
+
+Neodemyká se, zámky platí až do konce transakce.
+
+```
+LOCK [ TABLE ] [ ONLY ] name [ * ] [, ...] [ IN lockmode MODE ] [ NOWAIT ]
 ```
 
 ```sql
-
+LOCK TABLE name IN SHARE MODE;
 ```
 
-Trigger, Audit
+## Deadlock
 
-Lock
+Aby nenastal deadlock:
 
-CTE
+- všechny transakce by měly zamykat sdílené objekty (tabulky) ve stejném pořadí
+- pokud se jeden objekt zamyká vícero zámky, nejsilnější zámek musí být první
 
-ORM
+#### Poznámka
 
-````
+Může nastat implicitní ROLLBACK.
 
-```
+---
 
-```
-````
+CTE 06, ORM: později
