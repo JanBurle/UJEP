@@ -46,8 +46,12 @@ begin
 end; $$;
 
 create event trigger init_session on login
-execute function init_session();
+  execute function init_session();
+
+select * from audit_log;
 ```
+
+(Login joe)
 
 ```sql
 create or replace function weather_insert_log()

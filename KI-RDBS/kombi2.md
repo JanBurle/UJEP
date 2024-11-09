@@ -97,7 +97,7 @@ Modifikovatelné (updatable) pohledy, jean za určitých (striktních) podmínek
 ```sql
 create view city_updatable_weather as
   select date, temp_lo, temp_hi from weather where city_id='up';
-select * from city_up_weather;
+select * from city_updatable_weather;
 
 update city_updatable_weather set temp_hi=30 where date='2024-10-08';
 ```
@@ -106,6 +106,14 @@ update city_updatable_weather set temp_hi=30 where date='2024-10-08';
 
 [Indexové soubory a analýza dotazů](./04/README.md)
 
+Příklad:
+
+```sql
+explain analyze update weather set temp_hi=30 where date='2024-11-09';
+drop index idx_date;
+create index idx_date on weather(date);
+```
+
 ## Role a uživatelé
 
 Superuser `dbuser` definovaný v [docker skriptu](./Docker/docker-compose.yml).
@@ -113,14 +121,19 @@ Superuser `dbuser` definovaný v [docker skriptu](./Docker/docker-compose.yml).
 Obyčejný uživatel:
 
 ```sql
+select current_user;
 create user joe password 'joepwd';
 ```
 
-Otevřeme databázové spojení pro `joe` a:
+Otevřeme databázové spojení pro `joe` a pak:
 
 ```sql
 -- joe
-select * from city; -- doh
+select current_user;
+select * from city;  -- doh
+delete from weather; -- that's safety
+update weather set temp_hi=30 where date='2024-11-09';
+
 ```
 
 Jako superuser dáme nebo odebereme `joe` oprávnění:
@@ -128,9 +141,9 @@ Jako superuser dáme nebo odebereme `joe` oprávnění:
 ```sql
 -- dbuser
 grant select on city to joe;
-grant select,update on city to joe;
+grant select,update on weather to joe;
 revoke select on city from joe;
-revoke all on city from joe;
+revoke all on city, weather from joe;
 ```
 
 Nebo vytvoříme roli (skupinu) s oprávněními, a `joe` dostane oprávnění skupiny:
@@ -145,7 +158,7 @@ revoke reader from joe;
 
 ## Funkce a procedury
 
-[Uložené funkce a procedury](./04/README.md)
+[Uložené funkce a procedury](./07/README.md)
 
 ## Kurzory
 
@@ -162,17 +175,17 @@ Místo přenosu celého výsledku (tabulky) lze otevřít kurzor ("portál", jak
 create or replace function count_cities(like_name text = '%')
   returns integer as $$
 declare
-  city_cursor cursor for select id, name from city;
+  city_cursor cursor for select id, name from city where name like like_name;
   city_record record;
   cnt integer;
 begin
   cnt = 0;
-
-  open city_cursor; -- where??
+  open city_cursor;
   loop
     fetch next from city_cursor into city_record;
     exit when not found;
-    if city_record.name like like_name then
+    -- city with enough weather records
+    if 20 < (select count(*) from weather where city_id=city_record.id) then
       cnt = cnt + 1;
     end if;
   end loop;
@@ -222,6 +235,8 @@ begin
 -- exception
 --  when division_by_zero then
 --    return null;
+--  when others then
+--    ...;
 end; $$ language plpgsql;
 
 select avg_temp_lo();

@@ -23,7 +23,7 @@ Využití procedur:
 Funkce a procedury je možné vytvářet pomocí několika programovacích jazyků:
 
 - standardní SQL: bezpečné a rychlé, ale s omezenými možnostmi
-- procedurální rozšíření SQL (PL/pgSQL): integrované, ale je třeba se učit novou syntaxi
+- procedurální rozšíření SQL (PL/pgSQL): integrované, ale nezvyklá syntaxe
 - procedurální skriptovací jazyky (PL/Python, PL/Tcl, PL/Perl)
 - kompilované (C ap., super rychlé), statically linked
 - kompilované, dynamicky loadable
@@ -57,16 +57,17 @@ create function clean_emp() returns void as $$
 $$ language sql;
 
 select clean_emp();
-call clean_emp();
+call clean_emp(); -- ne
 ```
 
 ```sql
+drop function clean_emp;
 create or replace procedure clean_emp() as $$
   delete from emp where salary < 0;
 $$ language sql;
 
+select clean_emp(); -- ne
 call clean_emp();
-select clean_emp();
 ```
 
 Parametry se předávají hodnotou:
@@ -83,28 +84,29 @@ I funkce mohou mít vedlejší efekty:
 
 ```sql
 create table bank (
-  account_ne integer,
-  balance numeric
+  account_no integer,
+  balance money
 );
 
-create function debit_account(account_no integer, debit numeric)
-returns integer as $$
+insert into bank values (42, 10_000);
+
+create function debit_account(account_no integer, debit money)
+returns money as $$
   update bank
     set balance = balance - debit
   where account_no = debit_account.account_no; -- qualified parameter name
   select balance from bank where account_no = debit_account.account_no;
-$$
-language sql
+$$ language sql
 
-select debit_account(42, 1.0);
+select debit_account(42, 1.90::money);
 ```
 
-Funkce mohou pracovat se složenými typy.
+Funkce mohou pracovat se složenými typy:
 
 ```sql
 create type complex as (r real, i real);
 
-create or replace function cmul(x complex, y complex) returns complex as $$
+createfunction cmul(x complex, y complex) returns complex as $$
   select x.r * y.r - x.i * y.i, x.r * y.i + x.i * y.r;
 $$ language sql;
 
@@ -128,8 +130,8 @@ create table test_complex (
 insert into test_complex values((3,2), (1,7));
 select * from test_complex;
 
-select (a + b) as c from test_complex;
 select (a * b) as c from test_complex;
+select (a + b) as c from test_complex; -- ne
 ```
 
 Procedury a funkcce mohou dále mít:
