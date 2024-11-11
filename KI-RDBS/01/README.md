@@ -39,7 +39,7 @@ docker compose up # watch the log
 - Login (cbadmin)
 - Find Local Database / New Connection: PostgreSQL
   - Authentication: dbuser / dbpwd
-  - Host: **postgresql**
+  - Host: **postgres**
   - Test, Create
 
 ### pgAdmin, konfigurace:

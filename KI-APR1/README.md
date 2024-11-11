@@ -52,9 +52,8 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 |    03 | `if-else`, `for`, `while` | [03](./03/README.md) | [03](./03/code.md) |
 |    04 | Cykly, indexace, řetězce  | [04](./04/README.md) | [04](./04/code.md) |
 |    05 | Cykly a úlohy...          | [05](./05/README.md) | [05](./05/code.md) |
-|    06 | Cykly a želva             | [06](./06/README.md) |                    |
-|    06 |                           |                      |                    |
-|    07 |                           |                      |                    |
+|    06 | Cykly a želva             | [06](./06/README.md) | [06](./06/code.md) |
+|    07 | Kolekce: seznamy          | [07](./06/README.md) |                    |
 |    08 |                           |                      |                    |
 |    09 |                           |                      |                    |
 |    10 |                           |                      |                    |

@@ -94,28 +94,3 @@ T.forward(20)
 Pro pokročilé – rekurze:
 
 - Nakreslete strom.
-
-<!-- ```python
-T.initializeTurtle()
-T.shape('circle')
-T.width(1)
-T.speed(6)
-
-T.penup()
-T.goto(T.window_width() // 2, T.window_height())
-T.pendown()
-
-def branch(len):
-  if len<10: return
-  T.left(20)
-  T.forward(len)
-  branch(len/2)
-  T.back(len)
-  T.right(40)
-  T.forward(len)
-  branch(len/2)
-  T.back(len)
-  T.left(20)
-
-branch(120)
-``` -->

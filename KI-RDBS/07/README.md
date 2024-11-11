@@ -106,7 +106,7 @@ Funkce mohou pracovat se složenými typy:
 ```sql
 create type complex as (r real, i real);
 
-createfunction cmul(x complex, y complex) returns complex as $$
+create function cmul(x complex, y complex) returns complex as $$
   select x.r * y.r - x.i * y.i, x.r * y.i + x.i * y.r;
 $$ language sql;
 

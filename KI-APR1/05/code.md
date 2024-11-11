@@ -5,8 +5,8 @@ Příprava:
 from PIL import Image
 from requests import get as getUrl
 
-# new image
-def newImage(size: tuple[int,int]) -> Image.Image:
+# building stones (useful functions)
+def newImage(size: tuple[int,int]) -> Image.Image: # <- type anotations
   """ Create a new RGB image. """
   return Image.new('RGB', size)
 
@@ -15,7 +15,7 @@ def getImage(url: str) -> Image.Image:
   """ Fetch an image from url. """
   return Image.open(getUrl(url, stream=True).raw)
 
-# colours
+# named colours
 red     = (255,0,0)
 green   = (0,255,0)
 blue    = (0,0,255)
