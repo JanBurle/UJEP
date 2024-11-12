@@ -1,23 +1,25 @@
 # 07 – Uložené funkce a procedury
 
-PostgreSQL intenzivně využívá systémový katalog pro rozšiřování SQL, a to i za běhu:
+PostgreSQL intenzivně využívá systémový katalog pro rozšiřování SQL, a to i za běhu databázového systému:
 
 - složené (řádkové) typy,
 - domény nad typy
-- uživatelské (uložené) funkce a procedury, ...
+- uživatelské (uložené) funkce a procedury
+- další ...
 
-Uživatelské funkce a procedury uložené a prováděné na straně serveru rozšiřují funkčnost DBS a řídí přístup k databázím.
+Uživatelské funkce a procedury uložené a prováděné na straně serveru rozšiřují funkčnost DBS a lze je použít pro řízení přístupu k databázím.
 
 Využití funkcí:
 
-- v různých sekcích SQL příkazů, typicky v SELECT
-- jako uživatelské agregační funkce a operátory
+- jako funkce v různých sekcích SQL příkazů, typicky v SELECT
+- jako uživatelské agregační funkce
+- pro implementaci uživatelských operátorů
 - jako producenty vypočtených tabulek, tj. ve funkci read only pohledů.
 
 Využití procedur:
 
-- Jako skripty pro komplexnější vkládání hodnot.
-- Jako dávkové soubory pro údržbu databáze.
+- jako skripty pro komplexnější vkládání hodnot
+- jako dávkové soubory pro údržbu databáze
 - Jako obslužné rutiny triggerů (aktivovány při vkládání, změně a výmazu tabulek)
 
 Funkce a procedury je možné vytvářet pomocí několika programovacích jazyků:
@@ -30,14 +32,14 @@ Funkce a procedury je možné vytvářet pomocí několika programovacích jazyk
 
 Rozdíly mezi funkcemi a procedurami. Procedury:
 
-- nevrací funkční hodnotu, nelze použít např. v SELECT
-- izolované volání (CALL)
-- mohou volat COMMIT, ROLLBACK
-- nedefinují strictness
+- nevrací funkční hodnotu, proto je nelze použít např. v SELECT
+- volány příkazem CALL
+- mohou pracovat s transkcemi: COMMIT, ROLLBACK
+- nedefinují strictness/volatility
 
 ## Definice uložené funkce
 
-SQL funkce: language SQL
+SQL funkce
 
 ```
 create function <name>(<params>) returns <type> as $$
@@ -45,7 +47,15 @@ create function <name>(<params>) returns <type> as $$
 $$ language <language>;
 ```
 
-Tělo funkce je v řetězci, kvůli podpoře více programovacích jazyků. Dvojznak $$ je nejčastěji používaný omezovač řetězce. Přesto se tělo parsuje.
+nebo:
+
+```
+create function <name>(<params>) returns <type> language <language> as $$
+  <function body>
+$$;
+```
+
+Tělo funkce je v řetězci, kvůli podpoře více programovacích jazyků. Přesto se tělo parsuje. Dvojznak $$ je nejčastěji používaný omezovač řetězce.
 
 ```sql
 create table emp (
@@ -80,7 +90,41 @@ $$ language sql;
 select add(1,2);
 ```
 
-I funkce mohou mít vedlejší efekty:
+Příklad funkce, která vypočítá vzdálenost dvou 2D bodů, SQL:
+
+```sql
+create or replace function distance(x1 real, y1 real, x2 real, y2 real)
+returns real as $$
+  select sqrt((x2-x1) * (x2-x1) + (y2-y1) * (y2-y1));
+$$ language sql;
+
+select distance(1,2,3,4);
+select distance(0,3,4,0);
+```
+
+PLPGSQL:
+
+```sql
+create or replace function distance(x1 real, y1 real, x2 real, y2 real)
+returns real as $$
+  declare
+    dx real = x2-x1;
+    dy real = y2-y1;
+begin
+  return sqrt(dx*dx + dy*dy);
+end; $$ language plpgsql;
+
+select distance(1,2,3,4);
+select distance(0,3,4,0);
+```
+
+V tabulce 2D bodů nalezněte dva nejbližší body:
+
+```sql
+
+```
+
+I funkce mohou mít vedlejší účinky (side/effects):
 
 ```sql
 create table bank (

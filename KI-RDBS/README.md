@@ -33,7 +33,7 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 4.  [Indexové soubory a analýza dotazů](./04/README.md)
 5.  [Fulltextové vyhledávání](./05/README.md)
 6.  [Rekurzivní CTE a representace hierarchií](./06/README.md)
-7.  Uložené funkce a procedury
+7.  [Uložené funkce a procedury](./07/README.md)
 8.  Procedurální rozšíření SQL
 9.  Kurzory
 10. Triggery

@@ -33,7 +33,7 @@ list([1,2,3])   # seznam ze seznamu (prázdná operace)
 list(range(4))  # seznam z range()
 list('abc')     # seznam písmen v řetězci
 list((2,4,'b')) # seznam z entice
-list({5,'b',7}) # seznam z entice (položky mají nedefinované pořadí)
+list({5,'b',7}) # seznam z množiny (položky mají nedefinované pořadí)
 ```
 
 ### n-tice / tuple
@@ -44,7 +44,7 @@ N-tice se vytváří jako literál:
 
 ```python
 ()          # prázdná
-('a',)      # jednice
+('a',)      # jednice (čárka!)
 ('a','b')   # dvojice
 ('a','b',8) # trojice
 ```
@@ -124,7 +124,7 @@ Tato kolekce je velice minimalistická ve svém chování. Její využití je sp
 | index(self, value, start=0, stop=9223372036854775807, /)
 | Return first index of value. -->
 
-### nnožina / set
+### množina / set
 
 Množina je modifikovatelná, statická, nehomogenni, sekvenční kolekce.
 
@@ -296,7 +296,7 @@ Využití množiny jako kolekce tedy souvisí s aplikacemi, kde je zapotřebí v
 
 ## Seznam
 
-Seznam je nejpoužívanější ze zmíněných kolekcí. Operaci nad seznamy:
+Seznam je nejpoužívanější ze zmíněných kolekcí. Operace nad seznamy:
 
 ```python
 lst  = [1,2,3]  # seznam
@@ -319,7 +319,7 @@ lst + [4]     # konkatenovat
 lst.copy()    # kopírovat
 lst * 3       # replikovat (množit)
 4 * lst
-lst[0::2]     # řezat
+lst[0::2]     # vyřezávat
 len(lst)      # měřit (zjistit délku)
 print(lst)    # tisknout
 
@@ -343,7 +343,7 @@ lst.remove(3)
 # počet nalezených prvků
 lst.count(2)
 
-# setřídění prvků - seznam musí být homogenní
+# setřídění prvků - prvky seznamu musí být porovnatelné (typicky homogenní seznam)
 lst.sort()
 
 # vyprázdnění seznamu
@@ -366,11 +366,12 @@ s[4:] = []        # zkrácení
 (Limitní/asymptotní chování: významné pro velká _n_. Na začátku se chová jinak, až později je to např. lineární.)
 
 ```
-O(1)      = k (konstanta), konstantní čas
-O(n)      = k*n, lineární
-O(a**2)   = parabola (polynom, použitelné pro omezená n)
-O(a\*\*n) = exponenciální (nepoužitelné)
-O(log(n)) = logaritmické, použitelné
+O(1)        = k (konstanta), konstantní čas
+O(n)        = k*n, lineární
+O(a**2)     = parabola (polynom, použitelné pro omezená n)
+O(a\*\*n)   = exponenciální (nepoužitelné)
+O(log(n))   = logaritmické, dobře použitelné
+O(n*log(n)) = logaritmické, celkem použitelné
 ```
 
 `append()`: O(1)
@@ -379,6 +380,7 @@ O(log(n)) = logaritmické, použitelné
 for n in [10,1000,10_000,100_000,1000_000]:
   lst = list(range(n))
   %time lst.append(11)
+  # %timeit lst.append(11)
 ```
 
 `insert()`: O(n)
@@ -391,11 +393,11 @@ for n in [10,1000,10_000,100_000,1000_000]:
 
 ### 📱 Úloha
 
-Odhadněte/změřte časovou složitost dalších operací nad seznamem: délka (`len(lst)`), indexace, sort, ...
+Odhadněte/změřte časovou složitost dalších operací nad seznamem: délka (`len(...)`), indexace, sort, ...
 
 ### 📱 Úloha
 
-Rekurzivní definice faktoriálu má složitost O(n), a lze ji použít:
+Rekurzivní výpočet faktoriálu má složitost O(n), a lze ji proto použít:
 
 ```python
 def fact(n:int) -> int:
@@ -403,9 +405,10 @@ def fact(n:int) -> int:
 
 for n in [0,10,20,30,40,50,60,70]:
   %time print(n, fact(n))
+  # %timeit fact(n)
 ```
 
-Podobnou definici Fibonacciho řady ale nelze pro n větší než asi 30 použít. Proč?
+Podobnou rekurzivní definici Fibonacciho řady ale nelze pro n větší než asi 30 použít. Proč?
 
 ```python
 def fib(n:int) -> int:
@@ -421,24 +424,24 @@ for n in range(20):
 
 #### Počet samohlásek
 
-Vypočítejte seznam dvojic (jméno, počet samohlásek ve jméně). Jména jsou zadaná v připraveném seznamu.
+Vypočítejte seznam dvojic `(jméno, počet samohlásek ve jméně)`. Jména jsou zadaná v připraveném seznamu.
 
 ```python
 jména = ["Pavel", "Milan", "Alena", "Rostislavomir"]
-#doplnte kod
+# ... doplňte kód
 
-#vysledek = [("Pavel", 2), ("Milan", 2), ("Alena", 3), ("Rostislavomir", 5)]
+# výsledek: [("Pavel", 2), ("Milan", 2), ("Alena", 3), ("Rostislavomir", 5)]
 ```
 
 #### Přihlašovací systém
 
 Napište program, který požádá uživatele o login a heslo.
 
-Program následně zkontroluje, zda se zadaná dvojice (login, heslo) nachází v seznamu registrovaných uživatelů. Pokud ano, program vypíše zprávu o úspěšném přihlášení.
+Program následně zkontroluje, zda se zadaná dvojice `(login, heslo)` nachází v seznamu registrovaných uživatelů. Pokud ano, program vypíše zprávu o úspěšném přihlášení.
 
 Pokud ne, tak program zjistí, zda se v seznamu nachází alespoň login. Pokud ano, tak vypíše zprávu o nesprávném heslu.
 
-Pokud se v seznamu login nenachází, tak program uživateli se zaregistrovat: přidá se zadaný login a heslo mezi registrované uživatele.
+Pokud se v seznamu login nenachází, tak program uživateli umožní se zaregistrovat: přidá se zadaný login a heslo mezi registrované uživatele.
 
 ```python
 users = [('Pavel', '1234'), ('Zbyněk', 'heslo')]
@@ -447,13 +450,13 @@ users = [('Pavel', '1234'), ('Zbyněk', 'heslo')]
 
 #### Šibenice
 
-Naprogramujte konzolovou verzi hry šibenice. Zadaný je řetězec - tajenku (slovo nebo frázi), kterou hráč nevidí. Místo něj na počátku na obrazovce vidí pouze podtržítka. Hra hráče požádá o zvolené písmeno. Pokud toto písmeno bylo už hádáno, hra požádá o jiné písmeno. Pokud hráč písmeno ještě nehádal, tak program zjistí, zda se písmeno v tajence nachází. Pokud ne, tak hráčovi ubere život. Pokud ano, tak místo podtržítka zobrazí uhádnuté písmeno odkryto. Hra končí, když hráč uhádne tajenku, nebo když mu dojdou životy.
+Naprogramujte konzolovou verzi hry šibenice. Zadaný je řetězec - tajenka (slovo nebo fráze), kterou hráč nevidí. Místo něj na počátku na obrazovce vidí pouze podtržítka. Hra hráče požádá o zvolené písmeno. Pokud toto písmeno bylo už hádáno, hra požádá o jiné písmeno. Pokud hráč písmeno ještě nehádal, tak program zjistí, zda se písmeno v tajence nachází. Pokud ne, tak hráčovi ubere život. Pokud ano, tak místo podtržítka zobrazí uhádnuté písmeno. Hra končí, když hráč uhádne tajenku, nebo když mu dojdou životy.
 
 #### Hráči
 
 Mějme seznam hráčů a jejich skóre v turnaji:
 
-```
+```python
 hráči = [("Pavel", 5), ("Honza", 3), ("Jana", 7), ("Milan", 4), ("Michaela", 9)]
 ```
 
