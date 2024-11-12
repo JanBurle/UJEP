@@ -1,4 +1,4 @@
-# Źelví grafika
+# Želví grafika
 
 - Nakreslete trojúhelník, čtverec, pětiúhelník, šestiúhelník ... n-úhelník, kruh, hvězdičku.
 - Vyplňte plochu čtverci, hvězdičkami.
