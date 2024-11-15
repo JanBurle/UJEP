@@ -325,7 +325,7 @@ print(lst)    # tisknout
 
 # obracet
 reversed(lst) # iterátor v opačném směru
-lst.reverse() # obráccení na místě (in-place, in-situ)
+lst.reverse() # obrácení na místě (in-place, in-situ)
 
 # přidávání a ubírání prvků na konci seznamu
 lst.append(8) # přidat na konec
