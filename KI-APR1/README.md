@@ -53,9 +53,9 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 |    04 | Cykly, indexace, řetězce  | [04](./04/README.md) | [04](./04/code.md) |
 |    05 | Cykly a úlohy...          | [05](./05/README.md) | [05](./05/code.md) |
 |    06 | Cykly a želva             | [06](./06/README.md) | [06](./06/code.md) |
-|    07 | Kolekce: seznamy          | [07](./07/README.md) |                    |
-|    08 |                           |                      |                    |
-|    09 |                           |                      |                    |
+|    07 | Kolekce: seznamy          | [07](./07/README.md) | [07](./07/code.md) |
+|    08 | Operace nad seznamy       | [08](./08/README.md) |                    |
+|    09 | List comprehensions       |                      |                    |
 |    10 |                           |                      |                    |
 |    11 |                           |                      |                    |
 |    12 |                           |                      |                    |

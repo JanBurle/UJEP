@@ -369,7 +369,7 @@ s[4:] = []        # zkrácení
 O(1)        = k (konstanta), konstantní čas
 O(n)        = k*n, lineární
 O(a**2)     = parabola (polynom, použitelné pro omezená n)
-O(a\*\*n)   = exponenciální (nepoužitelné)
+O(a**n)   = exponenciální (nepoužitelné)
 O(log(n))   = logaritmické, dobře použitelné
 O(n*log(n)) = logaritmické, celkem použitelné
 ```
