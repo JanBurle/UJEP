@@ -340,17 +340,10 @@ Pro procvičení naprogramujte funkci, která "in-place" seřadí seznam pomocí
 
 ```python
 def bubbleSort(lst: list):
-  sorted = False # run the loop at least once
-  while not sorted:
-    sorted = True # assumption
-    for i in range(len(lst)-1):
-      if not lst[i] <= lst[i+1]:
-        lst[i],lst[i+1] = lst[i+1],lst[i]
-        sorted = False # assumption was wrong, must redo
+  ...
 
-a = [5,4,3,2,1]
+a = [5,4,2,3,1]
 bubbleSort(a)
 a
+# [1, 2, 3, 4, 5]
 ```
-
-(ask https://chatgpt.com to explain)

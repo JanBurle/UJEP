@@ -111,3 +111,23 @@ def reverseInPlace(lst: list):
   for i in range(len(lst)//2):
     lst[i], lst[-1-i] = lst[-1-i], lst[i]
 ```
+
+Pro procvičení naprogramujte funkci, která "in-place" seřadí seznam pomocí algoritmu [bublinkového řazení](https://cs.wikipedia.org/wiki/Bublinkov%C3%A9_%C5%99azen%C3%A), nebo i jiného [řadicího algoritmu](https://cs.wikipedia.org/wiki/Kategorie:%C5%98adic%C3%AD_algoritmy).
+
+```python
+def bubbleSort(lst: list):
+  sorted = False # run the loop at least once
+  while not sorted:
+    sorted = True # assumption
+    for i in range(len(lst)-1):
+      if not lst[i] <= lst[i+1]:
+        lst[i],lst[i+1] = lst[i+1],lst[i]
+        sorted = False # assumption was wrong, must redo
+
+a = [5,4,3,2,1]
+bubbleSort(a)
+a
+```
+
+(ask https://chatgpt.com to explain)
+(optimize)
