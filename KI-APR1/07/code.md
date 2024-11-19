@@ -23,7 +23,7 @@ for jméno in jména:
 print(f'{výsledek=}')```
 ````
 
-Stejné řešení s pomocí funkce:
+Stejné řešení pomocí funkce:
 
 ```python
 def countWovels(s: str) -> int:

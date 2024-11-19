@@ -345,7 +345,3 @@ explain select name, child from family_tree, children_of(name) as child;
 drop index idx_name;
 explain select name, child from family_tree, children_of(name) as child; -- what?
 ```
-
----
-
-Procedury budou probrány v příštích lekcích.

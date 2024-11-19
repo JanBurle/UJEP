@@ -1,28 +1,104 @@
-<!-- # 09 – Kurzory
+# 09 – Kurzory
 
-Dotaz vrací potencielně mnoho řádků:
+## Kurzory
+
+Dotazy vrací potencielně mnoho řádků:
 
 ```sql
 select * from city;
-select count(*) from city;
 ```
 
-Na výsledku lze otevřít kurzor (portál) a záznamy načítat postupně pomocí FETCH:
+Místo přenosu celého výsledku (tabulky) lze otevřít kurzor ("portál", jakýsi stav dotazu) a záznamy načítat postupně pomocí FETCH (a také te přeskakovat pomocí MOVE).
 
 ```sql
+-- neefektivní kód, jen jako příklad
+create or replace function count_cities(like_name text = '%')
+  returns integer as $$
+declare
+  city_cursor cursor for select id, name from city where name like like_name;
+  city_record record;
+  cnt integer;
+begin
+  cnt = 0;
+  open city_cursor;
+  loop
+    fetch next from city_cursor into city_record;
+    exit when not found;
+    -- city with enough weather records
+    if 20 < (select count(*) from weather where city_id=city_record.id) then
+      cnt = cnt + 1;
+    end if;
+  end loop;
 
+  close city_cursor;
+  return cnt;
+end; $$ language plpgsql;
+
+select count_cities();
+select count_cities('%');
+select count_cities('Ci%Z');
 ```
 
-často vracen z funkce
+## Chyby, výjimky a jejich obsluha
 
+Další ukázková funkce s kurzorem:
+
+```sql
+-- průměrná teplota v městech s vybranými id
+create or replace function avg_temp_lo(like_id text = '%')
+  returns real as $$
+declare
+  weather_cursor cursor for select city_id, temp_lo, temp_hi from weather;
+  weather_record record;
+  cnt integer;
+  sum real;
+begin
+  cnt = 0; sum = 0;
+
+  open weather_cursor;
+  loop
+    fetch next from weather_cursor into weather_record;
+    exit when not found;
+
+    -- if not (weather_record.temp_lo <= weather_record.temp_hi) then
+    --  raise exception 'Invalid temperature data: %', weather_record;
+    -- end if;
+
+    if weather_record.city_id like like_id then
+      cnt = cnt + 1;
+      sum = sum + weather_record.temp_lo;
+    end if;
+  end loop;
+
+  close weather_cursor;
+  return sum / cnt;
+-- exception
+--  when division_by_zero then
+--    return null;
+--  when others then
+--    ...;
+end; $$ language plpgsql;
+
+select avg_temp_lo();
+select avg_temp_lo('%');
+select avg_temp_lo('%z');
+select avg_temp_lo('%Z'); -- error
+-- add exception handler
+-- add raise exception
 ```
-name [ [ NO ] SCROLL ] CURSOR [ ( arguments ) ] FOR query;
-```
 
-SCROLL - i nazpět, nepoužít pro volatilní funkce, nelze použít pro UPDATE
-(SCROLL předpokládá konzistenci při znovunačtení)
+<!--
++ python client
+- PL/pgSQL
+- Python
 
-arguments (if)> páry jméno/datový typ (zadané při otevření kurzoru)
+RDBS
+  plpgsqp plpython
+  c
+  python client
+
+
+
 
 ```sql
 DECLARE
@@ -171,7 +247,7 @@ level: DEBUG, LOG, INFO, NOTICE,
 WARNING, and EXCEPTION, default EXCEPTION: aborts transaction
 
 ````sql
-RAISE EXCEPTION 'Nonexistent ID --> %', user_id
+RAISE EXCEPTION 'Nonexistent ID -- > % ', user_id
 
 USING HINT = 'Please check your user ID';```
 
@@ -183,8 +259,4 @@ RAISE SQLSTATE '22012';
 ```sql
 ASSERT condition [ , message ];
 ```
-
-````sql
-
-``` -->
-````
+-->

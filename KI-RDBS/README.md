@@ -34,12 +34,17 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 5.  [Fulltextové vyhledávání](./05/README.md)
 6.  [Rekurzivní CTE a representace hierarchií](./06/README.md)
 7.  [Uložené funkce a procedury](./07/README.md)
-8.  Procedurální rozšíření SQL
-9.  Kurzory
-10. Triggery
-11. DCL a správa uživatelů
-12. ORM (SQLAlchemy)
-13. Administrace databázových systémů (optimalizace výkonu)
+8.  [Uživatelé, procedury, triggery](./08/README.md)
+9.  [Kurzory](./09/README.md)
+10. Procedurální rozšíření: Python <!-- Python v procedurách a na straně klientu -->
+11. SQLAlchemy
+12. edgedb
+13. Různé
+
+<!-- 15. Triggery
+16. DCL a správa uživatelů
+17. ORM (SQLAlchemy)
+18. Administrace databázových systémů (optimalizace výkonu) -->
 
 ## 5. Literatura:
 

@@ -9,7 +9,7 @@
 - Triggery
 - Zamykání tabulek
 
-### Ukázková data - počasí:
+### Ukázková data sw- počasí:
 
 Tabulky:
 
