@@ -136,7 +136,44 @@ import random
 bubbleSort([random.randint(10,99) for _ in range(18)])
 ```
 
-Jiný:
+```python
+def cocktailSort(lst:list):
+  def needsSwap(i):
+    j = i+1
+    if lst[i] <= lst[j]: return False
+    lst[i],lst[j] = lst[j],lst[i]
+    return True
+
+  start = 0; end = len(lst) - 1
+
+  print(lst)
+  while True:
+    # forth
+    sorted = True
+    for i in range(start, end):
+      if needsSwap(i): sorted = False
+    if sorted:
+      break
+    print(lst)
+
+    end -= 1
+
+    # back
+    sorted = True
+    for i in range(end-1, start-1, -1):
+      if needsSwap(i): sorted = False
+    if sorted:
+      break
+    print(lst)
+
+    start += 1
+
+import random
+lst = list(range(10,20))
+random.shuffle(lst)
+
+cocktailSort(lst)
+```
 
 ```python
 def mySort(lst: list):
