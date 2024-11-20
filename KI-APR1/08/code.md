@@ -8,8 +8,15 @@ def isSorted4(lst: list) -> bool:
 ```
 
 ```python
+def isSorted4(lst:list) -> bool:
+  upward   = all(lst[i]<=lst[i+1] for i in range(len(lst)-1))
+  downward = all(lst[i]>=lst[i+1] for i in range(len(lst)-1))
+  return upward or downward
+```
+
+```python
 def isSorted4(lst: list) -> bool:
-  if len(lst) < 2: return True # corner cases
+  if len(lst) < 3: return True # corner cases
 
   dir = 0 # direction 0: not known, +1 up, -1 down
   for i in range(0, len(lst)-1):
@@ -118,16 +125,37 @@ Pro procvičení naprogramujte funkci, která "in-place" seřadí seznam pomocí
 def bubbleSort(lst: list):
   sorted = False # run the loop at least once
   while not sorted:
+    print(lst)    # trace print
     sorted = True # assumption
     for i in range(len(lst)-1):
       if not lst[i] <= lst[i+1]:
         lst[i],lst[i+1] = lst[i+1],lst[i]
         sorted = False # assumption was wrong, must redo
 
-a = [5,4,3,2,1]
-bubbleSort(a)
-a
+import random
+bubbleSort([random.randint(10,99) for _ in range(18)])
 ```
 
-(ask https://chatgpt.com to explain)
-(optimize)
+Jiný:
+
+```python
+def mySort(lst: list):
+  ll = len(lst)
+
+  def swap(i,j):
+    lst[i],lst[j] = lst[j],lst[i]
+
+  def minIdx(fromI):
+    return min(range(fromI,ll), key=lambda i: lst[i])
+
+  print(lst)
+  for i in range(ll-1):
+    swap(i,minIdx(i))
+    print(lst)
+
+import random
+lst = list(range(10,20))
+random.shuffle(lst)
+
+mySort(lst)
+```

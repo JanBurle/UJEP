@@ -336,7 +336,7 @@ a
 
 ### 📱 Úloha
 
-Pro procvičení naprogramujte funkci, která "in-place" seřadí seznam pomocí algoritmu [bublinkového řazení](https://cs.wikipedia.org/wiki/Bublinkov%C3%A9_%C5%99azen%C3%A), nebo i jiného [řadicího algoritmu](https://cs.wikipedia.org/wiki/Kategorie:%C5%98adic%C3%AD_algoritmy).
+Pro procvičení naprogramujte funkci, která seřadí seznam "in-place" pomocí algoritmu [bublinkového řazení](https://cs.wikipedia.org/wiki/Bublinkov%C3%A9_%C5%99azen%C3%A).
 
 ```python
 def bubbleSort(lst: list):
@@ -347,3 +347,15 @@ bubbleSort(a)
 a
 # [1, 2, 3, 4, 5]
 ```
+
+### 📱 Úloha
+
+Naprogramujte jiný [řadicí algoritmus](https://cs.wikipedia.org/wiki/Kategorie:%C5%98adic%C3%AD_algoritmy).
+
+Např.:
+* v celém seznamu (od počáteční pozice) najdi nejmenší prvek
+* vyměň jej s prvním prvkem
+* od druhé pozice v seznamu najdi nejmenší prvek
+* vyměň jej s druhým prvkem
+* od třetí pozice v seznamu najdi nejmenší prvek
+* ... atd až do konce
