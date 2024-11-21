@@ -2,7 +2,10 @@
 
 [Pracovní tabulky](./weather.sql)
 
-## Role a uživatelé
+## Skupiny, uživatelé, role
+
+_Dřívější CREATE GROUP, CREATE USER – dnes stejné jako CREATE ROLE._
+_Jiné DBS: USER se přihlašuje. PostgreSQL: v zásadě není rozdíl._
 
 Superuser `dbuser` definovaný v [docker skriptu](./Docker/docker-compose.yml).
 
@@ -21,7 +24,6 @@ select current_user;
 select * from city;  -- doh
 delete from weather; -- that's safety
 update weather set temp_hi=30 where date='2024-11-09';
-
 ```
 
 Jako superuser dáme nebo odebereme `joe` oprávnění:
@@ -68,7 +70,7 @@ Při změnách v databázi:
 
 ## Psaní triggerů
 
-Funkce bez parametrů, vstup je pomocí struktury TriggerData, vrací typ _trigger_.
+Funkce bez parametrů, vstup je implicitní: `new.*`, `old.*` (pomocí struktury TriggerData), vrací typ _trigger_.
 
 ```sql
 create table audit_log (

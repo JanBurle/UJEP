@@ -328,11 +328,12 @@ Funkce:
 
 ```sql
 create or replace function children_of(text) returns setof text as $$
- select t.name from family_tree t
-  join family_tree p on p.id=t.mother or p.id=t.father
-  where p.name = $1
+ select child.name from family_tree child
+  join family_tree parent on parent.id=child.mother or parent.id=child.father
+  where parent.name = $1
 $$ language sql stable;
 
+select children_of('Adam');
 select name, child from family_tree, children_of(name) as child;
 ```
 
