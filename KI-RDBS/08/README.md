@@ -7,7 +7,7 @@
 _Dřívější CREATE GROUP, CREATE USER – dnes stejné jako CREATE ROLE._
 _Jiné DBS: USER se přihlašuje. PostgreSQL: v zásadě není rozdíl._
 
-Superuser `dbuser` definovaný v [docker skriptu](./Docker/docker-compose.yml).
+Superuser `dbuser` definovaný v [docker skriptu](../Docker/docker-compose.yml).
 
 Obyčejný uživatel:
 
