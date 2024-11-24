@@ -521,7 +521,7 @@ studenti = ["Pavel Beránek", "Jana Novotná", "Jan Hřib", "Vítězslav Nezval"
 apr1 = ["Pavel Beránek", "Jana Novotná", "Petr Slavný", "Milan Balog", "Alena Jakubská"]
 ikt = ["Pavel Beránek", "Petr Slavný", "Alena Jakubská"]
 
-# covert to sets
+# convert to sets
 studenti = set(studenti)
 apr1 = set(apr1)
 ikt = set(ikt)
@@ -569,7 +569,7 @@ Naprogramujte podle PB zadání.
 
 Mějme seznam měst a jejich vzdáleností. Nalezněte nejkratší cestu od startovního do cílového města.
 
-https://www.geeksforgeeks.org/shortest-path-algorithms-a-complete-guide/
+https://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
 ```python
 start_mesto = "Chabařovice"
