@@ -131,9 +131,12 @@ Množina je modifikovatelná, statická, nehomogenni, sekvenční kolekce.
 Množina se vytváří jako literál:
 
 ```python
-{}              # prázdná
 {3,2,2,1}       # bez duplikátů
 {3,'b', 2,'a'}  # nedefinované pořadí
+```
+
+```python
+{} # Toto je prázdný slovník! Pro prázdnou množinu je nutno použít set()
 ```
 
 Nebo vestavěnou funkcí:
