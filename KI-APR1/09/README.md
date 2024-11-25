@@ -572,8 +572,10 @@ Mějme seznam měst a jejich vzdáleností. Nalezněte nejkratší cestu od star
 https://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
 ```python
-start_mesto = "Chabařovice"
-cilove_mesto = "Litoměřice"
+# zadání
+
+výchozí_město = "Chabařovice"
+cílové_město  = "Litoměřice"
 vzdálenosti = [
   ("Chabařovice", "Ústí nad Labem", 8),
   ("Chabařovice", "Krupka", 1),
@@ -582,4 +584,48 @@ vzdálenosti = [
   ("Teplice", "Litoměřice", 5),
   ("Ústí nad Labem", "Litoměřice", 10),
 ]
+
+# https://www.geeksforgeeks.org/introduction-to-dijkstras-shortest-path-algorithm/#pseudo-code-for-dijkstras-algorithm
+from math import inf
+
+# vypočtené minimální vzdálenosti
+distances = {}
+for town1,town2,_ in vzdálenosti:
+  distances[town1] = inf
+  distances[town2] = inf
+
+# vzdálenosti mezi sousedy
+graphDistance = {}
+
+for town in distances:
+  graphDistance[town] = {}
+
+for town1,town2,dist in vzdálenosti:
+  graphDistance[town1][town2] = dist
+  graphDistance[town2][town1] = dist
+
+# výpočet
+visited = set()
+distances[výchozí_město] = 0
+queue   = {výchozí_město}
+
+while queue:
+  town = min(queue, key=lambda town: distances[town])
+  queue.remove(town)
+
+  if town in visited:
+    continue
+
+  visited.add(town)
+
+  dist = distances[town]
+  for neighbour in graphDistance[town]:
+    tentDist = dist + graphDistance[town][neighbour]
+    if tentDist < distances[neighbour]:
+       distances[neighbour] = tentDist
+       queue.add(neighbour)
+
+# výsledek
+print(výchozí_město, '-', cílové_město, ':', distances[cílové_město])
+print(distances)
 ```
