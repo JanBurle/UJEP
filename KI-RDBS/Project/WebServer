@@ -1,0 +1,20 @@
+# Apache, PHP
+FROM php:8-apache
+
+RUN <<EOF
+apt update
+# apt upgrade -y
+
+# tools and utilities
+apt install -y mc vim less
+
+# for production: create user
+useradd -m -G www-data -s /bin/bash app
+echo 'app:pwd' | chpasswd
+EOF
+
+# add Python
+RUN apt install -y python3 python3-pip python3-psycopg2
+
+# docker exec bash lands in here
+WORKDIR /home/app/src
