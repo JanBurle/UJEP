@@ -1,4 +1,4 @@
-# 09 – Kurzory
+# 09 – Kurzory, výjimky
 
 ## Kurzory
 
@@ -41,7 +41,17 @@ select count_cities('Ci%Z');
 
 ## Chyby, výjimky a jejich obsluha
 
-Další ukázková funkce s kurzorem:
+### Signalizace a obsluha chyb
+
+- funkce vrací chybový kód (C, Unix: errno)
+- funkce vrací hodnotu a chybový kód
+- nastává výjimka
+
+Otázky: Víme, jaké chyby mohou nastat? Lze chybovou situaci ignorovat?
+
+### SQL: výjimky
+
+Ukázková funkce s kurzorem:
 
 ```sql
 -- průměrná teplota v městech s vybranými id
@@ -88,17 +98,6 @@ select avg_temp_lo('%Z'); -- error
 ```
 
 <!--
-+ python client
-- PL/pgSQL
-- Python
-
-RDBS
-  plpgsqp plpython
-  c
-  python client
-
-
-
 
 ```sql
 DECLARE

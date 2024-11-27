@@ -6,7 +6,7 @@
 
 Zjistěte, zda je zadaný trojúhelník pravoúhlý. Délky stran trojúhelníka jsou zadány v řetězci, najednou v libovolném pořadí, oddělené mezerou.
 
-```
+```python
 vstup  = '4 5 3'
 # vstup = input('Zadejte tři strany: ')
 
