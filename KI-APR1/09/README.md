@@ -240,6 +240,7 @@ def kolo() -> tuple[int,int]:
   if volba==proti:
     return (0,0)
 
+  výhry = [(0,1),(1,2),(2,0)]
   return  (1,0) if (idxVolba,idxProti) in výhry else (0,1)
 
 výhryČlověk = 0
@@ -540,7 +541,6 @@ out('ani APR1 ani IKT', studenti.difference(apr1,ikt))
 Program, přijme ze standardního vstupu různá slova. Vstup skončí jakmile uživatel napíše slovo STOP. Vypíše se seznam písmenek bez duplicit, která všechny slova obsahovala. K smazaní duplicit využijte množinu.
 
 ```python
-words = set()
 chars = set()
 
 while True:

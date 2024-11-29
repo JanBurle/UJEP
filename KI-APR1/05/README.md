@@ -120,7 +120,7 @@ img
 
 - Zjistěte kolik zadaná věta obsahuje písmen a číslic.
 - V zadané kolekci čísel najděte minimální a maximální prvek, bez použití funkcí `min()` nebo `max()`.
-- Vypište Fibonnaciho posloupnost (její část).
+- Vypište Fibonacciho posloupnost (její část).
 - Vypište Pascalův trojúhelník (jeho část).
 - Zjistěte GCD (největší společný dělitel) dvou celých čísel, pomocí Euklidova algoritmu.
 
