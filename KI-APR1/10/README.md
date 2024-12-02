@@ -1,8 +1,12 @@
 # 10 – Řešení vybraných úloh
 
+Průvodní texty a plná zadání úloh naleznete na PB0X.
+
 ## [PB05](https://github.com/pavelberanek91/UJEP/blob/main/APR1/Cvi%C4%8Den%C3%AD%205/README.md)
 
 ### Překladový slovník
+
+Program obsahuje slovník, kde klíčem je české slovo a hodnotou je jeho anglický překlad. Využijte slovník pro překlad následující věty: "Pes jel na kole a štěkal na pošťáka."
 
 ```python
 slovníkCzAj = {
@@ -15,14 +19,16 @@ slovníkCzAj = {
 def přelož(cz:str) -> str:
   return slovníkCzAj.get(cz,cz)
 
-větaCz = 'Pes na kole jel a štěkal na pošťáka.'
+větaCz = 'Pes jel na kole a štěkal na pošťáka.'
 větaCz = větaCz.lower().replace('.', '')
 
 větaEn = ' '.join(map(přelož,větaCz.split()))
 větaEn
 ```
 
-### Hromadný předkladač\*\*
+### Hromadný překladač
+
+Program přeloží větu do třech různých jazyků pomocí tří překladových slovníků.
 
 ```python
 slovníkCzAj = {
@@ -58,7 +64,36 @@ for slovník in slovníky:
   print(přeložVětu(slovník, věta))
 ```
 
+Nebo:
+
+```python
+slovníky = {
+  'en': {
+    'pes': 'dog', 'na': 'on', 'štěkal': 'barked', 'pošťáka': 'postman',
+  },
+  'de': {
+    'pes': 'Hund', 'na': 'an', 'štěkal': 'bellte', 'pošťáka': 'Postmann',
+  },
+  'su': {
+    'pes': 'koira', 'na': 'päällä', 'štěkal': 'hän haukkui', 'pošťáka': 'tarpeeksi',
+  }
+}
+
+def přelož(jazyk:str, věta:str) -> str:
+  slovník = slovníky[jazyk]
+  věta = věta.lower().replace('.', '')
+
+  return jazyk + ': ' + \
+    ' '.join(map(lambda slovo: slovník.get(slovo,slovo), věta.split()))
+
+věta = 'Pes na kole jel a štěkal na pošťáka.'
+for jazyk in slovníky:
+  print(přelož(jazyk, věta))
+```
+
 ### Čítač slov
+
+Program, který spočítá počet výskytů každého slova ve věte "Ahoj Jano. Jak se mas Jano. Mas se taky tak dobre jako ja Jano? Tak cau Jano!". Pomocí modulu matplotlib zobrazte histogram zastoupení slov.
 
 ```python
 import matplotlib.pyplot as plt
@@ -79,6 +114,8 @@ plt.bar(x=čítač.keys(), height=čítač.values())
 
 ### Čítač písmen
 
+Program, který spočítá počet výskytů písmen ve věte "Ahoj Jano. Jak se mas Jano. Mas se taky tak dobre jako ja Jano? Tak cau Jano!". Pomocí modulu matplotlib zobrazte histogram zastoupení písmen. V histogramu by měla být všechna písmena abecedy bez háčků a čárek, tedy i ta, které nejsou ve větě.
+
 ```python
 import matplotlib.pyplot as plt
 
@@ -98,6 +135,8 @@ plt.bar(x=čítač.keys(), height=čítač.values())
 ```
 
 ### Průměrná známka
+
+Napište funkci, která vrátí průměrnou známku třídy. Známky třídy jsou uloženy jako slovník, kde klíčem je jméno studenta a hodnotou je seznam jeho známek.
 
 ```python
 známky = {
@@ -121,6 +160,8 @@ print(f'{průměr(známky):.2f}')
 
 ### Slovník s náhodným počtem klíčů
 
+Slovník obsahuje náhodný počet klíčů, generován jako náhodné číslo od 1 do 10 včetně. Klíče jsou řetězce b=ve tvaru "klíčX", kde X je pořadí klíče. Hodnoty jsou seznamy deseti náhodných čísel.
+
 ```python
 from random import randint
 
@@ -138,6 +179,8 @@ slovník
 
 ### Která písmena jsou velká?
 
+Funkce přijme řetězec a vrátí seznam velkých písmen.
+
 ```python
 def upperChars(s: str) -> list[str]:
   return [c for c in s if c.isupper()]
@@ -146,6 +189,8 @@ upperChars('Ahoj, jak se máš, Terezo? A Máša?')
 ```
 
 ### Vyhledání pozice slova
+
+Funkci vrátí index prvku, který vyhledáváte. Nepoužívejte vestavěnou metodu `index()` seznamu.
 
 ```python
 def getIndex(lst:list, obj:any) -> bool|int:
@@ -158,6 +203,8 @@ getIndex(['g','f','a','f','h'], 'a')
 
 ### Řada lichých čísel
 
+Funkce přijme počáteční a konečný prvek z číselné řady a vrátí všechna lichá čísla z této řady.
+
 ```python
 def get_licha(min:int, max:int) -> list[int]:
   return list(range(min//2*2+1, max+1, 2))
@@ -166,6 +213,8 @@ get_licha(-4, 14)
 ```
 
 ### Pretty printer matic
+
+Funkce přijme 2D matici (seznam seznamů) a ve vhodné grafické textové podobě ji vypíše na obrazovku.
 
 ```python
 def ppMatrix(M: list[list[str]]):
@@ -206,6 +255,8 @@ ppMatrix(M3)
 
 ### Nalezení písmen s háčky a čárkami
 
+Funkce nalezne v řetězci všechna písmena a háčky a čárkami a vrátí jejich seznam.
+
 ```python
 def nalezniHáčkyČárky(s: str) -> list[str]:
   plain = 'abcdefghijklmnopqrstuvwxyz'
@@ -220,6 +271,8 @@ def nalezniHáčkyČárky(s: str) -> list[str]:
 nalezniHáčkyČárky("čau jak se máš")
 ```
 
+Nebo:
+
 ```python
 def nalezniHáčkyČárky(s: str) -> list[str]:
   plain = 'abcdefghijklmnopqrstuvwxyz'
@@ -230,6 +283,8 @@ nalezniHáčkyČárky("čau jak se máš")
 
 ### Všechna velká
 
+Funkce vrátí řetězec jako velká písmena.
+
 ```python
 def getVelká(s:str) -> str:
   return s.upper()
@@ -237,12 +292,16 @@ def getVelká(s:str) -> str:
 getVelká("Ahoj")
 ```
 
+Nebo:
+
 ```python
 getVelká = lambda s : s.upper()
 getVelká("Ahoj")
 ```
 
 ### Čísla beze zbytku
+
+Funkce přijme počátek číselné řady, konec číselné řady a modulo faktor a vrátí počet čísel v řadě dělitelných faktorem beze zbytku.
 
 ```python
 def listMod(start=5, end=20, mod=5) -> list[int]:
@@ -256,6 +315,8 @@ def listMod(start=5, end=20, mod=5) -> list[int]:
 listMod()
 ```
 
+Nebo:
+
 ```python
 def listMod(start=5, end=20, mod=5) -> list[int]:
   return [n for n in range(start, end+1) if 0 == n % mod]
@@ -264,6 +325,8 @@ listMod()
 ```
 
 ### Počet výskytů
+
+Funkci přijme řetězec a znak a vrátí počet výskytů tohoto znaku v řetězci.
 
 ```python
 def početVýskytů(s:str, c:str) -> int:
@@ -277,12 +340,16 @@ def početVýskytů(s:str, c:str) -> int:
 početVýskytů('aha hmm', 'h')
 ```
 
+Nebo:
+
 ```python
 def početVýskytů(s:str, c:str) -> int:
   return len([char for char in s if char==c])
 
 početVýskytů('aha hmm', 'h')
 ```
+
+Nebo:
 
 ```python
 def početVýskytů(s:str, c:str) -> int:
@@ -291,6 +358,8 @@ def početVýskytů(s:str, c:str) -> int:
 početVýskytů('aha hmm', 'h')
 ```
 
+Nebo:
+
 ```python
 def početVýskytů(s:str, c:str) -> int:
   return sum(map(lambda x : 1 if x==c else 0, list(s)))
@@ -298,7 +367,18 @@ def početVýskytů(s:str, c:str) -> int:
 početVýskytů('aha hmm', 'h')
 ```
 
+Nebo:
+
+```python
+def početVýskytů(s:str, c:str) -> int:
+  return len(list(filter(lambda char:c==char, list(s))))
+
+početVýskytů('aha hmm', 'h')
+```
+
 ### Každé druhé
+
+Funkce (kód) vrátí každé druhé písmeno. Můžete použít list slicing.
 
 ```python
 'ahojpepo'[1::2]
@@ -306,11 +386,15 @@ početVýskytů('aha hmm', 'h')
 
 ### Smazání písmenka
 
+Funkce (kód) odstraní z řetězce daný znak a vrátí seznam písmen bez daného znaku. Můžete použít remove.
+
 ```python
 list('ahoj'.replace('o',''))
 ```
 
 ### Spojení seznamů
+
+Funkci přijme dva seznamy a vrátí seznam složený z prvků seznamů na přeskáčku.
 
 ```python
 def spoj(l1:list, l2:list) -> list:
@@ -324,6 +408,8 @@ def spoj(l1:list, l2:list) -> list:
 spoj([1,2,3],['a','b','c'])
 ```
 
+Nebo:
+
 ```python
 def spoj(l1: list, l2: list) -> list:
     return [item for pair in zip(l1, l2) for item in pair]
@@ -332,6 +418,8 @@ spoj([1, 2, 3], ['a', 'b', 'c'])
 ```
 
 ### Skalární součin
+
+Funkce přijme dva seznamy čísel o stejné délce a vrátí jejich skalární součin.
 
 ```python
 def dotProduct(l1:list[int], l2:list[int]) -> int:
@@ -344,6 +432,8 @@ def dotProduct(l1:list[int], l2:list[int]) -> int:
 dotProduct([1,2,3],[2,3,4])
 ```
 
+Nebo:
+
 ```python
 def dotProduct(l1:list[int], l2:list[int]) -> int:
   return sum(pair[0]*pair[1] for pair in zip(l1,l2))
@@ -352,6 +442,8 @@ dotProduct([1,2,3],[2,3,4])
 ```
 
 ### Náhodný seznam
+
+Funkce vrátí seznam n náhodných desetinných čísel v rozmezí od a do b, kde a,b jsou parametry funkce.
 
 ```python
 from random import uniform
@@ -366,6 +458,8 @@ def randList(n:int, a:float, b:float) -> list[float]:
 randList(4,2.0,2.4)
 ```
 
+Nebo:
+
 ```python
 from random import uniform
 
@@ -379,6 +473,8 @@ def randList(n:int, a:float, b:float) -> list[float]:
 randList(4,2.0,2.4)
 ```
 
+Nebo:
+
 ```python
 from random import uniform
 
@@ -389,6 +485,8 @@ randList(4,2.0,2.4)
 ```
 
 ### Promíchání písmenek
+
+Funkce přijme seznam písmen a vrátí nový seznam, kde budou písmena náhodně zamíchaná.
 
 ```python
 from random import shuffle
@@ -401,6 +499,8 @@ def shuffled(lst: list[str]) -> list[str]:
 shuffled(list('abcdef'))
 ```
 
+Nebo:
+
 ```python
 from random import sample
 
@@ -411,6 +511,8 @@ shuffled(list('abcdef'))
 ```
 
 ### Zašifrování a dešifrování textu
+
+Funkce přijme text a substituční slovník, a provede substituční šifru. Obdobně napište i dešifrovač textu.
 
 ```python
 encoder = {
@@ -427,6 +529,30 @@ def encode(s: str) -> str:
 def decode(s: str) -> str:
   dec = lambda c: decoder.get(c, c)
   return ''.join(map(dec,list(s)))
+
+print(encode('ahoj'))
+print(decode('jhkj'))
+```
+
+Nebo:
+
+```python
+encoder = {
+  'a': 'j',
+  'o': 'k'
+}
+
+decoder = {value: key for key,value in encoder.items()}
+
+def encdec(s:str, subst:dict) -> str:
+  enc = lambda c: subst.get(c, c)
+  return ''.join(map(enc,list(s)))
+
+def encode(s: str) -> str:
+  return encdec(s, encoder)
+
+def decode(s: str) -> str:
+  return encdec(s, decoder)
 
 print(encode('ahoj'))
 print(decode('jhkj'))
@@ -701,7 +827,8 @@ Vytvořte pomocí anonymní funkce Fibonacciho posloupnost.
 
 ```python
 from functools import reduce
-fibonacci = lambda n: reduce(lambda sq, _: sq + [sq[-1] + sq[-2]], range(2, n), [0, 1])
 
-fibonacci(8)
+fibonacci = lambda n: reduce(lambda sq, _: sq + [sum(sq[-2:])], range(2, n), [0, 1])
+
+fibonacci(14)
 ```
