@@ -36,7 +36,7 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 7.  [Uložené funkce a procedury](./07/README.md)
 8.  [Uživatelé, procedury, triggery](./08/README.md)
 9.  [Kurzory, výjimky](./09/README.md)
-10. [Programování klientů: Python](./10/README.md)
+10. [Programování klientů: Python/PHP](./10/README.md)
 11. SQLAlchemy
 12. edgedb
 13. Různé

@@ -8,33 +8,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<?php $conn = new PDO('pgsql:host=postgres;dbname=app', 'joe', 'joepwd') ?>
 <?php
+// database connection
+$conn = new PDO('pgsql:host=postgres;dbname=app', 'joe', 'joepwd');
+// qoutes string for html output
 $q = fn($s) => htmlspecialchars($s, ENT_QUOTES);
+// selected city
+$idCity = @$_POST['city'] ?? '';
 ?>
 
 <body>
   <h1><?= $title ?></h1>
 
-  <?php $selCity = @$_POST['city'] ?? '' ?>
-
   <form method="post">
     <label for="city">City:</label>
     <select name="city" id="city" onchange="this.form.submit()">
       <?php
-      $qry = $conn->query('select * from select_cities()');
+      $qry = $conn->query('select id,name from select_cities()');
       while ([$id, $name] = $qry->fetch()) {
-        $selCity || $selCity = $id;
-        $selected = $id == $selCity ? 'selected' : ''; ?>
-        <option value='<?= $q($id) ?>' $selected><?= $q($name) ?></option>
-      <?php } ?>
+        $idCity || $idCity = $id; // if not known, default to first city
+        $selected = $id == $idCity ? ' selected' : '';
+        echo "<option value='{$q($id)}'$selected>{$q($name)}</option>";
+      } ?>
     </select>
   </form>
 
   <?php
-  if ($selCity) {
-    $stmt = $conn->prepare('SELECT * FROM select_weather(:city_id)');
-    $stmt->execute(['city_id' => $selCity]);
+  if ($idCity) {
+    // prepared statement, prevents sql injection
+    $stmt = $conn->prepare('select date,temp_lo,temp_hi from select_weather(:id)');
+    $stmt->execute(['id' => $idCity]);
   ?>
     <h2>Weather Data</h2>
     <table>
@@ -43,7 +46,7 @@ $q = fn($s) => htmlspecialchars($s, ENT_QUOTES);
         <th>Low (°C)</th>
         <th>High (°C)</th>
       </tr>
-      <?php while ([$id, $low, $high, $date] = $stmt->fetch()) { ?>
+      <?php while ([$date, $low, $high] = $stmt->fetch()) { ?>
         <tr>
           <td><?= $q($date) ?></td>
           <td><?= $q($low) ?></td>
@@ -51,7 +54,7 @@ $q = fn($s) => htmlspecialchars($s, ENT_QUOTES);
         </tr>
       <?php } ?>
     </table>
-  <?php } ?> ?>
+  <?php } ?>
 
 </body>
 
