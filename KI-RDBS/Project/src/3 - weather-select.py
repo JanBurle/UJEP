@@ -10,10 +10,10 @@ import pg
 # except Exception as error:
 #   print('** Error **', error)
 
-try:
-  with pg.connect('joe', 'joepwd') as conn:
-    curs = conn.execute('select select_weather(%s)', ('ab',))
-    for rec in curs:
-      print(rec)
-except Exception as error:
-  print('** Error **', error)
+# try:
+#   with pg.connect('joe', 'joepwd') as conn:
+#     curs = conn.execute('select select_weather(%s)', ('ab',))
+#     for rec in curs:
+#       print(rec)
+# except Exception as error:
+#   print('** Error **', error)

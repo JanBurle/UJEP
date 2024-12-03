@@ -1,10 +1,10 @@
 import pg
 
-# psycopg
+# console app
 with pg.connect() as conn:
   try:
     curs = conn.execute('select version();')
     pgVersion = curs.fetchone()
-    print('PG>', pgVersion)
+    print('PG VERSION >>>', pgVersion)
   except Exception as error:
     print('** Error **', error)

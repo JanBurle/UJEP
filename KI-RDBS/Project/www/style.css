@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+  background-color: #003366;
+  color: white;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
