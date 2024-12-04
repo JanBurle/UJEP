@@ -747,7 +747,7 @@ list(map(len,s.split()))
 
 ### Mapování s filtrací
 
-Algoritmus převezme seznam čísel, odstraní všechny kladná a vrátí seznam absolutních hodnot zbylých čísel.
+Algoritmus převezme seznam čísel, odstraní všechna kladná a vrátí seznam absolutních hodnot zbylých čísel.
 
 ```python
 lst = [1, -3, -8, 7, 4, -4, 5, -3, 1, -9]
