@@ -255,7 +255,7 @@ ppMatrix(M3)
 
 ### Nalezení písmen s háčky a čárkami
 
-Funkce nalezne v řetězci všechna písmena a háčky a čárkami a vrátí jejich seznam.
+Funkce nalezne v řetězci všechna písmena s háčky a čárkami a vrátí jejich seznam.
 
 ```python
 def nalezniHáčkyČárky(s: str) -> list[str]:
