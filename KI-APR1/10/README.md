@@ -160,7 +160,7 @@ print(f'{průměr(známky):.2f}')
 
 ### Slovník s náhodným počtem klíčů
 
-Slovník obsahuje náhodný počet klíčů, generován jako náhodné číslo od 1 do 10 včetně. Klíče jsou řetězce b=ve tvaru "klíčX", kde X je pořadí klíče. Hodnoty jsou seznamy deseti náhodných čísel.
+Slovník obsahuje náhodný počet klíčů, generován jako náhodné číslo od 1 do 10 včetně. Klíče jsou řetězce ve tvaru "klíčX", kde X je pořadí klíče. Hodnoty jsou seznamy deseti náhodných čísel.
 
 ```python
 from random import randint
