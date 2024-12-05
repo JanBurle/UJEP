@@ -1,4 +1,4 @@
-# 10 – Programování klientů: Python
+# 10 – Programování klientů: Python / PHP
 
 ### Psycopg ("psycho" / postgres)
 
