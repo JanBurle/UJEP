@@ -6,8 +6,9 @@ https://www.psycopg.org/docs/
 
 PostgreSQL adapter for Python.
 
-- connect()
-- execute()
+- metody:
+  - connect()
+  - execute()
 - konvertuje data mezi pg/python
 - parametrizace dotazů (prevence sql injection)
 - podporuje kurzory
@@ -35,37 +36,28 @@ pip install psycopg_binary
   - funkce a procedury pro Pepu
 
 * Shell: [postgres](../Project/bashpg.sh)
+
   - `psql -U app-user app`
+  - příkazy:
     - help
-    - \\?
-      - \\c
-      - \\dt
+    - \\?, \\c, \\dt
     - `select * from audit_log;`
     - \\q
   - ^D
 
-- [Python](../Project/src)
-  - [pg.py](../Project/src/pg.py)
-
 * Shell: [webserver](../Project/bashws.sh)
 
   - mc
-  - python3 1...
+  - python3 <file.py>
   - ^D
 
-* VSCode: src
-  - Python debugger
-  - 1 - test: version
-  - 2 - show-log:
-    - fetch all
-    - iterate rows
-    - iterate selected columns
-    - SQL injection
-  - 3 - weather-select:
-    - app-user / joe x select
-    - joe select_weather()
-  - 4 - weather-insert:
-    - last insert log
-    - delete from weather¨
-    - implicit transaction
-    - explicit transaction
+- [Python](../Project/src)
+
+  - `1 - test.py`: test connect() + execute()
+  - `2 - show-log.py`: select \* from audit_log, sql injection
+  - `3 - weather-select.py`: select \* from weather, select <function()>
+  - `4 - weather-insert.py`: insert into weather, transaction
+  - `5 - pyqt.py`: Qt application
+
+- [PHP](../Project/www)
+  - `index.php`: web page
