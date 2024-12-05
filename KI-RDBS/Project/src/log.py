@@ -1,15 +1,16 @@
-def lastInsert(conn):
+def logTail(conn):
   curs = conn.execute("""
     select id,who,what from audit_log
-      where what<>'login'
+      -- where what<>'login'
       order by id desc;
   """)
-  rec = curs.fetchone()
-  if rec:
+
+  for _ in range(3):
+    rec = curs.fetchone()
+    if not rec:
+      break
     id,who,what = rec
-    print('Last insert:', id, who, what)
-  else:
-    print('No record')
+    print(id, who, what)
 
 def truncate(conn):
   curs = conn.execute("truncate audit_log")

@@ -8,17 +8,17 @@ from PySide6.QtWidgets import     \
   QTableWidget, QTableWidgetItem, \
   QPushButton, QLineEdit
 
-# application
-class AppWin(QWidget):
+# main window
+class Win(QWidget):
 
   # constructor
   def __init__(self):
     super().__init__()
-    self.conn = pg.connect('joe', 'joepwd') # connect to database
-    self.initUI()                           # initialize UI
+    self.initUI()
 
-    # connect signals
-    self.cmbCities.currentIndexChanged.connect(self.fetchWeather)
+  def init(self):
+    # permanent database connection
+    self.conn = pg.connect('joee', 'joepwd')
     # fetch list of cities
     self.fetchCities()
 
@@ -30,6 +30,7 @@ class AppWin(QWidget):
 
     # list of cities
     self.cmbCities = QComboBox(self)
+    self.cmbCities.currentIndexChanged.connect(self.fetchWeather)
 
     # weather data for the selected city
     tbl = self.tblWeather = QTableWidget(self)
@@ -108,6 +109,13 @@ class AppWin(QWidget):
 # main
 if __name__ == '__main__':
   app = QApplication([])
-  win = AppWin()
+
+  win = Win()
   win.show()
+
+  # try:
+  #   win.init()
+  # except Exception:
+  #   win.setErr('init')
+
   app.exec()

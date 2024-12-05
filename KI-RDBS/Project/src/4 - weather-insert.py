@@ -1,6 +1,10 @@
 import pg
 import log
 
+# # empty log
+# with pg.connect() as conn:
+#    log.truncate(conn)
+
 # make insert possible
 with pg.connect() as conn:
   conn.execute("delete from weather where city_id='at'")
@@ -9,7 +13,7 @@ with pg.connect() as conn:
 # try:
 #   with pg.connect() as conn:
 #     conn.execute("insert into weather values('at', 2, 3)")
-#     conn.rollback()
+#     # conn.rollback()
 # except Exception as error:
 #   print('** Error **', error)
 
@@ -32,7 +36,6 @@ with pg.connect() as conn:
 # last non-login log
 try:
   with pg.connect() as conn:
-    # log.truncate(conn)
-    log.lastInsert(conn)
+    log.logTail(conn)
 except Exception as error:
   print('** Error **', error)

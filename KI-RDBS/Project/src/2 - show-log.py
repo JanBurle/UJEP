@@ -8,7 +8,7 @@ with pg.connect() as conn:
 
   # # iterate
   # curs = conn.execute('select * from audit_log;')
-  # for record in curs:
+  # for record in curs: # tuples
   #   print(record)
 
   # # iterate
