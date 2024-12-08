@@ -57,7 +57,7 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 |    08 | Operace nad seznamy       | [08](./08/README.md) | [08](./08/code.md) |
 |    09 | Řešení úloh               | [09](./09/README.md) |                    |
 |    10 | Řešení úloh               | [10](./10/README.md) |                    |
-|    11 |                           |                      |                    |
+|    11 | Práce se soubory          | [11](./11/README.md) |                    |
 |    12 |                           |                      |                    |
 |    13 |                           |                      |                    |
 
