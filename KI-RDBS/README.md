@@ -37,14 +37,9 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 8.  [Uživatelé, procedury, triggery](./08/README.md)
 9.  [Kurzory, výjimky](./09/README.md)
 10. [Programování klientů: Python/PHP](./10/README.md)
-11. SQLAlchemy
-12. edgedb
-13. Různé
-
-<!-- 15. Triggery
-16. DCL a správa uživatelů
-17. ORM (SQLAlchemy)
-18. Administrace databázových systémů (optimalizace výkonu) -->
+<!-- 11. [ORM: SQLAlchemy et al.](./11/README.md)
+11. edgedb
+12. Různé -->
 
 ## 5. Literatura:
 

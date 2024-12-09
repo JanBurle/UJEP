@@ -1,3 +1,9 @@
+from sqlalchemy import Column, ForeignKey, CheckConstraint
+from sqlalchemy import String, Integer, Date
+from sqlalchemy.orm import declarative_base, relationship
+
+from datetime import date
+
 Base = declarative_base()
 
 class City(Base):

@@ -1,22 +1,19 @@
-# from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey, CheckConstraint
-# from sqlalchemy.ext.declarative import declarative_base
-# from sqlalchemy.orm import sessionmaker, relationship
-# from datetime import date, timedelta
-# import random
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from alchemydb import *
 
-# Define the database URL for PostgreSQL
+# DATABASE_URL = 'sqlite:///example.db'
 DATABASE_URL = 'postgresql+psycopg://app-user:app-pwd@localhost:5432/app'
-
-# Create an engine
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL, echo=False)
 
 # Create a session
 Session = sessionmaker(bind=engine)
 with Session() as session:
-  for city in session.query(City).all():
-        print(f"City: {city.name}")
-        for weather in city.weather:
-            print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
+  for city in session.query(City.id,City.name).all():
+    print(f"City: {city.name}")
 
-# Close the session
-session.close()
+  for city in session.query(City).filter_by(id='at').all():
+    print(f"City: {city.name}")
+    for weather in city.aweather:
+      print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
+
