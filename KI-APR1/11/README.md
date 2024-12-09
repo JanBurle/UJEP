@@ -1,5 +1,7 @@
 # 11 – Práce se soubory
 
+Projděte si také:
+
 ## [PB10](https://github.com/pavelberanek91/UJEP/blob/main/APR1/Cvi%C4%8Den%C3%AD%2010/README.md)
 
 > Příprava: nahrajte si soubor `PepaNos.txt` do adresáře souborů na Colab.
@@ -147,7 +149,7 @@ print('length:', os.path.getsize('abc.txt'))
 | w+  | čtení a zápis (přepisuje)  |
 | a+  | čtení a zápis (na konci)   |
 
-Dále je moožno příznakem `b` pracovat se souborem tzv. binárně, tj. bajt po bajtu:
+Dále je možno příznakem `b` pracovat se souborem tzv. binárně, tj. bajt po bajtu:
 
 | mód | popis                      |
 | --- | -------------------------- |
@@ -220,6 +222,7 @@ známky = {
 Zapište tato data do [CSV](https://cs.wikipedia.org/wiki/CSV) souboru `známky.csv`. Každý řádek bude obsahovat jméno studenta a jeho známky oddělené čárkou, takto:
 
 ```
+Jméno,z1,z2,z3,z4,z5,z6
 Adam,1,1,2,1,3,5
 Nela,1,4,2,1,1,2
 Zuzi,1,1,1,1,1,2
