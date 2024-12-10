@@ -151,14 +151,12 @@ int main() {
 
 ```python
 !pip install ZODB
-!pip install persistent
-!pip install transaction
 ```
 
+Definice dat:
+
 ```python
-from ZODB import FileStorage, DB
 from persistent import Persistent
-import transaction
 
 class City(Persistent):
   def __init__(self, id, name):
@@ -179,61 +177,64 @@ class Weather(Persistent):
     return f"Weather(city_id='{self.city_id}', temp_lo={self.temp_lo}, temp_hi={self.temp_hi}, date={self.date})"
 ```
 
+Zápis:
+
 ```python
-def writeDb():
-  storage = FileStorage.FileStorage('weather.fs')
-  db = DB(storage)
-  connection = db.open()
-  root = connection.root()
+from ZODB import FileStorage, DB
+import transaction
+from mydb import *
 
-  try:
-    transaction.begin()
+storage = FileStorage.FileStorage('weather.fs')
+db = DB(storage)
+connection = db.open()
+root = connection.root()
 
-    for coll in ['city', 'weather']:
-      if coll not in root: root[coll]  = {}
+try:
+  transaction.begin()
 
-    collCity = root['city']
-    collCity['mo'] = City('mo', 'Most')
-    collCity['bi'] = City('bi', 'Bílina')
+  print(root)
 
-    collWeather = root['weather']
-    collWeather[('mo', '2023-10-01')] = Weather('mo', 10, 20, '2023-10-01')
-    collWeather[('bi', '2023-10-01')] = Weather('bi', 12, 22, '2023-10-01')
+  for city in root['city'].values():
+    print(city)
 
-    transaction.commit()
+  for weather in root['weather'].values():
+    print(weather)
 
-  finally:
-    connection.close()
-    db.close()
+  transaction.commit()
 
-writeDb()
+finally:
+  connection.close()
+  db.close()
 ```
 
+Čtení:
+
 ```python
-def readDb():
-  storage = FileStorage.FileStorage('weather.fs')
-  db = DB(storage)
-  connection = db.open()
-  root = connection.root()
+from ZODB import FileStorage, DB
+import transaction
+from mydb import *
 
-  try:
-    transaction.begin()
+storage = FileStorage.FileStorage('weather.fs')
+db = DB(storage)
+connection = db.open()
+root = connection.root()
 
-    print(root)
+try:
+  transaction.begin()
 
-    for city in root['city'].values():
-      print(city)
+  print(root)
 
-    for weather in root['weather'].values():
-      print(weather)
+  for city in root['city'].values():
+    print(city)
 
-    transaction.commit()
+  for weather in root['weather'].values():
+    print(weather)
 
-  finally:
-    connection.close()
-    db.close()
+  transaction.commit()
 
-readDb()
+finally:
+  connection.close()
+  db.close()
 ```
 
 ## 3. Objektově-relační mapování
@@ -246,7 +247,7 @@ ORM je abstrakce nad SQL, která umožňuje pracovat s databází pomocí objekt
 
 ### Proč ORM?:
 
-- Relační databáze zvítězily. Jsou výkonné, optimalizované, široce používané. Jazyky jsou OO: je zde _impedance mismatch_.
+- Relační databáze zvítězily. Jsou výkonné, optimalizované, široce používané. Jazyky jsou OO: je zde _impedance mismatch_. ORM se to snaží vyřešit.
 
 ### Kritika:
 
@@ -254,27 +255,38 @@ ORM je abstrakce nad SQL, která umožňuje pracovat s databází pomocí objekt
 - Nízký výkon, vinou nadbytečných dotazů.
 - Složitost. Není jednoduché synchronizovat objekty v paměti / tabulky v databázi, je to těžký, netriviální problém. ORM není lehké se naučit.
 - Impedance mismatch: objects (OO) / tuples (RDBS).
-- Problematické není tolik mapování objektů a relací, ale mapování dat v paměti a dat v databázi. Změna na jedné straně - jak ji přenést na druhou stranu?
-- Velká očekávání, disiluze.
-- ORM má tendenci být bloatware.
+- Problematické není ani tolik mapování objektů a relací, ale mapování dat v paměti a dat v databázi. Změna na jedné straně - jak ji přenést na druhou stranu?
+- Velká očekávání, částečná disiluze.
+- ORM má tendenci se stát bloatwarem.
 
 ### Kacířské názory:
 
 - Je lépe si "ubalit svoje vlastní" ORM.
-- Alespoň ro změny v databázi je lepší použít SQL: tedy ORM pro čtení, SQL pro zápis.
+- Alespoň pro změny v databázi je lepší použít SQL: tedy ORM pro čtení, SQL pro zápis.
 
 ### Závěr:
 
 - Zvolit podle aplikace:
   - pokud jsou data jsou více-méně relační, nepoužívejte ORM, pokud jsou grafová, ano
-  - pokud je aplikace jednoduchá, nepoužívejte ORM, pokud je složitá, a je potřeba podporovat vícero RDBS, ano
+  - pokud je aplikace jednoduchá, nepoužívejte ORM, pokud je složitá, ano
+  - pokud je potřeba podporovat vícero RDMBS, asi ano
 
 ### Vzestup a pád ORM:
 
-![Gartner Hype Cycle](https://en.wikipedia.org/wiki/Gartner_hype_cycle#/media/File:Gartner_Hype_Cycle.svg)
-![Gartner Hype Cycle](https://en.wikipedia.org/wiki/Gartner_hype_cycle#/media/File:Hype-Cycle-General.png)
+[Gartner Hype Cycle](https://en.wikipedia.org/wiki/Gartner_hype_cycle)
 
-[1996: Object-Relational DBMSs, The next great wave](https://archive.org/details/objectrelational0000ston)
+1996: [Object-Relational DBMSs, The next great wave](https://www.amazon.com/Object-Relational-DBMSs-Kaufmann-Management-Systems/dp/1558603972)
+
+2006: [Object-Relational Mapping is the Vietnam of Computer Science](https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)
+
+Možnosti:
+
+- vzdát se objektů
+- vzdát se tabulek
+- mapovat ručně
+- akceptovat (a žít v hranicích) omezení ORM
+- zahrnout RDBS do programovacího jazyka
+- zahrnout RDBS do frameworks (Java: RowSet, TableModel, DataSet)
 
 ### ORM software:
 
@@ -292,12 +304,110 @@ Abstrakce nad různými RDBS, místo psaní SQL: výrazy v Pythonu
 
 Práce s třídami a objekty v Pythonu: interakce s tabulkami v databázi.
 
-SQLAlchemy
-
 - podporuje řadu databází a adaptérů
 - netěsná abstrakce: `text()`
 - každá třída je reprezentovaná tabulou
 
-* [definice dat](./alchemy/mydb.py)
-* [zápis](./alchemy/write.py)
-* [čtení](./alchemy/read.py)
+```python
+!pip install SQLAlchemy
+```
+
+Definice dat:
+
+```python
+from sqlalchemy import Column, ForeignKey, CheckConstraint
+from sqlalchemy import String, Integer, Date
+from sqlalchemy.orm import declarative_base, relationship
+
+from datetime import date
+
+# The base of all mapped classes
+Base = declarative_base()
+
+class City(Base):
+  __tablename__ = 'acity'
+  id       = Column(String(2), primary_key=True)
+  name     = Column(String(80), nullable=False)
+  aweather = relationship("Weather", back_populates="acity")
+
+class Weather(Base):
+  __tablename__ = 'aweather'
+  city_id = Column(String(2), ForeignKey('acity.id'), primary_key=True)
+  temp_lo = Column(Integer, nullable=False)
+  temp_hi = Column(Integer, nullable=False)
+  date    = Column(Date, primary_key=True, default=date.today)
+  acity   = relationship("City", back_populates="aweather")
+  __table_args__ = (
+    CheckConstraint('temp_lo <= temp_hi', name='check_temp'),
+  )
+
+DB_URL = 'sqlite:///example.db'
+# DB_URL = 'postgresql+psycopg://app-user:app-pwd@localhost:5432/app'
+```
+
+Zápis:
+
+```python
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from mydb import *
+
+engine = create_engine(DB_URL, echo=True)
+
+# create tables
+Base.metadata.create_all(engine)
+
+# database connection
+Session = sessionmaker(bind=engine)
+
+with Session() as session:
+  import random
+  from datetime import date, timedelta
+
+  for id1 in range(ord('a'), ord('d') + 1):
+    for id2 in range(ord('a'), ord('d') + 1):
+      city_id = chr(id1) + chr(id2)
+      city_name = 'City ' + city_id.upper()
+      city = City(id=city_id, name=city_name)
+      session.add(city) # !!!
+
+      for days in range(7):
+        temp_lo = random.randint(0, 30)
+        temp_hi = temp_lo + random.randint(0, 10)
+        weather_date = date.today() - timedelta(days=days)
+        weather = Weather(city_id=city_id, temp_lo=temp_lo, temp_hi=temp_hi, date=weather_date)
+        session.add(weather) # !!!
+
+  session.commit() # !!!
+```
+
+Čtení:
+
+```python
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from mydb import *
+
+engine = create_engine(DB_URL, echo=True)
+
+# database connection
+Session = sessionmaker(bind=engine)
+
+with Session() as session:
+  for city in session.query(City.id,City.name).all():
+    # print(city)
+    print(f"City: {city.name}")
+
+  # for city in session.query(City).filter_by(id='at').all():
+  #   # print(city)
+  #   # print(city.__dict__)
+  #   print(f"City: {city.name}")
+  #   for weather in city.aweather: # !!!
+  #     print(weather)
+  #     print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
+
+  # for city in session.query(City).all():
+  #   print(f"City: {city.name}")
+  #   for weather in city.aweather: # !!!
+  #     print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
+```
