@@ -1,15 +1,19 @@
 # 11 – ORM: Object-Relational Mapping
 
+Databáze:
+
 1. Relační databáze, RDB(M)S
 2. Objektové databáze, O(O)DB(M)S
 3. Objektově-relační mapování, ORM
 
-## Relační databáze, RDB(M)S
+## 1. Relační databáze, RDB(M)S
 
 - Relational Database Management Systems
 - orientované na tabulky a relace
 
 ### Pre-SQL
+
+Programovací jazyk s integrovanou databází.
 
 - dBase III
 
@@ -70,13 +74,10 @@ where c.id = 'at' and w.date >= '2004-11-01';
 | Join        | id      |         |         |                 |
 | Sort        |         |         |         | ✔               |
 
-## Objektové databáze, ODB(M)S
+## 2. Objektové databáze, ODB(M)S
 
 - Object(-Oriented) Database Management Systems
-- persistence pro objekty v OO jazycích: Perl, Ruby, Smalltalk, Python ...
-- transparetní persistence objektů
-
-### NOSQL
+- _transparetní_ persistence pro objekty v OO jazycích: Perl, Ruby, Smalltalk, Python ...
 
 - 1966 – předchůdce: [MUMPS](https://en.wikipedia.org/wiki/MUMPS), vestavěná databáze
 - ~1990 – první generace:
@@ -110,7 +111,7 @@ public:
     }
 };
 
-void write_data(os_database *db) {
+void writeDb(os_database *db) {
     os_transaction::begin(os_transaction::update);
 
     auto city = new(db, "city") os_collection<City*>();
@@ -120,13 +121,15 @@ void write_data(os_database *db) {
     os_transaction::commit();
 }
 
-void read_data(os_database *db) {
+void readDb(os_database *db) {
     os_transaction::begin(os_transaction::read_only);
 
     auto city = db->lookup<os_collection<City*>>("city");
     for (auto it = city->begin(); it != city->end(); ++it) {
         (*it)->print();
+        ...
     }
+
     os_transaction::commit();
 }
 
@@ -233,38 +236,38 @@ def readDb():
 readDb()
 ```
 
-## Objektově-relační mapování
+## 3. Objektově-relační mapování
 
 - Konverze dat mezi objektovým a relačním modelem.
 - OO programovací jazyk 🠈 ORM 🠊 RDBS
-- Nejlepší z obou světů: flexibilní objektový model a výkonná relační databáze.
+- To nejlepší z obou světů: flexibilní objektový model a výkonná relační databáze.
 
 ORM je abstrakce nad SQL, která umožňuje pracovat s databází pomocí objektů.
 
 ### Proč ORM?:
 
-- Relační databáze zvítězily. Jsou výkonné, optimalizované, široce používané.
+- Relační databáze zvítězily. Jsou výkonné, optimalizované, široce používané. Jazyky jsou OO: je zde _impedance mismatch_.
 
 ### Kritika:
 
 - Netěsná, děravá (leaky) abstrakce.
-- Slabý výkon, vinou nadbytečných dotazů.
-- Složitost. Není to jednoduché synchronizovat objekty v paměti / tabulky v databázi.
-- není lehké se je naučit.
-- těžký problém
-- impedance mismatch: objects/tuples, objects hold references to other objects, tuples do not
-- nejde ani tak o mapování objektů a relací, ale o mapování dat v paměti a dat v databázi
-- změna na jedné straně - jak ji přenést na druhou stranu?
-- netriviální
-- očekáváme od nich hodně
-- ORM má tendenci se atát bloatware
+- Nízký výkon, vinou nadbytečných dotazů.
+- Složitost. Není jednoduché synchronizovat objekty v paměti / tabulky v databázi, je to těžký, netriviální problém. ORM není lehké se naučit.
+- Impedance mismatch: objects (OO) / tuples (RDBS).
+- Problematické není tolik mapování objektů a relací, ale mapování dat v paměti a dat v databázi. Změna na jedné straně - jak ji přenést na druhou stranu?
+- Velká očekávání, disiluze.
+- ORM má tendenci být bloatware.
 
 ### Kacířské názory:
 
-- je lépe si ubalit svoji vlastní ORM
-- pro změny v databázi je lepší použít SQL
-- ORM pro čtení, SQL pro zápis
-- zvolit podle aplikace, pokud vaše data jsou více-méně relační, nepoužívejte ORM, pokud jsou grafová, ano
+- Je lépe si "ubalit svoje vlastní" ORM.
+- Alespoň ro změny v databázi je lepší použít SQL: tedy ORM pro čtení, SQL pro zápis.
+
+### Závěr:
+
+- Zvolit podle aplikace:
+  - pokud jsou data jsou více-méně relační, nepoužívejte ORM, pokud jsou grafová, ano
+  - pokud je aplikace jednoduchá, nepoužívejte ORM, pokud je složitá, a je potřeba podporovat vícero RDBS, ano
 
 ### Vzestup a pád ORM:
 
@@ -277,52 +280,24 @@ ORM je abstrakce nad SQL, která umožňuje pracovat s databází pomocí objekt
 
 (Seznam)[https://en.wikipedia.org/wiki/List_of_object%E2%80%93relational_mapping_software]
 
-## SQLObject
-
 ## SQLAlchemy
 
-Install:
+Dvě části: Core a ORM
 
-```python
-pip install sqlalchemy
-```
+#### Core
 
-Database connection:
+Abstrakce nad různými RDBS, místo psaní SQL: výrazy v Pythonu
 
-```python
-from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
+#### ORM (Object Relational Mapper)
 
-# Database connection
-engine = create_engine('postgresql://joe:joepwd@localhost/app')
-Base = declarative_base()
-Session = sessionmaker(bind=engine)
-session = Session()
+Práce s třídami a objekty v Pythonu: interakce s tabulkami v databázi.
 
-# Define the City model
-class City(Base):
-    __tablename__ = 'city'
-    id = Column(String(2), primary_key=True)
-    name = Column(String, nullable=False)
+SQLAlchemy
 
-    def __repr__(self):
-        return f"<City(id='{self.id}', name='{self.name}')>"
+- podporuje řadu databází a adaptérů
+- netěsná abstrakce: `text()`
+- každá třída je reprezentovaná tabulou
 
-# Define the Weather model
-class Weather(Base):
-    __tablename__ = 'weather'
-    id = Column(Integer, primary_key=True)
-    city_id = Column(String(2), ForeignKey('city.id'), nullable=False)
-    temp_lo = Column(Integer, nullable=False)
-    temp_hi = Column(Integer, nullable=False)
-    date = Column(Date, nullable=False)
-
-    city = relationship("City")
-
-    def __repr__(self):
-        return f"<Weather(city_id='{self.city_id}', temp_lo={self.temp_lo}, temp_hi={self.temp_hi}, date={self.date})>"
-
-# Create the tables
-Base.metadata.create_all(engine)
-```
+* [definice dat](./alchemy/mydb.py)
+* [zápis](./alchemy/write.py)
+* [čtení](./alchemy/read.py)

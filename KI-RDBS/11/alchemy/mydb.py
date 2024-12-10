@@ -4,6 +4,7 @@ from sqlalchemy.orm import declarative_base, relationship
 
 from datetime import date
 
+# The base of all mapped classes
 Base = declarative_base()
 
 class City(Base):
@@ -14,7 +15,6 @@ class City(Base):
 
 class Weather(Base):
   __tablename__ = 'aweather'
-
   city_id = Column(String(2), ForeignKey('acity.id'), primary_key=True)
   temp_lo = Column(Integer, nullable=False)
   temp_hi = Column(Integer, nullable=False)
@@ -24,3 +24,5 @@ class Weather(Base):
     CheckConstraint('temp_lo <= temp_hi', name='check_temp'),
   )
 
+DB_URL = 'sqlite:///example.db'
+# DB_URL = 'postgresql+psycopg://app-user:app-pwd@localhost:5432/app'
