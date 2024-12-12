@@ -8,21 +8,21 @@ from datetime import date
 Base = declarative_base()
 
 class City(Base):
-  __tablename__ = 'acity'
+  __tablename__ = 'city2'
   id       = Column(String(2), primary_key=True)
   name     = Column(String(80), nullable=False)
-  aweather = relationship("Weather", back_populates="acity")
+  weather2 = relationship("Weather", back_populates="city2")
 
 class Weather(Base):
-  __tablename__ = 'aweather'
-  city_id = Column(String(2), ForeignKey('acity.id'), primary_key=True)
+  __tablename__ = 'weather2'
+  city_id = Column(String(2), ForeignKey('city2.id'), primary_key=True)
   temp_lo = Column(Integer, nullable=False)
   temp_hi = Column(Integer, nullable=False)
   date    = Column(Date, primary_key=True, default=date.today)
-  acity   = relationship("City", back_populates="aweather")
+  city2   = relationship("City", back_populates="weather2")
   __table_args__ = (
     CheckConstraint('temp_lo <= temp_hi', name='check_temp'),
   )
 
-DB_URL = 'sqlite:///example.db'
-# DB_URL = 'postgresql+psycopg://app-user:app-pwd@localhost:5432/app'
+# DB_URL = 'sqlite:///example.db'
+DB_URL = 'postgresql+psycopg://app-user:app-pwd@localhost:5432/app'

@@ -86,6 +86,97 @@ where c.id = 'at' and w.date >= '2004-11-01';
   - [ZODB](https://en.wikipedia.org/wiki/Zope_Object_Database), Python
 - ~2000 – druhá generace
 
+#### MUMPS
+
+```
+; MUMPS Code for Managing Patient Data
+
+START ;
+    ; Add patients to the global variable
+    D ADDPATIENT("John Doe", 45, "Hypertension")
+    D ADDPATIENT("Jane Smith", 38, "Diabetes")
+    D ADDPATIENT("Alice Brown", 29, "Asthma")
+
+    ; Display patient data
+    D SHOWPATIENTS
+
+    ; Update a patient's diagnosis
+    D UPDATEPATIENT("John Doe", "Hypertension", "High Blood Pressure")
+
+    ; Display updated patient data
+    D SHOWPATIENTS
+
+    Q
+
+ADDPATIENT(NAME, AGE, DIAGNOSIS) ;
+    ; Adds patient information to the global variable ^PATIENTS
+    ; Global format: ^PATIENTS(PatientID, "Name") = Name
+    ;               ^PATIENTS(PatientID, "Age") = Age
+    ;               ^PATIENTS(PatientID, "Diagnosis") = Diagnosis
+    NEW PATIENTID,GLOBAL
+    SET PATIENTID=$O(^PATIENTS(""),-1)+1  ; Create a new unique patient ID
+    SET ^PATIENTS(PATIENTID,"Name")=NAME
+    SET ^PATIENTS(PATIENTID,"Age")=AGE
+    SET ^PATIENTS(PATIENTID,"Diagnosis")=DIAGNOSIS
+    QUIT
+
+SHOWPATIENTS ;
+    ; Display all patient information
+    NEW PATIENTID
+    SET PATIENTID=0
+    FOR  SET PATIENTID=$O(^PATIENTS(PATIENTID)) QUIT:PATIENTID=""  DO
+    . WRITE !,"Patient ID: ",PATIENTID
+    . WRITE !,"Name: ",^PATIENTS(PATIENTID,"Name")
+    . WRITE !,"Age: ",^PATIENTS(PATIENTID,"Age")
+    . WRITE !,"Diagnosis: ",^PATIENTS(PATIENTID,"Diagnosis")
+    . WRITE !!
+    QUIT
+
+UPDATEPATIENT(NAME, OLD_DIAGNOSIS, NEW_DIAGNOSIS) ;
+    ; Updates the diagnosis of a specific patient
+    NEW PATIENTID
+    SET PATIENTID=0
+    FOR  SET PATIENTID=$O(^PATIENTS(PATIENTID)) QUIT:PATIENTID=""  DO
+    . IF ^PATIENTS(PATIENTID,"Name")=NAME, ^PATIENTS(PATIENTID,"Diagnosis")=OLD_DIAGNOSIS DO
+    . . SET ^PATIENTS(PATIENTID,"Diagnosis")=NEW_DIAGNOSIS
+    . . WRITE "Updated ", NAME, "'s diagnosis to: ", NEW_DIAGNOSIS, !
+    QUIT
+```
+
+```yaml
+Patient ID: 1
+Name: John Doe
+Age: 45
+Diagnosis: Hypertension
+
+Patient ID: 2
+Name: Jane Smith
+Age: 38
+Diagnosis: Diabetes
+
+Patient ID: 3
+Name: Alice Brown
+Age: 29
+Diagnosis: Asthma
+
+Updated John Doe's diagnosis to: High Blood Pressure
+
+Patient ID: 1
+Name: John Doe
+Age: 45
+Diagnosis: High Blood Pressure
+
+Patient ID: 2
+Name: Jane Smith
+Age: 38
+Diagnosis: Diabetes
+
+Patient ID: 3
+Name: Alice Brown
+Age: 29
+Diagnosis: Asthma
+```
+
 #### ObjectStore
 
 ```cpp
@@ -160,6 +251,7 @@ from persistent import Persistent
 
 class City(Persistent):
   def __init__(self, id, name):
+    # no need to call: super().__init__()
     self.id = id
     self.name = name
 
@@ -253,23 +345,16 @@ ORM je abstrakce nad SQL, která umožňuje pracovat s databází pomocí objekt
 
 - Netěsná, děravá (leaky) abstrakce.
 - Nízký výkon, vinou nadbytečných dotazů.
-- Složitost. Není jednoduché synchronizovat objekty v paměti / tabulky v databázi, je to těžký, netriviální problém. ORM není lehké se naučit.
-- Impedance mismatch: objects (OO) / tuples (RDBS).
-- Problematické není ani tolik mapování objektů a relací, ale mapování dat v paměti a dat v databázi. Změna na jedné straně - jak ji přenést na druhou stranu?
+- Složitost. Není jednoduché synchronizovat objekty v paměti / tabulky v databázi. Je to těžký, netriviální problém. ORM není lehké se naučit.
+- _Impedance mismatch_ – objects (OO) / tuples (RDBS) – nelze snadno překonat.
+- Problematické není ani tolik mapování objektů a relací, ale mapování dat v paměti a dat v databázi. Změna na jedné straně - jak a kdy ji přenést na druhou stranu? (Multi-processing)
 - Velká očekávání, částečná disiluze.
-- ORM má tendenci se stát bloatwarem.
+- ORM a aplikace používající ORM mají tendenci se stát bloatwarem.
 
 ### Kacířské názory:
 
 - Je lépe si "ubalit svoje vlastní" ORM.
 - Alespoň pro změny v databázi je lepší použít SQL: tedy ORM pro čtení, SQL pro zápis.
-
-### Závěr:
-
-- Zvolit podle aplikace:
-  - pokud jsou data jsou více-méně relační, nepoužívejte ORM, pokud jsou grafová, ano
-  - pokud je aplikace jednoduchá, nepoužívejte ORM, pokud je složitá, ano
-  - pokud je potřeba podporovat vícero RDMBS, asi ano
 
 ### Vzestup a pád ORM:
 
@@ -279,18 +364,25 @@ ORM je abstrakce nad SQL, která umožňuje pracovat s databází pomocí objekt
 
 2006: [Object-Relational Mapping is the Vietnam of Computer Science](https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)
 
-Možnosti:
+### Použít ORM nebo ne?
+
+- Zvolit podle aplikace:
+  - pokud jsou data jsou více-méně relační, použijte RDBS
+  - pokud jsou data objektová/grafová
+    - pokud jsou jednoduchá, použijte RDBS a vlastní mapování
+    - pokud jsou složitá, použijte ODBS/ORM
+  - pokud je potřeba podporovat vícero RDMBS, použijte ORM jako SQL abstrakci
+
+To jest, zvažte možnosti:
 
 - vzdát se objektů
 - vzdát se tabulek
 - mapovat ručně
 - akceptovat (a žít v hranicích) omezení ORM
-- zahrnout RDBS do programovacího jazyka
-- zahrnout RDBS do frameworks (Java: RowSet, TableModel, DataSet)
 
 ### ORM software:
 
-(Seznam)[https://en.wikipedia.org/wiki/List_of_object%E2%80%93relational_mapping_software]
+[Seznam](https://en.wikipedia.org/wiki/List_of_object%E2%80%93relational_mapping_software)
 
 ## SQLAlchemy
 
@@ -305,14 +397,14 @@ Abstrakce nad různými RDBS, místo psaní SQL: výrazy v Pythonu
 Práce s třídami a objekty v Pythonu: interakce s tabulkami v databázi.
 
 - podporuje řadu databází a adaptérů
-- netěsná abstrakce: `text()`
 - každá třída je reprezentovaná tabulou
+- netěsná abstrakce: `text()`
 
 ```python
 !pip install SQLAlchemy
 ```
 
-Definice dat:
+Definice dat, Core:
 
 ```python
 from sqlalchemy import Column, ForeignKey, CheckConstraint
@@ -325,18 +417,18 @@ from datetime import date
 Base = declarative_base()
 
 class City(Base):
-  __tablename__ = 'acity'
+  __tablename__ = 'city2'
   id       = Column(String(2), primary_key=True)
   name     = Column(String(80), nullable=False)
-  aweather = relationship("Weather", back_populates="acity")
+  weather2 = relationship("Weather", back_populates="city2")
 
 class Weather(Base):
-  __tablename__ = 'aweather'
-  city_id = Column(String(2), ForeignKey('acity.id'), primary_key=True)
+  __tablename__ = 'weather2'
+  city_id = Column(String(2), ForeignKey('city2.id'), primary_key=True)
   temp_lo = Column(Integer, nullable=False)
   temp_hi = Column(Integer, nullable=False)
   date    = Column(Date, primary_key=True, default=date.today)
-  acity   = relationship("City", back_populates="aweather")
+  city2   = relationship("City", back_populates="weather2")
   __table_args__ = (
     CheckConstraint('temp_lo <= temp_hi', name='check_temp'),
   )
@@ -368,6 +460,7 @@ with Session() as session:
     for id2 in range(ord('a'), ord('d') + 1):
       city_id = chr(id1) + chr(id2)
       city_name = 'City ' + city_id.upper()
+
       city = City(id=city_id, name=city_name)
       session.add(city) # !!!
 
@@ -375,6 +468,7 @@ with Session() as session:
         temp_lo = random.randint(0, 30)
         temp_hi = temp_lo + random.randint(0, 10)
         weather_date = date.today() - timedelta(days=days)
+
         weather = Weather(city_id=city_id, temp_lo=temp_lo, temp_hi=temp_hi, date=weather_date)
         session.add(weather) # !!!
 
@@ -398,16 +492,16 @@ with Session() as session:
     # print(city)
     print(f"City: {city.name}")
 
-  # for city in session.query(City).filter_by(id='at').all():
-  #   # print(city)
-  #   # print(city.__dict__)
-  #   print(f"City: {city.name}")
-  #   for weather in city.aweather: # !!!
-  #     print(weather)
-  #     print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
+  for city in session.query(City).filter_by(id='at').all():
+    # print(city)
+    # print(city.__dict__)
+    print(f"City: {city.name}")
+    for weather in city.weather2: # !!!
+      print(weather)
+      print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
 
-  # for city in session.query(City).all():
-  #   print(f"City: {city.name}")
-  #   for weather in city.aweather: # !!!
-  #     print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
+  for city in session.query(City).all():
+    print(f"City: {city.name}")
+    for weather in city.weather2: # !!!
+      print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
 ```
