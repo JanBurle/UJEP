@@ -45,21 +45,21 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 
 ## 5. Cvičení
 
-| Týden | Název                     | Zadání               | Řešení             |
-| ----: | :------------------------ | :------------------- | :----------------- |
-|    01 | Úvod, čísla               | [01](./01/README.md) |                    |
-|    02 | Vstup a výstup, podmínky  | [02](./02/README.md) | [02](./02/code.md) |
-|    03 | `if-else`, `for`, `while` | [03](./03/README.md) | [03](./03/code.md) |
-|    04 | Cykly, indexace, řetězce  | [04](./04/README.md) | [04](./04/code.md) |
-|    05 | Cykly a úlohy...          | [05](./05/README.md) | [05](./05/code.md) |
-|    06 | Cykly a želva             | [06](./06/README.md) | [06](./06/code.md) |
-|    07 | Kolekce: seznamy          | [07](./07/README.md) | [07](./07/code.md) |
-|    08 | Operace nad seznamy       | [08](./08/README.md) | [08](./08/code.md) |
-|    09 | Řešení úloh               | [09](./09/README.md) |                    |
-|    10 | Řešení úloh               | [10](./10/README.md) |                    |
-|    11 | Práce se soubory          | [11](./11/README.md) |                    |
-|    12 |                           |                      |                    |
-|    13 |                           |                      |                    |
+| Týden | Název                     | Zadání               | Řešení                                                                           |
+| ----: | :------------------------ | :------------------- | :------------------------------------------------------------------------------- |
+|    01 | Úvod, čísla               | [01](./01/README.md) |                                                                                  |
+|    02 | Vstup a výstup, podmínky  | [02](./02/README.md) | [02](./02/code.md)                                                               |
+|    03 | `if-else`, `for`, `while` | [03](./03/README.md) | [03](./03/code.md)                                                               |
+|    04 | Cykly, indexace, řetězce  | [04](./04/README.md) | [04](./04/code.md)                                                               |
+|    05 | Cykly a úlohy...          | [05](./05/README.md) | [05](./05/code.md)                                                               |
+|    06 | Cykly a želva             | [06](./06/README.md) | [06](./06/code.md)                                                               |
+|    07 | Kolekce: seznamy          | [07](./07/README.md) | [07](./07/code.md)                                                               |
+|    08 | Operace nad seznamy       | [08](./08/README.md) | [08](./08/code.md)                                                               |
+|    09 | Řešení úloh               | [09](./09/README.md) |                                                                                  |
+|    10 | Řešení úloh               | [10](./10/README.md) |                                                                                  |
+|    11 | Práce se soubory          | [11](./11/README.md) | [kód](https://colab.research.google.com/drive/1cKdaOy9MP73cUfmC6yFMccTQFDny2UdI) |
+|    12 |                           |                      |                                                                                  |
+|    13 |                           |                      |                                                                                  |
 
 ## 6. Umět != odpovědět, umět == dělat
 
