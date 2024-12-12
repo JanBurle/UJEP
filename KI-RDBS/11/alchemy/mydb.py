@@ -9,9 +9,9 @@ Base = declarative_base()
 
 class City(Base):
   __tablename__ = 'city2'
-  id       = Column(String(2), primary_key=True)
-  name     = Column(String(80), nullable=False)
-  weather2 = relationship("Weather", back_populates="city2")
+  id      = Column(String(2), primary_key=True)
+  name    = Column(String(80), nullable=False)
+  weather = relationship("Weather", back_populates="city")
 
 class Weather(Base):
   __tablename__ = 'weather2'
@@ -19,7 +19,7 @@ class Weather(Base):
   temp_lo = Column(Integer, nullable=False)
   temp_hi = Column(Integer, nullable=False)
   date    = Column(Date, primary_key=True, default=date.today)
-  city2   = relationship("City", back_populates="weather2")
+  city    = relationship("City", back_populates="weather")
   __table_args__ = (
     CheckConstraint('temp_lo <= temp_hi', name='check_temp'),
   )

@@ -418,17 +418,17 @@ Base = declarative_base()
 
 class City(Base):
   __tablename__ = 'city2'
-  id       = Column(String(2), primary_key=True)
-  name     = Column(String(80), nullable=False)
-  weather2 = relationship("Weather", back_populates="city2")
+  id      = Column(String(2), primary_key=True)
+  name    = Column(String(80), nullable=False)
+  weather = relationship("Weather", back_populates="city")
 
 class Weather(Base):
   __tablename__ = 'weather2'
-  city_id = Column(String(2), ForeignKey('city2.id'), primary_key=True)
+  city_id = Column(String(2), ForeignKey('city2.id'), primary_key=True) # leaky
   temp_lo = Column(Integer, nullable=False)
   temp_hi = Column(Integer, nullable=False)
   date    = Column(Date, primary_key=True, default=date.today)
-  city2   = relationship("City", back_populates="weather2")
+  city    = relationship("City", back_populates="weather")
   __table_args__ = (
     CheckConstraint('temp_lo <= temp_hi', name='check_temp'),
   )
@@ -460,7 +460,6 @@ with Session() as session:
     for id2 in range(ord('a'), ord('d') + 1):
       city_id = chr(id1) + chr(id2)
       city_name = 'City ' + city_id.upper()
-
       city = City(id=city_id, name=city_name)
       session.add(city) # !!!
 
@@ -468,7 +467,6 @@ with Session() as session:
         temp_lo = random.randint(0, 30)
         temp_hi = temp_lo + random.randint(0, 10)
         weather_date = date.today() - timedelta(days=days)
-
         weather = Weather(city_id=city_id, temp_lo=temp_lo, temp_hi=temp_hi, date=weather_date)
         session.add(weather) # !!!
 
@@ -489,19 +487,19 @@ Session = sessionmaker(bind=engine)
 
 with Session() as session:
   for city in session.query(City.id,City.name).all():
-    # print(city)
+    print(city)
     print(f"City: {city.name}")
 
   for city in session.query(City).filter_by(id='at').all():
-    # print(city)
-    # print(city.__dict__)
+    print(city)
+    print(city.__dict__)
     print(f"City: {city.name}")
-    for weather in city.weather2: # !!!
+    for weather in city.weather: # !!!
       print(weather)
       print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
 
   for city in session.query(City).all():
     print(f"City: {city.name}")
-    for weather in city.weather2: # !!!
+    for weather in city.weather: # !!!
       print(f"  Weather: {weather.date}, Low: {weather.temp_lo}, High: {weather.temp_hi}")
 ```
