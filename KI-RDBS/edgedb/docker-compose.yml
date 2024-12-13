@@ -1,14 +1,28 @@
 services:
   edgedb:
-    image: edgedb/edgedb
     container_name: edgedb
-    ports:
-      - "5656:5656"
-    volumes:
-      - edgedb_data:/var/lib/edgedb/data
+    image: edgedb/edgedb
     environment:
       EDGEDB_SERVER_SECURITY: insecure_dev_mode
-      EDGEDB_SERVER_INSTANCE_NAME: edgedb
+      EDGEDB_SERVER_BACKEND_DSN: postgresql://pguser:pgpassword@postgres:5432/postgres_db
+    ports:
+      - 5656:5656
+    depends_on:
+      - postgres
+    # networks:
+    #   - edgedb_network
 
-volumes:
-  edgedb_data:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: postgres_db
+    ports:
+      - 5432:5432
+    # networks:
+    #   - edgedb_network
+# networks:
+#   edgedb_network:
+#     driver: bridge

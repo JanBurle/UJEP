@@ -1,0 +1,55 @@
+services:
+  # Apache, PHP, Python, edgedb cli
+  server:
+    container_name: appserver
+    build:
+      dockerfile: ./AppServer
+    volumes:
+      - ./www:/var/www/html # Apache
+      - ./app:/home/app # src
+    ports:
+      - 8080:80 # Apache
+    depends_on:
+      - postgres
+      - edgedb
+
+  edgedb:
+    container_name: edgedb
+    image: edgedb/edgedb
+    environment:
+      EDGEDB_SERVER_BACKEND_DSN: postgresql://edgedb-user:edgedb-pwd@postgres:5432/edgedb"
+      EDGEDB_SERVER_SECURITY: insecure_dev_mode
+    ports:
+      - 5656:5656
+    depends_on:
+      - postgres
+    networks:
+      - edgedb_network
+
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: edgedb
+      POSTGRES_USER: edgedb-user
+      POSTGRES_PASSWORD: edgedb-pwd
+    volumes:
+      # - ./init/postgres:/docker-entrypoint-initdb.d/
+      - postgres_data:/var/lib/postgres/data/
+    networks:
+      - edgedb_network
+
+  cloudbeaver:
+    container_name: cloudbeaver
+    image: dbeaver/cloudbeaver:latest
+    ports:
+      - 8081:8978
+    depends_on:
+      - postgres
+
+networks:
+  edgedb_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

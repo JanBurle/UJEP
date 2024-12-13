@@ -3,7 +3,7 @@ FROM php:8-apache
 
 RUN <<EOF
 apt update
-# apt upgrade -y
+apt upgrade -y
 
 # tools and utilities
 apt install -y mc vim less

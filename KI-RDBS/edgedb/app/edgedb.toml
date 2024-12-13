@@ -1,0 +1,57 @@
+[server]
+bind = "0.0.0.0" # Bind to all available IPs for external access
+bind = "0.0.0.0" # Bind to all available IPs for external access
+
+# Port for the EdgeDB server to listen on (default: 5656)
+port = 5656
+
+# The default user authentication mode (default: 'default')
+# 'default' = use internal server authentication (via credentials in 'users' section below)
+# 'insecure-dev-mode' = allow insecure development mode for easier debugging
+security = "insecure-dev-mode"
+
+# Directory where the database files will be stored (default: inside the data directory)
+data_dir = "/var/lib/edgedb"
+
+# Connection limits
+max_connections = 100 # Maximum number of connections to the server
+
+# Logging settings
+[log]
+# Set the minimum log level
+level = "info"
+
+# Enable detailed query logging for debugging
+query_log = true
+
+# User management section (define admin users and their passwords)
+[users]
+[[users.admin]]
+# Default superuser for EdgeDB
+name = "admin"
+password = "mysecretpassword" # Password for the admin user
+
+[[users.readonly]]
+# Read-only user with limited privileges
+name = "readonly"
+password = "readonlypassword"
+
+# Database settings
+[databases]
+[[databases.default]]
+# The default database for connections
+name = "edgedb"
+
+# Storage engine settings
+[storage]
+# The type of storage engine to use (currently only 'rocksdb' is supported)
+engine = "rocksdb"
+
+# Specify the backup directory for automatic backups
+backup_dir = "/var/backups/edgedb"
+
+# Example for TLS/SSL settings if using secure connections
+[ssl]
+cert_file = "/etc/ssl/certs/edgedb.crt"
+enabled = true
+key_file = "/etc/ssl/private/edgedb.key"
