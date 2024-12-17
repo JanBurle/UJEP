@@ -38,7 +38,7 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 9.  [Kurzory, výjimky](./09/README.md)
 10. [Programování klientů: Python/PHP](./10/README.md)
 11. [ORM: SQLAlchemy et al.](./11/README.md)
-12. edgedb
+12. ORM ➤➤➤ edgedb
 13. Různé
 
 ## 5. Literatura:
