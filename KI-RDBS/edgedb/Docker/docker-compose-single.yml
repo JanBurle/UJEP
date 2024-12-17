@@ -1,0 +1,16 @@
+services:
+  edgedb:
+    image: edgedb/edgedb:latest
+    container_name: edgedb
+    environment:
+      - EDGEDB_SERVER_PASSWORD=edgedb-pwd
+      - EDGEDB_SERVER_SECURITY=insecure_dev_mode
+    ports:
+      - '5656:5656' # Default Edgedb port
+    volumes:
+      - edgedb_data:/var/lib/edgedb # Persists database data
+    restart: always
+
+volumes:
+  edgedb_data:
+    driver: local
