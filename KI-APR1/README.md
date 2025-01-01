@@ -59,7 +59,7 @@ Námět seminární práce, která nahrazuje zápočtový test, si vymýšlí st
 |    10 | Řešení úloh               | [10](./10/README.md) |                                                                                  |
 |    11 | Práce se soubory          | [11](./11/README.md) | [kód](https://colab.research.google.com/drive/1cKdaOy9MP73cUfmC6yFMccTQFDny2UdI) |
 |    12 | Řešení zápočtových úloh   |                      |                                                                                  |
-|    13 |                           |                      |                                                                                  |
+|    13 | JSON APIs                 |                      | [kód](https://colab.research.google.com/drive/1UAyAirA4YvDRCteXWeyelk4pmHTXx9IJ) |
 
 ## 6. Umět != odpovědět, umět == dělat
 
