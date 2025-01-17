@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pexeso</title>
+    </head>
+
+    <body>
+        <style>
+            td {
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                border: thin solid gray;
+            }
+
+            td.sel {
+                background: gray;
+            }
+        </style>
+
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        Count: <span>0</span>
+
+        <script>
+            let d = document
+
+            let tds = d.querySelectorAll('td')
+            let span = d.querySelector('span')
+
+            tds.countThem = () => {
+                let count = 0
+                tds.forEach((el) => el.classList.contains('sel') && ++count)
+                span.innerHTML = count
+            }
+
+            tds.forEach(
+                (el) =>
+                    (el.onclick = () => {
+                        el.classList.toggle('sel')
+                        tds.countThem()
+                    }),
+            )
+        </script>
+    </body>
+</html>

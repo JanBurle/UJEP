@@ -1,0 +1,45 @@
+services:
+  # Apache, PHP, Python
+  webserver:
+    container_name: webserver
+    build:
+      dockerfile: ./WebServer
+    volumes:
+      # Apache document folder: HTML, PHP etc.
+      - ./www:/var/www/html
+      # Python scripts (user: app)
+      - ./src:/home/app/src
+    ports:
+      # Apache
+      - 8080:80
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      # database, superuser + password
+      POSTGRES_DB: app
+      POSTGRES_USER: app-user
+      POSTGRES_PASSWORD: app-pwd
+    ports:
+      # open for local client (bad practice?)
+      - 5432:5432
+    volumes:
+      # database initialization - mounted outside folder
+      - ./init:/docker-entrypoint-initdb.d/
+      # database data
+      - postgres_data:/var/lib/postgres/data/
+
+  # optional container:
+  cloudbeaver:
+    container_name: cloudbeaver
+    image: dbeaver/cloudbeaver:latest
+    ports:
+      - 8081:8978
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Where goes JS?</title>
+
+        <!-- interní JS -->
+        <script>
+            console.log('<script> in <head>')
+        </script>
+
+        <!-- externí JS -->
+        <script src="js/sync.js"></script>
+
+        <!-- externí JS, asynchronně -->
+        <script async src="js/async.js"></script>
+    </head>
+
+    <body>
+        <!-- interní JS -->
+        <script>
+            console.log('<script> in <body>')
+        </script>
+    </body>
+</html>

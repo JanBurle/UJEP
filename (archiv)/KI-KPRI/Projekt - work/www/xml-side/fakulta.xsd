@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="Email"> 
+    <xs:restriction base="xs:string"> 
+      <xs:pattern value="[^@]+@[^\.]+\..+"/> 
+    </xs:restriction> 
+  </xs:simpleType> 
+
+  <xs:complexType name="Clovek">
+    <xs:sequence>
+      <xs:element name="jmeno" type="xs:string"/>
+      <xs:element name="prijmeni" type="xs:string"/>
+      <xs:element name="telefon" type="xs:string"/>
+      <xs:element name="email" type="Email"/>
+      <xs:element name="tituly" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="titul" type="xs:string" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Zamestnanec">
+    <xs:complexContent>
+      <xs:extension base="Clovek">
+        <xs:sequence>
+          <xs:element name="pozice" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Katedra">
+    <xs:sequence>
+      <xs:element name="nazev" type="xs:string"/>
+      <xs:element name="vedouci" type="Clovek"/>
+      <xs:element name="zamestnanci">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="zamestnanec" type="Zamestnanec" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="predmety">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="predmet" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="nazev" type="xs:string"/>
+                  <xs:element name="popis" type="xs:string"/>
+                </xs:sequence>
+                <xs:attribute name="zkratka" type="xs:string"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="Fakulta">
+    <xs:sequence>
+      <xs:element name="nazev" type="xs:string"/>
+      <xs:element name="dekan" type="Clovek"/>
+      <xs:element name="katedry">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="katedra" type="Katedra" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:element name="fakulty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fakulta" type="Fakulta" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<studium>
+  <rocnik cislo="1">
+    <semestr nazev="zimni">
+      <predmet katedra="KI" kod="PGL1">
+        <nazev>Programování I</nazev>
+        <vyucujici>Mgr. Jiří Fišer, Ph.D.</vyucujici>
+        <kredity>5</kredity>
+        <status>A</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
+      <predmet katedra="KI" kod="MUL">
+        <nazev>Multimédia</nazev>
+        <vyucujici>Ing. Pavel Kuba</vyucujici>
+        <kredity>3</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
+      <predmet katedra="KF" kod="NIE">
+        <nazev>Nietzsche</nazev>
+        <vyucujici>Ing. Pavel Kuba</vyucujici>
+        <kredity>3</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
+      <predmet katedra="KI" kod="UDI">
+        <nazev>Úvod do informatiky</nazev>
+        <vyucujici>Mgr. Jindřich Jelínek</vyucujici>
+        <kredity>3</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
+    </semestr>
+    <semestr nazev="letni">
+      <predmet katedra="KI" kod="ADS">
+        <nazev>Algoritmy a datové struktury</nazev>
+        <vyucujici>Mgr. Květuše Sýkorová</vyucujici>
+        <kredity>2</kredity>
+        <status>A</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
+    </semestr>
+  </rocnik>
+  <rocnik cislo="2">
+    <semestr nazev="zimni">
+      <predmet katedra="KI" kod="NME">
+        <nazev>Numerické metody</nazev>
+        <vyucujici>doc. RNDr. Jiří Felcman, CSc.</vyucujici>
+        <kredity>5</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
+      <predmet katedra="KI" kod="SPL">
+        <nazev>Speciální programovací jazyky</nazev>
+        <vyucujici>Mgr. Jiří Fišer, Ph.D.</vyucujici>
+        <kredity>2</kredity>
+        <status>A</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
+    </semestr>
+    <semestr nazev="letni">
+      <predmet katedra="KI" kod="OSY">
+        <nazev>Operační systémy</nazev>
+        <vyucujici>Mgr. Jiří Fišer, Ph.D.</vyucujici>
+        <kredity>5</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
+    </semestr>
+  </rocnik>
+  <rocnik cislo="3">
+    <semestr nazev="zimni">
+      <predmet katedra="KI" kod="DSY">
+        <nazev>Databázové systémy</nazev>
+        <vyucujici>Mgr. Květuše Sýkorová</vyucujici>
+        <kredity>5</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
+      <predmet katedra="KI" kod="PGR">
+        <nazev>Počítačová grafika</nazev>
+        <vyucujici>Ing. Pavel Kuba</vyucujici>
+        <kredity>5</kredity>
+        <status>A</status>
+        <zakonceni>Zkouška</zakonceni>
+      </predmet>
+      <predmet katedra="KI" kod="0138">
+        <nazev>Administrace linuxových systémů</nazev>
+        <vyucujici>Ing. Roman Vaibar Ph.D.</vyucujici>
+        <kredity>3</kredity>
+        <status>B</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
+    </semestr>
+    <semestr nazev="letni">
+      <predmet katedra="KI" kod="MRL">
+        <nazev>Značkovací jazyky</nazev>
+        <vyucujici>doc. RNDr. Viktor Mashkov, DrSc.</vyucujici>
+        <kredity>2</kredity>
+        <status>A</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
+      <predmet katedra="KI" kod="PDSY">
+        <nazev>Praktikum z databázových systémů</nazev>
+        <vyucujici>Mgr. Květuše Sýkorová</vyucujici>
+        <kredity>2</kredity>
+        <status>A</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
+      <predmet katedra="KI" kod="PPGR">
+        <nazev>Praktikum z počítačové grafiky</nazev>
+        <vyucujici>Mgr. et Bc. Kamil Balín</vyucujici>
+        <kredity>2</kredity>
+        <status>A</status>
+        <zakonceni>Zápočet</zakonceni>
+      </predmet>
+    </semestr>
+  </rocnik>
+</studium>
