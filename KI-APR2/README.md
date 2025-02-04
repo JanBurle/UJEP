@@ -45,10 +45,10 @@ Podmínky získání zápočtu jsou stejné jako pro [APR1](../KI-APR1/README.md
 |     4 | Třídící sekvenční algoritmy         | třídící algoritmy                                                           |
 |     5 | Rekurzivní sekvenční algoritmy      | třídící algoritmy s rekurzí                                                 |
 |     6 | Spojové struktury                   | spojové seznamy, stromy, grafy                                              |
-|     7 | Algoritmy nad spojovými strukturami | lorem ipsum                                                                 |
-|     8 | Algoritmy nad spojovými strukturami | lorem ipsum                                                                 |
+|     7 | Algoritmy nad spojovými strukturami |                                                                             |
+|     8 | Algoritmy nad spojovými strukturami |                                                                             |
 |     9 | Zadání seminární práce              | zadání, návrh, implementace                                                 |
 |    10 | Rozhraní a iterátory                | rozhraní, protokol, iterátory, rozhraní základních kolekcí                  |
-|    11 | Implementace vlastní kolekce        | lorem ipsum                                                                 |
+|    11 | Implementace vlastní kolekce        |                                                                             |
 |    12 | Dědičnost                           | výhody a nevýhody dědičnosti                                                |
-|    13 | Praktické využití dědičnosti        | lorem ipsum                                                                 |
+|    13 | Praktické využití dědičnosti        |                                                                             |
