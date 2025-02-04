@@ -1,10 +1,10 @@
-# Algoritmizace a programování I[^1]
+# Algoritmizace a programování 1[^1]
 
 [^1]: Zde uvedené materiály jsou z velké části založeny na repozitáři [Ing. P. Beránka](https://github.com/pavelberanek91/UJEP/tree/main/APR1).
 
 ## 1. Informace o předmětu
 
-Úvodní kurz _Algoritmizace a programování I_ (první část) se zaměřuje na základy procedurálního a objektově orientovaného programování. Pozornost je soustředěna především na objektovou reprezentaci základních kolekcí (řetězců, seznamů, slovníků) a na elementární algoritmy nad nimi. Kurz je určen pro začátečníky — nepředpokládají se předchozí znalosti programování. Výuka — přednášky a cvičení — bude probíhat v jazyce Python.
+Úvodní kurz _Algoritmizace a programování 1_ (první část) se zaměřuje na základy procedurálního a objektově orientovaného programování. Pozornost je soustředěna především na objektovou reprezentaci základních kolekcí (řetězců, seznamů, slovníků) a na elementární algoritmy nad nimi. Kurz je určen pro začátečníky — nepředpokládají se předchozí znalosti programování. Výuka — přednášky a cvičení — bude probíhat v jazyce Python.
 
 Přednáší: [Mgr. Jiří Fišer, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni/jiri-fiser/)
 
