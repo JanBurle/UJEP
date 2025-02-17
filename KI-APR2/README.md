@@ -39,16 +39,16 @@ Podmínky získání zápočtu jsou podobné jako pro [APR1](../KI-APR1/README.m
 
 | Týden | Název                               | Obsah                                                                       |
 | ----: | :---------------------------------- | :-------------------------------------------------------------------------- |
-|     1 | [OOP](./01.md)                      | třída, konstruktor, datové členy, metody, zapouzdření                       |
-|     2 | ADT                                 | abstraktní datové typy, implementace fronty, zásobníku, setříděného seznamu |
-|     3 | Vyhledávací sekvenční algoritmy     | algoritmy nad sekvenčními kolekcemi, vyhledávací algoritmy                  |
-|     4 | Třídící sekvenční algoritmy         | třídící algoritmy                                                           |
-|     5 | Rekurzivní sekvenční algoritmy      | třídící algoritmy s rekurzí                                                 |
-|     6 | Spojové struktury                   | spojové seznamy, stromy, grafy                                              |
-|     7 | Algoritmy nad spojovými strukturami |                                                                             |
+|     1 | [Zápočtové úlohy APR1](./01.md)     | různá řešení zápočtových úloh                                               |
+|     2 | OOP                                 | třída, konstruktor, datové členy, metody, zapouzdření                       |
+|     3 | ADT                                 | abstraktní datové typy, implementace fronty, zásobníku, setříděného seznamu |
+|     4 | Vyhledávací sekvenční algoritmy     | algoritmy nad sekvenčními kolekcemi, vyhledávací algoritmy                  |
+|     5 | Třídící sekvenční algoritmy         | třídící algoritmy                                                           |
+|     6 | Rekurzivní sekvenční algoritmy      | třídící algoritmy s rekurzí                                                 |
+|     7 | Spojové struktury                   | spojové seznamy, stromy, grafy                                              |
 |     8 | Algoritmy nad spojovými strukturami |                                                                             |
-|     9 | Zadání seminární práce              | zadání, návrh, implementace                                                 |
-|    10 | Rozhraní a iterátory                | rozhraní, protokol, iterátory, rozhraní základních kolekcí                  |
-|    11 | Implementace vlastní kolekce        |                                                                             |
-|    12 | Dědičnost                           | výhody a nevýhody dědičnosti                                                |
-|    13 | Praktické využití dědičnosti        |                                                                             |
+|     9 | Algoritmy nad spojovými strukturami |                                                                             |
+|    10 | Zadání seminární práce              | zadání, návrh, implementace                                                 |
+|    11 | Rozhraní a iterátory                | rozhraní, protokol, iterátory, rozhraní základních kolekcí                  |
+|    12 | Implementace vlastní kolekce        |                                                                             |
+|    13 | Dědičnost                           | výhody a nevýhody dědičnosti                                                |
