@@ -1,0 +1,32 @@
+services:
+  # PHP + Apache
+  php-apache:
+    container_name: project-vps
+    build:
+      dockerfile: Dockerfiles/PhpApache
+    depends_on:
+      - database
+    volumes:
+      - ./www:/var/www # webserver root
+    ports:
+      - 8000:80 # vnitřní port 80 -> port 8000
+
+  # database
+  database:
+    build:
+      dockerfile: Dockerfiles/Database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: univerzita
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: heslo
+    # ports:
+    #   - 9906:3306
+
+  # database administration
+  adminer:
+    image: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+    ports:
+      - 8080:8080 # port 8080

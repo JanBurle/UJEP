@@ -1,0 +1,30 @@
+# základní docker obraz s PHP a Apache
+FROM php:8-apache
+
+# aktualizace systému
+RUN apt update && apt upgrade -y
+# nástroje
+RUN apt install -y mc vim nano less
+
+# instalace rozšíření pro XSL procesor
+RUN apt install -y libxslt1-dev
+RUN docker-php-ext-install xsl
+
+# instalace rozšíření mysqli pro komunikaci s mysql databází
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+# PHP debugger
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
+RUN cat <<EOF >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+xdebug.mode=debug
+xdebug.idekey=docker
+xdebug.start_with_request=yes
+xdebug.client_host=host.docker.internal
+xdebug.client_port=9003
+EOF
+
+# host name
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# Apache modules
+RUN a2enmod rewrite headers
