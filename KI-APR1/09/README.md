@@ -504,7 +504,7 @@ for w in range(img.width):
 display(img)
 ```
 
-### 🎓 Studenti a zapsané kurzy
+### 🎓 Studenti a zapsané kursy
 
 Mějme seznamy studentů, kteří chodí na příslušný předmět.
 

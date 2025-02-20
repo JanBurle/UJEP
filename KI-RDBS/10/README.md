@@ -11,7 +11,7 @@ PostgreSQL adapter for Python.
   - execute()
 - konvertuje data mezi pg/python
 - parametrizace dotazů (prevence sql injection)
-- podporuje kurzory
+- podporuje kursory
 
 ```
 pip install psycopg

@@ -14,7 +14,7 @@ Shlédněte úvodní motivační video [Python za 100 sekund](https://www.youtub
 
 [^1]: [Rossum's Universal Robots](https://cs.wikipedia.org/wiki/R.U.R) ㋡
 
-Hlavním cílem kurzu je učit se algoritmizaci, což je schopnost řešit problémy pomocí [algoritmů](https://cs.wikipedia.org/wiki/Algoritmus) vyjádřených pomocí _strojových příkazů_. Strojem se rozumí počítací stroj, krátce počítač, který _provádí_ (_vykonává_) strojové příkazy.
+Hlavním cílem kursu je učit se algoritmizaci, což je schopnost řešit problémy pomocí [algoritmů](https://cs.wikipedia.org/wiki/Algoritmus) vyjádřených pomocí _strojových příkazů_. Strojem se rozumí počítací stroj, krátce počítač, který _provádí_ (_vykonává_) strojové příkazy.
 
 Strojové příkazy (program počítacího stroje) se zapisují v _programovacím jazyce_. Programy jsou kolekce (nebo sekvence) příkazů. Příkazy budeme zapisovat v Pythonu.
 

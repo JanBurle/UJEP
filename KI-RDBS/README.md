@@ -1,10 +1,10 @@
 # Relační databázové systémy
 
-Rozšiřující kurz SQL a relačních databázových systémů (RDBS), zaměřený na moderní rysy SQL a správu databází.
+Rozšiřující kurs SQL a relačních databázových systémů (RDBS), zaměřený na moderní rysy SQL a správu databází.
 
 ## 1. Informace o předmětu
 
-Kurz navazuje na _Úvod do relačních databází_, který rozšiřuje v několika směrech:
+Kurs navazuje na _Úvod do relačních databází_, který rozšiřuje v několika směrech:
 
 - pokročilé používání SQL dotazů
 - optimalizace SQL dotazů s využitím znalostí vnitřní funkce DBS
@@ -35,7 +35,7 @@ Zkouška bude ústní. Při zkoušce bude student řešit krátké úlohy a disk
 6.  [Rekurzivní CTE a representace hierarchií](./06/README.md)
 7.  [Uložené funkce a procedury](./07/README.md)
 8.  [Uživatelé, procedury, triggery](./08/README.md)
-9.  [Kurzory, výjimky](./09/README.md)
+9.  [Kursory, výjimky](./09/README.md)
 10. [Programování klientů: Python/PHP](./10/README.md)
 11. [ORM: SQLAlchemy et al.](./11/README.md)
 12. ORM ➤➤➤ edgedb

@@ -4,8 +4,7 @@
 
 ## 1. Informace o předmětu
 
-Kurz dává studentům teoretické znalosti XML technologii a praktické zkušenosti práce s XML soubory. V kurzu se uvažuje návrh webových aplikací (včetně aplikací pracujících s databázemi). V průběhu kurzu bude vytvořeno a zpracováno několik souborů XML. Uvažují se otázky extrakce informací z obsahu XML a její zobrazení na webových stránkách (s použitím css, xslt, js a php). V průběhu kurzu budou vytvořeny webové aplikace, jejichž návrh zahrnuje také témata jako AJAX a práce s XML soubory, cookies a sezení, objektově orientované programování, grafiku, práce
-s databázemi.
+Kurs dává studentům teoretické znalosti XML technologii a praktické zkušenosti práce s XML soubory. V kursu se uvažuje návrh webových aplikací (včetně aplikací pracujících s databázemi). V průběhu kursu bude vytvořeno a zpracováno několik souborů XML. Uvažují se otázky extrakce informací z obsahu XML a její zobrazení na webových stránkách (s použitím css, xslt, js a php). V průběhu kursu budou vytvořeny webové aplikace, jejichž návrh zahrnuje také témata jako AJAX a práce s XML soubory, cookies a sezení, objektově orientované programování, grafiku, práce s databázemi.
 
 Přednáší: [doc. RNDr. Viktor Maškov, DrSc.](https://ki.ujep.cz/cs/personalni-slozeni/viktor-maskov/)
 
@@ -17,9 +16,9 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 
 ## 3. Podmínky získání zápočtu:
 
-1. Student musí uchovávat výsledky práce z každého cvičení pro doložení při zápočtu.
+1. Student uchovávat výsledky práce z každého cvičení pro doložení při zápočtu.
 1. Student vypracuje seminární práci (vytvoří webový projekt).
-1. Student při zápočtu předvede svůj webový projekt (fungující 😉) a je schopný ukázat, že projektu a v něm použitým technologiím rozumí.
+1. Student při zápočtu předvede svůj webový projekt (fungující 😉) a je schopný ukázat, že svému projektu a v něm použitým technologiím rozumí.
 
 ## 4. Obsah přednášek
 
@@ -31,18 +30,17 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 
 ## 5. Cvičení
 
-| Týden | Název           |
-| ----: | :-------------- |
-|     1 | [Úvod](./01.md) |
-|     2 |                 |
-|     3 |                 |
-|     4 |                 |
-|     5 |                 |
-|     6 |                 |
-|     7 |                 |
-|     8 |                 |
-|     9 |                 |
-|    10 |                 |
-|    11 |                 |
-|    12 |                 |
-|    13 |                 |
+| Týden | Zadání        | Obsah                                        |
+| ----: | :------------ | -------------------------------------------- |
+|     1 | [01](./01.md) | Úvod, vývojové prostředí, HTML, CSS, JS, PHP |
+|     2 |               | PHP, JavaScript                              |
+|     3 |               | XML, DTD, XML Schema, XSLT                   |
+|     4 |               | XML model, SimpleXML                         |
+|     5 |               | XML, XSD, XSL, XPath                         |
+|     6 |               | PHP, XPath, PHP + XML DOM                    |
+|     7 |               | JavaScript (TypeScript) + HTML DOM           |
+|     8 |               | JavaScript + XML DOM                         |
+|     9 |               | Frameworks                                   |
+|    10 |               | Frameworks                                   |
+|    11 |               | Práce na projektu                            |
+|    12 |               | Prezentace                                   |

@@ -1,6 +1,6 @@
-# 09 – Kurzory, výjimky
+# 09 – Kursory, výjimky
 
-## Kurzory
+## Kursory
 
 Dotazy vrací potencielně mnoho řádků:
 
@@ -8,7 +8,7 @@ Dotazy vrací potencielně mnoho řádků:
 select * from city;
 ```
 
-Místo přenosu celého výsledku (tabulky) lze otevřít kurzor ("portál", jakýsi stav dotazu) a záznamy načítat postupně pomocí FETCH (a také te přeskakovat pomocí MOVE).
+Místo přenosu celého výsledku (tabulky) lze otevřít kursor ("portál", jakýsi stav dotazu) a záznamy načítat postupně pomocí FETCH (a také te přeskakovat pomocí MOVE).
 
 ```sql
 -- neefektivní kód, jen jako příklad
@@ -51,7 +51,7 @@ Otázky: Víme, jaké chyby mohou nastat? Lze chybovou situaci ignorovat?
 
 ### SQL: výjimky
 
-Ukázková funkce s kurzorem:
+Ukázková funkce s kursorem:
 
 ```sql
 -- průměrná teplota v městech s vybranými id
@@ -107,7 +107,7 @@ curs3 CURSOR (key integer) FOR SELECT * FROM tenk1 WHERE
 unique1 = key; -- wit a parametrized query
 ```
 
-Otevřít kurzor - vytvoří _portál_ (status dotazu)
+Otevřít kursor - vytvoří _portál_ (status dotazu)
 
 ```
 OPEN unbound_cursorvar [ [ NO ] SCROLL ] FOR query;
@@ -130,7 +130,7 @@ key := 42;
 OPEN curs4;
 ```
 
-Práce s kurzorem:
+Práce s kursorem:
 
 Next row:
 
@@ -180,7 +180,7 @@ CLOSE curs1;
 
 (automaticky na konci transakce)
 
-Kurzory z funkce:
+Kursory z funkce:
 
 ```sql
 CREATE TABLE test (col text);
@@ -213,7 +213,7 @@ FETCH ALL IN "<unnamed cursor 1>";
 COMMIT;
 ```
 
-Procházení kurzorem
+Procházení kursorem
 
 ```
 [ <<label>> ]

@@ -4,7 +4,7 @@
 - Indexy + optimalizace dotazů
 - Role a uživatelé
 - Funkce a procedury
-- Kurzory
+- Kursory
 - Chyby, výjimky a jejich obsluha
 - Triggery
 - Zamykání tabulek
@@ -160,7 +160,7 @@ revoke reader from joe;
 
 [Uložené funkce a procedury](./07/README.md)
 
-## Kurzory
+## Kursory
 
 Dotazy vrací potencielně mnoho řádků:
 
@@ -168,7 +168,7 @@ Dotazy vrací potencielně mnoho řádků:
 select * from city;
 ```
 
-Místo přenosu celého výsledku (tabulky) lze otevřít kurzor ("portál", jakýsi stav dotazu) a záznamy načítat postupně pomocí FETCH (a také te přeskakovat pomocí MOVE).
+Místo přenosu celého výsledku (tabulky) lze otevřít kursor ("portál", jakýsi stav dotazu) a záznamy načítat postupně pomocí FETCH (a také te přeskakovat pomocí MOVE).
 
 ```sql
 -- neefektivní kód, jen jako příklad
@@ -201,7 +201,7 @@ select count_cities('Ci%Z');
 
 ## Chyby, výjimky a jejich obsluha
 
-Další ukázková funkce s kurzorem:
+Další ukázková funkce s kursorem:
 
 ```sql
 -- průměrná teplota v městech s vybranými id

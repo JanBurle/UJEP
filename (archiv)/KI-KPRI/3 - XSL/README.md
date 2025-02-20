@@ -15,31 +15,34 @@ Validitu různých formátů lze ověřit např. [W3 validátorem](https://valid
 ### Příklad: validace webové stránky
 
 Pomocí W3 validátoru ověřte validitu zdrojového kódu webových stránek, např.
-* bing.com
-* ujep.cz
-* HTML kód našeho validátoru
+
+- bing.com
+- ujep.cz
+- HTML kód našeho validátoru
 
 ## Zobrazení XML v prohlížeči
 
 Pokud nemá XML soubor příslušnou informaci o stylu, zobrazí jej prohlížeč jako stromovou strukturu.
 
-* [`3 - cdcatalog.php`](../Projekt%20-%20work/www/html/3%20-%20cdcatalog.php)
+- [`3 - cdcatalog.php`](../Projekt%20-%20work/www/html/3%20-%20cdcatalog.php)
 
 ## CSS – kaskádové styly
 
-Kaskádové styly nejsou součástí našeho kurzu, měli byste však mít o nich základní znalosti.
+Kaskádové styly nejsou součástí našeho kursu, měli byste však mít o nich základní znalosti.
 
 Připomeňte si, jak [CSS přidat do HTML](https://www.w3schools.com/html/html_css.asp) (tři způsoby: inline, vnitřní, vnější). Plný manuál CSS je např. [zde](https://www.w3schools.com/cssref). Připomeňte si, mimo jiné, [CSS selektory](https://www.w3schools.com/cssref/css_selectors.php).
 
 ### Příklad: ostylujte XML pomocí CSS
 
 Do XML souboru přidejte řádku specifikace CSS stylu:
+
 ```xml
 <?xml-stylesheet type="text/css" href="....css"?>
 ```
+
 V příslušném adresáři vytvořte odpovídající CSS soubor(y).
 
-* [`cdcatalog.css`](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.css)
+- [`cdcatalog.css`](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.css)
 
 Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 
@@ -52,43 +55,48 @@ Pro navigaci v XML dokumentu v XSLT slouží jeho komponent [XPath](https://www.
 ## Převod XML do HTML pomocí XSLT
 
 Ukázka transformace z XML na HTML je na stránce [XSLT Transformation](https://w3schools.com/xml/xsl_transformation.asp). Transformace se zde provádí pomocí XSLT elementů:
-* [xsl:template](https://www.w3schools.com/xml/xsl_templates.asp) (šablona)
-* [xsl:for-each](https://www.w3schools.com/xml/xsl_for_each.asp)
-* [xsl:value-of](https://www.w3schools.com/xml/xsl_value_of.asp)
+
+- [xsl:template](https://www.w3schools.com/xml/xsl_templates.asp) (šablona)
+- [xsl:for-each](https://www.w3schools.com/xml/xsl_for_each.asp)
+- [xsl:value-of](https://www.w3schools.com/xml/xsl_value_of.asp)
 
 ### Podmínky a cykly v XSLT
 
 V jazyce XSLT lze využívat podmínky a cykly, které řídí, na které uzly a jak aplikovat pravidla v šabloně, pomocí následujících elementů:
-* [xsl:value-of](https://w3schools.com/xml/xsl_value_of.asp) - získá data z jednoho uzlu a využije je při transformaci
-* [xsl:for-each](https://w3schools.com/xml/xsl_for_each.asp) - realizace cyklu v XSLT z vyfiltrovaného výběru XML uzlů
-* [xsl:sort](https://w3schools.com/xml/xsl_sort.asp) - slouží pro seřazení uzlů
-* [xsl:if](https://w3schools.com/xml/xsl_if.asp) - slouží jako realizace podmínky v XSLT
-* [xsl:choose](https://w3schools.com/xml/xsl_choose.asp) - realizace přepínače v XSLT
+
+- [xsl:value-of](https://w3schools.com/xml/xsl_value_of.asp) - získá data z jednoho uzlu a využije je při transformaci
+- [xsl:for-each](https://w3schools.com/xml/xsl_for_each.asp) - realizace cyklu v XSLT z vyfiltrovaného výběru XML uzlů
+- [xsl:sort](https://w3schools.com/xml/xsl_sort.asp) - slouží pro seřazení uzlů
+- [xsl:if](https://w3schools.com/xml/xsl_if.asp) - slouží jako realizace podmínky v XSLT
+- [xsl:choose](https://w3schools.com/xml/xsl_choose.asp) - realizace přepínače v XSLT
 
 ### Využití XPath v XSLT
 
 Jazykem XPath volíte v XSL uzly nebo množiny uzlů. Projděte si [XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp):
-* uzly
-* syntax (+ predikáty)
-* osy
-* operátory
-* příklady
+
+- uzly
+- syntax (+ predikáty)
+- osy
+- operátory
+- příklady
 
 ### Zobrazení XML pomocí XSLT
 
 XML můžeme transformovat pomocí XSLT třemi způsoby:
-* ponechat transformaci na prohlížeči
-* transformovat na serveru (server-side) pomocí např. PHP
-* transformovat na klientu (client-side) pomocí např. JavaScriptu
+
+- ponechat transformaci na prohlížeči
+- transformovat na serveru (server-side) pomocí např. PHP
+- transformovat na klientu (client-side) pomocí např. JavaScriptu
 
 ### Příklad: zobrazení XML/XSL v prohlížeči
 
 Do XML souboru (student, fakulta) přidejte řádku specifikace XSL stylu:
+
 ```xml
 <?xml-stylesheet type="text/xsl" href="....xsl"?>
 ```
 
-* [`cdcatalog.xsl`](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.xsl)
+- [`cdcatalog.xsl`](../Projekt%20-%20work/www/html/xml/CDs/cdcatalog.xsl)
 
 Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 
@@ -97,19 +105,23 @@ Zobrazte výsledek. Styl upravte a doplňte podle potřeby.
 Proces je popsán v [XSLT - On the Server](https://www.w3schools.com/xml/xsl_server.asp).
 
 Jednoduchý PHP skript, který provede transformaci, je zde:
-* [`4 - cdcatalog.php`](../Projekt%20-%20work/www/html/4%20-%20cdcatalog.php)
+
+- [`4 - cdcatalog.php`](../Projekt%20-%20work/www/html/4%20-%20cdcatalog.php)
 
 ## Transformace XML/XSL client-side
 
-* [`5 - cdcatalog.php`](../Projekt%20-%20work/www/html/5%20-%20cdcatalog.php)
+- [`5 - cdcatalog.php`](../Projekt%20-%20work/www/html/5%20-%20cdcatalog.php)
 
 ## Otázka: jak do XSL výstupu vložit mezeru?
+
 Nezlomitelnou mezeru (non-breakable space):
-* Jako desítkový UTF kód: `&#160;`
-* Jako šestnáctkový UTF kód: `&#xA0;`
+
+- Jako desítkový UTF kód: `&#160;`
+- Jako šestnáctkový UTF kód: `&#xA0;`
 
 Obyčejnou mezeru také takto:
-* `<xsl:text> </xsl:text>`
+
+- `<xsl:text> </xsl:text>`
 
 ## Sémantické (významové) HTML
 
@@ -125,9 +137,9 @@ HTML5 také umožňuje vlastní, [uživatelské značky](https://www.tutsinsider
 
 V praxi se pro stylování používají moderních CSS knihovny (frameworks). V úvahu přicházejí, mimo jiné:
 
-* [W3 CSS](https://www.w3schools.com/w3css)
-* [Tailwind](https://tailwindcss.com/) ([wiki](https://en.wikipedia.org/wiki/Tailwind_CSS))
-* [Bootstrap](https://getbootstrap.com/) ([wiki](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)))
+- [W3 CSS](https://www.w3schools.com/w3css)
+- [Tailwind](https://tailwindcss.com/) ([wiki](https://en.wikipedia.org/wiki/Tailwind_CSS))
+- [Bootstrap](https://getbootstrap.com/) ([wiki](<https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)>))
 
 Najdete v nich mnoho připravených, vyladěných stylů a jejich kombinací pro vytváření responsivních webových stránek a aplikací.
 

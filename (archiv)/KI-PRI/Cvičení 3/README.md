@@ -5,18 +5,19 @@ Dnes budete zobrazovat validní XML v prohlížeči.
 ### Předchozí cvičení:
 
 V předchozím cvičení:
-* Jste se seznámili s některými XML službami a formáty, jmenovitě se RSS.
-* Well-formed XML jste dále validovali pomocí XSD.
-* K vámi navrženým a vytvořeným XML souborům s daty o studentech a fakultách jste vytvořili validační DTD a XSD soubory.
-* Upravili jste svůj webový server (v Dockeru) tak, aby validoval XML pomocí XSD.
+
+- Jste se seznámili s některými XML službami a formáty, jmenovitě se RSS.
+- Well-formed XML jste dále validovali pomocí XSD.
+- K vámi navrženým a vytvořeným XML souborům s daty o studentech a fakultách jste vytvořili validační DTD a XSD soubory.
+- Upravili jste svůj webový server (v Dockeru) tak, aby validoval XML pomocí XSD.
 
 ### Obsah tohoto cvičení:
 
-* Rychlá rekapitulace HTML, XHTML a CSS.
-* Úprava webového serveru tak, aby zpřístupnil soubory z adresáře.
-* Zobrazení XML v prohlížeči, ostylované pomocí CSS.
-* Seznámení se XSLT a XPath.
-* Zobrazení XML v prohlížeči pomocí XSLT, a to buď v klientu (client-side, v prohlížeči), nebo na serveru (server-side).
+- Rychlá rekapitulace HTML, XHTML a CSS.
+- Úprava webového serveru tak, aby zpřístupnil soubory z adresáře.
+- Zobrazení XML v prohlížeči, ostylované pomocí CSS.
+- Seznámení se XSLT a XPath.
+- Zobrazení XML v prohlížeči pomocí XSLT, a to buď v klientu (client-side, v prohlížeči), nebo na serveru (server-side).
 
 ## HTML, XHTML
 
@@ -33,20 +34,22 @@ Validitu různých formátů lze ověřit např. [W3 validátorem](https://valid
 ### ❖ Úkol 3.1: validace webové stránky
 
 Pomocí W3 validátoru ověřte validitu zdrojového kódu webových stránek, např.
-* bing.com
-* ujep.cz
-* webovou stránku vašeho projektu z minulého cvičení
+
+- bing.com
+- ujep.cz
+- webovou stránku vašeho projektu z minulého cvičení
 
 ### ❖ Úkol 3.2: úprava webového serveru
 
-Upravte svůj webový server tak, aby zpřístupnil soubory z disku. Inspirujte se přiloženým Projektem 3 (ten je ale dnes záměrně *nedokončený*).
+Upravte svůj webový server tak, aby zpřístupnil soubory z disku. Inspirujte se přiloženým Projektem 3 (ten je ale dnes záměrně _nedokončený_).
 
 V Projektu 3 jsou jako příklad soubory `cdcatalog.*`. Vy si ale do svého projektu vložte svoje soubory `student.*` a `fakulta.*`.
 
-* Přesuňte adresář `xml` do `php/src`, aby soubory v něm byly přístupné přes URL.
-* Přidejte do webové stránky odkazy na vaše XML soubory a ověřte, že se zobrazují v prohlížeči.
+- Přesuňte adresář `xml` do `php/src`, aby soubory v něm byly přístupné přes URL.
+- Přidejte do webové stránky odkazy na vaše XML soubory a ověřte, že se zobrazují v prohlížeči.
 
 Soubor `cdcatalog.xml` (příklad, zkrácen):
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
@@ -63,12 +66,14 @@ Soubor `cdcatalog.xml` (příklad, zkrácen):
 ```
 
 Do souboru `index.php` přidejte odkaz, příklad:
+
 ```php
   <a href='xml/cdcatalog.xml'>CD Catalog</a>
 ```
+
 ## CSS – kaskádové styly
 
-Kaskádové styly nejsou součástí našeho kurzu, měli byste však mít o nich základní znalosti.
+Kaskádové styly nejsou součástí našeho kursu, měli byste však mít o nich základní znalosti.
 
 Připomeňte si, jak [CSS přidat do HTML](https://www.w3schools.com/html/html_css.asp) (tři způsoby: inline, vnitřní, vnější). Plný manuál CSS je např. [zde](https://www.w3schools.com/cssref). Připomeňte si, mimo jiné, [CSS selektory](https://www.w3schools.com/cssref/css_selectors.php).
 
@@ -79,12 +84,15 @@ Bez informace o stylu zobrazí prohlížeč stromovou strukturu XML souboru.
 ### ❖ Úkol 3.3: ostylujte váš XML pomocí CSS
 
 Do XML souboru (student, fakulta) přidejte řádku specifikace CSS stylu:
+
 ```xml
 <?xml-stylesheet type="text/css" href="....css"?>
 ```
+
 V příslušném adresáři vytvořte odpovídající CSS soubor(y).
 
 Příklad: `cdcatalog.css`
+
 ```css
 catalog {
   display: table;
@@ -96,12 +104,17 @@ cd {
   display: table-row;
 }
 
-title, artist, country, company, price, year {
+title,
+artist,
+country,
+company,
+price,
+year {
   display: table-cell;
 }
 
 price::before {
-  content: '$';
+  content: "$";
 }
 ```
 
@@ -116,11 +129,13 @@ Pro navigaci v XML dokumentu v XSLT slouží jeho komponent [XPath](https://www.
 ## Převod XML do HTML pomocí XSLT
 
 Ukázka transformace z XML na HTML je na stránce [XSLT Transformation](https://w3schools.com/xml/xsl_transformation.asp). Transformace se zde provádí pomocí XSLT elementů:
-* [xsl:template](https://www.w3schools.com/xml/xsl_templates.asp) (šablona)
-* [xsl:for-each](https://www.w3schools.com/xml/xsl_for_each.asp)
-* [xsl:value-of](https://www.w3schools.com/xml/xsl_value_of.asp)
+
+- [xsl:template](https://www.w3schools.com/xml/xsl_templates.asp) (šablona)
+- [xsl:for-each](https://www.w3schools.com/xml/xsl_for_each.asp)
+- [xsl:value-of](https://www.w3schools.com/xml/xsl_value_of.asp)
 
 Příklad: `cdcatalog.xsl`
+
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template match="/">
@@ -148,34 +163,39 @@ Příklad: `cdcatalog.xsl`
   </xsl:template>
 </xsl:stylesheet>
 ```
+
 ### Podmínky a cykly v XSLT
 
 V jazyce XSLT lze využívat podmínky a cykly, které řídí, na které uzly a jak aplikovat pravidla v šabloně, pomocí následujících elementů:
-* [xsl:value-of](https://w3schools.com/xml/xsl_value_of.asp) - získá data z jednoho uzlu a využije je při transformaci
-* [xsl:for-each](https://w3schools.com/xml/xsl_for_each.asp) - realizace cyklu v XSLT z vyfiltrovaného výběru XML uzlů
-* [xsl:sort](https://w3schools.com/xml/xsl_sort.asp) - slouží pro seřazení uzlů
-* [xsl:if](https://w3schools.com/xml/xsl_if.asp) - slouží jako realizace podmínky v XSLT
-* [xsl:choose](https://w3schools.com/xml/xsl_choose.asp) - realizace přepínače v XSLT
+
+- [xsl:value-of](https://w3schools.com/xml/xsl_value_of.asp) - získá data z jednoho uzlu a využije je při transformaci
+- [xsl:for-each](https://w3schools.com/xml/xsl_for_each.asp) - realizace cyklu v XSLT z vyfiltrovaného výběru XML uzlů
+- [xsl:sort](https://w3schools.com/xml/xsl_sort.asp) - slouží pro seřazení uzlů
+- [xsl:if](https://w3schools.com/xml/xsl_if.asp) - slouží jako realizace podmínky v XSLT
+- [xsl:choose](https://w3schools.com/xml/xsl_choose.asp) - realizace přepínače v XSLT
 
 ### Využití XPath v XSLT
 
 Jazykem XPath volíte v XSL uzly nebo množiny uzlů. Projděte si [XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp):
-* uzly
-* syntax (+ predikáty)
-* osy
-* operátory
-* příklady
+
+- uzly
+- syntax (+ predikáty)
+- osy
+- operátory
+- příklady
 
 ## Zobrazení XML pomocí XSLT
 
 XML můžeme transformovat pomocí XSLT třemi způsoby:
-* ponechat transformaci na prohlížeči
-* transformovat na serveru (server-side) pomocí např. PHP
-* transformovat na klientu (client-side) pomocí např. JavaScriptu
+
+- ponechat transformaci na prohlížeči
+- transformovat na serveru (server-side) pomocí např. PHP
+- transformovat na klientu (client-side) pomocí např. JavaScriptu
 
 ### ❖ Úkol 3.4: zobrazení XML/XSL v prohlížeči
 
 Do XML souboru (student, fakulta) přidejte řádku specifikace XSL stylu:
+
 ```xml
 <?xml-stylesheet type="text/xsl" href="....xsl"?>
 ```
@@ -183,6 +203,7 @@ Do XML souboru (student, fakulta) přidejte řádku specifikace XSL stylu:
 V příslušném adresáři vytvořte odpovídající XSL soubor(y).
 
 Příklad: `cdcatalog.xsl`
+
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template match="/">
@@ -252,13 +273,15 @@ Natvrdo zakódovaný (hard-coded) odkaz na XML soubor (`xml/cdcatalog.xml`) nahr
 Pokuste se svůj PHP skript upravit tak, aby, např., dal na výběr k zobrazení XML soubory, které nalezne na disku (nápověda: `glob(...)`). Zde máte volnou ruku – proveďte jakékoli úpravy, které uznáte za vhodné.
 
 ## Transformace XML/XSL client-side
+
 Poněkud zastaralý příklad je [XSLT - On the Client](https://www.w3schools.com/xml/xsl_client.asp). Moderní kód by
-* se již neměl muset starat o IE11 :)
-* mohl použít [JavaScript Fetch API](https://www.w3schools.com/js/js_api_fetch.asp).
+
+- se již neměl muset starat o IE11 :)
+- mohl použít [JavaScript Fetch API](https://www.w3schools.com/js/js_api_fetch.asp).
 
 Jestliže jste se vším dnes již hotovi, vyzkoušejte si client-side transformation.
 
 ## Videa týdne
 
-[Video 1](https://www.youtube.com/watch?v=Qhaz36TZG5Y) vysvětuje, co to je *responsive layout*, a CSS nástroje pro jeho psaní: *flexbox* a *grid*.
+[Video 1](https://www.youtube.com/watch?v=Qhaz36TZG5Y) vysvětuje, co to je _responsive layout_, a CSS nástroje pro jeho psaní: _flexbox_ a _grid_.
 [Video 2](https://www.youtube.com/watch?v=ouncVBiye_M) představuje moderní alternativy, použitelné místo psaní „vanilla“ CSS kódu.
