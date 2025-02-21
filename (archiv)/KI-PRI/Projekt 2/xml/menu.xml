@@ -4,7 +4,9 @@
         <informace>
             <název>Bloody Mary</název>
             <doba_přípravy>4</doba_přípravy>
-            <obtížnost><mistr/></obtížnost>
+            <obtížnost>
+                <mistr/>
+            </obtížnost>
         </informace>
         <ingredience>
             <položka>vodka</položka>

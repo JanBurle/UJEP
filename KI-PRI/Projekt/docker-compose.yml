@@ -20,8 +20,8 @@ services:
       MYSQL_DATABASE: univerzita
       MYSQL_USER: admin
       MYSQL_PASSWORD: heslo
-    # ports:
-    #   - 9906:3306
+  # ports:
+  #   - 9906:3306
 
   # database administration
   adminer:

@@ -26,5 +26,5 @@ EOF
 
 # host name
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-# Apache modules
+# enable Apache modules
 RUN a2enmod rewrite headers
