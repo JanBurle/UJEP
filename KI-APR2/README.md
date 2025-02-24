@@ -40,7 +40,7 @@ Podmínky získání zápočtu jsou podobné jako pro [APR1](../KI-APR1/README.m
 | Týden | Název                               | Obsah                                                                       |
 | ----: | :---------------------------------- | :-------------------------------------------------------------------------- |
 |     1 | [Zápočtové úlohy APR1](./01.md)     | různá řešení zápočtových úloh                                               |
-|     2 | OOP                                 | třída, konstruktor, datové členy, metody, zapouzdření                       |
+|     2 | [OOP](./02.md)                      | třídy a objekty, dědičnost, iterátory ...                                   |
 |     3 | ADT                                 | abstraktní datové typy, implementace fronty, zásobníku, setříděného seznamu |
 |     4 | Vyhledávací sekvenční algoritmy     | algoritmy nad sekvenčními kolekcemi, vyhledávací algoritmy                  |
 |     5 | Třídící sekvenční algoritmy         | třídící algoritmy                                                           |
