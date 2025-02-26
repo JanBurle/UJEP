@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script id="knihy-data" type="application/xml">
+      <knihy>
+        <kniha>
+          <nazev>Epos o Berygamešovi</nazev>
+          <autor>Jiří Fišer</autor>
+          <postavy>
+            <postava>Berygameš</postava>
+            <postava>Škvorkidu</postava>
+          </postavy>
+        </kniha>
+        <kniha>
+          <nazev>Pán prstenů: návrat Fišera</nazev>
+          <autor>Beránek Pavel</autor>
+          <popis>
+            Kniha o partě ajťáků, kteří se chystají na výpravu na zápočet na Fakultu Osudu.
+          </popis>
+        </kniha>
+      </knihy>
+    </script>
+    <script>
+      function runData() {
+        let knihyData = document.getElementById('knihy-data').textContent
+        console.log(knihyData)
+
+        let pre = document.getElementsByTagName('pre')[0]
+        pre.textContent = knihyData
+      }
+    </script>
+  </head>
+  <body onload="runData()">
+    <pre></pre>
+  </body>
+</html>

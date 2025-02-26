@@ -1,0 +1,8 @@
+services:
+  php-apache:
+    build:
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - 8001:80

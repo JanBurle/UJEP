@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pexeso</title>
+    </head>
+
+    <body>
+        <script>
+            let d = document
+            let appendElement = (parent, tag) => {
+                let elem = d.createElement(tag)
+                parent.appendChild(elem)
+                return elem
+            }
+        </script>
+
+        <style>
+            td {
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                border: thin solid gray;
+                text-align: center;
+            }
+        </style>
+
+        <table></table>
+
+        <script>
+            let table = d.querySelector('table')
+            let rows = 3,
+                cols = 6
+
+            let i = 0
+            for (let r = rows; r--; ) {
+                let tr = appendElement(table, 'tr')
+                for (let c = cols; c--; ) {
+                    let td = appendElement(tr, 'td')
+                    td.innerHTML = ++i
+                    // remove self:
+                    td.onclick = td.remove
+                }
+            }
+        </script>
+
+        Count: <span>0</span>
+    </body>
+</html>
