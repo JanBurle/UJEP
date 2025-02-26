@@ -5,7 +5,5 @@ let lp = (obj) => l(proto(obj), obj)
 let d = document
 
 let loadXmlDoc = () =>
-  new DOMParser().parseFromString(
-    d.getElementById('xml-data').textContent,
-    'text/xml'
-  ).documentElement
+  new DOMParser().parseFromString(d.getElementById('xml-data').textContent, 'text/xml')
+    .documentElement

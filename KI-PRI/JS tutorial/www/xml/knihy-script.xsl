@@ -6,9 +6,9 @@
       </head>
       <body>
         <h2>Knihy</h2>
-          <xsl:for-each select="//kniha">
-            <xsl:value-of select="nazev"/>
-          </xsl:for-each>
+        <xsl:for-each select="//kniha">
+          <xsl:value-of select="nazev"/>
+        </xsl:for-each>
       </body>
     </html>
   </xsl:template>

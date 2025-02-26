@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <script>
-            // Řádky začínající //* po odkomentování způsobí chybu:
-            {
-                // nedefinovaná proměnná (Uncaught ReferenceError)
-                //* console.log('xA:', x)
-                x = 3
-                console.log('xB:', x)
-            }
+  <body>
+    <script>
+      // Řádky začínající //* po odkomentování způsobí chybu:
+      {
+        // nedefinovaná proměnná (Uncaught ReferenceError)
+        //* console.log('xA:', x)
+        x = 3
+        console.log('xB:', x)
+      }
 
-            {
-                // hoisted proměnná (bez inicializace)
-                console.log('yA:', y) // undefined
-                var y = 4
-                console.log('yB:', y)
-            }
+      {
+        // hoisted proměnná (bez inicializace)
+        console.log('yA:', y) // undefined
+        var y = 4
+        console.log('yB:', y)
+      }
 
-            {
-                // neinicializovaná proměnná (Cannot access before initialization)
-                //* console.log('zA:', z)
-                let z
-                console.log('zB:', z)
-            }
+      {
+        // neinicializovaná proměnná (Cannot access before initialization)
+        //* console.log('zA:', z)
+        let z
+        console.log('zB:', z)
+      }
 
-            {
-                // neinicializovaná proměnná (Uncaught SyntaxError)
-                //* const c // = 5
-                //* console.log('c:', c)
-            }
-        </script>
-    </body>
+      {
+        // neinicializovaná proměnná (Uncaught SyntaxError)
+        //* const c // = 5
+        //* console.log('c:', c)
+      }
+    </script>
+  </body>
 </html>

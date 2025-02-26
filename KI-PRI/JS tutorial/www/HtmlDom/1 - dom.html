@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <script>
-            let l = console.log
-            l('readystate: ' + document.readyState)
-        </script>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      let l = console.log
+      l('readystate: ' + document.readyState)
+    </script>
 
-        <script>
-            // zde není DOM ještě sestavený
-            console.log('1 - není <body>', document.body)
+    <script>
+      // zde není DOM ještě sestavený
+      console.log('1 - není <body>', document.body)
 
-            document.addEventListener('DOMContentLoaded', () => {
-                // zde *je DOM hotový*
-                l('readystate: ' + document.readyState)
-                console.log('3 - hotovo', document.body.innerHTML)
-            })
-        </script>
-    </head>
+      document.addEventListener('DOMContentLoaded', () => {
+        // zde *je DOM hotový*
+        l('readystate: ' + document.readyState)
+        console.log('3 - hotovo', document.body.innerHTML)
+      })
+    </script>
+  </head>
 
-    <body>
-        <div>Div A</div>
+  <body>
+    <div>Div A</div>
 
-        <script>
-            // zde je jen část DOM
-            l('readystate: ' + document.readyState)
-            console.log('2 - <body> není celé', document.body.innerHTML)
-        </script>
+    <script>
+      // zde je jen část DOM
+      l('readystate: ' + document.readyState)
+      console.log('2 - <body> není celé', document.body.innerHTML)
+    </script>
 
-        <div>Div B</div>
-    </body>
+    <div>Div B</div>
+  </body>
 </html>

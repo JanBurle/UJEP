@@ -1,6 +1,5 @@
 let svgNS = 'http://www.w3.org/2000/svg'
-let addElem = (parent, tag) =>
-  parent.appendChild(document.createElementNS(svgNS, tag))
+let addElem = (parent, tag) => parent.appendChild(document.createElementNS(svgNS, tag))
 
 /**
  * Sets attributes on the given element based on the provided attribute object.
@@ -59,7 +58,7 @@ let makeClock = (clockSize) => {
     //   x2: x2,
     //   y2: y2,
     // })
-    setAttrs(line, { x1, y1, x2, y2 }) // !!!
+    setAttrs(line, {x1, y1, x2, y2}) // !!!
     return line
   }
 
