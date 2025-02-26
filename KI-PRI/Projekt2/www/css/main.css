@@ -1,0 +1,61 @@
+@import url("reset.css");
+@import url("theme.css");
+@import url("elems.css");
+@import url("layout.css");
+
+/* layout */
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  > header,
+  > footer {
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: var(--p1);
+    gap: var(--p2);
+  }
+
+  > header {
+    justify-content: start;
+  }
+
+  > footer {
+    justify-content: space-evenly;
+  }
+
+  > main {
+    flex: 1;
+    overflow-y: scroll;
+    padding: var(--p2);
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* style */
+body {
+  line-height: 1.2;
+  font-family: var(--font);
+  color: var(--pri-fg);
+  background-color: var(--pri-bg);
+
+  header,
+  footer {
+    color: var(--sec-fg);
+    background-color: var(--sec-bg);
+    a {
+      color: var(--sec-hl);
+    }
+  }
+}

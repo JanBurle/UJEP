@@ -1,0 +1,17 @@
+/* light theme – colours and shades, font */
+:root {
+  --pri-fg: #333; /* primary foreground */
+  --pri-bg: #fff; /* primary background */
+  --pri-hl: blue; /* primary highlight */
+  --pri-bd: #aaa; /* primary border */
+
+  --sec-fg: #fff; /* secondary foreground */
+  --sec-bg: #63f; /* secondary background */
+  --sec-hl: yellow; /* secondary highlight */
+  --sec-bd: #3ff; /* secondary border */
+
+  --sb-fg: var(--pri-bd); /* scrollbar foreground */
+  --sb-bg: var(--pri-bg); /* scrollbar background */
+
+  --font: Arial, sans-serif;
+}

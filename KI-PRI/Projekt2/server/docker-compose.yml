@@ -1,0 +1,35 @@
+services:
+  # Apache + PHP
+  web:
+    container_name: project-web
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    volumes:
+      - ../www:/var/www/html # web root
+    ports:
+      - 8000:80 # HTTP
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: project-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: app-user
+      POSTGRES_PASSWORD: app-pwd
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgres/data/
+
+  admin:
+    container_name: project-admin
+    image: dbeaver/cloudbeaver:latest
+    ports:
+      - 8080:8978
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

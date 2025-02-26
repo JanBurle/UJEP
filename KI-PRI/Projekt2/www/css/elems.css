@@ -1,0 +1,43 @@
+/* global element styles */
+
+/* scrollbars */
+::-webkit-scrollbar {
+  width: var(--sb-wdt);
+  height: var(--sb-wdt);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-fg);
+  border: var(--sb-brd) solid var(--sb-bg);
+  border-radius: var(--sb-wdt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-color: var(--sb-fg);
+}
+
+/* links */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* rounded things */
+form,
+input,
+button {
+  border-radius: var(--rad-sm);
+}
+
+/* cursors */
+button,
+.ptr {
+  cursor: pointer;
+}
