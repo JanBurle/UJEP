@@ -33,7 +33,7 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 | Týden | Zadání        | Obsah                                        |
 | ----: | :------------ | -------------------------------------------- |
 |     1 | [01](./01.md) | Úvod: vývojové prostředí, HTML, CSS, JS, PHP |
-|     2 |               | PHP, JavaScript                              |
+|     2 | [02](./02.md) | PHP, JavaScript, Postgres – fullstack app    |
 |     3 |               | XML, DTD, XML Schema, XSLT                   |
 |     4 |               | XML model, SimpleXML                         |
 |     5 |               | XML, XSD, XSL, XPath                         |
