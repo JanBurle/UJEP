@@ -35,7 +35,7 @@ function logout() {
 }
 
 function usrId(): int {
-  return sesGet('id');
+  return (int) sesGet('id');
 }
 
 function usrName(): string {

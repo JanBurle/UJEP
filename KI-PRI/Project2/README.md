@@ -1,6 +1,7 @@
 # Fullstack Web Application
 
-This is a fullstack web client/server application. It features a simple user authentication system with a login page and a home page.
+This is a fullstack web client/server application. It features a simple user authentication
+system with a login page and a home page.
 
 The server is built using Docker with Apache, PHP 8, and PostgreSQL/MySQL.
 
@@ -57,3 +58,11 @@ There are these default users in the database:
 - alice@example.com
 
 All have the password `pwd`.
+
+## Debugging
+
+- PHP in VSCode: PHP Debug
+- DOM in the browser: DevTools, Elements tab
+- CSS in the browser: DevTools, Styles tab
+- JavaScript in the browser: DevTools, `debugger`, Console tab
+- HTTP requests: DevTools, Network tab, also `curl -Lv localhost:8000`
