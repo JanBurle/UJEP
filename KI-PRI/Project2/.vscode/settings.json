@@ -1,5 +1,6 @@
 {
   "files.exclude": {
     ".vscode/": false
-  }
+  },
+  "liveServer.settings.port": 5501
 }
