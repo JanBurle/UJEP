@@ -3,6 +3,6 @@ services:
     build:
       dockerfile: ./Dockerfile
     volumes:
-      - ./www:/var/www/html
+      - ./:/var/www/html
     ports:
       - 8001:80

@@ -18,16 +18,16 @@ specifické řešení Microsoftu v prohlížeči Internet Explorer. Dnes již
 XML data lze přímo vložit do stránky (místo datového ostrůvku) jako tzv.
 [datový blok](https://stackoverflow.com/questions/18748571/workaround-for-xml-data-islands/21986537#21986537)
 
-- [`1 - xml data block.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/1%20-%20xml%20data%20block.html)
+- [`1 - xml data block.html`](../../Projekty/JS%20tutorial/html/XmlDom/1%20-%20xml%20data%20block.html)
 
 Dnešní standardní přístup je ale XML data vyžádat pomocí
 [AJAX - XHR](https://www.w3schools.com/XML/ajax_intro.asp):
 
-- [`2 - xml XHR.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/2%20-%20xml%20XHR.html)
+- [`2 - xml XHR.html`](../../Projekty/JS%20tutorial/html/XmlDom/2%20-%20xml%20XHR.html)
 
 Nebo pomocí [JS Fetch API](https://www.w3schools.com/jsref/api_fetch.asp):
 
-- [`3 - xml fetch.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/3%20-%20xml%20fetch.html)
+- [`3 - xml fetch.html`](../../Projekty/JS%20tutorial/html/XmlDom/3%20-%20xml%20fetch.html)
 
 ### Konverze na XML DOM
 
@@ -35,7 +35,7 @@ Přijatá XML data je potřeba konvertovat na XML DOM, se který pak lze dále p
 JavaScriptem. XHR má konverzi zabudovanou; při použití Fetch je nutno data
 [konvertovat explicitně](https://www.w3schools.com/xml/xml_parser.asp):
 
-- [`ajax.js`](../../Projekty/JS%20tutorial/www/html/XmlDom/js/ajax.js)
+- [`ajax.js`](../../Projekty/JS%20tutorial/html/XmlDom/js/ajax.js)
 
 ### JavaScript XML DOM
 
@@ -48,7 +48,7 @@ Celý XML dokument je dokumentní uzel.\
 Každý uzel má vlastnosti: [nodeName, nodeValue, nodeType](https://www.w3schools.com/XML/dom_nodes_info.asp)\
 Uzel může mít [childNodes](https://www.w3schools.com/XML/dom_nodes_traverse.asp)
 
-- [`4 - xml DOM.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/4%20-%20xml%20DOM.html)
+- [`4 - xml DOM.html`](../../Projekty/JS%20tutorial/html/XmlDom/4%20-%20xml%20DOM.html)
 
 Po XML DOM se lze [pohybovat](https://www.w3schools.com/XML/dom_nodes_navigate.asp) pomocí:
 `parentNode`, `childNodes`, `firstChild`, `lastChild`, `nextSibling`, `previousSibling`.
@@ -60,11 +60,11 @@ Uzly lze: [měnit](https://www.w3schools.com/XML/dom_nodes_set.asp),
 
 Většinou ale budeme XML DOM číst a HTML DOM manipulovat:
 
-- [`5 - knihy.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/5%20-%20knihy.html)
+- [`5 - knihy.html`](../../Projekty/JS%20tutorial/html/XmlDom/5%20-%20knihy.html)
 
 Další příklady manipulace DOM:
 
-- [`Další příklady`](../../Projekty/JS%20tutorial/www/html/XmlDom/Další%20příklady)
+- [`Další příklady`](../../Projekty/JS%20tutorial/html/XmlDom/Další%20příklady)
 
 ### ❖ Úloha 10.1: DOM
 
@@ -77,7 +77,7 @@ Dokončete ukázku `5 - knihy.html`:
 
 [SVG](https://www.w3schools.com/graphics/svg_intro.asp) je vektorová grafika ve formátu XML.
 
-- [`6 - svg hodiny.html`](../../Projekty/JS%20tutorial/www/html/XmlDom/6%20-%20svg%20hodiny.html)
+- [`6 - svg hodiny.html`](../../Projekty/JS%20tutorial/html/XmlDom/6%20-%20svg%20hodiny.html)
 
 ### ❖ Úloha 10.2: DOM
 
