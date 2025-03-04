@@ -8,10 +8,10 @@
 </head>
 
 <body>
-  <?php $x = 2 + 3 ?>
+  <? $x = 2 + 3 ?>
   <h1>Welcome to Example Page</h1>
   <p>This is a basic HTML page.</p>
-  <p>x = <?php echo ($x) ?> </p>
+  <p>x = <? echo ($x) ?> </p>
 </body>
 
 </html>
