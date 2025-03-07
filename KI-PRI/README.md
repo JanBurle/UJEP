@@ -43,17 +43,17 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 
 ## 5. Cvičení
 
-| Týden | Zadání        | Obsah                                        |
-| ----: | :------------ | -------------------------------------------- |
-|     1 | [01](./01.md) | Úvod: vývojové prostředí, HTML, CSS, JS, PHP |
-|     2 | [02](./02.md) | PHP, JavaScript, Postgres – fullstack app    |
-|     3 | [03](./03.md) | XML, DTD                                     |
-|     4 |               | XML model, SimpleXML                         |
-|     5 |               | XML, XSD, XSL, XPath                         |
-|     6 |               | PHP, XPath, PHP + XML DOM                    |
-|     7 |               | JavaScript (TypeScript) + HTML DOM           |
-|     8 |               | JavaScript + XML DOM                         |
-|     9 |               | Frameworks                                   |
-|    10 |               | Frameworks                                   |
-|    11 |               | Práce na projektu                            |
-|    12 |               | Prezentace                                   |
+| Týden | Zadání         | Obsah                                        |
+| ----: | :------------- | -------------------------------------------- |
+|     1 | [01](md/01.md) | Úvod: vývojové prostředí, HTML, CSS, JS, PHP |
+|     2 | [02](md/02.md) | PHP, JavaScript, Postgres – fullstack app    |
+|     3 | [03](md/03.md) | XML, DTD                                     |
+|     4 |                | XML model, SimpleXML                         |
+|     5 |                | XML, XSD, XSL, XPath                         |
+|     6 |                | PHP, XPath, PHP + XML DOM                    |
+|     7 |                | JavaScript (TypeScript) + HTML DOM           |
+|     8 |                | JavaScript + XML DOM                         |
+|     9 |                | Frameworks                                   |
+|    10 |                | Frameworks                                   |
+|    11 |                | Práce na projektu                            |
+|    12 |                | Prezentace                                   |
