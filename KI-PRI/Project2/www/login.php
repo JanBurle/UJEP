@@ -47,6 +47,7 @@ if (($email = postGet('email')) && ($pwd = postGet('pwd')))
         color: var(--pri-hl);
         font-size: .8em;
       }
+    }
   </style>
 </head>
 
