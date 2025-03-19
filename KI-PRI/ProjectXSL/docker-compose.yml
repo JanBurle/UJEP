@@ -1,0 +1,10 @@
+services:
+  # Apache + PHP
+  web:
+    container_name: project-xsl
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./www:/var/www/html # web root
+    ports:
+      - 8000:80 # HTTP
