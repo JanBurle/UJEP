@@ -49,8 +49,8 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 |     2 | [02](md/02.md) | PHP, JavaScript, Postgres – fullstack app    |
 |     3 | [03](md/03.md) | XML, DTD                                     |
 |     4 | [04](md/04.md) | XML, RSS, XSD                                |
-|     5 |                | XML model, SimpleXML                         |
-|     6 |                | XML, XSD, XSL, XPath                         |
+|     5 | [05](md/05.md) | XML, XSD, XSL, XPath                         |
+|     6 |                | XML model, SimpleXML                         |
 |     7 |                | PHP, XPath, PHP + XML DOM                    |
 |     8 |                | JavaScript (TypeScript) + HTML DOM           |
 |     9 |                | JavaScript + XML DOM                         |
