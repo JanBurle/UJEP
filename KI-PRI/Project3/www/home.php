@@ -2,7 +2,7 @@
 usrId() || redirect('login.php');
 
 $title = 'Home';
-$menu = [['validator.php', 'Validate']];
+$menu = [['validator.php', 'Validator'], ['clock.php', 'Clock']];
 require INC . '/html-prolog.php';
 ?>
 <style>

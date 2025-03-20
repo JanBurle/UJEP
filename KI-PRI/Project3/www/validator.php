@@ -2,6 +2,7 @@
 usrId() || redirect('login.php');
 
 $title = 'XML validator';
+$menu = [['home.php', 'Home'], ['clock.php', 'Clock']];
 require INC . '/html-prolog.php';
 ?>
 <style>
