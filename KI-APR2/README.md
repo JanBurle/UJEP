@@ -56,8 +56,8 @@ Podmínky získání zápočtu jsou podobné jako pro [APR1](../KI-APR1/README.m
 |     3 | [OOP](md/03.md)                             | datové členy a metody: instanční, třídní, statické, magické                 |
 |     4 | [ADT](md/04.md)                             | abstraktní datové typy, implementace fronty, zásobníku, setříděného seznamu |
 |     5 | [Vyhledávací sekvenční algoritmy](md/05.md) | algoritmy nad sekvenčními kolekcemi, vyhledávací algoritmy                  |
-|     6 | Třídící sekvenční algoritmy                 | třídící algoritmy                                                           |
-|     7 | Rekurzivní sekvenční algoritmy              | třídící algoritmy s rekurzí                                                 |
+|     6 | [Řadicí algoritmy](md/06.md)                | řadicí/třídící algoritmy nad sekvenčními kolekcemi                          |
+|     7 | Rekurzivní sekvenční algoritmy              |                                                                             |
 |     8 | Spojové struktury                           | spojové seznamy, stromy, grafy                                              |
 |     9 | Algoritmy nad spojovými strukturami         |                                                                             |
 |    10 | Algoritmy nad spojovými strukturami         |                                                                             |
