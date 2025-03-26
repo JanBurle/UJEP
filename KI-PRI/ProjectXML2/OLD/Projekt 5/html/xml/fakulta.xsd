@@ -1,0 +1,65 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="fakulty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fakulta" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="fakulta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dekan"/>
+        <xs:element name="katedry"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dekan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="jmeno"/>
+        <xs:element name="prijmeni"/>
+        <xs:element name="email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="katedry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="katedra" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="katedra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nazev"/>
+        <xs:element name="zamestnanci"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="zamestnanci">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="zamestnanec" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="zamestnanec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="jmeno"/>
+        <xs:element name="prijmeni"/>
+        <xs:element name="email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

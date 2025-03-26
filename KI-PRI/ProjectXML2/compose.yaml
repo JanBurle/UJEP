@@ -1,0 +1,38 @@
+services:
+  # PHP + Apache
+  php-apache: 
+    build:
+      dockerfile: Dockerfiles/PhpApache
+    depends_on:
+      - database
+    volumes:
+      - ./html:/var/www/html      # webserver document root
+    ports:
+      - 8000:80                   # port 8000
+
+  # database
+  database: 
+    build:
+      dockerfile: Dockerfiles/Database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: univerzita
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: heslo
+    ports:
+      - 9906:3306
+
+  # database administration
+  phpmyadmin: 
+    image: phpmyadmin 
+    environment:
+      PMA_HOST: database
+    ports:
+      - 8080:80                   # port 8080
+  
+  adminer:
+    image: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+    ports:
+      - 8088:8080                 # port 8088

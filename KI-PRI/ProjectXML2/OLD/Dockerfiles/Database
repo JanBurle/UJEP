@@ -1,0 +1,4 @@
+FROM mysql
+
+# inicializace databáze
+ADD ./schema/init.sql /docker-entrypoint-initdb.d

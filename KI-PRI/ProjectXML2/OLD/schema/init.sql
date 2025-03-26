@@ -1,0 +1,38 @@
+create table `cdcatalog` (
+  `id` int not null auto_increment,
+  `title` text not null,
+  `artist` text not null default (''),
+  `country` text not null default (''),
+  `company` text not null default (''),
+  `price` decimal(10,2) not null,
+  `year` int not null,
+  primary key (`id`)
+);
+
+insert into `cdcatalog` (`id`, `title`, `artist`, `country`, `company`, `price`, `year`) values
+(1, 'Empire Burlesque', 'Bob Dylan', 'USA', 'Columbia', 10.90, 1985),
+(2, 'Hide your heart', 'Bonnie Tyler', 'UK', 'CBS Records', 9.90, 1988),
+(3, 'Greatest Hits', 'Dolly Parton', 'USA', 'RCA', 9.90, 1982),
+(4, 'Still got the blues', 'Gary Moore', 'UK', 'Virgin records', 10.20, 1990),
+(5, 'Eros', 'Eros Ramazzotti', 'EU', 'BMG', 9.90, 1997),
+(6, 'One night only', 'Bee Gees', 'UK', 'Polydor', 10.90, 1998),
+(7, 'Sylvias Mother', 'Dr.Hook', 'UK', 'CBS', 8.10, 1973),
+(8, 'Maggie May', 'Rod Stewart', 'UK', 'Pickwick', 8.50, 1990),
+(9, 'Romanza', 'Andrea Bocelli', 'EU', 'Polydor', 10.80, 1996),
+(10, 'When a man loves a woman', 'Percy Sledge', 'USA', 'Atlantic', 8.70, 1987),
+(11, 'Black angel', 'Savage Rose', 'EU', 'Mega', 10.90, 1995),
+(12, '1999 Grammy Nominees', 'Many', 'USA', 'Grammy', 10.20, 1999),
+(13, 'For the good times', 'Kenny Rogers', 'UK', 'Mucik Master', 8.70, 1995),
+(14, 'Big Willie style', 'Will Smith', 'USA', 'Columbia', 9.90, 1997),
+(15, 'Tupelo Honey', 'Van Morrison', 'UK', 'Polydor', 8.20, 1971),
+(16, 'Soulsville', 'Jorn Hoel', 'Norway', 'WEA', 7.90, 1996),
+(17, 'The very best of', 'Cat Stevens', 'UK', 'Island', 8.90, 1990),
+(18, 'Stop', 'Sam Brown', 'UK', 'A and M', 8.90, 1988),
+(19, 'Bridge of Spies', 'T`Pau', 'UK', 'Siren', 7.90, 1987),
+(20, 'Private Dancer', 'Tina Turner', 'UK', 'Capitol', 8.90, 1983),
+(21, 'Midt om natten', 'Kim Larsen', 'EU', 'Medley', 7.80, 1983),
+(22, 'Pavarotti Gala Concert', 'Luciano Pavarotti', 'UK', 'DECCA', 9.90, 1991),
+(23, 'The dock of the bay', 'Otis Redding', 'USA', 'Stax Records', 7.90, 1968),
+(24, 'Picture book', 'Simply Red', 'EU', 'Elektra', 7.20, 1985),
+(25, 'Red', 'The Communards', 'UK', 'London', 7.80, 1987),
+(26, 'Unchain my heart', 'Joe Cocker', 'USA', 'EMI', 8.20, 1987);
