@@ -1,7 +1,7 @@
 services:
   # Apache + PHP
   web:
-    container_name: project-xsl
+    container_name: project-xml
     build:
       dockerfile: Dockerfile
     volumes:
