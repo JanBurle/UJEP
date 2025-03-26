@@ -28,10 +28,14 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 
 ## 3. Podmínky získání zápočtu:
 
-1. Student bude uchovávat výsledky práce z každého cvičení pro doložení při zápočtu.
-1. Student vypracuje seminární práci (vytvoří webový projekt).
-1. Student při zápočtu předvede svůj webový projekt (fungující 😉) a je schopný ukázat, že
-   svému projektu a v něm použitým technologiím rozumí.
+<!-- 1. Student bude uchovávat výsledky práce z každého cvičení pro doložení při zápočtu. -->
+
+- Student vypracuje seminární práci (vytvoří webový projekt).
+- V projektu budou použity probírané technologie.
+- Student při zápočtu předvede svůj webový projekt (fungující 😉) a je schopný ukázat, že
+  svému projektu a v něm použitým technologiím rozumí.
+
+[Rámcové zadání seminární práce.](md/Project.md)
 
 ## 4. Obsah přednášek
 
@@ -49,7 +53,8 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 |     2 | [02](md/02.md) | PHP, JavaScript, Postgres – fullstack app    |
 |     3 | [03](md/03.md) | XML, DTD                                     |
 |     4 | [04](md/04.md) | XML, RSS, XSD                                |
-|     5 | [05](md/05.md) | XML, XSD, XSL, XPath                         |
+|     5 | [05](md/05.md) | XML, XSL, CSS                                |
+|     5 | [06](md/06.md) | XML + PHP, XPath                             |
 |     6 |                | XML model, SimpleXML                         |
 |     7 |                | PHP, XPath, PHP + XML DOM                    |
 |     8 |                | JavaScript (TypeScript) + HTML DOM           |
