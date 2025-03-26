@@ -1,3 +1,5 @@
+<?
+$s = <<<HEREDOC
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="fakulta.xsl"?>
 <fakulty>
@@ -26,3 +28,10 @@
         </katedry>
     </fakulta>
 </fakulty>
+HEREDOC;
+
+$xml = simplexml_load_string($s);
+
+echo '<pre>';
+print_r($xml);
+echo '</pre>';

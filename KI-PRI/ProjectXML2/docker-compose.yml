@@ -1,0 +1,29 @@
+services:
+  webserver:
+    container_name: project-xml2
+    build:
+      dockerfile: Dockerfiles/WebServer
+    depends_on:
+      - database
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - 8000:80
+
+  database:
+    build:
+      dockerfile: Dockerfiles/Database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: univerzita
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: pwd
+    ports:
+      - 9906:3306
+
+  adminer:
+    image: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+    ports:
+      - 8080:8080

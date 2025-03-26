@@ -54,8 +54,7 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 |     3 | [03](md/03.md) | XML, DTD                                     |
 |     4 | [04](md/04.md) | XML, RSS, XSD                                |
 |     5 | [05](md/05.md) | XML, XSL, CSS                                |
-|     5 | [06](md/06.md) | XML + PHP, XPath                             |
-|     6 |                | XML model, SimpleXML                         |
+|     6 | [06](md/06.md) | DB, PHP, SimpleXML, XPath                    |
 |     7 |                | PHP, XPath, PHP + XML DOM                    |
 |     8 |                | JavaScript (TypeScript) + HTML DOM           |
 |     9 |                | JavaScript + XML DOM                         |
