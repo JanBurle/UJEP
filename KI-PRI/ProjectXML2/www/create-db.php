@@ -7,6 +7,7 @@ $db = mysqli_connect("database", "admin", "pwd", "univerzita");
 
 // construct a SimpleXML tree
 $fakulty = $db->query('select id, nazev, dekan from Fakulta')->fetch_all();
+
 foreach ($fakulty as [$id, $nazev, $idDekan]) {
   $fakulta = $xml->addChild('fakulta');
   if ($idDekan) {

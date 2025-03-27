@@ -33,7 +33,8 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 - Student vypracuje seminární práci (vytvoří webový projekt).
 - V projektu budou použity probírané technologie.
 - Student při zápočtu předvede svůj webový projekt (fungující 😉) a je schopný ukázat, že
-  svému projektu a v něm použitým technologiím rozumí.
+  svému projektu a v něm použitým technologiím rozumí, a je schopen případně na místě
+  provést malé změny.
 
 [Rámcové zadání seminární práce.](md/Project.md)
 

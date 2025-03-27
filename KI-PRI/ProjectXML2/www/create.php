@@ -16,5 +16,6 @@ $dekan->addChild('jmeno', 'Michal');
 $dekan->addChild('prijmeni', 'Varady');
 $dekan->addChild('email', 'm.v@gmail.com');
 
+// send XML to client
 header('Content-Type: application/xml');
 echo $xml->asXML();
