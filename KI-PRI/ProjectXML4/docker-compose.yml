@@ -1,0 +1,9 @@
+services:
+  webserver:
+    container_name: project-xml3
+    build:
+      dockerfile: Dockerfiles/WebServer
+    volumes:
+      - ./www:/var/www
+    ports:
+      - 8000:80

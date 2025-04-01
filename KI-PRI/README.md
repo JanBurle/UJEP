@@ -56,9 +56,13 @@ Cvičení vede: [Ing. Jan Burle, Ph.D.](https://ki.ujep.cz/cs/personalni-slozeni
 |     4 | [04](md/04.md) | XML, RSS, XSD                                |
 |     5 | [05](md/05.md) | XML, XSL, CSS                                |
 |     6 | [06](md/06.md) | DB, PHP, SimpleXML, XPath                    |
+|     7 | [07](md/07.md) | XML, XSL, XPath                              |
+
+<!--
 |     7 |                | PHP, XPath, PHP + XML DOM                    |
 |     8 |                | JavaScript (TypeScript) + HTML DOM           |
 |     9 |                | JavaScript + XML DOM                         |
 |    10 |                | Frameworks                                   |
 |    11 |                | Práce na projektu                            |
 |    12 |                | Prezentace                                   |
+-->
