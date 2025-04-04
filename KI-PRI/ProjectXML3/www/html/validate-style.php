@@ -18,7 +18,7 @@ try {
 
   $xslt = new XSLTProcessor();
   $xslt->importStylesheet($xsl) or die;
-  (false !== $xmlTrans = $xslt->transformToXml($xml)) or die;
+  $xmlTrans = $xslt->transformToXml($xml) or die;
 } catch (\Throwable) {
   die;
 }
