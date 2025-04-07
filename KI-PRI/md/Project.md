@@ -1,6 +1,6 @@
 # Semestrální (zápočtový) projekt
 
-Vytvořte _jednoduchou_ (v oezeném rozsahu) full-stack (odzadu – dopředu) webovou aplikaci,
+Vytvořte _jednoduchou_ (v omezeném rozsahu) full-stack (odzadu – dopředu) webovou aplikaci,
 která bude zpracovávat (ukládat, číst, filtrovat) a zobrazovat data podle vašeho výběru.
 
 Námět si zvolte svobodně. Mohou to být například: knihy v knihovně, filmy v kinech, studenti
