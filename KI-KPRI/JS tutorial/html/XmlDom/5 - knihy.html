@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="js/ajax.js"></script>
+    <script src="js/dom.js"></script>
+
+    <style>
+      body.dark {
+        background: lightgray;
+      }
+
+      li {
+        cursor: pointer;
+      }
+
+      li:hover {
+        text-decoration: underline;
+      }
+
+      li.bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body onload="loadXML('/xml/knihy.xml', processDOM)">
+    <div id="knihy">Knihy</div>
+  </body>
+</html>

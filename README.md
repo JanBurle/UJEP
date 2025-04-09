@@ -6,6 +6,7 @@
 
 - [KI/APR2](./KI-APR2/README.md) – Algoritmizace a programování 2
 - [KI/PRI](./KI-PRI/README.md) – Programování pro internet
+- [KI/KPRI](./KI-KPRI/README.md) – Programování pro internet (kombinované studium)
 
 ### Zimní semestr 2024/25
 

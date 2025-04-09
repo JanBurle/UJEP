@@ -1,0 +1,8 @@
+services:
+  php-apache: 
+    build:
+      dockerfile: Dockerfiles/PhpApache
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - 8000:80

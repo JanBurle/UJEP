@@ -1,0 +1,17 @@
+catalog {
+  display: table;
+  background-color: palegoldenrod;
+  border: thin solid grey;
+}
+
+cd {
+  display: table-row;
+}
+
+title, artist, country, company, price, year {
+  display: table-cell;
+}
+
+price::before {
+  content: '$';
+}

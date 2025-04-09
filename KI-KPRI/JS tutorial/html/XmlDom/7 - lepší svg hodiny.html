@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/clock.js"></script>
+    <style>
+      body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .movable {
+        cursor: move;
+      }
+    </style>
+  </head>
+
+  <body onload="makeClock(140)">
+    <svg width="300" height="300">
+      <g
+        id="clock"
+        transform="translate(150 150)"
+        stroke="black"
+        stroke-width="4"
+        stroke-linecap="round"
+      >
+        <circle r="140" fill="white" />
+      </g>
+    </svg>
+    <div id="time"></div>
+  </body>
+</html>
