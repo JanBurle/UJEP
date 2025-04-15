@@ -59,7 +59,7 @@ Podmínky získání zápočtu jsou podobné jako pro [APR1](../KI-APR1/README.m
 |     6 | [Řadicí algoritmy](md/06.md)                | řadicí/třídící algoritmy nad sekvenčními kolekcemi                          |
 |     7 | [Stromy](md/07.md)                          | spojový seznam, stromy                                                      |
 |     8 | [Grafy](md/08.md)                           | spojový graf, matice sousedů                                                |
-|     9 | [Cesty v grafech](md/09.md)                 |                                                                             |
+|     9 | [DiktionPhi](md/09.md)                      | cesty v grafech                                                             |
 
 <!--
 |     7 | Rekurzivní sekvenční algoritmy              |                                                                             |
