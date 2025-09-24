@@ -31,32 +31,32 @@ Cvičení se zaměřují na tvorbu databázových systémů: návrh databázové
 
 ## Zkouška
 
-Zkouška bude mít písemnou a ústní část. Při zkoušce bude student řešit krátké úlohy a diskutovat svůj seminární projekt.
+Zkouška bude mít písemnou a ústní část. Při zkoušce bude student odpovídat na teoretické otázky, řešit krátké úlohy a diskutovat svůj seminární projekt.
 
 ## Přednášky
 
-| Týden | Téma                             |
-| ----: | -------------------------------- |
-|     1 | [Úvod, PostgreSQL](./week/01.md) |
-|     2 | <!--[02](./week/02.md)-->        |
-|     3 | <!--[03](./week/03.md)-->        |
-|     4 | <!--[04](./week/04.md)-->        |
-|     5 | <!--[05](./week/05.md)-->        |
-|     6 | <!--[06](./week/06.md)-->        |
-|     7 | <!--[07](./week/07.md)-->        |
-|     8 | <!--[08](./week/08.md)-->        |
-|     9 | <!--[09](./week/09.md)-->        |
-|    10 | <!--[10](./week/10.md)-->        |
-|    11 | <!--[11](./week/11.md)-->        |
-|    12 | <!--[12](./week/12.md)-->        |
-|    13 | <!--[13](./week/13.md)-->        |
+| Týden | Téma                              |
+| ----: | --------------------------------- |
+|     1 | [Úvod, PostgreSQL](./týden/01.md) |
+|     2 | <!--[02](./týden/02.md)-->        |
+|     3 | <!--[03](./týden/03.md)-->        |
+|     4 | <!--[04](./týden/04.md)-->        |
+|     5 | <!--[05](./týden/05.md)-->        |
+|     6 | <!--[06](./týden/06.md)-->        |
+|     7 | <!--[07](./týden/07.md)-->        |
+|     8 | <!--[08](./týden/08.md)-->        |
+|     9 | <!--[09](./týden/09.md)-->        |
+|    10 | <!--[10](./týden/10.md)-->        |
+|    11 | <!--[11](./týden/11.md)-->        |
+|    12 | <!--[12](./týden/12.md)-->        |
+|    13 | <!--[13](./týden/13.md)-->        |
 
 ## Zdroje
 
 |              Materiál | Odkaz                            |
 | --------------------: | -------------------------------- |
 |   Základní literatura | [Dokumentace PostgreSQL][11]     |
-| Doporučená literatura | <!-- TODO-->                     |
+| Doporučená literatura | <!-- TODO -->                    |
 |                 Opory | [Úvod do relačních databází][12] |
 |                       | [Relační databázové systémy][13] |
 
