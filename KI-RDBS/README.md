@@ -8,8 +8,8 @@ Kurs navazuje na _Úvod do relačních databází (URDB)_, který rozšiřuje v 
 
 - pokročilé používání SQL dotazů
 - optimalizace SQL dotazů s využitím znalostí vnitřní funkce DBS
-- administrace databázových systémů (klient–server)
-- programování na straně serveru (uložené procedury) a na straně klienta
+- administrace databázových systémů
+- programování na straně serveru (uložené procedury) a na straně klienta (Python, JavaScript)
 
 Přednášky se budou orientovat na databázový systém PostgreSQL.
 
