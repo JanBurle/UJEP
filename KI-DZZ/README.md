@@ -18,21 +18,22 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená (přes uši), dos
 
 ## Program semináře
 
-| Týden | Téma                            | Materiály |
-| ----: | ------------------------------- | --------- |
-|     1 | [Digitální zvuk](./týden/01.md) |           |
-|     2 | [Vnímání zvuku]                 |           |
-|     3 | [Syntéza zvuku]                 |           |
-|     4 | [Analýza zvuku]                 |           |
-|     5 | [Zvuk v prohlížeči]             |           |
-|     6 | [Záznam a reprodukce zvuku]     |           |
-|     7 | [Hudební zvuk]                  |           |
-|     8 | [Programování hudby]            |           |
-|     9 | [Řeč]                           |           |
-|    10 | [Zvuk v prostoru]               |           |
-|    11 | [Různé: AI a zvuk]              |           |
-|    12 | [Různé: sound design]           |           |
-|    13 | [Různé: aktuální témata]        |           |
+| Týden | Téma                             | Materiály |
+| ----: | -------------------------------- | --------- |
+|     1 | [Podstata zvuku](./týden/01a.md) |           |
+|       | [Digitální zvuk](./týden/01b.md) |           |
+|     2 | [Vnímání zvuku]                  |           |
+|     3 | [Syntéza zvuku]                  |           |
+|     4 | [Analýza zvuku]                  |           |
+|     5 | [Zvuk v prohlížeči]              |           |
+|     6 | [Záznam a reprodukce zvuku]      |           |
+|     7 | [Hudební zvuk]                   |           |
+|     8 | [Programování hudby]             |           |
+|     9 | [Řeč]                            |           |
+|    10 | [Zvuk v prostoru]                |           |
+|    11 | [Různé: AI a zvuk]               |           |
+|    12 | [Různé: sound design]            |           |
+|    13 | [Různé: aktuální témata]         |           |
 
 | Doporučená a rozšiřující literatura |
 | ----------------------------------- |
