@@ -1,8 +1,8 @@
-# Úvod do digitálního zpracování zvuku (Seminář)
+# Úvod do digitálního zpracování zvuku (seminář)
 
 ## Informace o předmětu
 
-Cílem předmětu je uvést studenty do základů digitálního zpracování zvuku a jeho aplikací. Předmět je zaměřen na poskytnutí širšího přehledu v oboru. Vybrané teoretické základy jsou bezprostředně prakticky aplikovány, a to v jazyce Python, JavaScript a ve specializovaných programech na zpracování zvuku. Předmět se také zabývá vnímáním zvuku a generováním hudebního zvukového signálu.
+Cílem předmětu je uvést studenty do základů digitálního zpracování zvuku a jeho aplikací. Předmět je zaměřen na poskytnutí širšího přehledu v oboru. Vybrané teoretické základy jsou bezprostředně prakticky aplikovány, a to v jazyce Python, JavaScript a ve specializovaných programech pro zpracování zvuku. Předmět se také zabývá vnímáním zvuku a generováním hudebního zvukového signálu.
 
 | Seminář vede:              |
 | -------------------------- |
@@ -14,7 +14,7 @@ Cílem předmětu je uvést studenty do základů digitálního zpracování zvu
 
 Podmínkou získání zápočtu je plnění zadaných úkolů k probírané látce, seminární projekt nebo rešerše a jejich prezentace během závěrečného kolokvia.
 
-Studenti potřebují kvalitní sluchátka, nejlépe uzavřená (přes uši), dostatečné kvality.
+Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“), dostatečné kvality.
 
 ## Program semináře
 
@@ -22,6 +22,7 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená (přes uši), dos
 | ----: | -------------------------------- | --------- |
 |     1 | [Podstata zvuku](./týden/01a.md) |           |
 |       | [Digitální zvuk](./týden/01b.md) |           |
+|       | [První pokusy](./týden/01c.md)   |           |
 |     2 | [Vnímání zvuku]                  |           |
 |     3 | [Syntéza zvuku]                  |           |
 |     4 | [Analýza zvuku]                  |           |
