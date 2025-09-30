@@ -28,13 +28,11 @@ Cvičení probíhají formou samostatné práce studentů na úkolech, podle zad
 
 ## Podmínky získání zápočtu:
 
-Podmínkou získání zápočtu je úspěšné napsání zápočtového písemného testu nebo zpracování podstatné seminární práce (projektu). Zápočet je možné i získat, pokud na základě plnění úkolů ze cvičení cvičící usoudí, že programátorská erudice studenta splňuje požadavky předmětu.
+Podmínkou získání zápočtu je úspěšné napsání zápočtového písemného testu. Zápočet je možné i získat, pokud na základě plnění úkolů ze cvičení cvičící usoudí, že programátorská erudice studenta splňuje požadavky předmětu.
 
 Zápočtový test proběhne ve zkouškovém období. Test se píše na papír (tužkou nebo perem). Cílem je napsat několik kratších programů, které řeší zadané úlohy.
 
 Při psaní zápočtového testu mohou studenti použít „[oficiální tahák](#literatura)“. Jakékoli další materiály a prostředky, tištěné, psané, nebo elektronické (tablet, laptop, telefon, chytré hodinky, ...) nejsou povoleny.
-
-Námět možné seminární práce (nahrazující zápočtový test) navrhne student a schvaluje jej cvičící. Alternativně jej může zadat přednášející nebo cvičící. Kontrola, zda student své práci dostatečně rozumí, proběhne na konzultacích příslušného cvičícího.
 
 ## Plán výuky
 
