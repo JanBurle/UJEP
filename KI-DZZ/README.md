@@ -36,6 +36,13 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“
 |    12 | [Různé: sound design]            |           |
 |    13 | [Různé: aktuální témata]         |           |
 
+| Software        | Portable for Windows |
+| --------------- | -------------------- |
+| [Audacity][^11] | [download][^21]      |
+
+[^11]: https://www.audacityteam.org
+[^21]: sw/Windows-AudacityPortable.zip
+
 | Doporučená a rozšiřující literatura |
 | ----------------------------------- |
 | <!-- TODO -->                       |
