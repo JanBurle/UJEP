@@ -39,7 +39,7 @@ Při psaní zápočtového testu mohou studenti použít „[oficiální tahák]
 | Týden | Přednáška | Cvičení                                           | Materiály |
 | ----: | --------- | ------------------------------------------------- | --------- |
 |     1 |           | [Úvod, čísla](./týden/01.md)                      |           |
-|     2 |           | [Vstup a výstup, podmínky]<!--(./týden/02.md)-->  |           |
+|     2 |           | [Vstup a výstup, podmínky](./týden/02.md)         |           |
 |     3 |           | [`if-else`, `for`, `while`]<!--(./týden/03.md)--> |           |
 |     4 |           | [Cykly, indexace, řetězce]<!--(./týden/04.md)-->  |           |
 |     5 |           | [Cykly a úlohy..]<!--(./týden/05.md)-->           |           |

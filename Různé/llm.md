@@ -1,0 +1,9 @@
+# Grok says:
+
+| Model | Provider | Strengths | Weaknesses | Best Use Cases | Latency |
+| --- | --- | --- | --- | --- | --- |
+| GPT-5 | OpenAI | Superior reasoning, handles complex multi-step problems, low hallucinations, excellent for large codebases and edge cases. Now the default for many tasks after GPT-4o's deprecation. | Higher cost per request (premium multiplier), slightly slower for simple queries. | Complex debugging, architectural design, long-context code generation (e.g., refactoring entire modules). Public preview for paid plans. | Medium |
+| o1 (series, e.g., o1-preview) | OpenAI | Advanced chain-of-thought reasoning, breaks down prompts for accurate solutions, great for novel problems. | Slower response times due to internal deliberation; not ideal for quick autocompletions. | Problem-solving in unfamiliar domains, algorithm optimization, or when accuracy trumps speed. | High |
+| Claude 3.7 Sonnet (or latest Sonnet variant like 4) | Anthropic | Balanced performance, coherent outputs, strong in agentic workflows and natural language explanations. Excels in .NET/C# and frontend (e.g., Angular/TS). | Can require more detailed prompts for precision; occasional verbosity. | General coding, chat-based explanations, agent tasks like migrations or UI prototyping. Highly rated for .NET dev. | Low-Medium |
+| Gemini 2.5 Pro | Google | Fast, cost-effective, good for niche/debugging with visual input support (e.g., diagrams). Handles large projects well. | Weaker in coherent agent flows; may repeat calls or lack depth in reasoning. | Quick completions, debugging specific issues, visual code analysis (e.g., screenshots of errors). | Low |
+| GPT-4o-mini | OpenAI | Ultra-fast and efficient for everyday use, minimal latency. | Less capable on highly complex tasks compared to full GPT-5. | Inline code suggestions, simple queries, high-volume workflows where speed matters. | Very Low |

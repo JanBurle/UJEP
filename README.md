@@ -7,3 +7,7 @@
 | [KI / APR1](./KI-APR1/README.md) | Algoritmizace a programování 1       |
 | [KI / RDBS](./KI-RDBS/README.md) | Relační databázové systémy           |
 | [KI / DZZ](./KI-DZZ/README.md)   | Úvod do digitálního zpracování zvuku |
+
+| Další            |
+| ---------------- |
+| [Různé](./Různé) |
