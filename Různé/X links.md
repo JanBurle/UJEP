@@ -6,7 +6,6 @@ Saved links.
 
 - [Theory of Everything](https://x.com/pickover/status/1964883922816262519) ➜ [web](https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/) ➜ [arXiv](https://arxiv.org/pdf/2004.08210)
 - [Calculus Made Easy](https://x.com/abakcus/status/1922390300116279585)
-- []()
 
 ## Software Engineering
 
@@ -16,7 +15,6 @@ Saved links.
 - [ChatGPT Prompts](https://x.com/thetripathi58/status/1974506203800904163)
 - [Grok's prompt](https://x.com/AndrewCurran_/status/1942227946602963117)
 - [Prompt Engineering](https://x.com/burkov/status/1874310131812565240)
-- []()
 
 ### Databases
 
