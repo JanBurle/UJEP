@@ -26,7 +26,7 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“
 |     2 | [Vnímání zvuku](./týden/02a.md)  |           |
 |       | [Lidské ucho](./týden/02b.md)    |           |
 |       | [Sonogram](./týden/02c.md)       |           |
-|     3 | [Syntéza zvuku]                  |           |
+|     3 | [Syntéza zvuku](./týden/03.md)   |           |
 |     4 | [Analýza zvuku]                  |           |
 |     5 | [Zvuk v prohlížeči]              |           |
 |     6 | [Záznam a reprodukce zvuku]      |           |
@@ -42,12 +42,11 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“
 | ---------------------- | -------------- |
 | [Audacity][11]         | [portable][12] |
 | [Sonic Visualiser][21] | [portable][22] |
+| [PlugData][31]         | [portable][32] |
 
 [11]: https://www.audacityteam.org
 [12]: ./sw/Audacity.zip
 [21]: https://sonicvisualiser.org/
 [22]: ./sw/Sonic%20Visualiser.zip
-
-| Doporučená a rozšiřující literatura |
-| ----------------------------------- |
-| TODO                                |
+[31]: https://plugdata.org/
+[32]: ./sw/PlugData.zip
