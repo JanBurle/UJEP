@@ -18,25 +18,25 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“
 
 ## Program semináře
 
-| Týden | Téma                             | Materiály |
-| ----: | -------------------------------- | --------- |
-|     1 | [Podstata zvuku](./týden/01a.md) |           |
-|       | [Digitální zvuk](./týden/01b.md) |           |
-|       | [První pokusy](./týden/01c.md)   |           |
-|     2 | [Vnímání zvuku](./týden/02a.md)  |           |
-|       | [Lidské ucho](./týden/02b.md)    |           |
-|       | [Sonogram](./týden/02c.md)       |           |
-|     3 | [Syntéza zvuku](./týden/03.md)   |           |
-|     4 | [Analýza zvuku]                  |           |
-|     5 | [Zvuk v prohlížeči]              |           |
-|     6 | [Záznam a reprodukce zvuku]      |           |
-|     7 | [Hudební zvuk]                   |           |
-|     8 | [Programování hudby]             |           |
-|     9 | [Řeč]                            |           |
-|    10 | [Zvuk v prostoru]                |           |
-|    11 | [Různé: AI a zvuk]               |           |
-|    12 | [Různé: sound design]            |           |
-|    13 | [Různé: aktuální témata]         |           |
+| Týden | Téma                              | Materiály |
+| ----: | --------------------------------- | --------- |
+|     1 | [Podstata zvuku](./týden/01a.md)  |           |
+|       | [Digitální zvuk](./týden/01b.md)  |           |
+|       | [První pokusy](./týden/01c.md)    |           |
+|     2 | [Vnímání zvuku](./týden/02a.md)   |           |
+|       | [Lidské ucho](./týden/02b.md)     |           |
+|       | [Sonogram](./týden/02c.md)        |           |
+|     3 | [Syntéza zvuku](./týden/03.md)    |           |
+|     4 | [Modulace: AM, FM](./týden/04.md) |           |
+|     5 | [Zvuk v prohlížeči]               |           |
+|     6 | [Záznam a reprodukce zvuku]       |           |
+|     7 | [Hudební zvuk]                    |           |
+|     8 | [Programování hudby]              |           |
+|     9 | [Řeč]                             |           |
+|    10 | [Zvuk v prostoru]                 |           |
+|    11 | [Různé: AI a zvuk]                |           |
+|    12 | [Různé: sound design]             |           |
+|    13 | [Různé: aktuální témata]          |           |
 
 | Software               | for Windoze    |
 | ---------------------- | -------------- |
@@ -45,7 +45,7 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“
 | [PlugData][31]         | [portable][32] |
 
 [11]: https://www.audacityteam.org
-[12]: ./sw/Audacity.zip
+[12]: ./sw/Audacity.zipw
 [21]: https://sonicvisualiser.org/
 [22]: ./sw/Sonic%20Visualiser.zip
 [31]: https://plugdata.org/
