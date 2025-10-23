@@ -1,6 +1,3 @@
-create database db2;
-\c db2;
-
 -- case insensitive text
 create extension if not exists citext;
 
