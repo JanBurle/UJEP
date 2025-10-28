@@ -1,2 +1,2 @@
 # shell to postgres coontainer
-docker exec -ti postgres bash
+docker exec -ti klienti-postgres bash

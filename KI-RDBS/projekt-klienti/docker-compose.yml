@@ -1,7 +1,7 @@
 services:
   # Apache, PHP, Python
   webserver:
-    container_name: webserver
+    container_name: klienti-webserver
     build:
       dockerfile: ./WebServer
     volumes:
@@ -17,7 +17,7 @@ services:
 
   postgres:
     image: postgres:latest
-    container_name: postgres
+    container_name: klienti-postgres
     environment:
       POSTGRES_DB: app
       POSTGRES_USER: app-user

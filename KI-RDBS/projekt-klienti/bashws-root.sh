@@ -1,2 +1,2 @@
 # shell to webserver coontainer
-docker exec -ti webserver bash
+docker exec -ti klienti-webserver bash
