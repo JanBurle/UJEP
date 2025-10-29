@@ -18,25 +18,25 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“
 
 ## Program semináře
 
-| Týden | Téma                              | Materiály |
-| ----: | --------------------------------- | --------- |
-|     1 | [Podstata zvuku](./týden/01a.md)  |           |
-|       | [Digitální zvuk](./týden/01b.md)  |           |
-|       | [První pokusy](./týden/01c.md)    |           |
-|     2 | [Vnímání zvuku](./týden/02a.md)   |           |
-|       | [Lidské ucho](./týden/02b.md)     |           |
-|       | [Sonogram](./týden/02c.md)        |           |
-|     3 | [Syntéza zvuku](./týden/03.md)    |           |
-|     4 | [Modulace: AM, FM](./týden/04.md) |           |
-|     5 | [Zvuk v prohlížeči]               |           |
-|     6 | [Záznam a reprodukce zvuku]       |           |
-|     7 | [Hudební zvuk]                    |           |
-|     8 | [Programování hudby]              |           |
-|     9 | [Řeč]                             |           |
-|    10 | [Zvuk v prostoru]                 |           |
-|    11 | [Různé: AI a zvuk]                |           |
-|    12 | [Různé: sound design]             |           |
-|    13 | [Různé: aktuální témata]          |           |
+| Týden | Téma                                  | Materiály |
+| ----: | ------------------------------------- | --------- |
+|     1 | [Podstata zvuku](./týden/01a.md)      |           |
+|       | [Digitální zvuk](./týden/01b.md)      |           |
+|       | [První pokusy](./týden/01c.md)        |           |
+|     2 | [Vnímání zvuku](./týden/02a.md)       |           |
+|       | [Lidské ucho](./týden/02b.md)         |           |
+|       | [Sonogram](./týden/02c.md)            |           |
+|     3 | [Syntéza zvuku](./týden/03.md)        |           |
+|     4 | [Modulace: AM, FM](./týden/04.md)     |           |
+|     5 | [Grafický obraz zvuku](./týden/05.md) |           |
+|     6 | [Záznam a reprodukce zvuku]           |           |
+|     7 | [Hudební zvuk]                        |           |
+|     8 | [Programování hudby]                  |           |
+|     9 | [Řeč]                                 |           |
+|    10 | [Zvuk v prostoru]                     |           |
+|    11 | [Různé: AI a zvuk]                    |           |
+|    12 | [Různé: sound design]                 |           |
+|    13 | [Různé: aktuální témata]              |           |
 
 | Software               | for Windoze    |
 | ---------------------- | -------------- |
