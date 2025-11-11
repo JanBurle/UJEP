@@ -29,9 +29,9 @@ Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“
 |     3 | [Syntéza zvuku](./týden/03.md)        |           |
 |     4 | [Modulace: AM, FM](./týden/04.md)     |           |
 |     5 | [Grafický obraz zvuku](./týden/05.md) |           |
-|     6 | [Záznam a reprodukce zvuku]           |           |
-|     7 | [Hudební zvuk]                        |           |
-|     8 | [Programování hudby]                  |           |
+|     6 | [Programování hudby](./týden/06.md)   |           |
+|     7 | [Záznam a reprodukce zvuku]           |           |
+|     8 | [Ladění]                              |           |
 |     9 | [Řeč]                                 |           |
 |    10 | [Zvuk v prostoru]                     |           |
 |    11 | [Různé: AI a zvuk]                    |           |
