@@ -45,7 +45,7 @@ Při psaní zápočtového testu mohou studenti použít „[oficiální tahák]
 |     5 |           | [Cykly a úlohy..](./týden/05.md)                |           |
 |     6 |           | [Cykly a želva](./týden/06.md)                  |           |
 |     7 |           | [Kolekce: seznamy](./týden/07.md)               |           |
-|     8 |           | [Operace nad seznamy]<!--(./týden/08.md)-->     |           |
+|     8 |           | [Operace nad seznamy](./týden/08.md)            |           |
 |     9 |           | [Řešení úloh]<!--(./týden/09.md)-->             |           |
 |    10 |           | [Řešení úloh]<!--(./týden/10.md)-->             |           |
 |    11 |           | [Práce se soubory]<!--(./týden/11.md)-->        |           |
