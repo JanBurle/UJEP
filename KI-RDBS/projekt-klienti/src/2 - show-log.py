@@ -6,7 +6,7 @@ with pg.connect() as conn:
   # logData = curs.fetchall()
   # print(logData)
 
-  # # iterate
+  # iterate
   # curs = conn.execute('select * from audit_log;')
   # for record in curs: # tuples
   #   print(record)
@@ -18,6 +18,7 @@ with pg.connect() as conn:
 
   # # sql injection
   # who = input('who: ')
+  # # Do not do this!
   # curs = conn.execute(f"select id,who,what from audit_log where who='{who}'")
   # for id,who,what in curs:
   #   print(id, who, what)
