@@ -47,8 +47,8 @@ Při psaní zápočtového testu mohou studenti použít „[oficiální tahák]
 |     7 |           | [Kolekce: seznamy](./týden/07.md)               |           |
 |     8 |           | [Operace nad seznamy](./týden/08.md)            |           |
 |     9 |           | [Řešení úloh](./týden/09.md)                    |           |
-|    10 |           | [Řešení úloh]<!--(./týden/10.md)-->             |           |
-|    11 |           | [Práce se soubory]<!--(./týden/11.md)-->        |           |
+|    10 |           | [Práce se soubory](./týden/10.md)               |           |
+|    11 |           | [Řešení úloh]<!--(./týden/11.md)-->             |           |
 |    12 |           | [Řešení zápočtových úloh]<!--(./týden/12.md)--> |           |
 |    13 |           | [JSON APIs]<!--(./týden/13.md)-->               |           |
 
