@@ -1,12 +1,16 @@
 body {
   font-family: sans-serif;
+
   background-color: #044;
   color: white;
-  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 table {
-  width: 100%;
+  /* width: 100%; */
   border-collapse: collapse;
 }
 

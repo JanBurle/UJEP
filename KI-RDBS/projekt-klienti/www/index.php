@@ -5,7 +5,7 @@
 
 <head>
   <title><?= $title ?></title>
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <?
@@ -46,7 +46,7 @@ $idCity = @$_POST['city'] ?? '';
         <th>Low (°C)</th>
         <th>High (°C)</th>
       </tr>
-      <? while ([$date, $low, $high] = $stmt->fetch()) { ?>
+      <? while (@[$date, $low, $high] = $stmt->fetch()) { ?>
         <tr>
           <td><?= $html($date) ?></td>
           <td><?= $html($low) ?></td>
