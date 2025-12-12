@@ -10,7 +10,6 @@ from PySide6.QtWidgets import     \
 
 # main window
 class Win(QWidget):
-
   # constructor
   def __init__(self):
     super().__init__()
@@ -18,7 +17,7 @@ class Win(QWidget):
 
   def init(self):
     # permanent database connection
-    self.conn = pg.connect('joee', 'joepwd')
+    self.conn = pg.connect('joe', 'joepwd')
     # fetch list of cities
     self.fetchCities()
 
@@ -113,9 +112,10 @@ if __name__ == '__main__':
   win = Win()
   win.show()
 
-  # try:
-  #   win.init()
-  # except Exception:
-  #   win.setErr('init')
+  try:
+    win.init()
+  except Exception as error:
+    print(error)
+    win.setErr(str(error))
 
   app.exec()

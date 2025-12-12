@@ -6,7 +6,7 @@ with pg.connect() as conn:
   # logData = curs.fetchall()
   # print(logData)
 
-  # iterate
+  # # iterate
   # curs = conn.execute('select * from audit_log;')
   # for record in curs: # tuples
   #   print(record)

@@ -3,7 +3,7 @@ def connect(user='app-user',pwd='app-pwd'):
   import socket
 
   def host():
-    return 'localhost' if 'idea' == socket.gethostname() else 'postgres'
+    return 'localhost' if 'lc' == socket.gethostname() else 'postgres'
 
   return psycopg.connect(
     host=host(), dbname='app',

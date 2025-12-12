@@ -1,11 +1,11 @@
-def logTail(conn):
+def logTail(conn, n=6):
   curs = conn.execute("""
     select id,who,what from audit_log
-      -- where what<>'login'
+      where what<>'login'
       order by id desc;
   """)
 
-  for _ in range(3):
+  for _ in range(n):
     rec = curs.fetchone()
     if not rec:
       break
