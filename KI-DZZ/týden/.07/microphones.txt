@@ -1,0 +1,81 @@
+====== Microphones ==
+
+  * transducers: convertors of sound energy -> mechanical energy -> electrical signal
+  * sound is analogue, therefore microphones are analogue (not digital); "digital" microphones have a built-in ADC
+
+=== sound energy > mechanical energy ==
+
+  * a diaphragm ("divider", also called a membrane, "skin") vibrates with the sound waves
+ 
+=== mechanical energy > electrical signal ==
+
+Three commonly used types for professional audio work:
+
+  * moving coil (dynamic microphones)
+  * changing capacitance (condenser microphones)
+  * ribbon
+
+other types: carbon, electret, crystal microphones, and more
+
+(most of the same principles - reversed - are used in loudspeakers)
+
+===== How they work ==
+
+  * [[http://hyperphysics.phy-astr.gsu.edu/Hbase/audio/mic.html|hyperphysics]]
+
+=== ribbon moves ==
+{{youtube>sR9aMJlCJbI}} 
+
+
+=== reversed ribbon ==
+{{youtube>MGoGcpBBaN4}} 
+
+===== Characteristics of microphones ==
+
+  * //sensitivity// => the strength of the output signal
+  * //polar pattern// (pickup pattern, directionality) => sensitivity varies with direction (and the pattern itself varies with frequency)
+    * omnidirectional (not directional, ideally)
+    * cardioid (unidirectional)
+    * figure eight (bidirectional)
+  * [[http://hyperphysics.phy-astr.gsu.edu/Hbase/audio/mic3.html#c2|hyperphysics]]
+
+dynamic microphones are omni and unidirectional, not bidirectional
+
+condenser microphones can have any pickup pattern
+
+ribbon microphones vary from bidirectional to hypercardioid
+
+  * //frequency response// => sensitivity varies with frequency (sound coloration)
+  * //number of channels (capsules)//
+    * one - monophonic (mono)
+    * two - stereophonic (stereo)
+    * more - surround sound (sound field)
+
+===== Which one to use ==
+
+=== Dynamic (moving coil) microphones ==
+  * sturdy
+  * do not need external power
+  * low self-noise, high output (voltage)
+  * do not easily overload
+  * high frequency sensitivity decreases with distance
+
+=== Condenser microphones ==
+  * need (more) careful handling
+  * need external power (batteries, power supply, phantom power)
+  * high sensitivity, high output
+  * smooth frequency response, fast response to transients
+  * crisp, clear sound
+  * good for distance miking
+  * may need a windscreen
+
+=== Ribbon microphones ==
+  * delicate ribbon
+  * do not need external power
+  * good frequency response
+  * overload easily
+  * "warm" sound (big ribbon: less sensitive to high frequencies)
+  * may need a windscreen
+
+Ribbon microphones in the [[http://www.regionsroad.com/columns/0102_speakintothemic.html| past]].
+

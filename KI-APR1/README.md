@@ -36,21 +36,21 @@ Při psaní zápočtového testu mohou studenti použít „[oficiální tahák]
 
 ## Plán výuky
 
-| Týden | Přednáška | Cvičení                                         | Materiály |
-| ----: | --------- | ----------------------------------------------- | --------- |
-|     1 |           | [Úvod, čísla](./týden/01.md)                    |           |
-|     2 |           | [Vstup a výstup, podmínky](./týden/02.md)       |           |
-|     3 |           | [`if-else`, `for`, `while`](./týden/03.md)      |           |
-|     4 |           | [Cykly, indexace, řetězce](./týden/04.md)       |           |
-|     5 |           | [Cykly a úlohy..](./týden/05.md)                |           |
-|     6 |           | [Cykly a želva](./týden/06.md)                  |           |
-|     7 |           | [Kolekce: seznamy](./týden/07.md)               |           |
-|     8 |           | [Operace nad seznamy](./týden/08.md)            |           |
-|     9 |           | [Řešení úloh](./týden/09.md)                    |           |
-|    10 |           | [Práce se soubory](./týden/10.md)               |           |
-|    11 |           | [Řešení úloh](./týden/11.md)                    |           |
-|    12 |           | [Řešení zápočtových úloh]<!--(./týden/12.md)--> |           |
-|    13 |           | [JSON APIs]<!--(./týden/13.md)-->               |           |
+| Týden | Přednáška | Cvičení                                    | Materiály |
+| ----: | --------- | ------------------------------------------ | --------- |
+|     1 |           | [Úvod, čísla](./týden/01.md)               |           |
+|     2 |           | [Vstup a výstup, podmínky](./týden/02.md)  |           |
+|     3 |           | [`if-else`, `for`, `while`](./týden/03.md) |           |
+|     4 |           | [Cykly, indexace, řetězce](./týden/04.md)  |           |
+|     5 |           | [Cykly a úlohy..](./týden/05.md)           |           |
+|     6 |           | [Cykly a želva](./týden/06.md)             |           |
+|     7 |           | [Kolekce: seznamy](./týden/07.md)          |           |
+|     8 |           | [Operace nad seznamy](./týden/08.md)       |           |
+|     9 |           | [Řešení úloh](./týden/09.md)               |           |
+|    10 |           | [Práce se soubory](./týden/10.md)          |           |
+|    11 |           | [Řešení úloh](./týden/11.md)               |           |
+|    12 |           | [Řešení úloh](./týden/12.md)               |           |
+|    13 |           | [JSON APIs]<!--(./týden/13.md)-->          |           |
 
 ## Umět `!=` odpovídat, umět `==` dělat
 
@@ -58,12 +58,12 @@ Požadavky tohoto kursu není možné splnit tak, že se student před zkouškou
 
 ## Literatura
 
-| Druh | Odkaz |
-| --- | --- |
-| Dokumenty | [dokumentace Pythonu](https://docs.python.org/3.12/) |
-|  | [KI opora](https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/Algoritmizace_a_programovani_I.html) |
-|  | [oficiální tahák](./zdroje/qp.pdf) |
-| Knihy | [Programování v jazyce Python 3](https://howto.py.cz/) |
-|  | [Učíme se Python](https://python.cz/zacatecnici/) |
-|  | [Ponořme se do Pythonu](https://www.nic.cz/files/edice/python_3.pdf) |
-|  | [Python Notes for Professionals](https://books.goalkicker.com/PythonBook/PythonNotesForProfessionals.pdf) |
+| Druh      | Odkaz                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------ |
+| Dokumenty | [dokumentace Pythonu](https://docs.python.org/3.12/)                                                               |
+|           | [KI opora](https://ki.ujep.cz/opory/Informatika/Bc_Informatika_pro_vzdelavani/Algoritmizace_a_programovani_I.html) |
+|           | [oficiální tahák](./zdroje/qp.pdf)                                                                                 |
+| Knihy     | [Programování v jazyce Python 3](https://howto.py.cz/)                                                             |
+|           | [Učíme se Python](https://python.cz/zacatecnici/)                                                                  |
+|           | [Ponořme se do Pythonu](https://www.nic.cz/files/edice/python_3.pdf)                                               |
+|           | [Python Notes for Professionals](https://books.goalkicker.com/PythonBook/PythonNotesForProfessionals.pdf)          |

@@ -1,0 +1,123 @@
+text:
+
+# Ambisonics
+
+(wped:Ambisonics): a spatial audio recording, processing, and playback techniques.
+
+Invented and developed by (wped:Michael Gerzon) (1945--1996) et al, in the 1970s, 
+following (wped:Alan Blumlein)'s (1903--1942) work.
+
+Search [AES library](http://0-www.aes.org.darius.uleth.ca/e-lib/inst/search.cfm) for "Gerzon", "Blumlein".
+
+Ambisonics is an extension (or completion) of
+
+* (wped:Blumlein pair)
+* (wped:Microphone_practice#M.2FS_technique:_Mid.2FSide_stereophony text:M/S) stereophony
+
+Ambisonics features are:
+
+* it is an _intensity_ technique (XY-like, intensity differences)
+* it is symmetric: treats all directions (including height) equally
+* it aims to record and reproduce the "sound field" at the listener's position
+* the same recorded signal can be played through many different speaker configurations
+* the spatial image is stable: the "sweet spot" is quite wide
+
+Playback by arbitrary speaker configurations is possible by _decoding_ of the Ambisonic signal.
+
+## A-Format
+
+The A-Format is recorded by (near) _coincident_ cardioid capsules that are arranged on a tetrahedron,
+e.g. by the [SoundField MKV](http://www.soundfield.com/products/mkv.php) microphone.
+
+(image:Soundfield.jpg)
+(image:soundfield-capsule.jpg)
+
+([more microphones](https://www.google.ca/search?q=ambisonic+microphones))
+
+## B-Format
+
+The B-Format consists of one omnidirectional and two or three bidirectional channels: WXY, WXYZ.
+It is created by _encoding_ the A-Format, or natively by rigs of [three separate microphones](http://www.radio.uqam.ca/ambisonic/native_b.html) (WXY only).
+
+Decoding (weighted mixing) produces any possible _first order_ pattern.
+
+## Principles of ambisonic decoding
+
+(file:AMBI2.gcx.zip)
+
+## Playback rooms
+
+CCRMA (Stanford University)
+
+(image:DSCF2088.jpg width:800)
+(image:DSCF2092.jpg width:800)
+(image:DSCF2096.jpg width:800)
+
+## Higher-Order Ambisonics (HOA)
+
+The native microphone capsules are "first-order". Second (and third) order ambisonics:
+
+* can certainly be synthesized!
+* can be obtained by (wped:beamforming) from a signal recorded by spherical microphone arrays,
+such as the [Eigenmike](https://www.google.ca/search?q=eigenmike).
+
+## Ambisonic signal synthesis
+~~~
+; from: http://www.york.ac.uk/inst/mustech/3d_audio/csambi.html
+
+<CsoundSynthesizer>
+<CsOptions>
+</CsOptions>
+<CsInstruments>
+
+sr	= 48000 
+kr	= 480
+nchnls = 4	; WXYZ
+0dbfs	= 1
+
+giSine ftgen 0, 0, 1024, 10, 1
+
+instr 1 
+; azimuth from p6 to p7
+; elevation from p8 to p9
+kAzi line p6, p3, p7 
+kEle line p8, p3, p9
+
+kEnv linen p5, 0.008, p3, 0.02 
+aSig oscili kEnv, cpspch(p4), giSine
+
+kca = cos(kAzi) 
+ksa = sin(kAzi) 
+kce = cos(kEle) 
+kse = sin(kEle)
+
+; B-format encoding
+aw = aSig * 0.707
+ax = aSig * kca * kce 
+ay = aSig * ksa * kce 
+az = aSig * kse 
+
+; B-format output 
+outs aw, ax, ay, az
+
+endin
+</CsInstruments>
+
+<CsScore>
+f1 0 1024 10 1
+
+#define PI	#3.1416#
+
+; all around
+i1 0	4	8.00 	.3	0	[2*$PI]	0		0
+
+; bottom-up
+i1 5	4	8.00 	.3	0	0		[-$PI]	[+$PI]
+
+; combines
+i1 10	4	8.00 	.3	0	[2*$PI]	[-$PI]	[+$PI]
+
+e
+</CsScore>
+</CsoundSynthesizer>
+~~~ 
