@@ -24,5 +24,5 @@ class Weather(Base):
     CheckConstraint('temp_lo <= temp_hi', name='check_temp'),
   )
 
-# DB_URL = 'sqlite:///example.db'
-DB_URL = 'postgresql+psycopg://app-user:app-pwd@localhost:5432/app'
+DB_URL = 'sqlite:///example.db'
+# DB_URL = 'postgresql+psycopg://app-user:app-pwd@localhost:5432/app'
