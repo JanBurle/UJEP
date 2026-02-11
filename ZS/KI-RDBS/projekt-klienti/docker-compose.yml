@@ -1,0 +1,31 @@
+services:
+  # Apache, PHP, Python
+  webserver:
+    container_name: klienti-webserver
+    build:
+      dockerfile: ./WebServer
+    volumes:
+      # Apache document root folder: HTML, PHP etc.
+      - ./www:/var/www/html
+      # Python scripts (user: app)
+      - ./src:/home/app/src
+    ports:
+      # Apache port
+      - 8080:80
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    container_name: klienti-postgres
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: app-user
+      POSTGRES_PASSWORD: app-pwd
+    volumes:
+      - postgres_data:/var/lib/postgres/data/
+      - ./init:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+volumes:
+  postgres_data:

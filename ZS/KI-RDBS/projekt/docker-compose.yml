@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: dbusr
+      POSTGRES_PASSWORD: dbpwd
+    volumes:
+      - postgres_data:/var/lib/postgres/data # persistent data
+      - ./init:/docker-entrypoint-initdb.d # run during container first startup
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      # ASAP - as simple as possible
+      PGADMIN_DEFAULT_EMAIL: me@me.me
+      PGADMIN_DEFAULT_PASSWORD: me
+    ports:
+      - 8001:80 # runs externally on localhost:8001
+    depends_on:
+      - postgres
+
+  # cloudbeaver:
+  #   image: dbeaver/cloudbeaver:latest
+  #   container_name: cloudbeaver
+  #   ports:
+  #     - 8002:8978 # runs externally on localhost:8002
+  #   depends_on:
+  #     - postgres
+
+volumes:
+  postgres_data:

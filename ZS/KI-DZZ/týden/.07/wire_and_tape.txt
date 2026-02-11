@@ -1,0 +1,38 @@
+====== Wire and Tape Recorders ==
+
+Phonograph, gramophone, wire and tape recorders are //analogue// recorders.
+  * phonograph and gramophone store sound waves as undulations of grooves
+  * wire and tape recorders store sound waves as fluctuations of magnetization of a magnetic material (steel, iron oxide, etc.)
+
+==== Wire recorders ==
+  * wire recorder (Telegraphone) invented in 1889 by [[wp>Valdemar_Poulsen|Valdemar Poulsen]]
+  * waves recorded on a magnetized, fast-moving, thin steel wire
+  * used between 1920s and 1960s (mainly in North America)
+
+{{youtube>4viKMpVqd2w}}
+
+==== Tape recorders (reel-to-reel) ==
+  * use a tape coated with iron oxide
+  * invented in 1928 by [[wp>Fritz_Pfleumer|Fritz Pfleumer]]
+  * paper tapes first, later plastic tapes
+  * called //magnetophon// in Europe
+  * in use from 1940s 
+
+{{youtube>x2nMJ9NOf20}}
+
+=== High Fidelity tape recorder ==
+{{youtube>gW1LmGw5SS4}}
+
+=== Stereo 8 (eight-track) tape ==
+  * 1960s to 1980s, mainly in North America
+  * uses an endless loop of tape with eight tracks
+
+{{youtube>3PMMGvmnCSE}}
+
+{{youtube>5eCfLRJU-3o}}
+
+=== Compact cassette (Walkman) ==
+  * introduced in 1963 by Philips
+  * breakthrough: 1979 Sony Walkman
+
+{{youtube>2wP-6gEAfb8}}

@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: dbusr
+      POSTGRES_PASSWORD: dbpwd
+    volumes:
+      - postgres_data:/var/lib/postgres/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: me@me.me
+      PGADMIN_DEFAULT_PASSWORD: me
+    ports:
+      - 8001:80
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
