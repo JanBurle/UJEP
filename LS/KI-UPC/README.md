@@ -2,12 +2,14 @@
 
 ## Informace o předmětu
 
-Cílem předmětu je seznámit studenty se základy programování v jazyce C v duchu
-klasického pojetí K&R (Kernighan & Ritchie). Předmět klade důraz na porozumění
-nízkoúrovňovým principům programování, na práci s pamětí, datovými typy a na
-efektivitu kódu. Teoretické základy jsou podepřeny praktickými příklady a
-úlohami. V závěru předmětu budou vytvořeny ukázkové projekty: minimalistický
-interpret jazyka Forth a jeho použití v aplikaci pro želví grafiku.
+Cílem předmětu je seznámit studenty se základy programování v
+jazyce C v duchu klasického pojetí K&R (Kernighan & Ritchie).
+Předmět klade důraz na porozumění nízkoúrovňovým principům
+programování, na práci s pamětí, datovými typy a na efektivitu
+kódu. Teoretické základy jsou podepřeny praktickými příklady a
+úlohami. V závěru předmětu budou vytvořeny ukázkové projekty:
+minimalistický interpret jazyka Forth a jeho použití v
+aplikaci pro želví grafiku.
 
 | Seminář vede:              |
 | -------------------------- |
@@ -17,8 +19,8 @@ interpret jazyka Forth a jeho použití v aplikaci pro želví grafiku.
 
 ## Požadavky na studenta
 
-Podmínkou získání zápočtu je aktivní účast na seminářích a průběžné plnění
-programovacích úloh k probírané látce.
+Podmínkou získání zápočtu je aktivní účast na seminářích a
+průběžné plnění programovacích úloh k probírané látce.
 
 ## Program semináře
 

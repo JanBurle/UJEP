@@ -1,0 +1,6 @@
+.git
+.gitignore
+.vscode
+*.md
+src/*.o
+src/main
