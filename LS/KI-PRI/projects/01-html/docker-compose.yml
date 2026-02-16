@@ -1,0 +1,10 @@
+services:
+  php-apache:
+    container_name: 01-html-php-apache
+    build: .
+    volumes:
+      # external source => internal webserver root
+      - ./www:/var/www
+    ports:
+      # external port 1080 <= internal port 80 (http)
+      - 1080:80

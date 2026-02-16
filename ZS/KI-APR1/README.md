@@ -2,13 +2,16 @@
 
 ## Informace o předmětu
 
-Úvodní kurs _Algoritmizace a programování 1_ (první část) se zaměřuje na
-základy procedurálního a objektově orientovaného programování. Pozornost je
-věnována především objektové reprezentaci základních typů a kolekcí (čísel,
-řetězců, seznamů, slovníků) a elementární algoritmům, které je používají.
+Úvodní kurs _Algoritmizace a programování 1_ (první část) se
+zaměřuje na základy procedurálního a objektově orientovaného
+programování. Pozornost je věnována především objektové
+reprezentaci základních typů a kolekcí (čísel, řetězců,
+seznamů, slovníků) a elementární algoritmům, které je
+používají.
 
-Kurs je určen pro začátečníky. Nepředpokládají se předchozí znalosti
-programování. Výuka — přednášky a cvičení — probíhá v jazyce Python.
+Kurs je určen pro začátečníky. Nepředpokládají se předchozí
+znalosti programování. Výuka — přednášky a cvičení — probíhá v
+jazyce Python.
 
 | Přednáší:                   |
 | --------------------------- |
@@ -18,10 +21,11 @@ programování. Výuka — přednášky a cvičení — probíhá v jazyce Pytho
 
 ## Informace o cvičení
 
-Cvičení probíhají formou samostatné práce studentů na úkolech, podle zadání v
-tomto repozitáři. Cvičící má úlohu mentora: pomáhá s vysvětlováním
-problematiky, pomáhá a radí studentům. Odpovědnost za pokrok je z velké části,
-ne-li převážně, na studentovi. Teorii potřebnou na cvičení studenti získají z
+Cvičení probíhají formou samostatné práce studentů na úkolech,
+podle zadání v tomto repozitáři. Cvičící má úlohu mentora:
+pomáhá s vysvětlováním problematiky, pomáhá a radí studentům.
+Odpovědnost za pokrok je z velké části, ne-li převážně, na
+studentovi. Teorii potřebnou na cvičení studenti získají z
 přednášek a z dalších materiálů, včetně zde uvedených.
 
 | Cvičení vedou:                    |
@@ -36,44 +40,47 @@ přednášek a z dalších materiálů, včetně zde uvedených.
 
 ## Podmínky získání zápočtu:
 
-Podmínkou získání zápočtu je úspěšné napsání zápočtového písemného testu.
-Zápočet je možné i získat, pokud na základě plnění úkolů ze cvičení cvičící
-usoudí, že programátorská erudice studenta splňuje požadavky předmětu.
+Podmínkou získání zápočtu je úspěšné napsání zápočtového
+písemného testu. Zápočet je možné i získat, pokud na základě
+plnění úkolů ze cvičení cvičící usoudí, že programátorská
+erudice studenta splňuje požadavky předmětu.
 
-Zápočtový test proběhne ve zkouškovém období. Test se píše na papír (tužkou
-nebo perem). Cílem je napsat několik kratších programů, které řeší zadané
-úlohy.
+Zápočtový test proběhne ve zkouškovém období. Test se píše na
+papír (tužkou nebo perem). Cílem je napsat několik kratších
+programů, které řeší zadané úlohy.
 
 Při psaní zápočtového testu mohou studenti použít
-„[oficiální tahák](#literatura)“. Jakékoli další materiály a prostředky,
-tištěné, psané, nebo elektronické (tablet, laptop, telefon, chytré hodinky,
-...) nejsou povoleny.
+„[oficiální tahák](#literatura)“. Jakékoli další materiály a
+prostředky, tištěné, psané, nebo elektronické (tablet, laptop,
+telefon, chytré hodinky, ...) nejsou povoleny.
 
 ## Plán cvičení
 
-| Týden | Cvičení                                    |
-| ----: | ------------------------------------------ |
-|     1 | [Úvod, čísla](./týden/01.md)               |
-|     2 | [Vstup a výstup, podmínky](./týden/02.md)  |
-|     3 | [`if-else`, `for`, `while`](./týden/03.md) |
-|     4 | [Cykly, indexace, řetězce](./týden/04.md)  |
-|     5 | [Cykly a úlohy..](./týden/05.md)           |
-|     6 | [Cykly a želva](./týden/06.md)             |
-|     7 | [Kolekce: seznamy](./týden/07.md)          |
-|     8 | [Operace nad seznamy](./týden/08.md)       |
-|     9 | [Řešení úloh](./týden/09.md)               |
-|    10 | [Práce se soubory](./týden/10.md)          |
-|    11 | [Řešení úloh](./týden/11.md)               |
-|    12 | [Řešení úloh](./týden/12.md)               |
-|    13 | [JSON APIs]<!--(./týden/13.md)-->          |
+| Týden | Cvičení                               |
+| ----: | ------------------------------------- |
+|     1 | [Úvod, čísla](md/01.md)               |
+|     2 | [Vstup a výstup, podmínky](md/02.md)  |
+|     3 | [`if-else`, `for`, `while`](md/03.md) |
+|     4 | [Cykly, indexace, řetězce](md/04.md)  |
+|     5 | [Cykly a úlohy..](md/05.md)           |
+|     6 | [Cykly a želva](md/06.md)             |
+|     7 | [Kolekce: seznamy](md/07.md)          |
+|     8 | [Operace nad seznamy](md/08.md)       |
+|     9 | [Řešení úloh](md/09.md)               |
+|    10 | [Práce se soubory](md/10.md)          |
+|    11 | [Řešení úloh](md/11.md)               |
+|    12 | [Řešení úloh](md/12.md)               |
+|    13 | [JSON APIs]<!--(md/13.md)-->          |
 
 ## Umět `!=` odpovídat, umět `==` dělat
 
-Požadavky tohoto kursu není možné splnit tak, že se student před zkouškou
-nabifluje materiál. Nestačí si zapamatovat odpovědi na otázky. Algoritmizaci a
-programování je nutno _cvičit_ a _praktikovat_ tím, že člověk programy
-promýšlí, sestavuje, píše, testuje a opravuje. Programujte průběžně již od
-začátku semestru, několik hodin týdně. Nenechávejte to na zkouškové období.
+Požadavky tohoto kursu není možné splnit tak, že se student
+před zkouškou nabifluje materiál. Nestačí si zapamatovat
+odpovědi na otázky. Algoritmizaci a programování je nutno
+_cvičit_ a _praktikovat_ tím, že člověk programy promýšlí,
+sestavuje, píše, testuje a opravuje. Programujte průběžně již
+od začátku semestru, několik hodin týdně. Nenechávejte to na
+zkouškové období.
 
 ## Literatura
 

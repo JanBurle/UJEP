@@ -2,7 +2,13 @@
 
 ## Informace o předmětu
 
-Cílem předmětu je uvést studenty do základů digitálního zpracování zvuku a jeho aplikací. Předmět je zaměřen na poskytnutí širšího přehledu v oboru. Vybrané teoretické základy jsou bezprostředně prakticky aplikovány, a to v jazyce Python, JavaScript a ve specializovaných programech pro zpracování zvuku. Předmět se také zabývá vnímáním zvuku a generováním hudebního zvukového signálu.
+Cílem předmětu je uvést studenty do základů digitálního
+zpracování zvuku a jeho aplikací. Předmět je zaměřen na
+poskytnutí širšího přehledu v oboru. Vybrané teoretické
+základy jsou bezprostředně prakticky aplikovány, a to v jazyce
+Python, JavaScript a ve specializovaných programech pro
+zpracování zvuku. Předmět se také zabývá vnímáním zvuku a
+generováním hudebního zvukového signálu.
 
 | Seminář vede:              |
 | -------------------------- |
@@ -12,31 +18,34 @@ Cílem předmětu je uvést studenty do základů digitálního zpracování zvu
 
 ## Požadavky na studenta
 
-Podmínkou získání zápočtu je plnění zadaných úkolů k probírané látce, seminární projekt nebo rešerše a jejich prezentace během závěrečného kolokvia.
+Podmínkou získání zápočtu je plnění zadaných úkolů k probírané
+látce, seminární projekt nebo rešerše a jejich prezentace
+během závěrečného kolokvia.
 
-Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes uši“), dostatečné kvality.
+Studenti potřebují kvalitní sluchátka, nejlépe uzavřená („přes
+uši“), dostatečné kvality.
 
 ## Program semináře
 
-| Týden | Téma                                  | Materiály |
-| ----: | ------------------------------------- | --------- |
-|     1 | [Podstata zvuku](./týden/01a.md)      |           |
-|       | [Digitální zvuk](./týden/01b.md)      |           |
-|       | [První pokusy](./týden/01c.md)        |           |
-|     2 | [Vnímání zvuku](./týden/02a.md)       |           |
-|       | [Lidské ucho](./týden/02b.md)         |           |
-|       | [Sonogram](./týden/02c.md)            |           |
-|     3 | [Syntéza zvuku](./týden/03.md)        |           |
-|     4 | [Modulace: AM, FM](./týden/04.md)     |           |
-|     5 | [Grafický obraz zvuku](./týden/05.md) |           |
-|     6 | [Programování hudby](./týden/06.md)   |           |
-|     7 | [Záznam a reprodukce zvuku]           |           |
-|     8 | [Ladění]                              |           |
-|     9 | [Řeč]                                 |           |
-|    10 | [Zvuk v prostoru]                     |           |
-|    11 | [Různé: AI a zvuk]                    |           |
-|    12 | [Různé: sound design]                 |           |
-|    13 | [Různé: aktuální témata]              |           |
+| Týden | Téma                             | Materiály |
+| ----: | -------------------------------- | --------- |
+|     1 | [Podstata zvuku](md/01a.md)      |           |
+|       | [Digitální zvuk](md/01b.md)      |           |
+|       | [První pokusy](md/01c.md)        |           |
+|     2 | [Vnímání zvuku](md/02a.md)       |           |
+|       | [Lidské ucho](md/02b.md)         |           |
+|       | [Sonogram](md/02c.md)            |           |
+|     3 | [Syntéza zvuku](md/03.md)        |           |
+|     4 | [Modulace: AM, FM](md/04.md)     |           |
+|     5 | [Grafický obraz zvuku](md/05.md) |           |
+|     6 | [Programování hudby](md/06.md)   |           |
+|     7 | [Záznam a reprodukce zvuku]      |           |
+|     8 | [Ladění]                         |           |
+|     9 | [Řeč]                            |           |
+|    10 | [Zvuk v prostoru]                |           |
+|    11 | [Různé: AI a zvuk]               |           |
+|    12 | [Různé: sound design]            |           |
+|    13 | [Různé: aktuální témata]         |           |
 
 | Software               | for Windoze    |
 | ---------------------- | -------------- |
