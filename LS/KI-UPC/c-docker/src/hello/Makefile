@@ -24,19 +24,4 @@ main: main.c
 
 # clean up build artifacts
 clean:
-	rm -f main *.o
-
-# SOURCES = main.c utils.c helper.c
-# OBJECTS = $(SOURCES:.c=.o)
-# TARGET = main
-
-# all: $(TARGET)
-
-# $(TARGET): $(OBJECTS)
-# 	$(CC) $(CFLAGS) -o $@ $^
-
-# %.o: %.c
-# 	$(CC) $(CFLAGS) -c $<
-
-# clean:
-# 	rm -f $(TARGET) $(OBJECTS)
+	rm -f main *.o a.out
