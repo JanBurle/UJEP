@@ -34,24 +34,27 @@ vývoje.
 
 ## Sylabus
 
-| Týden | Přednáška                                                | Cvičení        |
-| ----: | -------------------------------------------------------- | -------------- |
-|     1 | [Programování pro internet](md/00a.md)                   |                |
-|       | [Historie internetu](md/00b.md)                          |                |
-|       | [Úvod do HTML a CSS](md/01a.md)                          |                |
-|       | [Základy HTML5 a CSS3](md/01b.md)                        | [▦](md/01c.md) |
-|     2 | Kaskádové styly CSS3 a rozvržení stránek                 |                |
-|     3 | Responsivní design a reaktivní UI                        |                |
-|     4 | Programování na straně klienta: JavaScript               |                |
-|     5 | JavaScript a HTML DOM                                    |                |
-|     6 | HTTP protokol a REST API                                 |                |
-|     7 | Datové formáty JSON a XML                                |                |
-|     8 | Programování na straně serveru: PHP a Apache             |                |
-|     9 | Superglobální proměnné v PHP, zpracování dat             |                |
-|    10 | Databáze v PHP: propojení s SQL databází                 |                |
-|    11 | Moderní frameworky pro vývoj webových aplikací           |                |
-|    12 | Single Page Applications (SPA)                           |                |
-|    13 | Základy SEO optimalizace a zabezpečení webových aplikací |                |
+| Týden | Přednáška                                    | Cvičení        |
+| ----: | -------------------------------------------- | -------------- |
+|     1 | [Programování pro internet](md/00a.md)       |                |
+|       | [Historie internetu](md/00b.md)              |                |
+|       | [Úvod do HTML a CSS](md/01a.md)              |                |
+|       | [Základy HTML5 a CSS3](md/01b.md)            | [▦](md/01c.md) |
+|     2 | Kaskádové styly CSS3 a rozvržení stránek     |                |
+|     3 | Responsivní design a reaktivní UI            |                |
+|     4 | Programování na straně klienta: JavaScript   |                |
+|     5 | JavaScript a HTML DOM                        |                |
+|     6 | HTTP protokol a REST API                     |                |
+|     7 | Datové formáty JSON a XML                    |                |
+|     8 | Programování na straně serveru: PHP a Apache |                |
+|     9 | Superglobální proměnné v PHP, zpracování dat |                |
+|    10 | Databáze v PHP: propojení s SQL databází     |                |
+
+| Týden | Přednáška                                                | Cvičení |
+| ----: | -------------------------------------------------------- | ------- |
+|    11 | Moderní frameworky pro vývoj webových aplikací           |         |
+|    12 | Single Page Applications (SPA)                           |         |
+|    13 | Základy SEO optimalizace a zabezpečení webových aplikací |         |
 
 ## Literatura
 
