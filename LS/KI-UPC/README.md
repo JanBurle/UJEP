@@ -1,4 +1,4 @@
-# Úvod do digitálního zpracování zvuku (seminář)
+# Úvod do programování v jazyce C (seminář)
 
 ## Informace o předmětu
 
@@ -26,7 +26,7 @@ průběžné plnění programovacích úloh k probírané látce.
 
 | Týden | Téma                                                  |
 | ----: | ----------------------------------------------------- |
-|     1 | Úvod do jazyka C a struktura programu                 |
+|     1 | [Úvod do jazyka C a struktura programu](md/01.md)     |
 |     2 | Řízení toku programu, řídicí struktury                |
 |     3 | Funkce a struktura programu                           |
 |     4 | Ukazatele, pole, řetězce                              |
@@ -40,12 +40,21 @@ průběžné plnění programovacích úloh k probírané látce.
 |    12 | Projekt III: C a Python - integrace                   |
 |    13 | Různé                                                 |
 
-<!-- Základní: https://dn710204.ca.archive.org/0/items/the-c-programming-language-second-edition-first-190-pages.
-Základní: Brian W. Kernighan, Dennis M. Ritchie. The C Programming Language.
-Rozšiřující: https://www.cprogramming.com/.
-Rozšiřující: https://www.learn-c.org.
-On-line katalogy knihoven -->
+## Literatura
 
+#### Základní:
+
+- Brian W. Kernighan, Dennis M. Ritchie. The C Programming
+  Language.\
+   [pdf1](https://dn710204.ca.archive.org/0/items/the-c-programming-language-second-edition-first-190-pages/The%20C%20Programming%20Language%20%28Second%20Edition%29%20-%20First%20190-pages.pdf)
+  [pdf2](lit/C%20Programming%20Language%202ed.pdf)
+
+#### Rozšiřující:
+
+- https://www.cprogramming.com/
+- https://www.learn-c.org
+
+<!--
 <!-- 1. Úvod do jazyka C a struktura programu;
 
 Historie jazyka C, jeho filozofie a použití. První program "Hello World".

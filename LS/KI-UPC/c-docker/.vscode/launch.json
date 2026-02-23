@@ -5,11 +5,11 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/src/hello/main", // Change this to your binary name
+      "program": "${workspaceFolder}/src/01-hello/main", // Change this to your binary name
       "preLaunchTask": "build hello",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}/src/01-hello",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",

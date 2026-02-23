@@ -1,4 +1,8 @@
 #!/bin/bash
 # open bash shell in the container
-echo "cpp-dev-container..."
-docker exec -it cpp-dev-container /bin/bash
+
+CNAME="upc-dev-container"
+
+echo $CNAME "..."
+docker exec -it $CNAME /bin/bash
+echo "..." $CNAME

@@ -1,3 +1,6 @@
 #!/bin/bash
 # run command in the container
-docker exec -w /src/hello cpp-dev-container "$@"
+
+CNAME="upc-dev-container"
+
+docker exec -w /src/01-hello $CNAME "$@"

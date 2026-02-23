@@ -1,17 +1,20 @@
-CC = cc # default C compiler, link to gcc
-CFLAGS =
-# CFLAGS = -Wall -Wextra
-# CFLAGS = -std=c11 -g -Wall -Wextra
+CC = cc
+CFLAGS = -std=c11 -Wall -Wextra
 
 .PHONY: all clean
 
-# default (first) target to build the main executable
-all: main
+all: lower double
 
-# compile main.c into an executable named main
-main: main.c
-	$(CC) $(CFLAGS) -o main $^
+CFLAGS += -D NOBUFFER
 
-# clean up build artifacts
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+lower: lower.o io.o
+	$(CC) $(CFLAGS) -o lower $^
+
+double: double.o io.o
+	$(CC) $(CFLAGS) -o double $^
+
 clean:
-	rm -f main *.o a.out
+	rm -f lower double *.o a.out

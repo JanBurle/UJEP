@@ -1,7 +1,7 @@
 CC = cc # default C compiler, link to gcc
-CFLAGS =
+# CFLAGS =
 # CFLAGS = -Wall -Wextra
-# CFLAGS = -std=c11 -g -Wall -Wextra
+CFLAGS = -std=c11 -g -Wall -Wextra
 
 .PHONY: all clean
 
