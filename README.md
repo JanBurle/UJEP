@@ -6,7 +6,7 @@
 | ----------------------------------- | ------------------------------- |
 | [KI / APR2](./LS/KI-APR2/README.md) | Algoritmizace a programování 2  |
 | [KI / PRI](./LS/KI-PRI/README.md)   | Programování pro internet       |
-| [KI / UPC](./LS/KI-UPC/README.md)   | Základy programování v jazyce C |
+| [KI / UPC](./LS/KI-UPC/README.md)   | Úvod do programování v jazyce C |
 
 | 2025/26                             | Zimní semestr                        |
 | ----------------------------------- | ------------------------------------ |
