@@ -62,7 +62,7 @@ upřesněny v průběhu semestru. Zkouška je ústní.
 | Týden | Cvičení                             |
 | ----: | ----------------------------------- |
 |     1 | [VSCode, zápočtové úlohy](md/01.md) |
-|     2 |                                     |
+|     2 | [OOP](md/02.md)                     |
 |     3 |                                     |
 |     4 |                                     |
 |     5 |                                     |
