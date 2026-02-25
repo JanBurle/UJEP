@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+  Custom tags, treated as <span>. Must contain a hyphen in the name, and should set display:
+  -->
+  <style>
+    fx-row,
+    fx-col,
+    div {
+      margin: 2rem;
+      padding: 2rem;
+      border: thin solid black;
+    }
+
+    fx-row {
+      display: flex;
+    }
+
+    fx-col {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <fx-row>
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+  </fx-row>
+
+  <fx-col>
+    <div>Item 4</div>
+    <div>Item 5</div>
+    <fx-row>
+      <div>Item 6</div>
+      <div>Item 7</div>
+      <div>Item 8</div>
+    </fx-row>
+  </fx-col>
+</body>
+
+</html>
