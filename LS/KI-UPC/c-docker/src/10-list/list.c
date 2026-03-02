@@ -20,7 +20,7 @@ void list_destroy(List* list) {
     free(list);
 }
 
-static Node* create_node(Val val) {
+static Node* new_node(Val val) {
     Node* node = (Node*) malloc(sizeof(Node));
     node->val = val;
     node->next = NULL;
@@ -30,7 +30,7 @@ static Node* create_node(Val val) {
 void list_append(List* list, Val val) {
     assert(list);
 
-    Node* newNode = create_node(val);
+    Node* newNode = new_node(val);
 
     // append to empty list
     if (!list->head /*== NULL*/) {
@@ -51,7 +51,7 @@ void list_append(List* list, Val val) {
 void list_prepend(List* list, Val val) {
     assert(list);
 
-    Node* newNode = create_node(val);
+    Node* newNode = new_node(val);
     newNode->next = list->head;
 
     // prepend node
@@ -61,7 +61,7 @@ void list_prepend(List* list, Val val) {
 void list_insert(Node* after, Val val) {
     assert(after);
 
-    Node* newNode = create_node(val);
+    Node* newNode = new_node(val);
     newNode->next = after->next;
     after->next = newNode;
 }

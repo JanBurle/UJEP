@@ -8,7 +8,7 @@ all: main
 run: all
 	@./main
 
-%.o: %.c
+%.o: %.c %.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 main: main.o list.o

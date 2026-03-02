@@ -2,17 +2,17 @@
 
 typedef int Val;
 
-// struct Node {
-//     int data;
-//     struct Node* next;
-// };
-
-// typedef struct Node Node;
-
-typedef struct Node {
+struct Node {
     Val val;
     struct Node* next;
-} Node;
+};
+
+typedef struct Node Node;
+
+// typedef struct Node {
+//     Val val;
+//     struct Node* next;
+// } Node;
 
 typedef struct {
     Node* head;
