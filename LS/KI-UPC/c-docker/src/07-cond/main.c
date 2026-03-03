@@ -3,9 +3,15 @@
 #include <limits.h>
 /* see: /usr/include/limits.h */
 
-int const MAXINT = (2147483647);
+// #define NDEBUG
+// #include <assert.h>
+
+int const MAXINT = 2147483647;
 
 void if_example() {
+    // assert(0);
+    // assert(INT_MAX == MAXINT);
+
     if (INT_MAX == MAXINT) {
         printf("MAXINT is correct\n");
     } else {

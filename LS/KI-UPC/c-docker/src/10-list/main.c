@@ -28,5 +28,6 @@ int main() {
     print_list(list);
 
     list_destroy(list);
+    // list_destroy(list);
     return 0;
 }

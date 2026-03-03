@@ -1,4 +1,6 @@
-#pragma once
+// #pragma once
+#ifndef LIST_H
+#define LIST_H
 
 typedef int Val;
 
@@ -27,3 +29,5 @@ void list_insert(Node* after, Val val);
 
 Node* list_find(List* list, Val val);
 void list_delete(List* list, Node* node);
+
+#endif // LIST_H

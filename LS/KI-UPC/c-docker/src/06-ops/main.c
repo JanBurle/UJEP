@@ -16,6 +16,7 @@ typedef char bool; // nevertheless promoted to int
 #define PRINT_BIN(TAG, VAL)                                                    \
     printf("%s = %c%c%c%c %c%c%c%c\n", TAG, BOOL_TO_BIN((VAL)));
 
+/*
 #define BOOL_TO_BIN(b)                                                         \
     (b & 0x80 ? 1 : 0), (b & 0x40 ? 1 : 0), (b & 0x20 ? 1 : 0),                \
         (b & 0x10 ? 1 : 0), (b & 0x08 ? 1 : 0), (b & 0x04 ? 1 : 0),            \
@@ -23,9 +24,11 @@ typedef char bool; // nevertheless promoted to int
 
 #define PRINT_BIN(TAG, VAL)                                                    \
     printf("%s = %d%d%d%d %d%d%d%d\n", TAG, BOOL_TO_BIN((VAL)));
+*/
 
 #define PRINT PRINT_HEX
-#define PRINT PRINT_BIN
+#define PRINT PRINT_HEX
+// #define PRINT PRINT_BIN
 
 int main() {
     bool a = 3, b = 8, c = false;

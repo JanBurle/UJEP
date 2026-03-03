@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build hello",
+      "label": "build list",
       "type": "shell",
-      "command": "docker exec -w /src/01-hello upc-dev-container make",
+      "command": "docker exec -w /src/10-list upc-dev-container make",
       "group": {
         "kind": "build",
         "isDefault": true

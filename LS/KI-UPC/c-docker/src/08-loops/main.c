@@ -57,11 +57,11 @@ void infinite_for_loop_with_break_example() {
 
 int main() {
     while_loop_example();
-    do_while_loop_example();
-    for_loop_example();
-    nested_loops_example();
-    infinite_for_loop_with_break_example();
-    pre_post_increment_example();
+    // do_while_loop_example();
+    // for_loop_example();
+    // nested_loops_example();
+    // infinite_for_loop_with_break_example();
+    // pre_post_increment_example();
     // infinite_loop_example(); // Uncomment to run the infinite loop example
 
     return 0;

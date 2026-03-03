@@ -1,28 +1,19 @@
 #include <stdio.h>
 
-/*/
-gcc - c main.c
-objdump - d -M intel main.o
-
-gcc -c - O1 main.c
-objdump - d -M intel main.o
-*/
-
 /* 2's complement */
-int const MAXINT = (2147483647);
-// int const MAXINT = (0x7FFFFFFF);
-// const int MAXINT = (2147483647);
+#define MAXINT 2147483647
+// int const MAXINT = 2147483647;
+// int const MAXINT = 0x7FFFFFFF;
+// const int MAXINT = 2147483647;
 
 // typedef unsigned int uint;
 
 int main() {
 
-    // int i = MAXINT;
+    int i = MAXINT;
 
-    // printf("%d\n", i);
-    // printf("%d\n", i + 1);
-
-    // int i = MAXINT;
+    printf("%d\n", i);
+    printf("%d\n", i + 1);
 
     // printf("%u\n", (unsigned int)i);
     // printf("%u\n", (unsigned int)i + 1);
