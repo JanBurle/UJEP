@@ -55,36 +55,39 @@
 
 # # =============
 
-# class Person:
-#   def __init__(self):
-#     self.__name = '<anonymous>'
 
-#   def __str__(self) -> str:
-#     return f'I am: {self.__name}'
+class Person:
+    def __init__(self):
+        self.__name = "<anonymous>"
 
-#   @property
-#   def name(self) -> str:
-#     return self.__name
+    def __str__(self) -> str:
+        return f"I am: {self.__name}"
 
-#   @name.setter
-#   def name(self, name: str):
-#     if not name.isalpha(): raise TypeError('Bad name!')
-#     self.__name = name[0].upper() + name[1:].lower()
+    @property
+    def name(self) -> str:
+        return self.__name
 
-# person = Person()
-# print(person)
-# print(person.name)
+    @name.setter
+    def name(self, name: str):
+        if not name.isalpha():
+            raise TypeError("Bad name!")
+        self.__name = name[0].upper() + name[1:].lower()
 
-# person.name = 'Alex'
-# print(person)
-# print(person.name)
 
-# person.name = 'aLiCe'
-# print(person)       # Properly capitalized :)
-# print(person.name)
+person = Person()
+print(person)
+print(person.name)
 
-# # person.name = ''  # TypeError: Bad name!
-# # person.name = ' ' # TypeError: Bad name!
-# # person.name = '8' # TypeError: Bad name!
+person.name = "Alex"
+print(person)
+print(person.name)
+
+person.name = "aLiCe"
+print(person)  # Properly capitalized :)
+print(person.name)
+
+# person.name = ''  # TypeError: Bad name!
+# person.name = ' ' # TypeError: Bad name!
+# person.name = '8' # TypeError: Bad name!
 
 # # =============

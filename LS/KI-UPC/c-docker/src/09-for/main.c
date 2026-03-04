@@ -18,7 +18,7 @@ void str_by_char2(cstr s) {
 }
 
 void find_char(char c, cstr s) {
-    cstr p = s;
+    cstr p;
 
     for (/*cstr*/ p = s; *p && c != *p; ++p)
         ;
@@ -44,13 +44,13 @@ int main() {
     //     ((str) s)[0] = 'H';
     // }
 
-    // {
-    //     // gnu11
-    //     str s_copy = strdup(s);
-    //     s_copy[0] = 'H';
-    //     s = s_copy; // Now we can modify s safely
-    //     ((str) s)[0] = 'H';
-    // }
+    {
+        // gnu11
+        str s_copy = strdup(s);
+        s_copy[0] = 'H';
+        s = s_copy; // Now we can modify s safely
+        ((str) s)[0] = 'H';
+    }
 
     str_by_char1(s);
     str_by_char2(s);
@@ -58,5 +58,6 @@ int main() {
     find_char('z', s);
 
     free((str) s); // Clean up the duplicated string
+    // free((str) s); // Clean up the duplicated string
     return 0;
 }
