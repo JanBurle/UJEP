@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>Řetězce</title>
+
+  <link rel="stylesheet" href="assets/main.css" />
+</head>
+
+<body>
+  <script>
+    let s1 = 'tab\tstring1\u{1F600}'
+    let s2 = '>><<'
+
+    let s3 = `s1: ${s1}
+s2: ${s2}
+s1+s2: ${s1 + ' ' + s2}
+s1+s2: ${s1} ${s2}
+`
+    console.log(s1)
+    console.log(s2)
+    console.log(s3)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --space: .2rem;
+      /* light */
+      --bg-color: #fff;
+      --text-color: #333;
+      --nav-bg: #eee;
+      --card-bg: #ddd;
+      --accent: #07f;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #222;
+      --text-color: #ddd;
+      --nav-bg: #111;
+      --card-bg: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      color: var(--text-color);
+      background: var(--bg-color);
+      /* Smooth transition */
+      transition: all 0.3s ease;
+    }
+
+    /* sticky menu */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background: var(--nav-bg);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* grid */
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space);
+      padding: calc(2*var(--space)) 5%;
+    }
+
+    /* card */
+    main>div {
+      background-color: var(--card-bg);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+    }
+  </style>
+
+  <script>
+    function toggleTheme() {
+      let htmlEl = document.documentElement;
+      let theme = htmlEl.getAttribute('data-theme');
+      theme = ('dark' == theme) ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', theme);
+    }
+  </script>
+</head>
+
+<body>
+  <nav>
+    <button id="toggle" onclick="toggleTheme()">Toggle Mode</button>
+  </nav>
+
+  <main>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </main>
+</body>¨
+
+</html>

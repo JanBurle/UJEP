@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    :root {
+      --space: .2rem;
+    }
+
+    /* the "Big Three/Four" breakpoints: */
+    :root {
+      /* ~480px */
+      --bp-mobile: 30em;
+      /* ~768px */
+      --bp-tablet: 48em;
+      /* ~992px */
+      --bp-desktop: 62em;
+      /* ~1280px */
+      --bp-ultra: 80em;
+    }
+
+    body {
+      border: thick solid orangered;
+      min-width: 10rem;
+    }
+
+    /* default: light mode */
+    :root {
+      --bg-color: #fff;
+      --text-color: #000;
+    }
+
+    /* or: dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #222;
+        --text-color: #fff;
+      }
+    }
+
+    body {
+      color: var(--text-color);
+      background: var(--bg-color);
+    }
+
+    div {
+      margin: var(--space);
+      padding: var(--space);
+      border: thin solid blue;
+    }
+
+    div.Brian::after {
+      content: "Romanes eunt domus";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      div.Brian::after {
+        content: "Romani ite domum";
+      }
+    }
+
+    div.Brian {
+      background: purple;
+    }
+
+    @media (max-width: 80em) {
+      div.Brian {
+        background: green;
+      }
+    }
+
+    @media (max-width: 64em) {
+      div.Brian {
+        background: blue;
+      }
+    }
+
+    @media (max-width: 48em) {
+      div.Brian {
+        background: inherit;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div>
+      <div class="Brian">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

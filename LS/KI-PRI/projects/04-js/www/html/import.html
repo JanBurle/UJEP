@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>Kam s JavaScriptem?</title>
+
+  <link rel="stylesheet" href="assets/main.css" />
+
+  <!-- interní JS -->
+  <script>
+    console.log('<script> in <head>')
+  </script>
+
+  <!-- externí JS, synchronně -->
+  <script src="js/sync.js"></script>
+
+  <!-- externí JS, asynchronně -->
+  <script async src="js/async.js"></script>
+
+  <!-- externí JS, asynchronně, provedení odloženo -->
+  <script defer src="js/defer.js"></script>
+</head>
+
+<body>
+  <!-- interní JS -->
+  <script>
+    console.log('<script> in <body>')
+  </script>
+</body>
+
+</html>

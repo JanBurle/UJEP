@@ -34,21 +34,21 @@ vývoje.
 
 ## Sylabus
 
-| Týden | Přednáška                                            | Cvičení        |
-| ----: | ---------------------------------------------------- | -------------- |
-|     1 | [Programování pro internet](md/00a.md)               |                |
-|       | [Historie internetu](md/00b.md)                      |                |
-|       | [Úvod do HTML a CSS](md/01a.md)                      |                |
-|       | [Základy HTML5 a CSS3](md/01b.md)                    | [▦](md/01c.md) |
-|     2 | [Kaskádové styly CSS3 a rozvržení stránek](md/02.md) | [▦](md/02c.md) |
-|     3 | Responsivní design a reaktivní UI                    |                |
-|     4 | Programování na straně klienta: JavaScript           |                |
-|     5 | JavaScript a HTML DOM                                |                |
-|     6 | HTTP protokol a REST API                             |                |
-|     7 | Datové formáty JSON a XML                            |                |
-|     8 | Programování na straně serveru: PHP a Apache         |                |
-|     9 | Superglobální proměnné v PHP, zpracování dat         |                |
-|    10 | Databáze v PHP: propojení s SQL databází             |                |
+| Týden | Přednáška                                              | Cvičení        |
+| ----: | ------------------------------------------------------ | -------------- |
+|     1 | [Programování pro internet](md/00a.md)                 |                |
+|       | [Historie internetu](md/00b.md)                        |                |
+|       | [Úvod do HTML a CSS](md/01a.md)                        |                |
+|       | [Základy HTML5 a CSS3](md/01b.md)                      | [▦](md/01c.md) |
+|     2 | [Kaskádové styly CSS3 a rozvržení stránek](md/02.md)   | [▦](md/02c.md) |
+|     3 | [Responsivní design a reaktivní UI](md/03.md)          | [▦](md/03c.md) |
+|       | [Programování na straně klienta: JavaScript](md/04.md) | [▦](md/04c.md) |
+|       | JavaScript a HTML DOM                                  |                |
+|     . | HTTP protokol a REST API                               |                |
+|     . | Datové formáty JSON a XML                              |                |
+|     . | Programování na straně serveru: PHP a Apache           |                |
+|     . | Superglobální proměnné v PHP, zpracování dat           |                |
+|     . | Databáze v PHP: propojení s SQL databází               |                |
 
 | Týden | Přednáška                                                | Cvičení |
 | ----: | -------------------------------------------------------- | ------- |
@@ -87,3 +87,28 @@ vývoje.
 - Google Search Central: SEO Starter Guide [online]. Google
   Search Central. Dostupné z:
   https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+
+<!--
+Obsah
+1. Moderní HTML5 a CSS3: sémantika HTML, boxmodel, layout a stylování.
+2. Responsivní a reaktivní design: adaptivní zobrazení (media queries) a principy reaktivity uživatelského rozhraní.
+3. Programování na straně klienta: základy JavaScriptu, práce s dokumentem pomocí HTML DOM.
+4. Komunikace a data: HTTP protokol, architektura a principy REST API.
+5. Programování na straně serveru: základy jazyka PHP, konfigurace Apache, propojení s databázovým serverem.
+6. Datové formáty JSON a XML pro přenos dat, jejich struktura a zpracování v JavaScriptu a PHP.
+7. Moderní trendy: přehled frameworků pro vývoj webových aplikací, základy SEO pro viditelnost webu.
+
+1. Úvod: vznik a historie WWW, URL, prohlížeče. Moderní HTML5, struktura a sémantika dokumentu.
+2. Kaskádové styly CSS3: boxmodel, selektory, kaskáda. Rozvržení (layout) stránek, flexbox a grid.
+3. Responsivní design: media queries, strategie "mobile first". Principy reaktivního UI.
+4. Programování na straně klienta: základy JavaScriptu (ES6+).
+5. JavaScript a HTML DOM: práce s obsahem a styly, obsluha událostí a dynamické změny dokumentu.
+6. HTTP protokol a REST API: GET a POST metody, stavové kódy, principy bezstavové komunikace.
+7. Datové formáty JSON a XML pro přenos dat: syntaxe, validace. Práce s daty v JavaScriptu.
+8. Programování na straně serveru: úvod do PHP (8+), konfigurace serveru Apache, generování dynamických stránek.
+9. Superglobální proměnné v PHP, zpracování dat z HTML formulářů, JSON a XML, správa sezení (sessions).
+10. Databáze v PHP: propojení aplikace s relační (SQL) databází.
+11. Moderní frameworky pro vývoj webových aplikací.
+12. Single Page Applications (SPA).
+13. Základy SEO optimalizace pro vyhledávače. Základy zabezpečení webových aplikací.
+-->

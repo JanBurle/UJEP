@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --space: .2rem;
+      --bg-color: #fff;
+      --text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #222;
+        --text-color: #fff;
+      }
+    }
+
+    body {
+      margin: 0;
+      border: thick solid orangered;
+      min-width: 10rem;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    div,
+    p {
+      margin: var(--space);
+      padding: var(--space);
+      border: thin solid blue;
+    }
+
+    /* flexbox: internal layout */
+    header,
+    nav,
+    main,
+    aside,
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: var(--space);
+      border: thin solid darkgreen;
+    }
+
+    /* css grid: page structure */
+    body {
+      display: grid;
+      gap: var(--space);
+
+      /* 6-column system */
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto;
+    }
+
+    /* mobile-first: stacked */
+    header,
+    nav,
+    main,
+    aside,
+    footer {
+      grid-column: span 6;
+    }
+
+    /* bigger screens */
+    @media (min-width: 768px) {
+      nav {
+        grid-column: span 1;
+      }
+
+      main {
+        grid-column: span 4;
+      }
+
+      aside {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>Header</header>
+
+  <nav>
+    <ul>
+      <li>li1</li>
+      <li>li2</li>
+      <li>li3</li>
+    </ul>
+  </nav>
+
+  <main>
+    <p>Content goes here...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc
+      effic
+  </main>
+
+  <aside>Extra Facts</aside>
+
+  <footer>
+    <div>foo1</div>
+    <div>foo2</div>
+    <div>foo3</div>
+  </footer>
+</body>
+
+</html>

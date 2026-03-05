@@ -1,0 +1,41 @@
+/* layout */
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  box-sizing: border-box;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* sticky menu */
+body > nav {
+  position: sticky;
+  top: 0;
+  background: inherit;
+
+  li {
+    padding: 0 var(--p2);
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+  }
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body > main {
+  padding: var(--p2);
+}
