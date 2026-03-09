@@ -19,5 +19,4 @@ void dlist_append(DList* list, Val val);
 void dlist_prepend(DList* list, Val val);
 void dlist_insert(DListNode* after, Val val);
 
-DListNode* dlist_find(DList* list, Val val);
 void dlist_delete(DList* list, DListNode* node);

@@ -35,22 +35,22 @@ int main() {
     // s[0] = 'H';
     // ((str) s)[0] = 'H'; // Phooey! Don't do this!
 
-    // {
-    //     // c11
-    //     str s_copy = malloc(strlen(s) + 1);
-    //     strcpy(s_copy, s);
-    //     s_copy[0] = 'H';
-    //     s = s_copy; // Now we can modify s safely
-    //     ((str) s)[0] = 'H';
-    // }
-
     {
-        // gnu11
-        str s_copy = strdup(s);
+        // c11
+        str s_copy = malloc(strlen(s) + 1);
+        strcpy(s_copy, s);
         s_copy[0] = 'H';
         s = s_copy; // Now we can modify s safely
         ((str) s)[0] = 'H';
     }
+
+    // {
+    //     // gnu11
+    //     str s_copy = strdup(s);
+    //     s_copy[0] = 'H';
+    //     s = s_copy; // Now we can modify s safely
+    //     ((str) s)[0] = 'H';
+    // }
 
     str_by_char1(s);
     str_by_char2(s);

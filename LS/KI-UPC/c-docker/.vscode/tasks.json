@@ -4,7 +4,7 @@
     {
       "label": "build list",
       "type": "shell",
-      "command": "docker exec -w /src/10-list upc-dev-container make",
+      "command": "docker exec -w /src/10-funs upc-dev-container make",
       "group": {
         "kind": "build",
         "isDefault": true
