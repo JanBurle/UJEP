@@ -10,7 +10,8 @@ EOT
 # install C compiler and tools
 RUN apt-get update && apt-get install -y \
     make gcc binutils gdb gdbserver \
-    libcomerr2 mc vim nano \
+    libcomerr2 mc vim nano less \
+    valgrind \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

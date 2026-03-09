@@ -28,7 +28,7 @@ průběžné plnění programovacích úloh k probírané látce.
 | ----: | ----------------------------------------------------- |
 |     1 | [Úvod do jazyka C a struktura programu](md/01.md)     |
 |     2 | [Řízení toku programu, řídicí struktury](md/02.md)    |
-|     3 | Funkce a struktura programu                           |
+|     3 | [Funkce a struktura programu](md/03.md)               |
 |     4 | Ukazatele, pole, řetězce                              |
 |     5 | Vícerozměrná pole, ukazatele na funkce                |
 |     6 | Vstup a výstup                                        |
