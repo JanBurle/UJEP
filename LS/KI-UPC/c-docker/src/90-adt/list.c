@@ -1,36 +1,42 @@
 #include "list.h"
+
 #include <assert.h>
 #include <stdlib.h>
 
 List* list_create() {
-    List* list = (List*) malloc(sizeof(List));
-    list->head = NULL;
-    return list;
+    // Instead of:
+    //
+    // List* list = (List*) malloc(sizeof(List));
+    // list->head = NULL;
+    // return list;
+    //
+    // we can write more compactly:
+    return calloc(1, sizeof(List));
 }
 
 void list_destroy(List* list) {
     assert(list);
 
-    Node* node = list->head;
+    ListNode* node = list->head;
     while (node /*!= NULL*/) {
-        Node* temp = node;
+        ListNode* temp = node;
         node = node->next;
         free(temp);
     }
+
     free(list);
 }
 
-static Node* new_node(Val val) {
-    Node* node = (Node*) malloc(sizeof(Node));
+static ListNode* new_node(Val val) {
+    ListNode* node = calloc(1, sizeof(ListNode));
     node->val = val;
-    node->next = NULL;
     return node;
 }
 
 void list_append(List* list, Val val) {
     assert(list);
 
-    Node* newNode = new_node(val);
+    ListNode* newNode = new_node(val);
 
     // append to empty list
     if (!list->head /*== NULL*/) {
@@ -38,8 +44,8 @@ void list_append(List* list, Val val) {
         return;
     }
 
-    // search tail
-    Node* tail = list->head;
+    // find the tail
+    ListNode* tail = list->head;
     while (tail->next) {
         tail = tail->next;
     }
@@ -51,40 +57,41 @@ void list_append(List* list, Val val) {
 void list_prepend(List* list, Val val) {
     assert(list);
 
-    Node* newNode = new_node(val);
-    newNode->next = list->head;
+    ListNode* newNode = new_node(val);
 
     // prepend node
+    newNode->next = list->head;
     list->head = newNode;
 }
 
-void list_insert(Node* after, Val val) {
+void list_insert(ListNode* after, Val val) {
     assert(after);
 
-    Node* newNode = new_node(val);
+    ListNode* newNode = new_node(val);
     newNode->next = after->next;
     after->next = newNode;
 }
 
-Node* list_find(List* list, Val val) {
+ListNode* list_find(List* list, Val val) {
     assert(list);
 
-    Node* node = list->head;
-    while (node) {
-        if (node->val == val)
-            return node;
-        node = node->next;
-    }
-
-    // for (Node* node = list->head; node; node = node->next) {
+    // INstead of:
+    // ListNode* node = list->head;
+    // while (node) {
     //     if (node->val == val)
     //         return node;
+    //     node = node->next;
     // }
+
+    for (ListNode* node = list->head; node; node = node->next) {
+        if (node->val == val)
+            return node;
+    }
 
     return NULL;
 }
 
-void list_delete(List* list, Node* node) {
+void list_delete(List* list, ListNode* node) {
     assert(list);
     assert(node);
 
@@ -96,13 +103,15 @@ void list_delete(List* list, Node* node) {
     }
 
     // search preceding node
-    Node* prev = list->head;
+    ListNode* prev = list->head;
     while (prev->next && prev->next != node) {
         prev = prev->next;
     }
 
-    // delete node
+    // node must have been found, otherwise caller is buggy
     assert(prev->next == node);
+
+    // delete node
     prev->next = node->next;
     free(node);
 }

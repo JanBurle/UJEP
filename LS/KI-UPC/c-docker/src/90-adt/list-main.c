@@ -5,7 +5,7 @@
 void print_list(List* list) {
     assert(list);
 
-    Node* node = list->head;
+    ListNode* node = list->head;
     while (node) {
         printf("%d ", node->val);
         node = node->next;
@@ -27,7 +27,8 @@ int main() {
 
     print_list(list);
 
-    list_destroy(list);
+    // valgrind
     // list_destroy(list);
+
     return 0;
 }
