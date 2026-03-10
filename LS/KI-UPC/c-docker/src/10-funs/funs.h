@@ -8,3 +8,11 @@ void inc_by_pointer(int* x);
 
 int factorial(int n);
 double avg_dynamic(const int* values, int n);
+
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+Point create_point(int x, int y);
+Point add_points(Point p1, Point p2);

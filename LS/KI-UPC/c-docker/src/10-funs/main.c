@@ -57,6 +57,13 @@ int main(void) {
     PRINT_1_(call_count_demo());
     PRINT_1_(call_count_demo());
 
+    HEADER("Structs and typedefs")
+
+    Point p1 = create_point(2, 3);
+    Point p2 = create_point(4, 5);
+    Point p3 = add_points(p1, p2);
+    printf("p3 = (%d, %d)\n", p3.x, p3.y);
+
     HEADER("Out of bounds stack")
     for (int i = 2;; i *= 2) {
         printf("factorial(%d) = %d\n", i, factorial(i));

@@ -56,6 +56,17 @@ static int sum_array(const int* values, int n) {
     return sum;
 }
 
+Point create_point(int x, int y) {
+    Point p = {x, y};
+    return p;
+}
+
+Point add_points(Point p1, Point p2) {
+    Point result = {p1.x + p2.x, p1.y + p2.y};
+    return result;
+    // return (Point){p1.x + p2.x, p1.y + p2.y, 9};
+}
+
 /* >>> */
 
 static int file_private_state = 100;
