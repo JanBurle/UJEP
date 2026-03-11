@@ -43,7 +43,7 @@ vývoje.
 |     2 | [Kaskádové styly CSS3 a rozvržení stránek](md/02.md)   | [▦](md/02c.md) |
 |     3 | [Responsivní design a reaktivní UI](md/03.md)          | [▦](md/03c.md) |
 |       | [Programování na straně klienta: JavaScript](md/04.md) | [▦](md/04c.md) |
-|       | JavaScript a HTML DOM                                  |                |
+|       | [JavaScript a HTML DOM](md/05.md)                      |                |
 |     . | HTTP protokol a REST API                               |                |
 |     . | Datové formáty JSON a XML                              |                |
 |     . | Programování na straně serveru: PHP a Apache           |                |

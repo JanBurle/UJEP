@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Hodiny</title>
+
+    <link rel="stylesheet" href="assets/main.css" />
+    <script src="/src/clock.ts"></script>
+
+    <style>
+        body>main {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .movable {
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <svg width="300" height="300">
+            <g id="clock" transform="translate(150 150)" stroke="black" stroke-width="4"
+                stroke-linecap="round">
+                <circle r="140" fill="white" />
+            </g>
+        </svg>
+
+        <div id="time"></div>
+
+    </main>
+    <script>
+        makeClock(140)
+    </script>
+</body>
+
+</html>
