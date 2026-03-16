@@ -59,26 +59,24 @@ upřesněny v průběhu semestru. Zkouška je ústní.
 
 ## Cvičení
 
-| Týden | Cvičení                             |
-| ----: | ----------------------------------- |
-|     1 | [VSCode, zápočtové úlohy](md/01.md) |
-|     2 | [OOP 1](md/02.md)                   |
-|     3 | [OOP 2](md/03.md)                   |
-|     4 | [ADT](md/04.md)                     |
-|     5 |                                     |
-|     6 |                                     |
-|     7 |                                     |
-|     8 |                                     |
-|     9 |                                     |
-|    10 |                                     |
-|    11 |                                     |
-|    12 |                                     |
-|    13 |                                     |
+| Týden | Cvičení                                     |
+| ----: | ------------------------------------------- |
+|     1 | [VSCode, zápočtové úlohy](md/01.md)         |
+|     2 | [OOP 1](md/02.md)                           |
+|     3 | [OOP 2](md/03.md)                           |
+|     4 | [ADT](md/04.md)                             |
+|     5 | [Vyhledávací sekvenční algoritmy](md/05.md) |
+|     6 |                                             |
+|     7 |                                             |
+|     8 |                                             |
+|     9 |                                             |
+|    10 |                                             |
+|    11 |                                             |
+|    12 |                                             |
+|    13 |                                             |
 
 <!--
 
-|     2 | [OOP](md/02.md)                             | třídy a objekty, dědičnost, iterátory ...                                   |
-|     3 | [OOP](md/03.md)                             | datové členy a metody: instanční, třídní, statické, magické                 |
 |     4 | [ADT](md/04.md)                             | abstraktní datové typy, implementace fronty, zásobníku, setříděného seznamu |
 |     5 | [Vyhledávací sekvenční algoritmy](md/05.md) | algoritmy nad sekvenčními kolekcemi, vyhledávací algoritmy                  |
 |     6 | [Řadicí algoritmy](md/06.md)                | řadicí/třídící algoritmy nad sekvenčními kolekcemi                          |

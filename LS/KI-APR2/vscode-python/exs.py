@@ -1,5 +1,6 @@
 import random
 
+
 def random_choice(strings):
     # Odfiltrujeme prázdné řetězce
     filtered = [s for s in strings if s != ""]
@@ -10,10 +11,12 @@ def random_choice(strings):
 
     return random.choice(filtered)
 
+
 # Test:
 # print(random_choice(["", "Frodo", "Sam", "", "Pipin"]))
 
 import math
+
 
 def similar_lists(a, b):
     # Kontrola délky a prázdnosti
@@ -22,27 +25,31 @@ def similar_lists(a, b):
 
     # Porovnání prvků po prvcích
     for x, y in zip(a, b):
-        if not math.isclose(x, y, rel_tol=1e-4): # tolerance cca 0.01%
+        if not math.isclose(x, y, rel_tol=1e-4):  # tolerance cca 0.01%
             return False
 
     return True
 
+
 # Test:
 # print(similar_lists([1, -2.0], [1.00024, -1.99976]))
+
 
 def ciferny_soucet(n):
     return sum(int(cifra) for cifra in str(n))
 
+
 vysledky = []
-for cislo in range(1, 1993): # range do 1993 zahrne i 1992
+for cislo in range(1, 1993):  # range do 1993 zahrne i 1992
     if cislo % 6 == 0 and ciferny_soucet(cislo) % 7 == 0:
         vysledky.append(str(cislo))
 
 with open("six_seven.txt", "w", encoding="utf-8") as f:
     # Seskupení po 10 prvcích
     for i in range(0, len(vysledky), 10):
-        radek = " ".join(vysledky[i:i+10])
+        radek = " ".join(vysledky[i : i + 10])
         f.write(radek + "\n")
+
 
 def group_by(strings):
     groups = {}
@@ -61,6 +68,6 @@ def group_by(strings):
 
     return groups
 
+
 # Test:
 # print(group_by(["Frodo", "Bilbo", "Boromir", "Faramir"]))
-

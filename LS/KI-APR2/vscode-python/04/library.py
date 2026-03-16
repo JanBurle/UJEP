@@ -1,19 +1,14 @@
 import weakref
+from dataclasses import dataclass
+from typing import Iterator
 
 
+@dataclass(order=True, frozen=True)
 class Book:
-    def __init__(self, name: str):
-        self._name = name
+    name: str
 
-    @property
-    def name(self) -> str:
-        return self._name
-
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
-
-    def __lt__(self, other: "Book"):
-        return self.name < other.name
 
 
 class Library:
@@ -24,16 +19,18 @@ class Library:
         self._iters = weakref.WeakSet()
 
     def add(self, book: Book):
-        where = self._new if self._iters else self._shelf
-        where.append(book)
-        self._dirty = True
+        if self._iters:
+            self._new.append(book)
+        else:
+            self._shelf.append(book)
+            self._dirty = True
 
     def _cleanup(self):
         if self._dirty:
             self._shelf.sort()
             self._dirty = False
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Book]:
         self._cleanup()
         return LibraryIter(self)
 
@@ -52,51 +49,70 @@ class LibraryIter:
     def __init__(self, lib: Library):
         self._lib = lib
         self._idx = 0
+        self._closed = False
         self._lib._regIter(self)
 
-    def __del__(self):
-        self._lib._delIter(self)
+    def close(self):
+        if not self._closed:
+            self._closed = True
+            self._lib._delIter(self)
 
-    def __iter__(self):
+    def __del__(self):
+        try:
+            self.close()
+        except Exception:
+            pass
+
+    def __iter__(self) -> "LibraryIter":
         return self
 
-    def __next__(self):
+    def __next__(self) -> Book:
         shelf = self._lib._shelf
         idx = self._idx
-        if len(shelf) <= idx:
-            self._lib._delIter(self)
+
+        if self._closed:
             raise StopIteration()
+
+        if len(shelf) <= idx:
+            self.close()
+            raise StopIteration()
+
         self._idx += 1
         return shelf[idx]
 
 
 if __name__ == "__main__":
     lib = Library()
+
     lib.add(Book("Zločin a trest"))
     lib.add(Book("Bratři Karamazovi"))
     lib.add(Book("Běsi"))
     lib.add(Book("Idiot"))
 
-    # for book in lib:
-    #     print(book)
+    for book in lib:
+        print(book)
 
     it1 = iter(lib)
     it2 = iter(lib)
 
-    # print("it1:", next(it1))
-    # print("it1:", next(it1))
-    # print("it2:", next(it2))
-    # print("it2:", next(it2))
-    # print("it1:", next(it1))
+    print("it1:", next(it1))
+    print("it1:", next(it1))
+    print("it2:", next(it2))
+    print("it2:", next(it2))
+    print("it1:", next(it1))
 
     lib.add(Book("Zápisky z podzemí"))
 
-    # print("it2:", next(it2))
-    # print("it2:", next(it2))
-    # print('it2:', next(it2))
+    print("it2:", next(it2))
+    print("it2:", next(it2))
 
-    # for book in lib:
-    #     print(book)
+    try:
+        next(it2)
+    except StopIteration:
+        print("it2: StopIteration")
+
+    for book in lib:
+        print(book)
 
     for book in lib:
         print(book)
