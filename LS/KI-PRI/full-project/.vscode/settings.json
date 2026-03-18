@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    ".vscode/": false,
+    ".editorconfig": true,
+    ".prettier*": true,
+    "node_modules/": true,
+    "build/": true,
+    "pnpm-lock.yaml": true,
+    ".pnpm-store/": true,
+    "pnpm-workspace.yaml": true,
+    "package-lock.json": true,
+    "*.config.mjs": true,
+    "tsconfig.json": false,
+    ".gitmodules": true
+  }
+}

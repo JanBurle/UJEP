@@ -1,0 +1,47 @@
+# Linux, Apache, PHP (LA-P stack)
+FROM php:8-apache
+
+# install
+RUN <<EOT
+apt update
+apt upgrade -y
+
+# tools and utilities
+apt install -y mc vim less
+
+# xdebug
+pecl install xdebug && docker-php-ext-enable xdebug
+
+# PDO for Postgres
+apt install -y libpq-dev
+docker-php-ext-install pdo_pgsql
+EOT
+
+# xdebug configuration
+RUN cat <<EOT >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+xdebug.mode=debug
+xdebug.idekey=docker
+xdebug.start_with_request=yes
+xdebug.client_host=host.docker.internal
+xdebug.client_port=9003
+EOT
+
+RUN <<EOT
+# create user pri/pwd, not to run as root
+useradd -m -G www-data -s /bin/bash pri
+echo 'pri:pwd' | chpasswd
+chmod 755 /home/pri
+# bash prompt
+echo "PS1='\[\033[01;31m\]\W\[\033[00m\] '" >> /root/.bashrc
+echo "PS1='\[\033[01;34m\]\W\[\033[00m\] '" >> /home/pri/.bashrc
+EOT
+
+# Apache configuration
+RUN mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.bak
+RUN mv /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.bak
+COPY docker/apache2.conf /etc/apache2/
+COPY docker/000-default.conf /etc/apache2/sites-available/
+RUN a2enmod rewrite headers
+
+# home directory
+WORKDIR /home/pri
