@@ -1,10 +1,80 @@
-* {
+/* From: https://www.joshwcomeau.com/css/custom-css-reset/ */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  /* margin: 0;
-  padding: 0; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* *:not(dialog) {
+  margin: 0;
+} */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
 }
 
 body {
-  margin: 0;
-  min-width: 10rem;
+  line-height: calc(1em + 0.5rem);
+  -webkit-font-smoothing: antialiased;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+}
+
+input,
+button,
+textarea,
+select,
+code {
+  font: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+/* #root, #__next {
+  isolation: isolate;
+} */

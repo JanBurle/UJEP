@@ -1,0 +1,15 @@
+/* layout – sizes and positions */
+:root {
+  /* padding */
+  --p1: 0.2rem;
+  --p2: 0.4rem;
+  --p4: 0.8rem;
+
+  /* radius */
+  --rad-sm: 0.4rem; /* small */
+  --rad-lg: 0.8rem; /* large */
+
+  /* scrollbars */
+  --sb-wdt: 7px; /* width */
+  --sb-brd: 1px; /* border */
+}

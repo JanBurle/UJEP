@@ -1,35 +1,147 @@
 /* colors and fonts */
 :root {
-  --fg: #000; /* foreground */
-  --bg: #fff; /* background */
-  --hl: #ed6; /* highlight */
+  /* #330000, , #D09683 */
+  /*
+Element,Hex Code,Purpose
+Background,$#F8FAFC,"A ""Soft White"" slate that reduces screen glare."
+Main Text,$#1E293B,Deep Charcoal (not pure black) for maximum readability.
+Primary Color,$#6366F1,"""Indigo"" for links, buttons, and active navigation states."
+Bold/Keyword,$#BE185D,"""Deep Pink/Rose"" — provides a clear visual pop against text."
+Highlight BG,$#FEF3C7,"""Soft Amber"" for warnings or highlighted search results."
+Card/Sidebar BG,$#FFFFFF,"Pure white to make content containers ""lift"" off the page."
+Borders/Lines,$#E2E8F0,A light gray that defines structure without being distracting.
+*/
+  --bg: #f8fafc; /* background, soft white */
+  --bg: #f8fafc; /* darker, soft white */
+  --bh: #fef3c7; /* highlight, soft amber */
 
-  --sb-fg: var(--fg); /* scrollbar foreground */
-  --sb-bg: var(--sb); /* scrollbar background */
+  --fg: #1e293b; /* foreground, deep charcoal */
+  --fh: #6366f1; /* primary, indigo, for links and buttons */
+  --fk: #be185d; /* keyword, deep pink/rose */
 
-  --font: Arial, sans-serif;
+  --cd: #ffffff; /* card, pure white */
+  --bd: #afb8c5; /* border, light gray */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fg: #fff;
-    --bg: #222;
-    --hl: #ba5; /* highlight */
+    --bg: hsl(220, 0%, 5%);
+    --bh: hsl(220, 0%, 15%);
+
+    --fg: hsl(220, 6%, 90%);
+    --fh: hsl(20, 100%, 71%);
+    --fk: hsl(340, 80%, 60%);
+
+    --cd: hsl(220, 60%, 15%);
+    --bd: hsl(220, 40%, 40%);
   }
+}
+
+:root {
+  --font: system-ui, sans-serif;
 }
 
 /* layout – sizes */
 :root {
   /* padding */
+  --p: 0.1rem;
   --p1: 0.2rem;
   --p2: 0.4rem;
   --p4: 0.8rem;
 
   /* radius */
-  --rad-sm: 0.4rem; /* small */
-  --rad-lg: 0.8rem; /* large */
+  --r2: 0.4rem; /* small */
+  --r4: 0.8rem; /* large */
 
   /* scrollbars */
-  --sb-wdt: 7px; /* width */
-  --sb-brd: 1px; /* border */
+  --sb-wdt: 9px; /* width */
+  --sb-brd: 2px; /* border */
+}
+
+/* scrollbars */
+::-webkit-scrollbar {
+  width: var(--sb-wdt);
+  height: var(--sb-wdt);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bd);
+  border: var(--sb-brd) solid var(--bg);
+  border-radius: var(--sb-wdt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-color: var(--bd);
+}
+
+/* all */
+body {
+  font-weight: 400;
+  color: var(--fg);
+  background: var(--bg);
+  transition: all 0.1s ease;
+}
+
+a {
+  font-weight: 500;
+  color: var(--fh);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* rounded things */
+form,
+input,
+button {
+  border-radius: var(--r2);
+}
+
+/* cursors */
+button,
+.ptr {
+  cursor: pointer;
+}
+
+/* headers */
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1.15em;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+code {
+  background: var(--bh);
+  padding: 0 var(--p);
+}
+
+lt-card {
+  background: var(--cd);
+  border: thin solid var(--bd);
+  border-radius: var(--r2);
+  padding: var(--p1);
 }

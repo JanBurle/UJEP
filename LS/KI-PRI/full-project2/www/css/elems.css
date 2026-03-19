@@ -1,0 +1,101 @@
+/* global element styles */
+
+/* scrollbars */
+::-webkit-scrollbar {
+  width: var(--sb-wdt);
+  height: var(--sb-wdt);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-fg);
+  border: var(--sb-brd) solid var(--sb-bg);
+  border-radius: var(--sb-wdt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-color: var(--sb-fg);
+}
+
+/* links */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* rounded things */
+form,
+input,
+button {
+  border-radius: var(--rad-sm);
+}
+
+/* cursors */
+button,
+.ptr {
+  cursor: pointer;
+}
+
+/* headings */
+h1 {
+  font-size: 1.6rem;
+}
+
+/* buttons */
+button {
+  border: thin solid var(--pri-bd);
+  padding: var(--p1) var(--p2);
+}
+
+button:hover {
+  border-color: var(--pri-hl);
+}
+
+/* forms */
+form {
+  background: var(--pri-tl);
+  border: thin solid var(--pri-bd);
+  padding: var(--p4);
+
+  td {
+    padding: var(--p1);
+  }
+
+  input {
+    border: thin solid var(--pri-bd);
+    padding: var(--p1);
+  }
+
+  button {
+    font-size: 0.8em;
+  }
+
+  td#msg {
+    color: var(--pri-hl);
+    font-size: 0.8em;
+  }
+}
+
+/* tables */
+table {
+  border-collapse: collapse;
+}
+
+table.framed {
+  td {
+    border: thin solid var(--pri-bd);
+    padding: var(--p1);
+  }
+}
+
+hr {
+  width: 100%;
+  border-bottom: thin solid var(--pri-bd);
+  margin: var(--p2);
+}

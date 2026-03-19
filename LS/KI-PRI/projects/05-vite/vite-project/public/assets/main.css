@@ -1,14 +1,9 @@
-/*
-'at' rules
-https://www.w3schools.com/cssref/css_ref_atrules.php
-*/
-@import 'reset.css';
-@import 'theme.css';
-@import 'common.css';
-@import 'layout.css';
+@import "reset.css";
+@import "theme.css";
+@import "layout.css";
 
 /* style */
 body {
-  line-height: 1.2;
   font-family: var(--font);
+  min-width: 10rem;
 }
