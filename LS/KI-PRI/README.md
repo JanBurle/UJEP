@@ -44,7 +44,7 @@ vývoje.
 |     3 | [Responsivní design a reaktivní UI](md/03.md)          | [▦](md/03c.md) |
 |       | [Programování na straně klienta: JavaScript](md/04.md) | [▦](md/04c.md) |
 |       | [JavaScript a HTML DOM](md/05.md)                      |                |
-|     4 | [Vývojové prostředí - šablona projektu](md/06a.md)     | [▦](md/06c.md) |
+|     4 | [Vývojové prostředí - šablona projektu](md/06.md)     | [▦](md/06c.md) |
 |       | [Programování na straně serveru: PHP](md/07.md)        | [▦](md/07c.md) |
 |     . | HTTP protokol a REST API                               |                |
 |     . | Datové formáty JSON a XML                              |                |
