@@ -66,7 +66,7 @@ upřesněny v průběhu semestru. Zkouška je ústní.
 |     3 | [OOP 2](md/03.md)                           |
 |     4 | [ADT](md/04.md)                             |
 |     5 | [Vyhledávací sekvenční algoritmy](md/05.md) |
-|     6 |                                             |
+|     6 | [Řadicí sekvenční algoritmy](md/06.md)      |
 |     7 |                                             |
 |     8 |                                             |
 |     9 |                                             |
