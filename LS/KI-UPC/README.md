@@ -30,7 +30,7 @@ průběžné plnění programovacích úloh k probírané látce.
 |     2 | [Řízení toku programu, řídicí struktury](md/02.md)    |
 |     3 | [Funkce a struktura programu](md/03.md)               |
 |     4 | [Ukazatele, pole, řetězce](md/04.md)                  |
-|     5 | Vícerozměrná pole, ukazatele na funkce                |
+|     5 | [Vícerozměrná pole, ukazatele na funkce](md/05.md)    |
 |     6 | Vstup a výstup                                        |
 |     7 | Datové struktury a správa paměti                      |
 |     8 | Projekt I: Interpreter jazyka Forth - jádro           |
