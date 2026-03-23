@@ -5,12 +5,15 @@
 
 typedef enum { UP, DOWN, LEFT, RIGHT } Dir;
 
-#define MAX_LEN 512
+// color pairs
+#define CP_HEAD 1
+#define CP_FOOD 2
 
 typedef struct {
     int y, x;
 } Pos;
 
+#define MAX_LEN 512
 typedef struct {
     Pos body[MAX_LEN];
     int len;
@@ -83,15 +86,19 @@ static void draw(Game* g) {
     box(stdscr, 0, 0);
     mvprintw(0, 2, " Score: %d  (q = quit) ", g->score);
 
+    attron(COLOR_PAIR(CP_FOOD));
     mvaddch(g->food.y, g->food.x, '*');
+    attroff(COLOR_PAIR(CP_FOOD));
 
     Snake* s = &g->snake;
     Pos* body = s->body;
 
-    for (int i = 0; i < s->len; i++) {
-        char c = (i == 0) ? 'O' : 'o';
-        mvaddch(body[i].y, body[i].x, c);
-    }
+    attron(COLOR_PAIR(CP_HEAD));
+    mvaddch(body[0].y, body[0].x, 'O');
+    attroff(COLOR_PAIR(CP_HEAD));
+
+    for (int i = 1; i < s->len; i++)
+        mvaddch(body[i].y, body[i].x, 'o');
 
     refresh();
 }
@@ -166,6 +173,9 @@ void game(void) {
     srand((unsigned) time(NULL));
 
     initscr();
+    start_color();
+    init_pair(CP_HEAD, COLOR_RED, COLOR_BLACK);
+    init_pair(CP_FOOD, COLOR_GREEN, COLOR_BLACK);
     cbreak();
     noecho();
     keypad(stdscr, TRUE);
@@ -190,10 +200,22 @@ void game(void) {
 
         // change direction; disallow reversals
         switch (key) {
-        case KEY_UP:    if (*dir != DOWN)  *dir = UP;    break;
-        case KEY_DOWN:  if (*dir != UP)    *dir = DOWN;  break;
-        case KEY_LEFT:  if (*dir != RIGHT) *dir = LEFT;  break;
-        case KEY_RIGHT: if (*dir != LEFT)  *dir = RIGHT; break;
+        case KEY_UP:
+            if (*dir != DOWN)
+                *dir = UP;
+            break;
+        case KEY_DOWN:
+            if (*dir != UP)
+                *dir = DOWN;
+            break;
+        case KEY_LEFT:
+            if (*dir != RIGHT)
+                *dir = LEFT;
+            break;
+        case KEY_RIGHT:
+            if (*dir != LEFT)
+                *dir = RIGHT;
+            break;
         }
 
         bool res = step(&g);
