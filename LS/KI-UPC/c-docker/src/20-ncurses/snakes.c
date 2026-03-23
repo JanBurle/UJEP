@@ -1,11 +1,11 @@
-// Snake game controlled with cursor keys
 #include <ncurses.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_LEN 512
-
 typedef enum { UP, DOWN, LEFT, RIGHT } Dir;
+
+#define MAX_LEN 512
 
 typedef struct {
     int y, x;
@@ -24,39 +24,59 @@ typedef struct {
     int score;
 } Game;
 
-// ── helpers ──────────────────────────────────────────────────────────────────
+// == helpers ==
+
+static Pos rand_pos(Game* g) {
+    return (Pos) {1 + rand() % (g->rows - 2), 1 + rand() % (g->cols - 2)};
+}
+
+static inline bool pos_equal(Pos a, Pos b) {
+    return a.y == b.y && a.x == b.x;
+}
+
+static inline int min(int a, int b) {
+    return a < b ? a : b;
+}
+
+static bool on_snake(Snake* s, Pos p) {
+    Pos* body = s->body;
+    int len = s->len;
+
+    for (int i = 0; i < len; ++i) {
+        if (pos_equal(p, body[i])) {
+            return true;
+        }
+    }
+
+    return false;
+}
 
 static void place_food(Game* g) {
     Pos p;
-    int ok;
     do {
-        p.y = 1 + rand() % (g->rows - 2);
-        p.x = 1 + rand() % (g->cols - 2);
-        ok = 1;
-        for (int i = 0; i < g->snake.len; i++) {
-            if (g->snake.body[i].y == p.y && g->snake.body[i].x == p.x) {
-                ok = 0;
-                break;
-            }
-        }
-    } while (!ok);
+        p = rand_pos(g);
+    } while (on_snake(&g->snake, p));
     g->food = p;
 }
 
 static void init_game(Game* g) {
     getmaxyx(stdscr, g->rows, g->cols);
-    g->snake.len = 3;
-    g->snake.dir = RIGHT;
-    for (int i = 0; i < g->snake.len; i++) {
-        g->snake.body[i].y = g->rows / 2;
-        g->snake.body[i].x = g->cols / 2 - i;
+
+    Snake* s = &g->snake;
+    s->len = 3;
+    s->dir = RIGHT;
+    Pos* body = s->body;
+
+    for (int i = 0; i < s->len; ++i) {
+        body[i].y = g->rows / 2;
+        body[i].x = g->cols / 2 - i;
     }
+
     g->score = 0;
     place_food(g);
 }
 
-// ── drawing
-// ───────────────────────────────────────────────────────────────────
+// == drawing ==
 
 static void draw(Game* g) {
     erase();
@@ -65,20 +85,26 @@ static void draw(Game* g) {
 
     mvaddch(g->food.y, g->food.x, '*');
 
-    for (int i = 0; i < g->snake.len; i++) {
+    Snake* s = &g->snake;
+    Pos* body = s->body;
+
+    for (int i = 0; i < s->len; i++) {
         char c = (i == 0) ? 'O' : 'o';
-        mvaddch(g->snake.body[i].y, g->snake.body[i].x, c);
+        mvaddch(body[i].y, body[i].x, c);
     }
+
     refresh();
 }
 
-// ── game logic
-// ────────────────────────────────────────────────────────────────
+// == game logic ==
 
-// Returns 1 on success, 0 on collision (game over)
-static int step(Game* g) {
-    Pos next = g->snake.body[0];
-    switch (g->snake.dir) {
+// Returns true on success, false on collision (game over)
+static bool step(Game* g) {
+    Snake* s = &g->snake;
+    Pos* body = s->body;
+    Pos next = body[0];
+
+    switch (s->dir) {
     case UP:
         next.y--;
         break;
@@ -96,30 +122,28 @@ static int step(Game* g) {
     // wall collision
     if (next.y <= 0 || next.y >= g->rows - 1 || next.x <= 0 ||
         next.x >= g->cols - 1)
-        return 0;
+        return false;
 
     // self collision (skip tail – it will move away)
-    for (int i = 0; i < g->snake.len - 1; i++) {
-        if (g->snake.body[i].y == next.y && g->snake.body[i].x == next.x)
-            return 0;
+    for (int i = 0; i < s->len - 1; i++) {
+        if (pos_equal(next, body[i]))
+            return false;
     }
 
-    int ate = (next.y == g->food.y && next.x == g->food.x);
-    int new_len = g->snake.len + (ate ? 1 : 0);
-    if (new_len > MAX_LEN)
-        new_len = MAX_LEN;
+    int ate = pos_equal(next, g->food);
+    int new_len = min(g->snake.len + ate, MAX_LEN);
 
     // shift body backwards, insert new head
     for (int i = new_len - 1; i > 0; i--)
-        g->snake.body[i] = g->snake.body[i - 1];
-    g->snake.body[0] = next;
-    g->snake.len = new_len;
+        body[i] = body[i - 1];
+    s->body[0] = next;
+    s->len = new_len;
 
     if (ate) {
         g->score++;
         place_food(g);
     }
-    return 1;
+    return true;
 }
 
 static void show_game_over(Game* g) {
@@ -127,17 +151,18 @@ static void show_game_over(Game* g) {
     int x = g->cols / 2 - 12;
     if (x < 1)
         x = 1;
+
     mvprintw(y, x, "  GAME OVER!  Score: %d  ", g->score);
     mvprintw(y + 1, x, "  Press any key to exit.  ");
     refresh();
-    timeout(-1);
+
+    timeout(-1); // wait for key press
     getch();
 }
 
-// ── entry point
-// ───────────────────────────────────────────────────────────────
+// == entry point ==
 
-void hello3(void) {
+void game(void) {
     srand((unsigned) time(NULL));
 
     initscr();
@@ -145,44 +170,44 @@ void hello3(void) {
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);  // hide cursor
-    timeout(250); // getch() returns ERR after 150ms → drives the game tick
+    timeout(150); // getch() returns ERR after delay (ms) → drives the game tick
 
     Game g;
     init_game(&g);
+
     draw(&g);
+
+    Dir* dir = &g.snake.dir;
 
     for (;;) {
         int key = getch(); // ERR on timeout, key code otherwise
 
-        if (key == 'q' || key == 'Q')
+        if ('q' == key || 'Q' == key)
             break;
 
-        if (key == KEY_RESIZE) {
+        if (key == KEY_RESIZE)
             init_game(&g);
+
+        // change direction; disallow reversals
+        switch (key) {
+        case KEY_UP:    if (*dir != DOWN)  *dir = UP;    break;
+        case KEY_DOWN:  if (*dir != UP)    *dir = DOWN;  break;
+        case KEY_LEFT:  if (*dir != RIGHT) *dir = LEFT;  break;
+        case KEY_RIGHT: if (*dir != LEFT)  *dir = RIGHT; break;
         }
 
-        // change direction; disallow 180-degree reversals
-        if (key == KEY_UP && g.snake.dir != DOWN)
-            g.snake.dir = UP;
-        if (key == KEY_DOWN && g.snake.dir != UP)
-            g.snake.dir = DOWN;
-        if (key == KEY_LEFT && g.snake.dir != RIGHT)
-            g.snake.dir = LEFT;
-        if (key == KEY_RIGHT && g.snake.dir != LEFT)
-            g.snake.dir = RIGHT;
-
-        if (!step(&g)) {
-            draw(&g);
+        bool res = step(&g);
+        draw(&g);
+        if (!res) {
             show_game_over(&g);
             break;
         }
-        draw(&g);
     }
 
     endwin();
 }
 
 int main(void) {
-    hello3();
+    game();
     return 0;
 }
