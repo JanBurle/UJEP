@@ -27,6 +27,7 @@ budou použity probírané technologie. Student při zápočtu
 předvede svůj webový projekt (fungující 😉) a je schopný jej
 obhájit. Mimo jiné musí student znát svůj kód, být schopný
 vysvětlit jeho funkci a případně na místě provést malé změny.
+[Podrobnější popis](md/07c.md)
 
 Zkouška bude mít písemnou a ústní část, ve které student
 prokáže znalost probíraných technologií a principů webového

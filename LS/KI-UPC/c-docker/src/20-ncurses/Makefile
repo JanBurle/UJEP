@@ -4,7 +4,7 @@ LDLIBS = -lncurses
 
 .PHONY: all run clean
 
-all: hello1 hello2 hello3
+all: hello1 hello2 snakes
 
 hello1: hello1.o
 	$(CC) $(CFLAGS) -o $@ $^ $(LDLIBS)
