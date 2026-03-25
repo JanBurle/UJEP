@@ -27,7 +27,7 @@ budou použity probírané technologie. Student při zápočtu
 předvede svůj webový projekt (fungující 😉) a je schopný jej
 obhájit. Mimo jiné musí student znát svůj kód, být schopný
 vysvětlit jeho funkci a případně na místě provést malé změny.
-[Podrobnější popis](md/07c.md)
+[Podrobnější popis](md/07c.md).
 
 Zkouška bude mít písemnou a ústní část, ve které student
 prokáže znalost probíraných technologií a principů webového
@@ -45,12 +45,12 @@ vývoje.
 |     3 | [Responsivní design a reaktivní UI](md/03.md)          | [▦](md/03c.md) |
 |       | [Programování na straně klienta: JavaScript](md/04.md) | [▦](md/04c.md) |
 |       | [JavaScript a HTML DOM](md/05.md)                      |                |
-|     4 | [Vývojové prostředí - šablona projektu](md/06.md)     | [▦](md/06c.md) |
+|     4 | [Vývojové prostředí - šablona projektu](md/06.md)      | [▦](md/06c.md) |
 |       | [Programování na straně serveru: PHP](md/07.md)        | [▦](md/07c.md) |
-|     . | HTTP protokol a REST API                               |                |
+|     5 | [HTTP protokol a REST API](md/08.md)                   | [▦](md/08c.md) |
 |     . | Datové formáty JSON a XML                              |                |
-|     . | Superglobální proměnné v PHP, zpracování dat           |                |
-|     . | Databáze v PHP: propojení s SQL databází               |                |
+|     . | ...                                                    |                |
+|     . | ...                                                    |                |
 
 | Týden | Přednáška                                                | Cvičení |
 | ----: | -------------------------------------------------------- | ------- |
