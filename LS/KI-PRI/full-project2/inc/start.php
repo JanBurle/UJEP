@@ -26,6 +26,11 @@ function postGet(string $key, $def = '') {
   return $_POST[$key] ?? $def;
 }
 
+// helper
+function h(string $str): string {
+  return htmlspecialchars($str, ENT_QUOTES);
+}
+
 // user login
 function login(int $id, string $name, string $email) {
   sesSet('id', $id);

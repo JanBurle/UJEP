@@ -18,8 +18,8 @@ function dbLogin(string $email, string $pwd): bool|string {
   $sql->bindParam(':pwd',   $pwd,   PDO::PARAM_STR);
   $sql->execute();
 
-  $res = $sql->fetchAll(PDO::FETCH_NUM);
-  [$id, $name]  = $res[0] ?? [null, null];
+  $res = $sql->fetch(PDO::FETCH_NUM);
+  [$id, $name]  = $res ?: [null, null];
 
   if ($id) {
     login($id, $name, $email);

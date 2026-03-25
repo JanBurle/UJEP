@@ -19,7 +19,16 @@
     <? if (usrId()) {
       if (isset($menu)) {
         // menu items, separated by |
-        $menuMap = array_map(fn($href, $item) => "<a href='$href'" . ($item[1] ? " class='active'" : "") . ">$item[0]</a>", array_keys($menu), $menu);
+        $menuMap = array_map(fn($href, $item) => '<a href="' . h($href) . '"' . ($item[1] ? " class='active'" : "") . '>' . htmlspecialchars($item[0], ENT_QUOTES) . '</a>', array_keys($menu), $menu);
+        // // or:
+        // $menuMap = [];
+        // foreach ($menu as $href => $item) {
+        //   $href = h($href);
+        //   $activeClass = $item[1] ? " class='active'" : "";
+        //   $text = h($item[0]);
+        //   $menuMap[] = "<a href='$href$activeClass'>$text</a>";
+        // }
+
         echo implode('|', $menuMap);
       }
     } ?>

@@ -2,7 +2,7 @@
 require __DIR__ . '/../inc/start.php';
 require INC . 'db.php';
 
-$msg   = '';
+$msg = '';
 
 if (($email = postGet('email')) && ($pwd = postGet('pwd')))
   if (true === ($msg = dbLogin($email, $pwd)))
@@ -35,7 +35,7 @@ require INC . 'html-prolog.php';
     </tr>
     <tr>
       <td></td>
-      <td id="msg"><?= $msg ?: '&nbsp;' ?></td>
+      <td id="msg"><?= $msg ? h($msg) : '&nbsp;' ?></td>
     </tr>
   </table>
 </form>
