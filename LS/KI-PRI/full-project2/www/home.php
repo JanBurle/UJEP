@@ -1,9 +1,9 @@
-<? require __DIR__ . '/inc/start.php';
+<? require __DIR__ . '/../inc/start.php';
 usrId() || redirect('login.php');
 
 $title = 'Home';
-$menu = [['validator.php', 'Validator'], ['clock.php', 'Clock']];
-require INC . '/html-prolog.php';
+require INC . 'menu.php';
+require INC . 'html-prolog.php';
 ?>
 <style>
   main {
@@ -20,4 +20,4 @@ for ($i = 1; $i <= 100; $i++) {
 ?>
 <button id="bottom" onclick="scrollToId('top')">BOTTOM</button>
 
-<? require INC . '/html-epilog.php';
+<? require INC . 'html-epilog.php';

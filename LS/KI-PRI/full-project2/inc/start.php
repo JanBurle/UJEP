@@ -1,4 +1,9 @@
-<? session_start(); // start the session
+<?
+// include path
+define('INC', __DIR__ . '/');
+
+// start a PHP session
+session_start();
 
 // redirect to a page
 function redirect(string $url) {
@@ -53,6 +58,3 @@ function usrEmail(): string {
 function usr(): string {
   return usrName() ?: usrEmail();
 }
-
-// include path
-define('INC', __DIR__);

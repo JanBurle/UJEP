@@ -6,8 +6,11 @@ services:
       dockerfile: ./docker/WebServer
     volumes:
       - ./www:/home/pri/www # Apache document folder
+      - ./inc:/home/pri/inc # PHP include folder
     ports:
       - 8080:80 # http
+    extra_hosts:
+      - 'host.docker.internal:host-gateway' # xdebug: resolve host IP on Linux
     depends_on:
       - postgres
 

@@ -1,4 +1,4 @@
-<? require __DIR__ . '/inc/start.php';
+<? require __DIR__ . '/../inc/start.php';
 
 logout();
 redirect('login.php');

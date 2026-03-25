@@ -1,7 +1,7 @@
 </main>
 
 <footer>
-  &copy; KI/PRI
+  &copy; Marvin Thorne
 </footer>
 
 </body>

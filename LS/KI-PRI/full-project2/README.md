@@ -1,34 +1,32 @@
 # Fullstack Web Application
 
 This is a fullstack web client/server application. It features a simple user authentication
-system with a login page and a home page.
+system, a login page, home and other pages.
 
-The server is built using Docker with Apache, PHP 8, and PostgreSQL/MySQL.
+The server is built using Docker with Apache, PHP 8, and PostgreSQL.
 
 The client is built using vanilla HTML, CSS, and JavaScript.
 
 ## Project Structure
 
 ```
-├── www/                    # web files (client)
+├── .vscode/                # VSCode configuration
+├── docker/                 # Docker configuration files
+├── init-db/                # database initialization scripts
+├── inc/                    # PHP include files (outside of web root)
+├── www/                    # web files (web root)
 │   ├── .htaccess           # apache configuration
+│   ├── assets/             # static assets (images, fonts, etc.)
 │   ├── css/                # styles
-│   │   ├── main.css
-│   │   └── ...
-│   ├── js/                 # scripts
-│   │   └── scripts.js
+│   ├── js/                 # JavaScript files
 │   ├── index.php           # main page
-│   ├── login.php           # other pages
-│   ├── inc/                # php include files
+│   ├── login.php           # login page
+│   ├── *.php               # other pages
 │   └── ...
-├── server                  # server files
-│   ├── docker-compose.yml  # Docker multi-container
-│   ├── db                  # database container files
-│   │   └── init.sql
-│   ├── web                 # web server container files
-│   │   └── Dockerfile
-│   └── ...
-├── .editorconfig           # for a consistent indentation
+├── .editorconfig           # editor configuration
+├── .prettierrc             # prettier configuration
+├── bash*.sh                # opens a bash shell in a container
+├── docker-compose.yml      # Docker multi-container configuration
 └── README.md               # this file
 ```
 
@@ -37,32 +35,28 @@ The client is built using vanilla HTML, CSS, and JavaScript.
 - Build and start the Docker multi-container:
 
   ```sh
-  cd server
   docker-compose up --build
   ```
 
-- Access the application in a browser at `http://localhost:8080`.
+- Access the web site in a browser at `http://localhost:8080`.
+  - Log in with one of the default users (password `pwd`):
+    - john@example.com
+    - jane@example.com
+    - alice@example.com
 
-## Usage
+## Work in the containers
 
-- _Login_: Enter the email and password to log in.
-- _Home Page_: After logging in, you will be redirected to the home page.
-- _Logout_: You can log out to return to the login page.
+Open the `bash` shell in the containers:
 
-## Default Users
-
-There are these default users in the database:
-
-- john@example.com
-- jane@example.com
-- alice@example.com
-
-All have the password `pwd`.
+- `bashws.sh`: in the web server container, as the `pri` user
+- `bashws-root.sh`: in the web server container, as the `root` user.
+- `bashwspg.sh`: in the PostgreSQL container, as the `postgres` user.
+  - inside, connect to the database with `psql -U pri`.
 
 ## Debugging
 
-- PHP in VSCode: PHP Debug
+- PHP in VSCode: "Listen for XDebug"
 - DOM in the browser: DevTools, Elements tab
 - CSS in the browser: DevTools, Styles tab
 - JavaScript in the browser: DevTools, `debugger`, Console tab
-- HTTP requests: DevTools, Network tab, also `curl -Lv localhost:8000`
+- HTTP requests: DevTools, Network tab, also `curl -Lv localhost:8080`

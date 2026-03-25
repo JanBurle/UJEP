@@ -25,7 +25,7 @@ RUN cat <<EOT >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 xdebug.mode=debug
 xdebug.idekey=docker
 xdebug.start_with_request=yes
-xdebug.client_host=xdebug://gateway
+xdebug.client_host=host.docker.internal
 xdebug.client_port=9003
 EOT
 

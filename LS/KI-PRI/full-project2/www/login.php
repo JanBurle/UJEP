@@ -1,6 +1,6 @@
 <?
-require __DIR__ . '/inc/start.php';
-require __DIR__ . '/inc/db.php';
+require __DIR__ . '/../inc/start.php';
+require INC . 'db.php';
 
 $msg   = '';
 
@@ -9,7 +9,7 @@ if (($email = postGet('email')) && ($pwd = postGet('pwd')))
     redirect('home.php');
 
 $title = 'Login';
-require INC . '/html-prolog.php';
+require INC . 'html-prolog.php';
 ?>
 <style>
   main {
@@ -40,4 +40,4 @@ require INC . '/html-prolog.php';
   </table>
 </form>
 
-<? require INC . '/html-epilog.php';
+<? require INC . 'html-epilog.php';

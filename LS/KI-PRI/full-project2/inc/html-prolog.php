@@ -17,12 +17,11 @@
     <?= usrId() ? usr() : $title ?>
     <span style='flex:1'></span>
     <? if (usrId()) {
-      // ensures that $menu is defined, and adds the Logout item
-      $menu[] = ['logout.php', 'Logout'];
-      // an array of links
-      $menu = array_map(fn($m) => "<a href='$m[0]'>$m[1]</a>", $menu);
-      // seperated by |
-      echo implode('|', $menu);
+      if (isset($menu)) {
+        // menu items, separated by |
+        $menuMap = array_map(fn($href, $item) => "<a href='$href'" . ($item[1] ? " class='active'" : "") . ">$item[0]</a>", array_keys($menu), $menu);
+        echo implode('|', $menuMap);
+      }
     } ?>
 
   </header>

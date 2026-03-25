@@ -1,9 +1,9 @@
-<? require __DIR__ . '/inc/start.php';
+<? require __DIR__ . '/../inc/start.php';
 usrId() || redirect('login.php');
 
 $title = 'JS Clock';
-$menu = [['home.php', 'Home'], ['validator.php', 'Validator']];
-require INC . '/html-prolog.php';
+require INC . 'menu.php';
+require INC . 'html-prolog.php';
 ?>
 <style>
   main {
@@ -34,4 +34,4 @@ require INC . '/html-prolog.php';
 
 <div id="time"></div>
 
-<? require INC . '/html-epilog.php';
+<? require INC . 'html-epilog.php';
