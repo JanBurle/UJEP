@@ -24,21 +24,21 @@ průběžné plnění programovacích úloh k probírané látce.
 
 ## Program semináře
 
-| Týden | Téma                                                  |
-| ----: | ----------------------------------------------------- |
-|     1 | [Úvod do jazyka C a struktura programu](md/01.md)     |
-|     2 | [Řízení toku programu, řídicí struktury](md/02.md)    |
-|     3 | [Funkce a struktura programu](md/03.md)               |
-|     4 | [Ukazatele, pole, řetězce](md/04.md)                  |
-|     5 | [Vícerozměrná pole, ukazatele na funkce](md/05.md)    |
-|     6 | Vstup a výstup                                        |
-|     7 | Datové struktury a správa paměti                      |
-|     8 | Projekt I: Interpreter jazyka Forth - jádro           |
-|     9 | Projekt I: Interpreter jazyka Forth - logika a řízení |
-|    10 | Projekt II: Želví grafika v jazyce Forth - jádro      |
-|    11 | Projekt II: Želví grafika v jazyce Forth - aplikace   |
-|    12 | Projekt III: C a Python - integrace                   |
-|    13 | Různé                                                 |
+| Týden | Téma                                               |
+| ----: | -------------------------------------------------- |
+|     1 | [Úvod do jazyka C a struktura programu](md/01.md)  |
+|     2 | [Řízení toku programu, řídicí struktury](md/02.md) |
+|     3 | [Funkce a struktura programu](md/03.md)            |
+|     4 | [Ukazatele, pole, řetězce](md/04.md)               |
+|     5 | [Vícerozměrná pole, ukazatele na funkce](md/05.md) |
+|     6 | Prezentace a diskuse projektů                      |
+|     7 | ditto                                              |
+|     8 | ditto                                              |
+|     9 | ditto                                              |
+|    10 | ditto                                              |
+|    11 | ditto                                              |
+|    12 | ditto                                              |
+|    13 | ditto                                              |
 
 ## Literatura
 

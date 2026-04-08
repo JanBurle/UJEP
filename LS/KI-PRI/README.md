@@ -48,9 +48,9 @@ vývoje.
 |     4 | [Vývojové prostředí - šablona projektu](md/06.md)      | [▦](md/06c.md) |
 |       | [Programování na straně serveru: PHP](md/07.md)        | [▦](md/07c.md) |
 |     5 | [HTTP protokol a REST API](md/08.md)                   | [▦](md/08c.md) |
-|     . | Datové formáty JSON a XML                              |                |
-|     . | ...                                                    |                |
-|     . | ...                                                    |                |
+|     6 | [Značkovací jazyk XML](md/09.md)                       |                |
+|     7 | Datový formát JSON                                     |                |
+|     8 | ...                                                    |                |
 
 | Týden | Přednáška                                                | Cvičení |
 | ----: | -------------------------------------------------------- | ------- |

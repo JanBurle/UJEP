@@ -1,0 +1,17 @@
+<kniha>
+    <!-- každá kniha obsahuje dva názvy a to český a anglický - specifikováno atributem -->
+    <název jazyk=cz>Epos o Berygamešovi
+    <název jazyk=en>Epic of Berygamesh
+    <Autor>Jiří Fišer</autor>
+    <postavy><postava>Berygameš</postava>
+    <postava>Škvorkidu<postavy/></postava>
+</kniha>
+<kniha>
+    <název jazyk=cz>Pán prstenů: návrat Fišera
+    <název jazyk=en>Lord of the rings: return of Fišer
+    <Autor>Beránek Pavel</autor>
+    <popis>
+        Kniha o partě ajťáků, kteří se chystají na výpravu na zápočet na Fakultu Osudu.
+    </popis>
+</kniha>
+<?xml version="1.0" encoding="UTF-8"?>
