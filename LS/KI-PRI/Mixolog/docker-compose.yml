@@ -1,0 +1,24 @@
+services:
+  # PHP + Apache
+  php-apache:
+    container_name: mixolog
+    build:
+      dockerfile: Dockerfiles/PhpApache
+    volumes:
+      - ./www:/var/www
+    ports:
+      - 8000:80 # port 8000
+    depends_on:
+      - database
+
+  # database
+  database:
+    build:
+      dockerfile: Dockerfiles/Database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mixolog
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: heslo
+    ports:
+      - 9906:3306
