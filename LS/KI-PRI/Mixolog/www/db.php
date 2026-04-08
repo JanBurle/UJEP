@@ -1,42 +1,48 @@
 <?php
-// databázové funkce
+// databázové funkce – místo SQL databáze používá XML soubor čtený přes SimpleXML
+
+define('DATA_XML', VAR_DIR . '/data.xml');
+
+$initData = <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<mixolog>
+    <uzivatele>
+        <uzivatel jmeno="pavel" heslo="pavel"/>
+        <uzivatel jmeno="alena" heslo="heslo"/>
+        <uzivatel jmeno="petr" heslo="12345"/>
+    </uzivatele>
+    <drinky/>
+</mixolog>
+XML;
 
 class Db
 {
-    private $db;
+    private SimpleXMLElement $xml;
 
     function __construct()
     {
-        // připojí databázi - vitální!
-        $this->db = mysqli_connect("database", "admin", "heslo", "mixolog") or die;
+        if (file_exists(DATA_XML)) {
+            $this->xml = simplexml_load_file(DATA_XML);
+        } else {
+            // výchozí data
+            global $initData;
+            $this->xml = simplexml_load_string($initData);
+            $this->uloz();
+        }
     }
 
-    // dotaz k databázi
-    function query(string $query): bool|mysqli_result
+    // uloží aktuální stav XML na disk
+    private function uloz(): void
     {
-        return @$this->db->query($query);
-    }
-
-    // bezpečné uzavření řetězu do uvozovek pro SQL
-    function escape(string $s): string
-    {
-        return "'" . mysqli_real_escape_string($this->db, $s) . "'";
+        $this->xml->asXML(DATA_XML);
     }
 
     // autentikace uživatele
     function authUser(string $jmeno, string $heslo): bool
     {
-        $jmeno = $this->escape($jmeno);
-        $heslo = $this->escape($heslo);
-
-        if ($result = $this->query("select id from uzivatele where jmeno=$jmeno and heslo=$heslo")) {
-            if ($result->num_rows) {
-                // fetch_all() vrací pole polí (řádky, a každá má políčka)
-                // [[$id]] je dekonstrukce: vezme první hodnotu z první řádky
-                [[$id]] = $result->fetch_all();
-                if ($id)
-                    return true;
-            }
+        foreach ($this->xml->uzivatele->uzivatel as $uzivatel) {
+            if ((string)$uzivatel['jmeno'] === $jmeno && (string)$uzivatel['heslo'] === $heslo)
+                return true;
         }
 
         return false;
@@ -45,15 +51,23 @@ class Db
     // sledujeme popularitu drinku
     function precteno(string $drink): int
     {
-        $drink = $this->escape($drink);
+        // hledat existující záznam a inkrementovat
+        foreach ($this->xml->drinky->drink as $d) {
+            if ((string)$d['nazev'] === $drink) {
+                $d['precteno'] = (int)$d['precteno'] + 1;
+                $this->uloz();
+                return (int)$d['precteno'];
+            }
+        }
 
-        $this->query("insert into drinky (nazev, precteno) value($drink, 1) on duplicate key update precteno = precteno+1");
-        $result = $this->query("select precteno from drinky where nazev=$drink");
-        // opět dekonstrukce
-        [[$precteno]] = $result->fetch_all();
-        return $precteno;
+        // nový záznam – první zobrazení
+        $d = $this->xml->drinky->addChild('drink');
+        $d->addAttribute('nazev', $drink);
+        $d->addAttribute('precteno', 1);
+        $this->uloz();
+        return 1;
     }
 }
 
-// globální instance, připojená k databázi
+// globální instance
 $db = new Db();

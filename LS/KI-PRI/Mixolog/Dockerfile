@@ -8,12 +8,9 @@ RUN apt update && apt upgrade -y
 RUN apt install -y libxslt1-dev
 RUN docker-php-ext-install xsl
 
-# instalace rozšíření mysqli pro komunikaci s mysql databází
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-
 # nástroje
 RUN apt install -y mc vim nano
 
-# adresář, do kterého Apache (uživatel: www-data) smí psát
+# data, Apache (www-data) smí číst i psát
 RUN mkdir -p /var/mixolog/drinks
-RUN chown www-data /var/mixolog/drinks
+RUN chown -R www-data /var/mixolog

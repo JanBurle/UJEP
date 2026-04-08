@@ -1,7 +1,8 @@
 <?php
 // --- adresáře ---
-define('XML', __DIR__ . '/xml');            // XML files
-define('DRINKS', '/var/mixolog/drinks');    // uploaded data
+define('XML', __DIR__ . '/xml');          // XML files
+define('VAR_DIR', '/var/mixolog');        // data folder
+define('DRINKS', VAR_DIR . '/drinks');    // uploaded data
 
 // --- konfigurace stránek ---
 define('TITLE', 'Mixolog');
