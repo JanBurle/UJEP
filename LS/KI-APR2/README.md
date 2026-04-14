@@ -67,9 +67,9 @@ upřesněny v průběhu semestru. Zkouška je ústní.
 |     4 | [ADT](md/04.md)                             |
 |     5 | [Vyhledávací sekvenční algoritmy](md/05.md) |
 |     6 | [Řadicí sekvenční algoritmy](md/06.md)      |
-|     7 | [Spojové struktury](md/07.md)                          |
+|     7 | [Spojové struktury](md/07.md)               |
 |     8 | [Grafy](md/08.md)                           |
-|     9 |                                             |
+|     9 | [NanoDB](md/09.md) - seznámení              |
 |    10 |                                             |
 |    11 |                                             |
 |    12 |                                             |
