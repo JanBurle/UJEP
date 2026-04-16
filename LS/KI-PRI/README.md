@@ -50,14 +50,14 @@ vývoje.
 |     5 | [HTTP protokol a REST API](md/08.md)                   | [▦](md/08c.md) |
 |     6 | [Značkovací jazyk XML](md/09.md)                       |                |
 |     7 | [Datový formát JSON](md/10.md)                         |                |
-|     8 | [Nasazení webových aplikací](md/11.md)                 |                |
-|     9 | Domény a systém doménových jmen (DNS)                  |                |
+|       | [Domény a systém doménových jmen (DNS)](md/11.md)      |                |
+|       | [Nasazení webových aplikací](md/12.md)                 |                |
 
-| Týden | Přednáška                                                | Cvičení |
+<!-- | Týden | Přednáška                                                | Cvičení |
 | ----: | -------------------------------------------------------- | ------- |
 |    11 | Moderní frameworky pro vývoj webových aplikací           |         |
 |    12 | Single Page Applications (SPA)                           |         |
-|    13 | Základy SEO optimalizace a zabezpečení webových aplikací |         |
+|    13 | Základy SEO optimalizace a zabezpečení webových aplikací |         | -->
 
 ## Literatura
 
