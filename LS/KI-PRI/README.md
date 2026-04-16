@@ -49,8 +49,9 @@ vývoje.
 |       | [Programování na straně serveru: PHP](md/07.md)        | [▦](md/07c.md) |
 |     5 | [HTTP protokol a REST API](md/08.md)                   | [▦](md/08c.md) |
 |     6 | [Značkovací jazyk XML](md/09.md)                       |                |
-|     7 | Datový formát JSON                                     |                |
-|     8 | ...                                                    |                |
+|     7 | [Datový formát JSON](md/10.md)                         |                |
+|     8 | [Nasazení webových aplikací](md/11.md)                 |                |
+|     9 | Domény a systém doménových jmen (DNS)                  |                |
 
 | Týden | Přednáška                                                | Cvičení |
 | ----: | -------------------------------------------------------- | ------- |
@@ -113,4 +114,7 @@ Obsah
 11. Moderní frameworky pro vývoj webových aplikací.
 12. Single Page Applications (SPA).
 13. Základy SEO optimalizace pro vyhledávače. Základy zabezpečení webových aplikací.
+
+- W3.CSS, Tailwind CSS, Bootstrap
+
 -->
