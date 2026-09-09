@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="studenti">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="student" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="student">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="jmeno" type="xs:string"/>
+                <xs:element name="prijmeni" type="xs:string"/>
+                <xs:element name="fakulta" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="st" type="xs:string" use="required"/>
+            <xs:attribute name="f" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

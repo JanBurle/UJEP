@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "bmewburn.vscode-intelephense-client",
+    "xdebug.php-debug",
+    "ritwickdey.liveserver"
+  ]
+}

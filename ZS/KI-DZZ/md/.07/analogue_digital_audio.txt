@@ -1,0 +1,23 @@
+====== Analogue & Digital Audio (UA 14) ==
+**analogue**: (adjective)
+  * comparable, proportionate or related to some other quantity
+**digital**: (adjective)
+  * represented by numbers (as if counted on fingers)
+
+**analogue recording (of sound)**:
+  * a sound wave stored as some physical quantity varying similarly as the wave did
+**digital recording**:
+  * sound waves are repeatedly measured and the measurements are stored as numbers
+
+To convert between analogue and digital signals:
+  * ADC (sampling)
+  * DAC (reconstruction)
+
+Important attributes of a digital audio signal:
+  * sampling rate: 44.1 kHz CD quality, 48 kHz DAT tape, 96 kHz professional recordings
+  * bit depth (resolution): 16 bits CD quality, 24 (or more) bits professional recordings
+
+Frequencies present in a digital signal must not be higher than //Nyquist// frequency = 1/2 of the sampling rate, otherwise aliasing occurs.
+
+Low bit depth (resolution) of a digital signal is a cause of //quantization noise//.
+

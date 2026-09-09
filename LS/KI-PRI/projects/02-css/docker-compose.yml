@@ -1,0 +1,8 @@
+services:
+  php-apache:
+    container_name: 02-css-php-apache
+    build: .
+    volumes:
+      - ./www:/var/www
+    ports:
+      - 1080:80

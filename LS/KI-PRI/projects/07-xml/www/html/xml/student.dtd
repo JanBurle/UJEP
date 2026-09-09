@@ -1,0 +1,7 @@
+<!ELEMENT studenti (student*)>
+<!ELEMENT student (jmeno, prijmeni, fakulta)>
+<!ATTLIST student st CDATA #REQUIRED>
+<!ATTLIST student f CDATA #REQUIRED>
+<!ELEMENT jmeno (#PCDATA)>
+<!ELEMENT prijmeni (#PCDATA)>
+<!ELEMENT fakulta (#PCDATA)> 

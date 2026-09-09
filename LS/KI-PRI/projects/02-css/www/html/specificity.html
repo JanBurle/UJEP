@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    /* id */
+    /* #red { */
+    p#red {
+      color: red;
+    }
+
+    /* class, pseudoclass */
+    p.green {
+      color: green;
+    }
+
+    /* class */
+    p:hover {
+      color: black;
+      /* cursor: pointer; */
+    }
+
+    /* element */
+    p {
+      color: blue;
+      background: white;
+    }
+
+    /* universal */
+    * {
+      background: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- see DevTools Styles/Computed -->
+  <main>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p class="green">This is a paragraph</p>
+    <p id="red" class="green">This is a paragraph</p>
+    <p id="red" class="green" style="color:gold">This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+# Apache, PHP, PostgreSQL
+services:
+  webserver:
+    container_name: webserver2
+    build:
+      dockerfile: ./docker/WebServer
+    volumes:
+      - ./www:/home/pri/www # Apache document folder
+      - ./inc:/home/pri/inc # PHP include folder
+    ports:
+      - 8080:80 # http
+    extra_hosts:
+      - 'host.docker.internal:host-gateway' # xdebug: resolve host IP on Linux
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres2
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: pri
+      POSTGRES_USER: pri
+      POSTGRES_PASSWORD: pwd
+    volumes:
+      # database initialization
+      - ./init-db:/docker-entrypoint-initdb.d/
+      # persistent database data
+      - postgres_data:/var/lib/postgres/data/
+
+volumes:
+  postgres_data:

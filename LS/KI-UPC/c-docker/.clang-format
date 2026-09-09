@@ -1,0 +1,30 @@
+# K&R Style Configuration
+Language: Cpp
+BasedOnStyle: LLVM
+
+# K&R traditionally used 8-space tabs, but 4 is the modern consensus
+IndentWidth: 4
+UseTab: Never
+
+# The heart of K&R: Braces stay on the same line
+BreakBeforeBraces: Attach
+
+# Function definitions: Braces on the same line
+AllowShortFunctionsOnASingleLine: None
+AlwaysBreakAfterReturnType: None
+
+# Control Statements
+AllowShortBlocksOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+# Spacing
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: true
+SpaceBeforeAssignmentOperators: true
+
+# Keep it tidy
+ColumnLimit: 80
+
+# Attach & and * to the type, not the variable
+PointerAlignment: Left

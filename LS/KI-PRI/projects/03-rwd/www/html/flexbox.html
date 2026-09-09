@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+  </style>
+
+  <!-- concrete style -->
+  <style>
+    :root {
+      --space: .2rem;
+    }
+
+    body {
+      border: thick solid orangered;
+      /* min-width: 10rem; */
+    }
+
+    div {
+      margin: var(--space);
+      padding: var(--space);
+      border: thin solid blue;
+    }
+
+    div.inner {
+      display: inline-block;
+      border-color: cyan;
+      width: calc(50% - 2.8 * var(--space));
+    }
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      /*
+      justify-content: start;
+      justify-content: end;
+      */
+      /* flex-wrap: wrap; */
+
+      /* nested rule */
+      >div {
+        flex-grow: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="inner">
+      inner left
+    </div>
+    <div class="inner">
+      inner right
+    </div>
+  </div>
+
+  <div class="flex">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+    <div>Item 4</div>
+  </div>
+</body>
+
+</html>

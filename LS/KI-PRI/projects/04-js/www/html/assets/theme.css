@@ -1,0 +1,35 @@
+/* colors and fonts */
+:root {
+  --fg: #000; /* foreground */
+  --bg: #fff; /* background */
+  --hl: #ed6; /* highlight */
+
+  --sb-fg: var(--fg); /* scrollbar foreground */
+  --sb-bg: var(--sb); /* scrollbar background */
+
+  --font: Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #fff;
+    --bg: #222;
+    --hl: #ba5; /* highlight */
+  }
+}
+
+/* layout – sizes */
+:root {
+  /* padding */
+  --p1: 0.2rem;
+  --p2: 0.4rem;
+  --p4: 0.8rem;
+
+  /* radius */
+  --rad-sm: 0.4rem; /* small */
+  --rad-lg: 0.8rem; /* large */
+
+  /* scrollbars */
+  --sb-wdt: 7px; /* width */
+  --sb-brd: 1px; /* border */
+}

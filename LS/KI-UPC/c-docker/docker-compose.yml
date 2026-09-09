@@ -1,0 +1,16 @@
+services:
+  upc-dev:
+    build: .
+    container_name: upc-dev-container
+    volumes:
+      - ./src:/src
+    stdin_open: true
+    tty: true
+
+    # GDB support
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "2345:2345"

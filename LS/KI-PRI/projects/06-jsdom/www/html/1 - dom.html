@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    let l = console.log
+    l('1 - readystate: ' + document.readyState)
+  </script>
+
+  <script>
+    // zde není DOM ještě sestavený
+    console.log('2 - není <body>', document.body)
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // zde *je DOM hotový*
+      l('3 - readystate: ' + document.readyState)
+      l('4 - hotovo', document.body.innerHTML)
+    })
+  </script>
+</head>
+
+<body>
+  <div>Div A</div>
+
+  <script>
+    // zde je jen část DOM
+    l('5 - readystate: ' + document.readyState)
+    l('6 - <body> není celé', document.body.innerHTML)
+  </script>
+
+  <div>Div B</div>
+</body>
+
+</html>

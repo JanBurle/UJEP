@@ -1,0 +1,9 @@
+@import "reset.css";
+@import "theme.css";
+@import "layout.css";
+
+/* style */
+body {
+  font-family: var(--font);
+  min-width: 10rem;
+}

@@ -1,0 +1,9 @@
+services:
+  # PHP + Apache
+  php-apache:
+    container_name: mixolog
+    build: .
+    volumes:
+      - ./www:/var/www
+    ports:
+      - 8000:80 # port 8000

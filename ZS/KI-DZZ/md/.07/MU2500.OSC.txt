@@ -1,0 +1,10 @@
+(:title Open Sound Control:)
+(:linebreaks:)
+
+Computer networks: access to a machine by its [[Wikipedia:IP_address|IP address]] and a [[Wikipedia:Port_numbers|port number]].
+
+[[http://opensoundcontrol.org/introduction-osc|Introduction to OSC]]
+[[http://archive.cnmat.berkeley.edu/OpenSoundControl/Max/|OSC in Max]]
+
+time=1293821730
+title=Open Sound Control

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    /* global scope */
+    :root {
+      --primary-color: green;
+    }
+
+    /* local scope */
+    .note {
+      --color: red;
+    }
+
+    p {
+      color: var(--color, var(--primary-color));
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p class="note">This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+  </main>
+
+</body>
+
+</html>
